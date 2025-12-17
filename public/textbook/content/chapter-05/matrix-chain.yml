@@ -1,0 +1,9 @@
+id: "ch5-matrix-chain"
+type: "short-answer"
+chapter: 5
+question: "Determine the optimal order to multiply a chain of matrices to minimize the number of scalar multiplications. Show the DP table for the cost."
+answer: "Matrix Chain Multiplication DP: (1) Given matrices A1...An with dimensions p0×p1, p1×p2, ..., pn-1×pn. (2) Create table m[i][j] = min cost to multiply Ai...Aj. (3) Recurrence: m[i][j] = min(m[i][k] + m[k+1][j] + pi-1×pk×pj) for i≤k<j. (4) Base: m[i][i]=0. Example: Matrices 10×20, 20×30, 30×40, 40×30. Fill table diagonally by chain length. m[1][4] gives min cost. Use separate table to track split points for reconstruction. Optimal: ((A1×A2)×A3)×A4 vs others. Time: O(n³)."
+topics:
+  - "Dynamic Programming"
+  - "Matrix Chain Multiplication"
+  - "Optimization"

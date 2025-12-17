@@ -1,0 +1,9 @@
+id: "ch5-knapsack-dp"
+type: "short-answer"
+chapter: 5
+question: "Solve the 0/1 knapsack problem using dynamic programming. Build the DP table and show the backtracking to find selected items."
+answer: "0/1 Knapsack DP: (1) Create table dp[i][w] = max value using first i items with capacity w. (2) Recurrence: dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w-weight[i]]) if weight[i]≤w, else dp[i-1][w]. (3) Base: dp[0][w]=0. Example: Capacity 10, Items (w,v): A(6,30), B(5,20), C(5,20). Fill table row by row. dp[3][10]=40 (B+C). Backtrack: At dp[3][10], value changed from dp[2][10], so C selected. Recurse to dp[2][5], B selected. Result: {B,C}. Time: O(nW), Space: O(nW)."
+topics:
+  - "Dynamic Programming"
+  - "0/1 Knapsack"
+  - "DP Table"

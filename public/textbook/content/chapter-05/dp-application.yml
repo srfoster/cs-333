@@ -1,0 +1,9 @@
+id: "ch5-dp-application"
+type: "short-answer"
+chapter: 5
+question: "Identify when dynamic programming is applicable. Given a problem, describe the overlapping subproblems and optimal substructure that justify a DP approach."
+answer: "DP Applicability: (1) Optimal Substructure: Optimal solution contains optimal solutions to subproblems. Example: Shortest path A→C through B requires shortest path A→B. (2) Overlapping Subproblems: Same subproblems solved repeatedly. Example: Fibonacci F(5) needs F(4) and F(3), but F(4) also needs F(3) - overlap! (3) DP Strategy: Define subproblems, establish recurrence relation, build table bottom-up (or memoize top-down), reconstruct solution. Contrast with Greedy: DP considers all choices; Greedy makes irrevocable local decisions. Contrast with Divide-and-Conquer: DP has overlapping subproblems; D&C has independent subproblems."
+topics:
+  - "Dynamic Programming"
+  - "Algorithm Design"
+  - "Problem Solving"

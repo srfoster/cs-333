@@ -1,0 +1,21 @@
+concept_map:
+  - category: "Greedy Strategies"
+    concepts:
+      - name: "Activity Selection"
+        description: "Greedy activity scheduling"
+        exam_questions:
+          - "activity-selection.yml"
+      - name: "Fractional Knapsack"
+        description: "Greedy knapsack solution"
+        exam_questions:
+          - "fractional-knapsack.yml"
+  - category: "Greedy vs Optimal"
+    concepts:
+      - name: "0/1 Knapsack Comparison"
+        description: "When greedy fails"
+        exam_questions:
+          - "knapsack-comparison.yml"
+      - name: "Huffman Encoding"
+        description: "Greedy optimal prefix codes"
+        exam_questions:
+          - "huffman-encoding.yml"

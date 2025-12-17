@@ -1,0 +1,9 @@
+id: "ch4-knapsack-comparison"
+type: "short-answer"
+chapter: 4
+question: "Explain why a greedy approach works for the fractional knapsack but fails for the 0/1 knapsack. Provide a counterexample."
+answer: "Fractional allows taking portions, so greedy (maximize value/weight ratio) is optimal - we can always fill remaining capacity with the best available item. 0/1 requires all-or-nothing choices. Counterexample: Capacity 10. Items: A(w=6,v=30,r=5), B(w=5,v=20,r=4), C(w=5,v=20,r=4). Greedy takes A (weight 6, value 30), then can't fit B or C together (need 10kg). Total: 30. Optimal takes B+C (weight 10, value 40). Greedy fails because early commitment to item with best ratio prevents better combination. 0/1 needs dynamic programming to explore all combinations."
+topics:
+  - "Greedy Algorithms"
+  - "0/1 Knapsack"
+  - "Algorithm Limitations"
