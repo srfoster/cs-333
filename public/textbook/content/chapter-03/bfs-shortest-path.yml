@@ -1,0 +1,9 @@
+id: "ch3-bfs-shortest-path"
+type: "short-answer"
+chapter: 3
+question: "Given an unweighted graph, use BFS to find the shortest path from vertex S to T. Show the predecessor array and reconstruct the path."
+answer: "BFS finds shortest paths in unweighted graphs because it explores vertices in order of distance. Algorithm: (1) Run BFS from S, maintaining predecessor array pred[]. (2) When visiting vertex u from v, set pred[u] = v. (3) After BFS completes, if T was reached, reconstruct path by following predecessors backward from T to S, then reverse. Example: If pred[T]=C, pred[C]=B, pred[B]=S, then path is S→B→C→T. If T wasn't reached, no path exists. Path length equals distance[T] from BFS."
+topics:
+  - "Shortest Paths"
+  - "Breadth-First Search"
+  - "Path Reconstruction"
