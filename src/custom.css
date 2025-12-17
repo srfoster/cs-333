@@ -1,0 +1,44 @@
+/* CS-333 Custom Styles */
+
+/* Override the header gradient color */
+.app header {
+  background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+}
+
+/* Adjust hover states to match purple theme */
+.nav-link:hover {
+  background: rgba(167, 139, 250, 0.2) !important;
+}
+
+.nav-link.active {
+  background: rgba(167, 139, 250, 0.3) !important;
+}
+
+/* Update primary color accents */
+:root {
+  --primary-color: #7c3aed !important;
+}
+
+button {
+  background: #7c3aed !important;
+}
+
+button:hover:not(:disabled) {
+  background: #6d28d9 !important;
+}
+
+.generate-exam-btn {
+  background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+}
+
+.generate-exam-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6d28d9, #9333ea) !important;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #7c3aed, #a855f7) !important;
+}
+
+.next-btn {
+  background: #7c3aed !important;
+}

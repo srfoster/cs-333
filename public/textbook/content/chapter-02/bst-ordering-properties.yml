@@ -1,0 +1,9 @@
+id: "ch2-bst-ordering"
+type: "short-answer"
+chapter: 2
+question: "Given a binary tree, determine whether it satisfies the Binary Search Tree property. If it does not, identify the violating node and explain why."
+answer: "A valid BST must satisfy: for every node, all values in its left subtree are less than the node's value, and all values in its right subtree are greater. Check each node against this property. Common violations include: a node in the left subtree being greater than an ancestor, or a node in the right subtree being less than an ancestor. The BST property must hold for the entire subtree, not just immediate children."
+topics:
+  - "Binary Search Trees"
+  - "Tree Properties"
+  - "Data Structure Invariants"

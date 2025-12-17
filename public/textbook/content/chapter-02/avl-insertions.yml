@@ -1,0 +1,9 @@
+id: "ch2-avl-insertions"
+type: "short-answer"
+chapter: 2
+question: "Insert the keys 30, 20, 10, 25, and 28 into an empty AVL tree. Show the tree after each insertion and clearly indicate all rotations performed."
+answer: "Insert 30: Tree is just [30]. Insert 20: [30, 20] (left child). Insert 10: [30, 20, 10] violates AVL (left-left case). Perform right rotation at 30: root becomes 20 with children 10 and 30. Insert 25: [20, 10, 30, 25] (25 is right child of 20, left child of 30). Insert 28: [20, 10, 30, 25, 28] violates AVL at 30 (left-right case). Perform left rotation at 25, then right rotation at 30. Final tree has 20 at root, 10 and 28 as children, with 25 and 30 as children of 28."
+topics:
+  - "AVL Trees"
+  - "Tree Rotations"
+  - "Self-Balancing Trees"

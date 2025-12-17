@@ -1,0 +1,48 @@
+concept_map:
+  - category: "Graph Representation"
+    concepts:
+      - name: "Graph Data Structures"
+        description: "Choosing appropriate graph representations"
+        exam_questions:
+          - "graph-representation.yml"
+  - category: "Graph Traversal"
+    concepts:
+      - name: "Breadth-First Search"
+        description: "BFS traversal and applications"
+        exam_questions:
+          - "bfs-traversal.yml"
+      - name: "Depth-First Search"
+        description: "DFS traversal and applications"
+        exam_questions:
+          - "dfs-traversal.yml"
+      - name: "Connected Components"
+        description: "Identifying graph connectivity"
+        exam_questions:
+          - "connected-components.yml"
+  - category: "Shortest Paths"
+    concepts:
+      - name: "Unweighted Shortest Paths"
+        description: "BFS for shortest paths"
+        exam_questions:
+          - "bfs-shortest-path.yml"
+      - name: "Dijkstra's Algorithm"
+        description: "Weighted shortest paths with non-negative edges"
+        exam_questions:
+          - "dijkstra-execution.yml"
+          - "dijkstra-constraints.yml"
+          - "shortest-path-reconstruction.yml"
+  - category: "Minimum Spanning Trees"
+    concepts:
+      - name: "MST Properties"
+        description: "Understanding minimum spanning trees"
+        exam_questions:
+          - "mst-properties.yml"
+      - name: "Prim's Algorithm"
+        description: "Constructing MST with Prim's"
+        exam_questions:
+          - "prim-algorithm.yml"
+      - name: "Kruskal's Algorithm"
+        description: "Constructing MST with Kruskal's"
+        exam_questions:
+          - "kruskal-algorithm.yml"
+          - "greedy-correctness.yml"

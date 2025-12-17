@@ -1,0 +1,9 @@
+id: "ch2-red-black-balancing"
+type: "short-answer"
+chapter: 2
+question: "Insert the keys 10, 18, 7, 15, and 16 into an empty Red-Black tree. Show the tree after each insertion, including node colors, and explain each recoloring and rotation."
+answer: "Insert 10 (Black root). Insert 18 (Red, right of 10). Insert 7 (Red, left of 10). Insert 15 (Red, left of 18) - violates RB property (red parent 18, red uncle 7). Recolor: 7 and 18 become Black, 10 becomes Red (but root, so Black). Insert 16 (Red, right of 15) - red-red violation with no red uncle. Perform left rotation at 15, then right rotation at 18, with appropriate recoloring. Final: balanced tree with Black nodes at 10, 15 as root of right subtree, maintaining Red-Black properties."
+topics:
+  - "Red-Black Trees"
+  - "Tree Recoloring"
+  - "Balanced Tree Insertion"

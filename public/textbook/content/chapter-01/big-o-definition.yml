@@ -1,0 +1,46 @@
+id: "ch1-big-o-definition"
+type: "short-answer"
+chapter: 1
+question: "What is Big-O notation and why is it important in algorithm analysis?"
+answer: "Big-O notation is a mathematical notation used to describe the upper bound of an algorithm's time or space complexity in terms of input size. It's important because it allows us to compare algorithm efficiency independent of hardware, predict scalability, and make informed decisions about which algorithms to use for different problem sizes."
+answer_kindergarten: "Big-O is like counting how many steps it takes to do something. If you have more toys to sort, it takes more time. Big-O helps us figure out how much longer things take when we have more stuff to work with."
+answer_3rd_grade: "Big-O notation is a way to measure how fast or slow a computer program runs. It tells us if a program will still work well when we give it lots of data to handle. For example, some programs get really slow with more data, while others stay pretty fast."
+answer_7th_grade: "Big-O notation describes how the running time or memory usage of an algorithm grows as the input size increases. It helps programmers choose the best algorithm by showing which ones will be efficient for large amounts of data. Common complexities include O(1) for constant time, O(n) for linear time, and O(n²) for quadratic time."
+answer_high_school: "Big-O notation provides an asymptotic upper bound on algorithm complexity, describing worst-case performance as input size approaches infinity. It abstracts away constant factors and lower-order terms, focusing on the dominant growth rate. This mathematical framework enables objective comparison of algorithms and helps predict scalability issues before implementation."
+answer_undergraduate: "Big-O notation is a formal mathematical construct from asymptotic analysis that characterizes functions according to their growth rates. In computational complexity theory, it provides a tight upper bound on resource consumption (time or space) as a function of input size n. The notation facilitates complexity class categorization (P, NP, etc.) and enables rigorous algorithm analysis through recurrence relations and amortized analysis techniques."
+topics:
+  - "Algorithm Analysis"
+  - "Computational Complexity"
+  - "Performance"
+vocab_answer:
+  - word: "algorithm"
+    definition: "A step-by-step procedure for solving a problem or accomplishing a task"
+  - word: "complexity"
+    definition: "A measure of the resources (time or space) required by an algorithm"
+  - word: "scalability"
+    definition: "The ability of a system to handle growing amounts of work efficiently"
+vocab_kindergarten:
+  - word: "steps"
+    definition: "The individual actions you take to complete a task"
+  - word: "sort"
+    definition: "To arrange things in a specific order"
+vocab_3rd_grade:
+  - word: "data"
+    definition: "Information that a computer program works with"
+  - word: "efficient"
+    definition: "Doing something quickly without wasting time or resources"
+vocab_7th_grade:
+  - word: "linear"
+    definition: "Growing at a constant rate - if input doubles, time doubles"
+  - word: "quadratic"
+    definition: "Growing as the square of the input - if input doubles, time increases by 4x"
+vocab_high_school:
+  - word: "asymptotic"
+    definition: "Describing behavior as a value approaches infinity"
+  - word: "constant factors"
+    definition: "Fixed multipliers that don't depend on input size"
+vocab_undergraduate:
+  - word: "recurrence relations"
+    definition: "Mathematical equations that define a function in terms of its value at smaller inputs"
+  - word: "amortized analysis"
+    definition: "Analyzing average time per operation over a sequence of operations"
