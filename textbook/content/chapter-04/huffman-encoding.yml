@@ -1,0 +1,9 @@
+id: "ch4-huffman-encoding"
+type: "short-answer"
+chapter: 4
+question: "Construct a Huffman encoding tree for a given set of character frequencies. Show the binary codes and explain why this greedy algorithm produces an optimal prefix code."
+answer: "Huffman Algorithm: (1) Create leaf node for each character with its frequency. (2) Repeat until one tree: Find two nodes with smallest frequencies, create parent with sum of frequencies, remove two nodes, add parent. (3) Assign 0/1 to left/right edges. Example: {A:5, B:9, C:12, D:13, E:16, F:45}. Combine A+B (14), then 14+C (26), etc. Final codes: shorter codes for frequent characters. Why optimal? Greedy choice (combine lowest frequencies) ensures frequent characters stay near root (short codes), minimizing total encoding length. Proof by exchange argument shows no better prefix code exists."
+topics:
+  - "Huffman Encoding"
+  - "Greedy Algorithms"
+  - "Data Compression"

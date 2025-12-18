@@ -1,0 +1,9 @@
+id: "ch3-connected-components"
+type: "short-answer"
+chapter: 3
+question: "Using BFS or DFS, determine the number of connected components in a graph and list the vertices in each component."
+answer: "Algorithm: (1) Mark all vertices as unvisited. (2) For each unvisited vertex v: start BFS/DFS from v, mark all reachable vertices (forming one component). (3) Count how many times step 2 executes - this is the number of components. Example: If graph has vertices {A,B,C,D,E,F} with edges A-B, B-C, D-E. Start BFS at A, reach {A,B,C} - component 1. Next unvisited is D, BFS reaches {D,E} - component 2. F remains unvisited - component 3: {F}. Total: 3 components."
+topics:
+  - "Connected Components"
+  - "Graph Traversal"
+  - "Graph Connectivity"

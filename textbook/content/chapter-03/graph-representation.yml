@@ -1,0 +1,9 @@
+id: "ch3-graph-representation"
+type: "short-answer"
+chapter: 3
+question: "An undirected graph has 1,000 vertices and 1,200 edges. Would an adjacency list or adjacency matrix be more appropriate? Justify your answer in terms of time and space complexity."
+answer: "Adjacency list is more appropriate. Space: Matrix requires O(V²) = O(1,000,000) space, while list requires O(V + E) = O(1,000 + 1,200) = O(2,200) space - much more efficient for this sparse graph (only 1,200 edges vs. 499,500 possible). Time: For operations like 'find all neighbors', list is O(degree) vs matrix O(V). Edge existence check is O(1) for matrix vs O(degree) for list, but with average degree ≈ 2.4, this difference is negligible. The massive space savings make adjacency list the clear choice."
+topics:
+  - "Graph Representation"
+  - "Sparse Graphs"
+  - "Space Complexity"

@@ -1,0 +1,9 @@
+id: "ch3-kruskal-algorithm"
+type: "short-answer"
+chapter: 3
+question: "Apply Kruskal's algorithm to a graph. Show the sorted edge list and each union-find operation."
+answer: "Kruskal's Algorithm: (1) Sort all edges by weight. (2) Initialize union-find with each vertex in its own set. (3) For each edge (u,v) in sorted order: if find(u) ≠ find(v) (u and v in different components), add edge to MST and union(u,v). (4) Stop when MST has |V|-1 edges. Example: Sorted edges: (A-C,1), (B-D,2), (C-D,3), (A-B,4), (B-C,5). Process (A-C,1): union({A},{C})→{A,C}. Process (B-D,2): union({B},{D})→{B,D}. Process (C-D,3): union({A,C},{B,D})→{A,B,C,D}. Skip (A-B,4) - creates cycle. Continue until done."
+topics:
+  - "Kruskal's Algorithm"
+  - "Minimum Spanning Tree"
+  - "Union-Find"

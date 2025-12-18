@@ -1,0 +1,9 @@
+id: "ch3-prim-algorithm"
+type: "short-answer"
+chapter: 3
+question: "Apply Prim's algorithm to a graph starting from vertex A. Show the edge selected at each step and the growing tree."
+answer: "Prim's Algorithm: (1) Start with vertex A in tree, all others outside. (2) Find minimum-weight edge crossing the cut (one endpoint in tree, one outside). (3) Add this edge and new vertex to tree. (4) Repeat until all vertices included. Example: Start at A. Edges from A: A-B (5), A-C (3). Select A-C (3). Tree: {A,C}. New edges: A-B (5), C-B (2), C-D (4). Select C-B (2). Tree: {A,B,C}. Continue selecting minimum crossing edge until MST complete with |V|-1 edges. Use priority queue for efficiency: O((V+E) log V)."
+topics:
+  - "Prim's Algorithm"
+  - "Minimum Spanning Tree"
+  - "Greedy Algorithms"

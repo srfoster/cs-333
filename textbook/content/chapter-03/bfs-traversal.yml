@@ -1,0 +1,9 @@
+id: "ch3-bfs-traversal"
+type: "short-answer"
+chapter: 3
+question: "Perform BFS on a given graph starting from vertex A. Show the contents of the queue at each step and label each vertex with its distance from A."
+answer: "BFS Algorithm: (1) Initialize: Mark A as distance 0, enqueue A. (2) While queue not empty: dequeue vertex v, for each unvisited neighbor u of v, mark u as visited, set distance[u] = distance[v] + 1, enqueue u. Example execution: Queue initially [A]. Process A, enqueue neighbors [B, C]. Process B (distance 1), enqueue D, E. Process C (distance 1), enqueue F. Continue until queue empty. Final distances show shortest path lengths from A to all reachable vertices."
+topics:
+  - "Breadth-First Search"
+  - "Graph Traversal"
+  - "Shortest Paths"

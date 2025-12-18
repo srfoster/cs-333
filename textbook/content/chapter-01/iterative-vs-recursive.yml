@@ -1,0 +1,9 @@
+id: "ch1-iterative-vs-recursive"
+type: "short-answer"
+chapter: 1
+question: "Two implementations of factorial are shown (one recursive, one iterative). Analyze and compare their time complexity and auxiliary space usage, and explain why they differ."
+answer: "Both have O(n) time complexity as they perform n multiplications. However, the recursive version requires O(n) auxiliary space for the call stack (one frame per recursive call), while the iterative version uses O(1) space (only local variables). The difference arises because recursion implicitly uses the call stack to store intermediate states, whereas iteration explicitly manages state with variables."
+topics:
+  - "Algorithm Analysis"
+  - "Recursion"
+  - "Space Complexity"

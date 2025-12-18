@@ -1,0 +1,9 @@
+id: "ch4-activity-selection"
+type: "short-answer"
+chapter: 4
+question: "Given activities with start and finish times, use a greedy algorithm to select the maximum number of non-overlapping activities. Explain why sorting by finish time works."
+answer: "Greedy Activity Selection: (1) Sort activities by finish time. (2) Select first activity. (3) For each remaining activity: if its start time ≥ previous finish time, select it. Example: Activities (start, finish): A(1,4), B(3,5), C(0,6), D(5,7), E(8,9). Sort by finish: A(1,4), B(3,5), C(0,6), D(5,7), E(8,9). Select A. B overlaps (starts at 3 < 4). C overlaps. D compatible (5≥4), select. E compatible (8≥7), select. Result: {A,D,E}. Why finish time? Earliest finish leaves maximum room for future activities - greedy choice is safe."
+topics:
+  - "Greedy Algorithms"
+  - "Activity Selection"
+  - "Interval Scheduling"

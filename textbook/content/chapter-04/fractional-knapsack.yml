@@ -1,0 +1,9 @@
+id: "ch4-fractional-knapsack"
+type: "short-answer"
+chapter: 4
+question: "Solve the fractional knapsack problem with given weights, values, and capacity. Show the greedy selection of items by value-to-weight ratio."
+answer: "Fractional Knapsack Greedy: (1) Calculate value/weight ratio for each item. (2) Sort items by ratio (descending). (3) Greedily take items (whole or fraction) until capacity full. Example: Capacity 50. Items: A(w=10,v=60,r=6), B(w=20,v=100,r=5), C(w=30,v=120,r=4). Sort by ratio: A(6), B(5), C(4). Take all of A (10kg, value 60). Take all of B (20kg, value 100). Remaining capacity: 20kg. Take 20/30 of C (20kg, value 80). Total: 60+100+80=240. Greedy works because we can take fractions - always maximize value per unit weight."
+topics:
+  - "Greedy Algorithms"
+  - "Fractional Knapsack"
+  - "Optimization"

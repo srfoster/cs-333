@@ -1,0 +1,9 @@
+id: "ch3-dijkstra-execution"
+type: "short-answer"
+chapter: 3
+question: "Run Dijkstra's algorithm on a weighted graph starting from vertex S. Show the priority queue and distance table after each iteration."
+answer: "Dijkstra's Algorithm: (1) Initialize: dist[S]=0, dist[all others]=∞. Priority queue contains (S, 0). (2) Extract min vertex u from queue. (3) For each neighbor v of u: if dist[u] + weight(u,v) < dist[v], update dist[v] and add/update v in queue. (4) Repeat until queue empty. Example iteration: Extract (A, 5), check neighbors B and C. If dist[B] = 10 and edge weight A→B = 2, update dist[B] = 7, add (B, 7) to queue. Final dist[] array contains shortest distances from S to all vertices."
+topics:
+  - "Dijkstra's Algorithm"
+  - "Shortest Paths"
+  - "Priority Queue"

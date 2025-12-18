@@ -1,0 +1,9 @@
+id: "ch1-rank-algorithms"
+type: "short-answer"
+chapter: 1
+question: "Four algorithms have runtimes O(n log n), O(n²), O(n³), and O(2ⁿ). For n = 1000, rank them from fastest to slowest and briefly justify your ordering."
+answer: "From fastest to slowest: (1) O(n log n) ≈ 1000 × 10 = 10,000 operations. (2) O(n²) = 1,000,000 operations. (3) O(n³) = 1,000,000,000 operations. (4) O(2ⁿ) = 2^1000 ≈ 10^301 operations (infeasible). The ranking follows the hierarchy of growth rates: logarithmic terms grow slowly, polynomial terms grow faster (higher degree = faster growth), and exponential terms grow fastest."
+topics:
+  - "Algorithm Analysis"
+  - "Growth Rates"
+  - "Computational Complexity"

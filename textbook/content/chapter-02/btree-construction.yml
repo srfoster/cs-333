@@ -1,0 +1,9 @@
+id: "ch2-btree-construction"
+type: "short-answer"
+chapter: 2
+question: "Given a B-Tree of minimum degree t = 2, insert the keys 8, 1, 3, 7, 10, 14, and 13. Show all node splits and key promotions."
+answer: "With t=2, nodes hold 1-3 keys. Insert 8, 1, 3: root is [1, 3, 8]. Insert 7: [1, 3, 7, 8] - node full, split at median 3. Root becomes [3] with children [1] and [7, 8]. Insert 10: [7, 8, 10]. Insert 14: [7, 8, 10, 14] - split at 10. Promote 10 to root: [3, 10] with children [1], [7, 8], [14]. Insert 13: goes to [14] becoming [13, 14]. Final tree has root [3, 10] with three children: [1], [7, 8], and [13, 14]."
+topics:
+  - "B-Trees"
+  - "Multi-way Trees"
+  - "Node Splitting"

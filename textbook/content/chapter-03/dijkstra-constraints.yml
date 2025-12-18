@@ -1,0 +1,9 @@
+id: "ch3-dijkstra-constraints"
+type: "short-answer"
+chapter: 3
+question: "Explain why Dijkstra's algorithm fails when negative-weight edges exist. Provide a small counterexample graph and demonstrate the failure."
+answer: "Dijkstra's assumes once a vertex is finalized (extracted from priority queue), its shortest distance is determined. Negative edges violate this. Counterexample: Vertices {S, A, B} with edges S→A (weight 1), S→B (weight 2), A→B (weight -5). Dijkstra: Extract (S,0), update dist[A]=1, dist[B]=2, add both to queue. Extract (A,1) next. Update dist[B]=1+(-5)=-4 via A. But B with distance 2 was already in queue! Dijkstra might have already processed B at distance 2, missing the better path. Need Bellman-Ford for negative edges."
+topics:
+  - "Dijkstra's Algorithm"
+  - "Algorithm Limitations"
+  - "Negative Edges"

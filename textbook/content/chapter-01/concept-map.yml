@@ -1,0 +1,17 @@
+concept_map:
+  - category: "Algorithm Analysis"
+    concepts:
+      - name: "Big-O Notation"
+        description: "Understanding time and space complexity"
+        exam_questions:
+          - "big-o-definition.yml"
+          - "nested-loop-analysis.yml"
+      - name: "Recursive Analysis"
+        description: "Analyzing recursive algorithms"
+        exam_questions:
+          - "iterative-vs-recursive.yml"
+          - "recurrence-relations.yml"
+      - name: "Comparing Growth Rates"
+        description: "Ranking algorithms by complexity"
+        exam_questions:
+          - "rank-algorithms.yml"

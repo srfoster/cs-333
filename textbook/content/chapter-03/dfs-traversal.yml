@@ -1,0 +1,9 @@
+id: "ch3-dfs-traversal"
+type: "short-answer"
+chapter: 3
+question: "Perform DFS on a given undirected graph starting at vertex A. Show the order of visitation and draw the resulting DFS tree."
+answer: "DFS Algorithm: (1) Mark A as visited, add to DFS tree. (2) For each unvisited neighbor of A (in order), recursively perform DFS, adding edges to DFS tree. (3) Backtrack when no unvisited neighbors. Example: Start at A, visit first neighbor B, then B's first unvisited neighbor C, etc. Edges in DFS tree are 'tree edges' (forward progress). Edges to already-visited vertices are 'back edges' (create cycles). Order depends on adjacency list ordering. DFS tree shows parent-child relationships from the traversal."
+topics:
+  - "Depth-First Search"
+  - "Graph Traversal"
+  - "Tree Edges"
