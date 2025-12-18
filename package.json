@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "npm run compile && vite build",
     "preview": "vite preview",
-    "compile": "node scripts/compile-content.js"
+    "compile": "node scripts/compile-content.js",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@srfoster/textbook-lib": "file:../cis-110-ai-redo/textbook-lib",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.0",
+    "gh-pages": "^6.3.0",
     "js-yaml": "^4.1.1",
     "vite": "^7.1.12"
   }
