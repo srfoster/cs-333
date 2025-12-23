@@ -4,10 +4,18 @@ import {
   ExamDashboard,
   ExamInterface,
   TextbookPage,
-  compiledContentService
+  compiledContentService,
+  loadAllQuestions
 } from '@srfoster/textbook-lib';
 import { compiledFiles, stats } from './compiled';
-import { loadAllQuestions } from './services/questionLoader';
+
+// Define CS-333 concept map paths
+const CONCEPT_MAP_PATHS = [
+  'content/chapter-01/concept-map.yml',
+  'content/chapter-02/concept-map.yml',
+  'content/chapter-03/concept-map.yml',
+  'content/chapter-04/concept-map.yml'
+];
 
 function AppContent() {
   const location = useLocation();
@@ -21,7 +29,7 @@ function AppContent() {
     
     const fetchQuestions = async () => {
       try {
-        const allQuestions = await loadAllQuestions();
+        const allQuestions = await loadAllQuestions(CONCEPT_MAP_PATHS);
         setQuestions(allQuestions);
       } catch (error) {
         console.error('Failed to load questions:', error);

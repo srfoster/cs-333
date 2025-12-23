@@ -1,5 +1,5 @@
 concept_map:
-  - category: "Recursion and Trees"
+  - category: "Recursion, Trees, and Graphs"
     concepts:
       - name: "Recursion"
         description: "Recursive algorithms and data structures"

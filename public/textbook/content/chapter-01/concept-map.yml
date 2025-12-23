@@ -1,5 +1,5 @@
 concept_map:
-  - category: "Data Structures and Algorithms to Know by Heart"
+  - category: "Arrays, Lists, and a Taste of Complexity Theory"
     concepts:
       - name: "Big picture"
         description: "Two questions to help organize the content of this book/course."

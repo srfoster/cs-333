@@ -1,5 +1,5 @@
 concept_map:
-  - category: "Algorithmic Strategies"
+  - category: "Algorithm Paradigms and Intractability"
     concepts:
       - name: "Greedy"
         description: "Greedy algorithms and when they produce optimal solutions"

@@ -1,5 +1,5 @@
 concept_map:
-  - category: "Algorithm Analysis"
+  - category: "Mathematics of Algorithm Complexity"
     concepts:
       - name: "Big-O Notation"
         description: "Mathematics of algorithm analysis"
