@@ -1,31 +1,17 @@
 concept_map:
-  - category: "Binary Search Trees"
+  - category: "Recursion and Trees"
     concepts:
-      - name: "BST Properties"
-        description: "Understanding BST ordering and structure"
+      - name: "Recursion"
+        description: "Recursive algorithms and their analysis"
         exam_questions:
-          - "bst-ordering-properties.yml"
-  - category: "AVL Trees"
-    concepts:
-      - name: "AVL Insertions and Rotations"
-        description: "Performing insertions and maintaining balance"
+          - "questions/iterative-vs-recursive.yml"
+          - "questions/fibonacci-call-tree-optimizations-and-analysis.yml"
+      - name: "Trees"
+        description: "Understanding tree data structures and their properties"
         exam_questions:
-          - "avl-insertions.yml"
-  - category: "Red-Black Trees"
-    concepts:
-      - name: "Red-Black Balancing"
-        description: "Applying recoloring and rotation rules"
-        exam_questions:
-          - "red-black-balancing.yml"
-  - category: "B-Trees"
-    concepts:
-      - name: "Multi-way Tree Construction"
-        description: "Building and maintaining B-Trees"
-        exam_questions:
-          - "btree-construction.yml"
-  - category: "Balanced Trees"
-    concepts:
-      - name: "Tree Type Comparison"
-        description: "Evaluating tradeoffs among tree types"
-        exam_questions:
-          - "tree-tradeoffs.yml"
+          - "questions/bst-ordering-properties.yml"
+          - "questions/avl-insertions.yml"
+          - "questions/red-black-balancing.yml"
+          - "questions/btree-construction.yml"
+          - "questions/tree-tradeoffs.yml"
+          - "questions/iterative-vs-recursive.yml"

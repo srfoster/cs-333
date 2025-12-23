@@ -1,0 +1,14 @@
+id: 25
+question: "Explain the divide and conquer strategy and identify problems suited for this approach"
+answer: "Answer pending"
+topics:
+  - divide and conquer
+  - algorithm design
+  - recurrence relations
+type: "short-answer"
+points: 10
+difficulty: "medium"
+learning_objectives:
+  - "Understand divide and conquer paradigm"
+  - "Identify problems suitable for divide and conquer"
+  - "Analyze divide and conquer recurrences"

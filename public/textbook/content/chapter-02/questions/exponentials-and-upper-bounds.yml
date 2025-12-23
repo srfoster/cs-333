@@ -1,0 +1,8 @@
+id: 19
+question: "Analyze exponential functions and determine upper bounds."
+answer: "TODO: Add answer"
+topics: ["big-o", "exponentials"]
+type: "problem_solving"
+points: 4
+difficulty: "medium"
+learning_objectives: []

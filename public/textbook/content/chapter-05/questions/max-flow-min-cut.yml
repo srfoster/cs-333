@@ -1,0 +1,14 @@
+id: 27
+question: "Explain the max-flow min-cut theorem and its applications"
+answer: "Answer pending"
+topics:
+  - network flow
+  - max-flow min-cut
+  - graph theory
+type: "short-answer"
+points: 10
+difficulty: "hard"
+learning_objectives:
+  - "Understand max-flow min-cut theorem"
+  - "Identify minimum cuts in flow networks"
+  - "Apply duality in network flow problems"

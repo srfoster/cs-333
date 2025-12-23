@@ -1,0 +1,8 @@
+id: 18
+question: "Analyze logarithmic functions and determine upper bounds."
+answer: "TODO: Add answer"
+topics: ["big-o", "logarithms"]
+type: "problem_solving"
+points: 4
+difficulty: "medium"
+learning_objectives: []

@@ -1,0 +1,14 @@
+id: 21
+question: "Analyze the Fibonacci call tree and discuss optimizations"
+answer: "Answer pending"
+topics:
+  - recursion
+  - optimization
+  - call trees
+type: "short-answer"
+points: 10
+difficulty: "medium"
+learning_objectives:
+  - "Understand recursive call trees"
+  - "Analyze recursive algorithms"
+  - "Apply optimization techniques to recursive solutions"

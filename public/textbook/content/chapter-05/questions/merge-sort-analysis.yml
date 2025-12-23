@@ -1,0 +1,14 @@
+id: 23
+question: "Analyze merge sort using the divide and conquer strategy"
+answer: "Answer pending"
+topics:
+  - divide and conquer
+  - merge sort
+  - algorithm analysis
+type: "short-answer"
+points: 10
+difficulty: "medium"
+learning_objectives:
+  - "Understand divide and conquer recurrence relations"
+  - "Analyze merge sort time complexity"
+  - "Apply Master Theorem"

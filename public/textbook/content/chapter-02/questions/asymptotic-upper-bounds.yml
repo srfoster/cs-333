@@ -1,0 +1,8 @@
+id: 16
+question: "Define asymptotic upper bounds and provide examples."
+answer: "TODO: Add answer"
+topics: ["big-o", "asymptotic analysis"]
+type: "conceptual"
+points: 3
+difficulty: "medium"
+learning_objectives: []
