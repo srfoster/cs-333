@@ -1,7 +1,22 @@
 id: "ch1-nested-loop-analysis"
 type: "short-answer"
 chapter: 1
-question: "Consider the following code: for (int i = 1; i < n; i *= 2) { for (int j = 0; j < i; j++) { System.out.println(j); } } (a) Count how many times the inner loop executes as a function of n. (b) Give a tight Θ bound and justify your answer."
+question: |
+  Consider the following code:
+
+  ```python
+  i = 1
+  while i < n:
+      j = 0
+      while j < i:
+          print(j)
+          j += 1
+      i *= 2
+  ```
+
+  (a) Count how many times the inner loop executes as a function of n.
+  
+  (b) Give a tight Θ bound and justify your answer.
 answer: "(a) The outer loop runs log₂(n) times since i doubles each iteration. In iteration k, i = 2^k and the inner loop runs 2^k times. Total executions: Σ(k=0 to log₂(n)-1) 2^k = 2^(log₂(n)) - 1 = n - 1. (b) Θ(n). The sum of the geometric series 1 + 2 + 4 + ... + n/2 equals n-1, which is Θ(n)."
 topics:
   - "Algorithm Analysis"

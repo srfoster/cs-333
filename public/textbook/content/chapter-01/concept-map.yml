@@ -5,6 +5,7 @@ concept_map:
         description: "Understanding time and space complexity"
         exam_questions:
           - "big-o-definition.yml"
+          - "big-o-omega-theta.yml"
           - "nested-loop-analysis.yml"
       - name: "Recursive Analysis"
         description: "Analyzing recursive algorithms"

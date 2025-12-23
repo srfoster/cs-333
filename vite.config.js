@@ -8,10 +8,10 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/cs-333/' : '/',
   resolve: {
     alias: {
-      // Ensure single React instance
+      // Ensure single React instance across all dependencies
       'react': resolve('./node_modules/react'),
       'react-dom': resolve('./node_modules/react-dom'),
-      'react-router-dom': resolve('./node_modules/react-router-dom'),
+      'react-router-dom': resolve('./node_modules/react-router-dom')
     },
     dedupe: ['react', 'react-dom', 'react-router-dom']
   }

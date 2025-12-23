@@ -21,21 +21,50 @@ Explore the course content using the navigation above:
 
 ## Topics
 
-### Chapter 1: Algorithm Analysis
-Learn to analyze algorithm efficiency using Big-O notation.
+### Chapter 1: Algorithms and Data Structures to Know By Heart
 
-{{ConceptMap:content/chapter-01/concept-map.yml}}
+* Basic structures: lists, arrays, stacks, queues
+* Basic patterns: pointer, double pointer, sliding window, etc.
+* Complexity
+* Mathematical formalities of complexity
 
-### Chapter 2: Basic Data Structures
-Explore arrays, linked lists, stacks, and queues.
+### Chapter 2: Advanced Data Structures and their Algorithms
 
-*Coming soon...*
+* Trees and Recursion (fib)
+* Graphs
+* Complexity
 
-### Chapter 3: Trees
-Understand tree structures and their applications.
+### Chapter 3: Advanced Algorithmic Patterns 
 
-*Coming soon...*
+* Greedy, div conq, dyn prog, network flow
+
+### Chapter 4: Intractability
+
+* P=NP, NP-Complete
+* Beyond intractability...
 
 ---
 
-*This textbook uses the @srfoster/textbook-lib framework for interactive learning.*
+Topics to add somewhere:
+
+Best/Average/Worst Case Analysis - Distinguishing between different scenarios for the same algorithm
+
+Amortized Analysis - Understanding average cost over a sequence of operations (e.g., dynamic array resizing)
+
+Space-Time Tradeoffs - Understanding when to trade memory for speed or vice versa
+
+Practical Complexity - Understanding constants and lower-order terms matter in practice (when is O(n log n) actually slower than O(n²) for small n?)
+
+Master Theorem - For solving divide-and-conquer recurrences (you have recurrence relations but not the Master Theorem specifically)
+
+Loop Invariants - Proving algorithm correctness
+
+Comparing Algorithms Empirically - Actually measuring runtime vs theoretical analysis
+
+Common Algorithm Patterns - Two pointers, sliding window, etc. and their complexities
+
+--- 
+
+https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithms_Nutshell%20.pdf
+
+https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithm%20Design%20-%20John%20Kleinberg%20-%20%C3%89va%20Tardos.pdf
