@@ -1,0 +1,77 @@
+id: "ch4-3sat-np-completeness"
+type: "short-answer"
+chapter: 4
+question: |
+  Consider the reduction from SAT to 3-SAT where we transform clauses using auxiliary variables.
+  
+  (a) Prove that this reduction preserves satisfiability in both directions:
+     - If the original SAT instance is satisfiable, the 3-SAT instance is satisfiable
+     - If the 3-SAT instance is satisfiable, the original SAT instance is satisfiable
+  
+  (b) Explain why this reduction runs in polynomial time. What is the relationship between the size of the input (SAT instance) and the size of the output (3-SAT instance)?
+  
+  (c) Given that SAT is NP-complete (Cook-Levin theorem), explain how this polynomial-time reduction proves that 3-SAT is NP-complete. What are the two requirements you must show for any problem to be NP-complete?
+  
+  (d) Why is showing 3-SAT ∈ NP easier than showing it's NP-hard? Describe the polynomial-time verifier for 3-SAT.
+answer: |
+  (a) Bidirectional satisfiability proof:
+  
+  **Forward direction (SAT satisfiable → 3-SAT satisfiable):**
+  If the original SAT has a satisfying assignment, we construct a 3-SAT assignment:
+  - Keep all original variable assignments
+  - For dummy variables in 1- and 2-literal expansions: assign any value (original literals already satisfy the clause)
+  - For auxiliary variables in long clause splits: if (a ∨ b ∨ c ∨ d) is satisfied, at least one of a,b or c,d is true. Set auxiliary z appropriately so both 3-SAT clauses are satisfied
+  
+  **Backward direction (3-SAT satisfiable → SAT satisfiable):**
+  If 3-SAT has a satisfying assignment, use only the original variable assignments. Each 3-SAT clause group came from an original SAT clause. If the 3-SAT clauses are satisfied, the construction ensures the original clause is satisfied (auxiliary variables were introduced specifically to preserve this property).
+  
+  (b) Polynomial time analysis:
+  
+  The reduction runs in O(n·k) where n is the number of clauses and k is the maximum clause size:
+  - 1-literal clauses: O(1) work - add 2 dummy literals
+  - 2-literal clauses: O(1) work - add 1 dummy literal  
+  - k-literal clauses (k≥4): Create k-3 auxiliary variables and k-2 new clauses in O(k) time
+  
+  **Size relationship:** If original SAT has n clauses with max size k, the 3-SAT has at most O(n·k) clauses. Each original clause produces at most k-2 clauses. This is polynomial in the input size.
+  
+  (c) NP-completeness proof structure:
+  
+  To prove 3-SAT is NP-complete, we must show:
+  1. **3-SAT ∈ NP:** Easy - given an assignment, verify each clause has ≥1 true literal in O(n) time
+  2. **3-SAT is NP-hard:** Reduce a known NP-complete problem to 3-SAT
+  
+  Since SAT is NP-complete (Cook-Levin), and we have a polynomial-time reduction SAT ≤ₚ 3-SAT:
+  - Any problem in NP can be reduced to SAT (by definition of NP-complete)
+  - SAT can be reduced to 3-SAT (we just showed this)
+  - By transitivity: any NP problem ≤ₚ SAT ≤ₚ 3-SAT
+  - Therefore 3-SAT is NP-hard
+  - Combined with 3-SAT ∈ NP, we get 3-SAT is NP-complete
+  
+  (d) NP membership vs. NP-hardness:
+  
+  **Why NP membership is easier:**
+  To show 3-SAT ∈ NP, we only need a polynomial-time verifier:
+  - Input: 3-SAT formula φ and proposed assignment A
+  - Verification: For each clause, check if at least one literal is true under A
+  - Time: O(number of clauses) = polynomial
+  - If verifier outputs "yes", we have a certificate proving the instance is satisfiable
+  
+  **3-SAT polynomial-time verifier:**
+  ```
+  Verify(φ, A):
+    for each clause (l₁ ∨ l₂ ∨ l₃) in φ:
+      if eval(l₁, A) = false AND eval(l₂, A) = false AND eval(l₃, A) = false:
+        return false
+    return true
+  ```
+  
+  **Why NP-hardness is harder:**
+  To show NP-hardness, we must prove that EVERY problem in NP can be reduced to 3-SAT. This requires showing a reduction from at least one known NP-complete problem, which involves constructing a non-trivial polynomial-time transformation that preserves solutions.
+topics:
+  - "NP-completeness"
+  - "Reductions"
+  - "SAT"
+  - "3-SAT"
+  - "Complexity theory"
+  - "P vs NP"
+  - "Polynomial-time verification"

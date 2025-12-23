@@ -1,0 +1,8 @@
+id: 11
+question: "Implement insertion sort and analyze its time complexity."
+answer: "TODO: Add answer"
+topics: ["sorting", "insertion sort", "analysis"]
+type: "problem_solving"
+points: 5
+difficulty: "medium"
+learning_objectives: []

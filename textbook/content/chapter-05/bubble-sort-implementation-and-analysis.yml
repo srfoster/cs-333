@@ -1,0 +1,8 @@
+id: 13
+question: "Implement bubble sort and analyze its time complexity."
+answer: "TODO: Add answer"
+topics: ["sorting", "bubble sort", "analysis"]
+type: "problem_solving"
+points: 5
+difficulty: "medium"
+learning_objectives: []

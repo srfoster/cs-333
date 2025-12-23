@@ -1,21 +1,9 @@
 concept_map:
-  - category: "Dynamic Programming Fundamentals"
+  - category: "Bonus Questions"
     concepts:
-      - name: "0/1 Knapsack"
-        description: "DP solution for binary knapsack"
+      - name: "Advanced Topics"
+        description: "Challenge problems beyond exam scope"
         exam_questions:
-          - "knapsack-dp.yml"
-      - name: "Longest Common Subsequence"
-        description: "Finding LCS with DP"
-        exam_questions:
-          - "lcs-problem.yml"
-  - category: "Advanced DP"
-    concepts:
-      - name: "Matrix Chain Multiplication"
-        description: "Optimal parenthesization"
-        exam_questions:
-          - "matrix-chain.yml"
-      - name: "DP Strategy"
-        description: "When and how to use DP"
-        exam_questions:
-          - "dp-application.yml"
+          - "bubble-sort-implementation-and-analysis.yml"
+          - "structural-recursion-on-lists-vs-arrays.yml"
+

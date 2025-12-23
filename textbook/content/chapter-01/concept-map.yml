@@ -1,17 +1,26 @@
 concept_map:
-  - category: "Algorithm Analysis"
+  - category: "Arrays, Lists, and a Taste of Complexity Theory"
     concepts:
-      - name: "Big-O Notation"
-        description: "Understanding time and space complexity"
+      - name: "Big picture"
+        description: "Two questions to help organize the content of this book/course."
         exam_questions:
-          - "big-o-definition.yml"
-          - "nested-loop-analysis.yml"
-      - name: "Recursive Analysis"
-        description: "Analyzing recursive algorithms"
+          - "questions/data-structure-inventory-datums-to-graphs.yml"
+          - "questions/algorithm-inventory-search-to-np.yml"
+      - name: "Array/List"
+        description: "Arrays vs Lists and the algorithms that operate on them."
         exam_questions:
-          - "iterative-vs-recursive.yml"
-          - "recurrence-relations.yml"
-      - name: "Comparing Growth Rates"
-        description: "Ranking algorithms by complexity"
+          - "questions/difference-between-array-and-list.yml"
+          - "questions/implement-list.yml"
+          - "questions/search-array-vs-list.yml"
+          - "questions/insertion-deletion-update-array-vs-list.yml"
+          - "questions/swapping-array-vs-list.yml"
+          - "questions/accumulator-pattern.yml"
+      - name: "Basic Sorting Algorithms"
+        description: "Insertion Sort and Selection Sort algorithms, their implementations, and analyses."
         exam_questions:
-          - "rank-algorithms.yml"
+          - "questions/insertion-sort-implementation-and-analysis.yml"
+          - "questions/selection-sort-implementation-and-analysis.yml"
+          - "questions/array-or-list-for-insertion-vs-selection-sort.yml"
+          - "questions/are-selection-and-insertion-sort-good.yml"
+
+

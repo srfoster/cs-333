@@ -1,0 +1,14 @@
+id: 26
+question: "Explain and execute the Ford-Fulkerson algorithm for maximum flow"
+answer: "Answer pending"
+topics:
+  - network flow
+  - Ford-Fulkerson
+  - graph algorithms
+type: "short-answer"
+points: 10
+difficulty: "hard"
+learning_objectives:
+  - "Understand augmenting paths"
+  - "Execute Ford-Fulkerson algorithm"
+  - "Analyze flow network properties"

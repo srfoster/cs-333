@@ -1,0 +1,14 @@
+id: 32
+question: "Identify common intractable problems and discuss approaches for dealing with them"
+answer: "Answer pending"
+topics:
+  - intractability
+  - NP-hard problems
+  - approximation algorithms
+type: "short-answer"
+points: 10
+difficulty: "medium"
+learning_objectives:
+  - "Identify classic NP-complete problems"
+  - "Understand approaches for intractable problems"
+  - "Apply heuristics and approximation algorithms"

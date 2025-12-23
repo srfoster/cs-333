@@ -1,0 +1,14 @@
+id: 30
+question: "Prove that a given problem is NP-complete using reduction"
+answer: "Answer pending"
+topics:
+  - NP-completeness
+  - proofs
+  - reductions
+type: "short-answer"
+points: 15
+difficulty: "hard"
+learning_objectives:
+  - "Understand NP-completeness proofs"
+  - "Apply reduction techniques"
+  - "Verify problem membership in NP"

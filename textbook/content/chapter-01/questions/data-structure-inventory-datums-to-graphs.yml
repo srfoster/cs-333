@@ -1,0 +1,8 @@
+id: 1
+question: "List the major data structures covered in this course, from simplest (datums) to most complex (graphs)."
+answer: "TODO: Add answer"
+topics: ["data structures", "inventory"]
+type: "conceptual"
+points: 3
+difficulty: "medium"
+learning_objectives: []

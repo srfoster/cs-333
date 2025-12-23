@@ -1,0 +1,66 @@
+id: "ch3-minimum-spanning-trees"
+type: "short-answer"
+chapter: 3
+question: |
+  Consider an undirected weighted graph with vertices {A, B, C, D, E} and edges: A-B (4), A-C (3), B-C (2), B-D (5), C-D (4), C-E (6), D-E (1).
+  
+  (a) Define a minimum spanning tree (MST) and explain its properties. Why does removing any edge from an MST disconnect the graph?
+  
+  (b) Apply Prim's algorithm starting from vertex A. Show the edge selected at each step, the growing tree, and the final MST with its total weight.
+  
+  (c) Apply Kruskal's algorithm to the same graph. Show the sorted edge list and indicate which edges are added to the MST or rejected (and why). Track the union-find operations.
+  
+  (d) Compare Prim's and Kruskal's algorithms: What are the key differences in their approach, data structures used, and time complexity? Why does Kruskal's greedy selection guarantee correctness (use the cut property)?
+answer: |
+  (a) MST definition and properties:
+     A Minimum Spanning Tree is a subset of edges that:
+     - Connects all vertices (spanning)
+     - Forms a tree (acyclic, exactly |V|-1 edges)
+     - Has minimum total edge weight among all spanning trees
+     
+     Why removing any edge disconnects: A tree has exactly one path between any pair of vertices. Removing edge (u,v) breaks the unique path between u and v, creating two separate components. Since trees have no cycles, there's no alternate path. An MST achieves minimal connectivity - it connects all vertices with minimum cost and zero redundancy.
+  
+  (b) Prim's algorithm from A:
+     - Initialize: Tree = {A}, Available edges = {A-B(4), A-C(3)}
+     - Step 1: Select A-C (3) - minimum crossing edge. Tree = {A,C}, Edges added = [A-C]
+     - Step 2: Available = {A-B(4), C-B(2), C-D(4), C-E(6)}. Select C-B (2). Tree = {A,B,C}, Edges = [A-C, C-B]
+     - Step 3: Available = {A-B(4), B-D(5), C-D(4), C-E(6)}. Select C-D (4). Tree = {A,B,C,D}, Edges = [A-C, C-B, C-D]
+     - Step 4: Available = {B-D(5), C-E(6), D-E(1)}. Select D-E (1). Tree = {A,B,C,D,E}, Edges = [A-C, C-B, C-D, D-E]
+     
+     Final MST: A-C, C-B, C-D, D-E with total weight = 3+2+4+1 = 10
+  
+  (c) Kruskal's algorithm:
+     - Sort edges: D-E(1), B-C(2), A-C(3), A-B(4), C-D(4), B-D(5), C-E(6)
+     - Initialize union-find: {A}, {B}, {C}, {D}, {E}
+     
+     - Process D-E(1): find(D)≠find(E), add to MST. Union: {A}, {B}, {C}, {D,E}. MST = [D-E]
+     - Process B-C(2): find(B)≠find(C), add to MST. Union: {A}, {B,C}, {D,E}. MST = [D-E, B-C]
+     - Process A-C(3): find(A)≠find(C), add to MST. Union: {A,B,C}, {D,E}. MST = [D-E, B-C, A-C]
+     - Process A-B(4): find(A)=find(B) (both in {A,B,C}), REJECT - would create cycle
+     - Process C-D(4): find(C)≠find(D), add to MST. Union: {A,B,C,D,E}. MST = [D-E, B-C, A-C, C-D]
+     - Stop: Have 4 edges (|V|-1), MST complete
+     
+     Final MST: same edges as Prim's, total weight = 10
+  
+  (d) Comparison and correctness:
+     
+     **Approach differences:**
+     - Prim's: Grows a single tree from a starting vertex, always selecting minimum edge crossing the cut between tree and non-tree vertices
+     - Kruskal's: Builds a forest of trees, selecting globally minimum edges that don't create cycles, merging components
+     
+     **Data structures:**
+     - Prim's: Priority queue for crossing edges, O((V+E) log V) with binary heap
+     - Kruskal's: Sort edges O(E log E), union-find for cycle detection O(E α(V)), total O(E log E)
+     
+     **Kruskal's correctness (Cut Property):**
+     The cut property states: For any cut (partition of vertices into two sets), the minimum-weight edge crossing the cut is in some MST. 
+     
+     When Kruskal's selects edge (u,v), u and v are in different components (different sides of a cut). This edge is the minimum-weight edge not yet considered, so it's the minimum crossing this cut. By the cut property, it's safe to include. By processing edges in sorted order and using union-find to avoid cycles, Kruskal's builds an MST incrementally, with each greedy choice guaranteed correct.
+topics:
+  - "Minimum Spanning Tree"
+  - "Prim's Algorithm"
+  - "Kruskal's Algorithm"
+  - "Greedy Algorithms"
+  - "Union-Find"
+  - "Algorithm Correctness"
+  - "Cut Property"

@@ -1,0 +1,14 @@
+id: 31
+question: "Explain polynomial-time reductions and their role in complexity theory"
+answer: "Answer pending"
+topics:
+  - reductions
+  - complexity theory
+  - problem transformations
+type: "short-answer"
+points: 10
+difficulty: "hard"
+learning_objectives:
+  - "Understand polynomial-time reductions"
+  - "Apply reduction strategy to prove hardness"
+  - "Construct reductions between problems"

@@ -1,0 +1,14 @@
+id: 24
+question: "Analyze quick sort and discuss its best, average, and worst-case performance"
+answer: "Answer pending"
+topics:
+  - divide and conquer
+  - quick sort
+  - algorithm analysis
+type: "short-answer"
+points: 10
+difficulty: "medium"
+learning_objectives:
+  - "Understand quicksort partitioning"
+  - "Analyze quicksort complexity in different cases"
+  - "Compare pivot selection strategies"

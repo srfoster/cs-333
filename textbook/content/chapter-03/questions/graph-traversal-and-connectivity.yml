@@ -1,0 +1,54 @@
+id: "ch3-graph-traversal-connectivity"
+type: "short-answer"
+chapter: 3
+question: |
+  Consider the following graph with vertices {A, B, C, D, E, F, G} and edges: A-B, A-C, B-D, C-D, E-F, E-G.
+  
+  (a) Perform BFS starting from vertex A. Show the order vertices are visited, the contents of the queue at each step, and label each vertex with its distance from A.
+  
+  (b) Perform DFS starting from vertex A. Show the order vertices are visited and identify which edges are tree edges vs. back edges.
+  
+  (c) Use either BFS or DFS to determine the number of connected components in this graph. List the vertices in each component and explain your algorithm.
+  
+  (d) Compare BFS and DFS: What are the key differences in their implementation (data structures), properties (what they find), and typical use cases?
+answer: |
+  (a) BFS from A:
+     - Step 1: Queue = [A]. Dequeue A (distance 0), enqueue neighbors B, C. Queue = [B, C]
+     - Step 2: Dequeue B (distance 1), enqueue D. Queue = [C, D]
+     - Step 3: Dequeue C (distance 1), D already visited. Queue = [D]
+     - Step 4: Dequeue D (distance 2), no new neighbors. Queue = []
+     - Order: A, B, C, D. Distances: A=0, B=1, C=1, D=2. Cannot reach E, F, G from A.
+  
+  (b) DFS from A (assuming alphabetical neighbor order):
+     - Start at A, visit B (edge A-B is tree edge)
+     - From B, visit D (edge B-D is tree edge)
+     - From D, can reach C (edge D-C is tree edge)
+     - From C, can reach A (edge C-A is back edge - A already visited)
+     - Backtrack to D, B, A. No more unvisited neighbors.
+     - Order: A, B, D, C
+     - Tree edges: A-B, B-D, D-C. Back edge: C-A (completes cycle A-B-D-C-A)
+  
+  (c) Connected components algorithm:
+     1. Mark all vertices unvisited
+     2. For each unvisited vertex, start BFS/DFS and mark all reachable vertices
+     3. Count how many times step 2 executes
+     
+     Execution:
+     - Start BFS at A → reaches {A, B, C, D} → Component 1
+     - Next unvisited is E → BFS reaches {E, F, G} → Component 2
+     - All vertices visited → 2 components total
+     
+     Components: {A, B, C, D} and {E, F, G}
+  
+  (d) BFS vs DFS comparison:
+     - Implementation: BFS uses a queue (FIFO), DFS uses a stack (LIFO) or recursion
+     - Properties: BFS finds shortest paths in unweighted graphs, visits by distance layers. DFS explores deeply first, useful for detecting cycles and topological sorting
+     - Use cases: BFS for shortest paths, level-order traversal, social networks ("degrees of separation"). DFS for cycle detection, maze solving, topological sort, connected components
+     - Space: BFS can use O(width) space, DFS uses O(depth) space
+topics:
+  - "Breadth-First Search"
+  - "Depth-First Search"
+  - "Graph Traversal"
+  - "Connected Components"
+  - "Graph Connectivity"
+  - "Shortest Paths"
