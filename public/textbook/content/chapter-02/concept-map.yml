@@ -5,15 +5,8 @@ concept_map:
         description: "Mathematics of algorithm analysis"
         exam_questions:
           - "questions/asymptotic-upper-bounds.yml"
-          - "questions/polynomials-and-upper-bounds.yml"
-          - "questions/logs-and-upper-bounds.yml"
-          - "questions/exponentials-and-upper-bounds.yml"
           - "questions/big-o-definition.yml"
+          - "questions/function-classes-upper-bounds.yml"
           - "questions/big-o-omega-theta.yml"
           - "questions/nested-loop-analysis.yml"
           - "questions/rank-algorithms.yml"
-      - name: "Recursive Analysis"
-        description: "Analyzing recursive algorithms"
-        exam_questions:
-          - "../chapter-03/questions/iterative-vs-recursive.yml"
-          - "questions/recurrence-relations.yml"

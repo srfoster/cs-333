@@ -1,14 +1,36 @@
 id: 25
-question: "Explain the divide and conquer strategy and identify problems suited for this approach"
-answer: "Answer pending"
+question: |
+  (a) Explain the divide and conquer strategy and describe its three phases (divide, conquer, combine).
+  
+  (b) Give two examples of problems well-suited for divide and conquer and explain why.
+  
+  (c) Consider a divide and conquer algorithm with recurrence T(n) = 4T(n/2) + O(n). Use the Master Theorem to determine its time complexity and state which case applies.
+answer: |
+  (a) Divide and conquer breaks a problem into smaller subproblems of the same type, solves them recursively, then combines their solutions:
+     - Divide: Split the problem into smaller subproblems
+     - Conquer: Recursively solve each subproblem
+     - Combine: Merge subproblem solutions into the overall solution
+  
+  (b) Examples:
+     - Merge sort: Naturally splits array in half, sorts independently, merges efficiently
+     - Binary search: Halves search space each step by comparing to middle element
+     - Both have clear subproblem independence and efficient combine steps
+  
+  (c) With a=4, b=2, f(n)=n:
+     - n^(log_b(a)) = n^(log_2(4)) = n^2
+     - f(n) = n = O(n^(2-ε)) for ε=1
+     - This is Case 1: T(n) = Θ(n^(log_b(a))) = Θ(n^2)
+     
+     The recursive work dominates the combining work, resulting in quadratic time complexity.
 topics:
   - divide and conquer
   - algorithm design
   - recurrence relations
+  - master theorem
 type: "short-answer"
 points: 10
 difficulty: "medium"
 learning_objectives:
   - "Understand divide and conquer paradigm"
   - "Identify problems suitable for divide and conquer"
-  - "Analyze divide and conquer recurrences"
+  - "Analyze divide and conquer recurrences using Master Theorem"

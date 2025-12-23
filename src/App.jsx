@@ -36,7 +36,7 @@ function AppContent() {
   if (loading) {
     return (
       <div className="app loading">
-        <h2>Loading CS-333 Textbook...</h2>
+        <h2>Loading CS333 Textbook...</h2>
       </div>
     );
   }
@@ -56,7 +56,7 @@ function AppContent() {
       <header>
         <div className="header-content">
           <div className="header-title">
-            <h1>CS-333: Data Structures and Algorithms</h1>
+            <h1>CS333: Data Structures and Algorithms</h1>
             <p>Understanding computational complexity and efficient problem solving</p>
           </div>
           <nav className="main-nav">
@@ -87,6 +87,7 @@ function AppContent() {
                 <ExamDashboard 
                   questions={questions} 
                   onStartExam={handleStartExam}
+                  courseTitle="CS333: Data Structures and Algorithms"
                 />
               )
             } 

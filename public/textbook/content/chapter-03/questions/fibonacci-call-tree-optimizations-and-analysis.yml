@@ -1,14 +1,34 @@
 id: 21
-question: "Analyze the Fibonacci call tree and discuss optimizations"
-answer: "Answer pending"
+question: |
+  Consider the recursive Fibonacci implementation:
+  
+  ```python
+  def fib(n):
+      if n <= 1:
+          return n
+      return fib(n-1) + fib(n-2)
+  ```
+  
+  (a) Draw the call tree for `fib(5)` and identify repeated computations.
+  
+  (b) Write the recurrence relation T(n) for the number of function calls and explain why this leads to exponential time complexity.
+  
+  (c) Describe memoization as an optimization technique and explain how it improves the time complexity to O(n).
+answer: |
+  (a) The call tree shows fib(5) calls fib(4) and fib(3), fib(4) calls fib(3) and fib(2), etc. Many values like fib(3), fib(2), fib(1) are computed multiple times - for example, fib(3) is computed twice, fib(2) is computed three times.
+  
+  (b) T(n) = T(n-1) + T(n-2) + O(1). This recurrence doesn't fit the Master Theorem form, but solving it shows T(n) ≈ φ^n where φ ≈ 1.618 (golden ratio), making it exponential. Each call branches into two recursive calls, creating an exponentially growing call tree.
+  
+  (c) Memoization stores previously computed results in a lookup table (dictionary/array). Before computing fib(n), check if it's already cached; if so, return the cached value. This eliminates redundant computation, ensuring each fib(i) is computed only once, reducing time complexity from O(2^n) to O(n) with O(n) space.
 topics:
   - recursion
   - optimization
   - call trees
+  - recurrence relations
 type: "short-answer"
 points: 10
 difficulty: "medium"
 learning_objectives:
   - "Understand recursive call trees"
-  - "Analyze recursive algorithms"
+  - "Analyze recursive algorithms using recurrence relations"
   - "Apply optimization techniques to recursive solutions"

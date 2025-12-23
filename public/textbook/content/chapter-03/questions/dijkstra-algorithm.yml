@@ -1,0 +1,68 @@
+id: "ch3-dijkstra-algorithm"
+type: "short-answer"
+chapter: 3
+question: |
+  Consider a weighted directed graph with vertices {S, A, B, C, D} and edges: S→A (4), S→B (2), A→C (3), A→D (1), B→A (1), B→D (5), C→D (2).
+  
+  (a) Run Dijkstra's algorithm starting from vertex S. Show the priority queue contents and the distance table after each iteration until all vertices are processed.
+  
+  (b) Using the predecessor array from your execution, reconstruct the shortest path from S to D. Show the step-by-step reconstruction process.
+  
+  (c) Explain why Dijkstra's algorithm requires non-negative edge weights. Provide a small counterexample graph with a negative edge that demonstrates how Dijkstra's algorithm would produce an incorrect result.
+  
+  (d) What is the time complexity of Dijkstra's algorithm using a binary heap priority queue? How does this compare to using a simple array?
+answer: |
+  (a) Dijkstra's execution from S:
+     - Initialize: dist[S]=0, dist[all others]=∞. PQ = [(S, 0)]
+     - Extract (S, 0): Update dist[A]=4, dist[B]=2. PQ = [(B, 2), (A, 4)]
+     - Extract (B, 2): Check B→A: dist[B]+1=3 < dist[A]=4, update dist[A]=3. Check B→D: dist[D]=7. PQ = [(A, 3), (A, 4), (D, 7)]
+     - Extract (A, 3): Check A→C: dist[C]=6. Check A→D: 3+1=4 < 7, update dist[D]=4. PQ = [(A, 4), (D, 4), (C, 6)]
+     - Extract (A, 4): Already processed with better distance, skip.
+     - Extract (D, 4): Check D's neighbors (none shown). PQ = [(C, 6)]
+     - Extract (C, 6): Check C→D: 6+2=8 > 4, no update. PQ = []
+     
+     Final distances: S=0, A=3, B=2, C=6, D=4
+     Predecessors: pred[A]=B, pred[B]=S, pred[C]=A, pred[D]=A
+  
+  (b) Path reconstruction from S to D:
+     - Start at D: pred[D] = A
+     - Move to A: pred[A] = B  
+     - Move to B: pred[B] = S
+     - Move to S: source reached
+     - Backward path: D ← A ← B ← S
+     - Reversed (actual path): S → B → A → D
+     - Path cost: dist[D] = 4 (verify: 2 + 1 + 1 = 4)
+  
+  (c) Dijkstra's requires non-negative edges because it assumes once a vertex is extracted from the priority queue (finalized), its shortest distance is determined and won't improve.
+     
+     Counterexample with negative edge:
+     - Vertices: {S, A, B}
+     - Edges: S→A (1), S→B (3), A→B (-5)
+     
+     Dijkstra's execution:
+     - Extract (S, 0): dist[A]=1, dist[B]=3
+     - Extract (A, 1): dist[B] = min(3, 1+(-5)) = -4, update dist[B]=-4
+     - But if B was already extracted at distance 3 before this update, Dijkstra would miss the better path S→A→B with cost -4
+     
+     The negative edge allows a later path to improve an "already finalized" vertex, breaking Dijkstra's greedy assumption. Need Bellman-Ford for negative edges.
+  
+  (d) Time complexity:
+     - Binary heap: O((V + E) log V)
+       * Each vertex extracted once: V × log V
+       * Each edge relaxed once: E × log V (for decrease-key)
+       * Total: O((V + E) log V)
+     
+     - Simple array (unsorted): O(V²)
+       * Finding minimum: V times at O(V) each = O(V²)
+       * Edge relaxation: O(E)
+       * Total: O(V²)
+     
+     Binary heap is better for sparse graphs (E << V²), while simple array can be competitive for dense graphs where E ≈ V².
+topics:
+  - "Dijkstra's Algorithm"
+  - "Shortest Paths"
+  - "Priority Queue"
+  - "Algorithm Limitations"
+  - "Negative Edges"
+  - "Path Reconstruction"
+  - "Predecessor Array"

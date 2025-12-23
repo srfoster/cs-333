@@ -1,0 +1,39 @@
+id: "ch2-function-classes-upper-bounds"
+type: "short-answer"
+chapter: 2
+question: |
+  Determine tight upper bounds (Big-O) for the following functions and justify your answers:
+  
+  (a) f(n) = 5n³ + 2n² + 100n + 50
+  
+  (b) g(n) = 3 log₂(n) + 7 log₂(n²) + 4
+  
+  (c) h(n) = 2ⁿ + n³ + 100n²
+  
+  For each, identify the dominant term and explain why lower-order terms can be dropped.
+answer: |
+  (a) f(n) = O(n³)
+  - Dominant term: 5n³ (highest degree polynomial term)
+  - As n grows large, n³ grows much faster than n², n, or constants
+  - For n ≥ 1, we can show 5n³ + 2n² + 100n + 50 ≤ 157n³, so Big-O is n³
+  
+  (b) g(n) = O(log n)
+  - First simplify: 3 log₂(n) + 7 log₂(n²) + 4 = 3 log₂(n) + 14 log₂(n) + 4 = 17 log₂(n) + 4
+  - Dominant term: 17 log₂(n)
+  - Constants and lower-order terms (like the constant 4) are dropped in Big-O
+  - For n ≥ 2, we have 17 log₂(n) + 4 ≤ 21 log₂(n), so Big-O is log n
+  
+  (c) h(n) = O(2ⁿ)
+  - Dominant term: 2ⁿ (exponential growth)
+  - Exponential functions grow faster than any polynomial
+  - As n → ∞, 2ⁿ eventually dominates n³ and n²
+  - For n ≥ 10, we have 2ⁿ + n³ + 100n² ≤ 3·2ⁿ, so Big-O is 2ⁿ
+  
+  **Key principle**: In Big-O analysis, we keep only the fastest-growing term because it dominates the runtime for large n. The hierarchy is: constants < logarithmic < polynomial < exponential.
+topics:
+  - "Big-O"
+  - "Polynomials"
+  - "Logarithms"
+  - "Exponentials"
+  - "Function Growth Rates"
+

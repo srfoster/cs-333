@@ -1,8 +1,41 @@
-id: 8
-question: "Explain the accumulator pattern with examples."
-answer: "TODO: Add answer"
-topics: ["patterns", "iteration"]
-type: "conceptual"
-points: 3
-difficulty: "beginner"
-learning_objectives: []
+id: "ch1-accumulator-transformation-patterns"
+type: "short-answer"
+chapter: 1
+question: |
+  Explain the following common iteration patterns with Python examples:
+  
+  (a) The Accumulator Pattern
+  
+  (b) The Transformation (Map) Pattern
+  
+  (c) Explain the key difference between these two patterns.
+answer: |
+  (a) **Accumulator Pattern**: Builds up a single result by iterating through a collection. Example:
+  ```python
+  # Sum all numbers in a list
+  def sum_list(numbers):
+      total = 0  # accumulator
+      for num in numbers:
+          total += num
+      return total
+  ```
+  The accumulator (total) starts with an initial value and is updated in each iteration, finally returning a single aggregated result.
+  
+  (b) **Transformation (Map) Pattern**: Creates a new collection by applying a transformation to each element. Example:
+  ```python
+  # Square all numbers in a list
+  def square_list(numbers):
+      result = []  # new collection
+      for num in numbers:
+          result.append(num ** 2)
+      return result
+  ```
+  Each element is transformed and added to a new collection, maintaining a one-to-one correspondence between input and output.
+  
+  (c) **Key Difference**: The accumulator pattern reduces a collection to a single value (e.g., sum, product, max), while the transformation pattern produces a new collection of the same size with each element transformed. Accumulator combines elements; transformation applies a function to each element independently.
+topics:
+  - "Iteration Patterns"
+  - "Accumulator"
+  - "Map/Transform"
+  - "Algorithm Design"
+
