@@ -6,8 +6,7 @@ const CONCEPT_MAP_PATHS = [
   'content/chapter-01/concept-map.yml',
   'content/chapter-02/concept-map.yml',
   'content/chapter-03/concept-map.yml',
-  'content/chapter-04/concept-map.yml',
-  'content/chapter-05/concept-map.yml'
+  'content/chapter-04/concept-map.yml'
 ];
 
 // Helper function to extract chapter number from path

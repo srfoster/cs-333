@@ -14,4 +14,26 @@ concept_map:
           - "questions/red-black-balancing.yml"
           - "questions/btree-construction.yml"
           - "questions/tree-tradeoffs.yml"
-          - "questions/iterative-vs-recursive.yml"
+  - category: "Graphs"
+    concepts:
+      - name: "Graph Fundamentals"
+        description: "Graph representation and basic traversal algorithms"
+        exam_questions:
+          - "questions/graph-representation.yml"
+          - "questions/bfs-traversal.yml"
+          - "questions/dfs-traversal.yml"
+          - "questions/connected-components.yml"
+      - name: "Shortest Paths"
+        description: "Finding shortest paths in weighted and unweighted graphs"
+        exam_questions:
+          - "questions/bfs-shortest-path.yml"
+          - "questions/dijkstra-execution.yml"
+          - "questions/dijkstra-constraints.yml"
+          - "questions/shortest-path-reconstruction.yml"
+      - name: "Minimum Spanning Trees"
+        description: "Constructing minimum spanning trees with greedy algorithms"
+        exam_questions:
+          - "questions/mst-properties.yml"
+          - "questions/prim-algorithm.yml"
+          - "questions/kruskal-algorithm.yml"
+          - "questions/greedy-correctness.yml"
