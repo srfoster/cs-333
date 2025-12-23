@@ -1,48 +1,31 @@
 concept_map:
-  - category: "Graph Representation"
+  - category: "Binary Search Trees"
     concepts:
-      - name: "Graph Data Structures"
-        description: "Choosing appropriate graph representations"
+      - name: "BST Properties"
+        description: "Understanding BST ordering and structure"
         exam_questions:
-          - "graph-representation.yml"
-  - category: "Graph Traversal"
+          - "bst-ordering-properties.yml"
+  - category: "AVL Trees"
     concepts:
-      - name: "Breadth-First Search"
-        description: "BFS traversal and applications"
+      - name: "AVL Insertions and Rotations"
+        description: "Performing insertions and maintaining balance"
         exam_questions:
-          - "bfs-traversal.yml"
-      - name: "Depth-First Search"
-        description: "DFS traversal and applications"
-        exam_questions:
-          - "dfs-traversal.yml"
-      - name: "Connected Components"
-        description: "Identifying graph connectivity"
-        exam_questions:
-          - "connected-components.yml"
-  - category: "Shortest Paths"
+          - "avl-insertions.yml"
+  - category: "Red-Black Trees"
     concepts:
-      - name: "Unweighted Shortest Paths"
-        description: "BFS for shortest paths"
+      - name: "Red-Black Balancing"
+        description: "Applying recoloring and rotation rules"
         exam_questions:
-          - "bfs-shortest-path.yml"
-      - name: "Dijkstra's Algorithm"
-        description: "Weighted shortest paths with non-negative edges"
-        exam_questions:
-          - "dijkstra-execution.yml"
-          - "dijkstra-constraints.yml"
-          - "shortest-path-reconstruction.yml"
-  - category: "Minimum Spanning Trees"
+          - "red-black-balancing.yml"
+  - category: "B-Trees"
     concepts:
-      - name: "MST Properties"
-        description: "Understanding minimum spanning trees"
+      - name: "Multi-way Tree Construction"
+        description: "Building and maintaining B-Trees"
         exam_questions:
-          - "mst-properties.yml"
-      - name: "Prim's Algorithm"
-        description: "Constructing MST with Prim's"
+          - "btree-construction.yml"
+  - category: "Balanced Trees"
+    concepts:
+      - name: "Tree Type Comparison"
+        description: "Evaluating tradeoffs among tree types"
         exam_questions:
-          - "prim-algorithm.yml"
-      - name: "Kruskal's Algorithm"
-        description: "Constructing MST with Kruskal's"
-        exam_questions:
-          - "kruskal-algorithm.yml"
-          - "greedy-correctness.yml"
+          - "tree-tradeoffs.yml"

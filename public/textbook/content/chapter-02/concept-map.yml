@@ -1,31 +1,19 @@
 concept_map:
-  - category: "Binary Search Trees"
+  - category: "Algorithm Analysis"
     concepts:
-      - name: "BST Properties"
-        description: "Understanding BST ordering and structure"
+      - name: "Big-O Notation"
+        description: "Mathematics of algorithm analysis"
         exam_questions:
-          - "bst-ordering-properties.yml"
-  - category: "AVL Trees"
-    concepts:
-      - name: "AVL Insertions and Rotations"
-        description: "Performing insertions and maintaining balance"
+          - "asymptotic-upper-bounds.yml"
+          - "polynomials-and-upper-bounds.yml"
+          - "logs-and-upper-bounds.yml"
+          - "exponentials-and-upper-bounds.yml"
+          - "big-o-definition.yml"
+          - "big-o-omega-theta.yml"
+          - "nested-loop-analysis.yml"
+          - "rank-algorithms.yml"
+      - name: "Recursive Analysis"
+        description: "Analyzing recursive algorithms"
         exam_questions:
-          - "avl-insertions.yml"
-  - category: "Red-Black Trees"
-    concepts:
-      - name: "Red-Black Balancing"
-        description: "Applying recoloring and rotation rules"
-        exam_questions:
-          - "red-black-balancing.yml"
-  - category: "B-Trees"
-    concepts:
-      - name: "Multi-way Tree Construction"
-        description: "Building and maintaining B-Trees"
-        exam_questions:
-          - "btree-construction.yml"
-  - category: "Balanced Trees"
-    concepts:
-      - name: "Tree Type Comparison"
-        description: "Evaluating tradeoffs among tree types"
-        exam_questions:
-          - "tree-tradeoffs.yml"
+          - "iterative-vs-recursive.yml"
+          - "recurrence-relations.yml"

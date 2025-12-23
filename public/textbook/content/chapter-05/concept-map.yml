@@ -1,21 +1,21 @@
 concept_map:
-  - category: "Dynamic Programming Fundamentals"
+  - category: "Greedy Strategies"
     concepts:
-      - name: "0/1 Knapsack"
-        description: "DP solution for binary knapsack"
+      - name: "Activity Selection"
+        description: "Greedy activity scheduling"
         exam_questions:
-          - "knapsack-dp.yml"
-      - name: "Longest Common Subsequence"
-        description: "Finding LCS with DP"
+          - "activity-selection.yml"
+      - name: "Fractional Knapsack"
+        description: "Greedy knapsack solution"
         exam_questions:
-          - "lcs-problem.yml"
-  - category: "Advanced DP"
+          - "fractional-knapsack.yml"
+  - category: "Greedy vs Optimal"
     concepts:
-      - name: "Matrix Chain Multiplication"
-        description: "Optimal parenthesization"
+      - name: "0/1 Knapsack Comparison"
+        description: "When greedy fails"
         exam_questions:
-          - "matrix-chain.yml"
-      - name: "DP Strategy"
-        description: "When and how to use DP"
+          - "knapsack-comparison.yml"
+      - name: "Huffman Encoding"
+        description: "Greedy optimal prefix codes"
         exam_questions:
-          - "dp-application.yml"
+          - "huffman-encoding.yml"

@@ -28,15 +28,28 @@ Explore the course content using the navigation above:
 * Complexity
 * Mathematical formalities of complexity
 
+* Sorting and big O - https://www.youtube.com/watch?v=RGuJga2Gl_k
+* Big o -
+  - https://www.youtube.com/watch?v=kgBjXUE_Nwc
+  - https://www.youtube.com/watch?v=MyeV2_tGqvw  Lol "performance enhancing" 
+
 ### Chapter 2: Advanced Data Structures and their Algorithms
+
+
+
+* Complexity
 
 * Trees and Recursion (fib)
 * Graphs
-* Complexity
+
 
 ### Chapter 3: Advanced Algorithmic Patterns 
 
 * Greedy, div conq, dyn prog, network flow
+* Greedy...
+* Divide and Conquer
+  - Quick sort
+  - Merge sort
 
 ### Chapter 4: Intractability
 

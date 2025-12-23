@@ -11,7 +11,7 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
-    "@srfoster/textbook-lib": "file:../cis-110-ai-redo/textbook-lib",
+    "@srfoster/textbook-lib": "file:../cis-110/textbook-lib",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.8.2"

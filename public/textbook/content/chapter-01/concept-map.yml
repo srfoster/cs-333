@@ -1,18 +1,29 @@
 concept_map:
-  - category: "Algorithm Analysis"
+  - category: "Data Structures and Algorithms to Know by Heart"
     concepts:
-      - name: "Big-O Notation"
-        description: "Understanding time and space complexity"
+      - name: "Big picture"
+        description: "Two questions to help organize the content of this book/course."
         exam_questions:
-          - "big-o-definition.yml"
-          - "big-o-omega-theta.yml"
-          - "nested-loop-analysis.yml"
-      - name: "Recursive Analysis"
-        description: "Analyzing recursive algorithms"
+          - "data-structure-inventory-datums-to-graphs.yml"
+          - "algorithm-inventory-search-to-np.yml"
+      - name: "Array/List"
+        description: "Arrays vs Lists and the algorithms that operate on them."
         exam_questions:
-          - "iterative-vs-recursive.yml"
-          - "recurrence-relations.yml"
-      - name: "Comparing Growth Rates"
-        description: "Ranking algorithms by complexity"
+          - "difference-between-array-and-list.yml"
+          - "search-array-vs-list.yml"
+          - "insertion-deletion-update-array-vs-list.yml"
+          - "implement-list.yml"
+          - "swapping-array-vs-list.yml"
+          - "accumulator-pattern.yml"
+          - "transformation-pattern.yml"
+          - "structural-recursion-on-lists-vs-arrays.yml"
+      - name: "Basic Sorting Algorithms"
+        description: "Insertion Sort and Selection Sort algorithms, their implementations, and analyses."
         exam_questions:
-          - "rank-algorithms.yml"
+          - "insertion-sort-implementation-and-analysis.yml"
+          - "selection-sort-implementation-and-analysis.yml"
+          - "bubble-sort-implementation-and-analysis.yml"
+          - "array-or-list-for-insertion-vs-selection-sort.yml"
+          - "are-selection-and-insertion-sort-good.yml"
+
+

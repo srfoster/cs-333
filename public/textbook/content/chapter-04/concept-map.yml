@@ -1,21 +1,48 @@
 concept_map:
-  - category: "Greedy Strategies"
+  - category: "Graph Representation"
     concepts:
-      - name: "Activity Selection"
-        description: "Greedy activity scheduling"
+      - name: "Graph Data Structures"
+        description: "Choosing appropriate graph representations"
         exam_questions:
-          - "activity-selection.yml"
-      - name: "Fractional Knapsack"
-        description: "Greedy knapsack solution"
-        exam_questions:
-          - "fractional-knapsack.yml"
-  - category: "Greedy vs Optimal"
+          - "graph-representation.yml"
+  - category: "Graph Traversal"
     concepts:
-      - name: "0/1 Knapsack Comparison"
-        description: "When greedy fails"
+      - name: "Breadth-First Search"
+        description: "BFS traversal and applications"
         exam_questions:
-          - "knapsack-comparison.yml"
-      - name: "Huffman Encoding"
-        description: "Greedy optimal prefix codes"
+          - "bfs-traversal.yml"
+      - name: "Depth-First Search"
+        description: "DFS traversal and applications"
         exam_questions:
-          - "huffman-encoding.yml"
+          - "dfs-traversal.yml"
+      - name: "Connected Components"
+        description: "Identifying graph connectivity"
+        exam_questions:
+          - "connected-components.yml"
+  - category: "Shortest Paths"
+    concepts:
+      - name: "Unweighted Shortest Paths"
+        description: "BFS for shortest paths"
+        exam_questions:
+          - "bfs-shortest-path.yml"
+      - name: "Dijkstra's Algorithm"
+        description: "Weighted shortest paths with non-negative edges"
+        exam_questions:
+          - "dijkstra-execution.yml"
+          - "dijkstra-constraints.yml"
+          - "shortest-path-reconstruction.yml"
+  - category: "Minimum Spanning Trees"
+    concepts:
+      - name: "MST Properties"
+        description: "Understanding minimum spanning trees"
+        exam_questions:
+          - "mst-properties.yml"
+      - name: "Prim's Algorithm"
+        description: "Constructing MST with Prim's"
+        exam_questions:
+          - "prim-algorithm.yml"
+      - name: "Kruskal's Algorithm"
+        description: "Constructing MST with Kruskal's"
+        exam_questions:
+          - "kruskal-algorithm.yml"
+          - "greedy-correctness.yml"
