@@ -43,3 +43,14 @@ By the end of this chapter, you should be able to:
 * Analyze the time complexity of code with loops and conditionals
 * Compare algorithms and predict their relative performance
 * Understand when constant factors matter vs. when they don't
+
+## Bonus Videos
+
+Big O
+
+* https://www.youtube.com/watch?v=XMUe3zFhM5c
+* https://www.youtube.com/watch?v=BgLTDT03QtU
+* https://www.youtube.com/watch?v=__vX2sjlpXU
+* https://www.youtube.com/watch?v=Q_1M2JaijjQ
+* https://www.youtube.com/watch?v=MyeV2_tGqvw
+* 
