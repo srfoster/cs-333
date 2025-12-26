@@ -33,3 +33,25 @@ By the end of this chapter, you should be able to:
 * Choose appropriate data structures for different scenarios
 * Implement and analyze insertion sort and selection sort
 * Understand when O(n²) sorting algorithms are appropriate
+
+## Bonus Videos
+
+Lists vs Arrays:
+
+* https://www.youtube.com/watch?v=xFMXIgvlgcY
+* https://www.youtube.com/watch?v=lC-yYCOnN8Q
+* https://www.youtube.com/watch?v=dMy2hq9OUMc
+* https://www.youtube.com/watch?v=34ky600VTN0
+
+Insertion Sort:
+
+* https://www.youtube.com/watch?v=TZRWRjq2CAg
+* https://www.youtube.com/watch?v=JU767SDMDvA
+* https://www.youtube.com/watch?v=8mJ-OhcfpYg
+
+Selection Sort:
+
+* https://www.youtube.com/watch?v=g-PGLbMth_g
+* https://www.youtube.com/watch?v=EwjnF7rFLns
+* https://www.youtube.com/watch?v=Iccmrk2ZWoc
+* https://www.youtube.com/watch?v=dsqsnngsoD8
