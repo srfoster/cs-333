@@ -1,14 +1,35 @@
-id: 24
-question: "Analyze quick sort and discuss its best, average, and worst-case performance"
-answer: "Answer pending"
-topics:
-  - divide and conquer
-  - quick sort
-  - algorithm analysis
+id: "ch3-quick-sort-analysis"
 type: "short-answer"
-points: 10
-difficulty: "medium"
-learning_objectives:
-  - "Understand quicksort partitioning"
-  - "Analyze quicksort complexity in different cases"
-  - "Compare pivot selection strategies"
+chapter: 3
+question: |
+  **Analyze quicksort as a divide-and-conquer algorithm.**
+  
+  **Level 0** Discuss why quicksort is often faster than merge sort in practice despite worse worst-case complexity.
+  
+  **Level 1** For sample arrays, demonstrate quicksort's partition step with different pivot choices. Give pseudocode.
+  
+  **Level 2** Implement quicksort in a language of your choice.
+  
+  **Level 3** Derive best, average, and worst-case complexity. Explain pivot selection strategies and why quicksort is often preferred.
+
+answer: |
+  **Quicksort:**
+  Choose pivot, partition array (elements < pivot on left, ≥ pivot on right), recursively sort partitions.
+  
+  **Complexity:**
+  - Best/Average: O(n log n) - balanced partitions
+  - Worst: O(n²) - already sorted with bad pivot choice
+  
+  **Recurrence (average):** T(n) = 2T(n/2) + O(n) → O(n log n)
+  
+  **Pivot strategies:**
+  Random pivot or median-of-three to avoid worst case. Randomized quicksort has expected O(n log n).
+  
+  **Why preferred:**
+  In-place (O(1) space), cache-friendly access patterns, smaller constant factors than merge sort.
+
+topics:
+  - "Divide and Conquer"
+  - "Quicksort"
+  - "Randomized Algorithms"
+  - "In-place Sorting"

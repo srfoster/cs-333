@@ -1,34 +1,34 @@
-id: 23
-question: |
-  Analyze merge sort using the divide and conquer strategy:
-  
-  (a) Describe how merge sort divides the problem and merges solutions.
-  
-  (b) Write the recurrence relation T(n) for merge sort's time complexity.
-  
-  (c) Apply the Master Theorem to solve this recurrence. State which case applies and explain why.
-answer: |
-  (a) Merge sort divides the array into two equal halves, recursively sorts each half, then merges the two sorted halves in linear time. The base case is an array of size 1 (already sorted).
-  
-  (b) T(n) = 2T(n/2) + O(n)
-     - 2T(n/2): Two recursive calls on half-sized problems
-     - O(n): Linear time to merge two sorted halves
-  
-  (c) Using Master Theorem with a=2, b=2, f(n)=n:
-     - n^(log_b(a)) = n^(log_2(2)) = n^1 = n
-     - f(n) = n = Θ(n^(log_b(a)))
-     - This is Case 2: T(n) = Θ(n^(log_b(a)) log n) = Θ(n log n)
-     
-     Merge sort has Θ(n log n) time complexity in all cases (best, average, worst).
-topics:
-  - divide and conquer
-  - merge sort
-  - algorithm analysis
-  - master theorem
+id: "ch3-merge-sort-analysis"
 type: "short-answer"
-points: 10
-difficulty: "medium"
-learning_objectives:
-  - "Understand divide and conquer recurrence relations"
-  - "Analyze merge sort time complexity"
-  - "Apply Master Theorem"
+chapter: 3
+question: |
+  **Analyze merge sort as a divide-and-conquer algorithm.**
+  
+  **Level 0** Discuss why divide-and-conquer is a powerful paradigm and where merge sort is used.
+  
+  **Level 1** For sample arrays, demonstrate merge sort's divide and merge steps. Give pseudocode.
+  
+  **Level 2** Implement merge sort in a language of your choice.
+  
+  **Level 3** Derive the recurrence T(n) = 2T(n/2) + O(n) and solve using the Master Theorem. Explain the Θ(n log n) complexity.
+
+answer: |
+  **Merge Sort:**
+  Divide array in half, recursively sort each half, merge sorted halves in O(n) time.
+  
+  **Recurrence:** T(n) = 2T(n/2) + O(n)
+  - Two subproblems of size n/2
+  - O(n) to merge
+  
+  **Master Theorem:** a=2, b=2, f(n)=n
+  - n^(log_b a) = n^1 = n
+  - Case 2: T(n) = Θ(n log n)
+  
+  **Properties:**
+  Stable, Θ(n log n) in all cases, O(n) extra space. Good for linked lists and external sorting.
+
+topics:
+  - "Divide and Conquer"
+  - "Merge Sort"
+  - "Master Theorem"
+  - "Recurrence Relations"

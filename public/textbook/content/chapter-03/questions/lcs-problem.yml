@@ -1,8 +1,31 @@
-id: "ch5-lcs-problem"
+id: "ch3-lcs-problem"
 type: "short-answer"
-chapter: 5
-question: "Given two sequences, find the longest common subsequence using dynamic programming. Show the DP table and reconstruct the LCS."
-answer: "LCS DP: (1) Create table lcs[i][j] = length of LCS of first i chars of X and first j chars of Y. (2) Recurrence: If X[i]=Y[j], lcs[i][j] = 1 + lcs[i-1][j-1]. Else lcs[i][j] = max(lcs[i-1][j], lcs[i][j-1]). (3) Base: lcs[i][0]=lcs[0][j]=0. Example: X='ABCBDAB', Y='BDCABA'. Fill table. lcs[7][6]=4. Reconstruct: Follow arrows from lcs[7][6]. When X[i]=Y[j], include that character and move diagonally. Else move to max neighbor. Result: 'BCBA' or 'BDAB' (multiple LCS possible). Time: O(mn)."
+chapter: 3
+question: |
+  **Find the longest common subsequence (LCS) using dynamic programming.**
+  
+  **Level 0** Discuss the significance of LCS in bioinformatics, version control, and other applications.
+  
+  **Level 1** For sample sequences, demonstrate the DP table construction and backtracking. Give pseudocode.
+  
+  **Level 2** Implement LCS with DP in a language of your choice.
+  
+  **Level 3** Analyze the O(mn) complexity and space. Explain optimal substructure and how to recover the actual subsequence.
+
+answer: |
+  **LCS DP:**
+  Table lcs[i][j] = length of LCS of first i chars of X and first j chars of Y.
+  If X[i]=Y[j]: lcs[i][j] = 1 + lcs[i-1][j-1]
+  Else: lcs[i][j] = max(lcs[i-1][j], lcs[i][j-1])
+  
+  **Optimal substructure:**
+  LCS of X[1..i] and Y[1..j] uses LCS of prefixes.
+  
+  **Reconstruction:**
+  Backtrack from lcs[m][n]: when X[i]=Y[j], include character and move diagonally; else move toward max.
+  
+  **Time:** O(mn), Space: O(mn) (can reduce to O(min(m,n)))
+
 topics:
   - "Dynamic Programming"
   - "Longest Common Subsequence"

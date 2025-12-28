@@ -1,8 +1,32 @@
-id: "ch4-fractional-knapsack"
+id: "ch3-fractional-knapsack"
 type: "short-answer"
-chapter: 4
-question: "Solve the fractional knapsack problem with given weights, values, and capacity. Show the greedy selection of items by value-to-weight ratio."
-answer: "Fractional Knapsack Greedy: (1) Calculate value/weight ratio for each item. (2) Sort items by ratio (descending). (3) Greedily take items (whole or fraction) until capacity full. Example: Capacity 50. Items: A(w=10,v=60,r=6), B(w=20,v=100,r=5), C(w=30,v=120,r=4). Sort by ratio: A(6), B(5), C(4). Take all of A (10kg, value 60). Take all of B (20kg, value 100). Remaining capacity: 20kg. Take 20/30 of C (20kg, value 80). Total: 60+100+80=240. Greedy works because we can take fractions - always maximize value per unit weight."
+chapter: 3
+question: |
+  **Solve the fractional knapsack problem using a greedy algorithm.**
+  
+  **Level 0** Discuss the difference between fractional and 0/1 knapsack and why one admits a greedy solution while the other doesn't.
+  
+  **Level 1** For sample items with weights and values, demonstrate the greedy algorithm. Give pseudocode.
+  
+  **Level 2** Implement the fractional knapsack algorithm in a language of your choice.
+  
+  **Level 3** Prove why the greedy approach (selecting by value-to-weight ratio) is optimal. Compare to 0/1 knapsack and explain why it requires dynamic programming.
+
+answer: |
+  **Fractional Knapsack Greedy:**
+  Sort items by value/weight ratio (descending), take items greedily until capacity full (taking fractions of items as needed).
+  
+  **Why greedy works:**
+  Can take fractions, so always maximize value per unit weight. No reason to take lower-ratio item before higher-ratio item.
+  
+  **Optimality proof:**
+  Exchange argument - if solution doesn't follow ratio order, swapping portions increases total value.
+  
+  **vs. 0/1 Knapsack:**
+  0/1 (can't take fractions) lacks greedy choice property. Taking highest-ratio item might use capacity that could fit multiple smaller high-value items. Requires DP to explore combinations.
+  
+  **Time complexity:** O(n log n) for sorting.
+
 topics:
   - "Greedy Algorithms"
   - "Fractional Knapsack"

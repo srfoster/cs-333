@@ -1,60 +1,36 @@
-id: "ch4-sat-to-3sat-reduction"
+id: "ch3-sat-to-3sat-reduction"
 type: "short-answer"
-chapter: 4
+chapter: 3
 question: |
-  Given the following SAT formula with mixed clause sizes:
-  - (x₁ ∨ x₂)
-  - (¬x₁ ∨ x₃ ∨ x₄ ∨ ¬x₅)
-  - (x₂ ∨ ¬x₃)
-  - (x₁)
+  **Reduce SAT to 3-SAT to show 3-SAT is NP-complete.**
   
-  (a) Transform this into an equivalent 3-SAT instance by applying the standard reduction rules:
-     - 1-literal clauses: Add dummy literals (e.g., (x₁) becomes (x₁ ∨ y ∨ ¬y))
-     - 2-literal clauses: Add dummy literal (e.g., (x₁ ∨ x₂) becomes (x₁ ∨ x₂ ∨ z))
-     - 4+ literal clauses: Introduce auxiliary variables (e.g., (a ∨ b ∨ c ∨ d) becomes (a ∨ b ∨ z₁) ∧ (¬z₁ ∨ c ∨ d))
+  **Level 0** Discuss why reductions are fundamental to complexity theory and what it means for a problem to be NP-complete.
   
-  Show all auxiliary variables introduced and the resulting 3-SAT clauses.
+  **Level 1** For sample SAT formulas with varied clause sizes, demonstrate the reduction to 3-SAT. Give the transformation rules.
   
-  (b) Given the satisfying assignment x₁=T, x₂=F, x₃=T, x₄=F, x₅=T for the original SAT instance, demonstrate that your 3-SAT instance is also satisfiable by providing appropriate values for all auxiliary and dummy variables.
+  **Level 2** Implement a SAT-to-3SAT reduction in a language of your choice.
+  
+  **Level 3** Prove the reduction is polynomial-time and preserves satisfiability in both directions.
+
 answer: |
-  (a) Applying the reduction rules:
+  **SAT to 3-SAT Reduction:**
+  - 1-literal clause (x): Add dummies → (x ∨ y ∨ ¬y)
+  - 2-literal clause (x ∨ y): Add dummy → (x ∨ y ∨ z)
+  - 4+ literal clause: Split with auxiliary variables
   
-  Original clause 1: (x₁ ∨ x₂) - 2 literals
-  → Add dummy variable y₁: (x₁ ∨ x₂ ∨ y₁)
+  **Correctness:**
+  Forward: If SAT satisfied, set dummies/auxiliaries appropriately
+  Backward: If 3-SAT satisfied, original variables satisfy SAT
   
-  Original clause 2: (¬x₁ ∨ x₃ ∨ x₄ ∨ ¬x₅) - 4 literals
-  → Introduce auxiliary z₁: 
-     (¬x₁ ∨ x₃ ∨ z₁) ∧ (¬z₁ ∨ x₄ ∨ ¬x₅)
+  **Polynomial time:**
+  Each clause produces O(k) new clauses where k is clause length. Total O(n×k) where n = number of clauses.
   
-  Original clause 3: (x₂ ∨ ¬x₃) - 2 literals
-  → Add dummy variable y₂: (x₂ ∨ ¬x₃ ∨ y₂)
-  
-  Original clause 4: (x₁) - 1 literal
-  → Add dummy variables y₃, y₄: (x₁ ∨ y₃ ∨ ¬y₃) or (x₁ ∨ y₃ ∨ y₄)
-  
-  **Final 3-SAT formula:**
-  - (x₁ ∨ x₂ ∨ y₁)
-  - (¬x₁ ∨ x₃ ∨ z₁)
-  - (¬z₁ ∨ x₄ ∨ ¬x₅)
-  - (x₂ ∨ ¬x₃ ∨ y₂)
-  - (x₁ ∨ y₃ ∨ y₄)
-  
-  (b) Verification with x₁=T, x₂=F, x₃=T, x₄=F, x₅=T:
-  
-  - Clause 1: (T ∨ F ∨ y₁) = T (satisfied regardless of y₁)
-  - Clause 2: (F ∨ T ∨ z₁) = T (satisfied regardless of z₁)
-  - Clause 3: Set z₁=T to evaluate: (F ∨ F ∨ F) requires z₁=F for clause 2 to work
-    Actually: (¬T ∨ T ∨ z₁) = (F ∨ T ∨ z₁) = T, so clause 2 satisfied with any z₁
-    Clause 3: (¬z₁ ∨ F ∨ F) requires z₁=F. Set z₁=F.
-  - Clause 4: (F ∨ F ∨ y₂) = y₂, so set y₂=T
-  - Clause 5: (T ∨ y₃ ∨ y₄) = T (satisfied regardless)
-  
-  **Assignment:** x₁=T, x₂=F, x₃=T, x₄=F, x₅=T, z₁=F, y₁=any, y₂=T, y₃=any, y₄=any
-  
-  All clauses satisfied, proving the 3-SAT instance is satisfiable when the original SAT instance is satisfiable.
+  **Significance:**
+  Once we know SAT is NP-complete (Cook-Levin), this shows 3-SAT is NP-complete by reduction.
+
 topics:
   - "NP-completeness"
   - "Reductions"
   - "SAT"
   - "3-SAT"
-  - "Polynomial-time transformations"
+  - "Polynomial-time Transformations"

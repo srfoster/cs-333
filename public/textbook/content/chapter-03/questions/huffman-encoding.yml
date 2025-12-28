@@ -1,8 +1,29 @@
-id: "ch4-huffman-encoding"
+id: "ch3-huffman-encoding"
 type: "short-answer"
-chapter: 4
-question: "Construct a Huffman encoding tree for a given set of character frequencies. Show the binary codes and explain why this greedy algorithm produces an optimal prefix code."
-answer: "Huffman Algorithm: (1) Create leaf node for each character with its frequency. (2) Repeat until one tree: Find two nodes with smallest frequencies, create parent with sum of frequencies, remove two nodes, add parent. (3) Assign 0/1 to left/right edges. Example: {A:5, B:9, C:12, D:13, E:16, F:45}. Combine A+B (14), then 14+C (26), etc. Final codes: shorter codes for frequent characters. Why optimal? Greedy choice (combine lowest frequencies) ensures frequent characters stay near root (short codes), minimizing total encoding length. Proof by exchange argument shows no better prefix code exists."
+chapter: 3
+question: |
+  **Construct Huffman encoding trees for data compression.**
+  
+  **Level 0** Discuss why Huffman encoding is significant for data compression and where it's used.
+  
+  **Level 1** For sample character frequencies, demonstrate Huffman tree construction. Give pseudocode.
+  
+  **Level 2** Implement Huffman encoding in a language of your choice.
+  
+  **Level 3** Prove why the greedy algorithm produces an optimal prefix-free code. Analyze the compression ratio.
+
+answer: |
+  **Huffman Algorithm:**
+  Build min-heap of characters by frequency. Repeatedly extract two minimum nodes, create parent with sum of frequencies, re-insert. Assign 0/1 to edges. Frequent characters get shorter codes.
+  
+  **Why optimal:**
+  Greedy choice (combine lowest frequencies) ensures high-frequency characters near root. Exchange argument proves no better prefix code exists for given frequencies.
+  
+  **Applications:**
+  ZIP compression, JPEG (variants), MP3, used whenever statistical compression needed.
+  
+  **Time complexity:** O(n log n) with heap.
+
 topics:
   - "Huffman Encoding"
   - "Greedy Algorithms"

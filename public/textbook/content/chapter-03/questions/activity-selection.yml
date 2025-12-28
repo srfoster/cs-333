@@ -1,8 +1,32 @@
-id: "ch4-activity-selection"
+id: "ch3-activity-selection"
 type: "short-answer"
-chapter: 4
-question: "Given activities with start and finish times, use a greedy algorithm to select the maximum number of non-overlapping activities. Explain why sorting by finish time works."
-answer: "Greedy Activity Selection: (1) Sort activities by finish time. (2) Select first activity. (3) For each remaining activity: if its start time ≥ previous finish time, select it. Example: Activities (start, finish): A(1,4), B(3,5), C(0,6), D(5,7), E(8,9). Sort by finish: A(1,4), B(3,5), C(0,6), D(5,7), E(8,9). Select A. B overlaps (starts at 3 < 4). C overlaps. D compatible (5≥4), select. E compatible (8≥7), select. Result: {A,D,E}. Why finish time? Earliest finish leaves maximum room for future activities - greedy choice is safe."
+chapter: 3
+question: |
+  **Solve the activity selection problem using a greedy algorithm.**
+  
+  **Level 0** Discuss why greedy algorithms sometimes produce optimal solutions and why activity selection is a classic example.
+  
+  **Level 1** For sample activities with start/finish times, demonstrate the greedy algorithm. Give pseudocode.
+  
+  **Level 2** Implement the activity selection greedy algorithm in a language of your choice.
+  
+  **Level 3** Prove why sorting by finish time yields an optimal solution. Explain when greedy algorithms work vs. when they fail.
+
+answer: |
+  **Greedy Activity Selection:**
+  Sort by finish time, select first activity, then repeatedly select next compatible activity (start ≥ previous finish).
+  
+  **Why it works:**
+  Greedy choice property - selecting the earliest-finishing activity leaves maximum room for remaining activities. No benefit to choosing later-finishing activity in its place.
+  
+  **Correctness proof:**
+  Exchange argument - if optimal solution doesn't include earliest-finishing activity, we can swap it in without decreasing solution size.
+  
+  **When greedy works:**
+  Problems with greedy choice property (locally optimal choice leads to global optimum) and optimal substructure (optimal solution contains optimal solutions to subproblems).
+  
+  **Time complexity:** O(n log n) for sorting.
+
 topics:
   - "Greedy Algorithms"
   - "Activity Selection"
