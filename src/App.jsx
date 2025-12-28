@@ -4,10 +4,18 @@ import {
   ExamDashboard,
   ExamInterface,
   TextbookPage,
-  compiledContentService
+  compiledContentService,
+  loadAllQuestions
 } from '@srfoster/textbook-lib';
 import { compiledFiles, stats } from './compiled';
-import { loadAllQuestions } from './services/questionLoader';
+
+// Define CS-333 concept map paths
+const CONCEPT_MAP_PATHS = [
+  'content/chapter-01/concept-map.yml',
+  'content/chapter-02/concept-map.yml',
+  'content/chapter-03/concept-map.yml',
+  'content/chapter-04/concept-map.yml'
+];
 
 function AppContent() {
   const location = useLocation();
@@ -21,7 +29,7 @@ function AppContent() {
     
     const fetchQuestions = async () => {
       try {
-        const allQuestions = await loadAllQuestions();
+        const allQuestions = await loadAllQuestions(CONCEPT_MAP_PATHS);
         setQuestions(allQuestions);
       } catch (error) {
         console.error('Failed to load questions:', error);
@@ -36,7 +44,7 @@ function AppContent() {
   if (loading) {
     return (
       <div className="app loading">
-        <h2>Loading CS-333 Textbook...</h2>
+        <h2>Loading CS333 Textbook...</h2>
       </div>
     );
   }
@@ -56,7 +64,7 @@ function AppContent() {
       <header>
         <div className="header-content">
           <div className="header-title">
-            <h1>CS-333: Data Structures and Algorithms</h1>
+            <h1>CS333: Data Structures and Algorithms</h1>
             <p>Understanding computational complexity and efficient problem solving</p>
           </div>
           <nav className="main-nav">
@@ -87,6 +95,7 @@ function AppContent() {
                 <ExamDashboard 
                   questions={questions} 
                   onStartExam={handleStartExam}
+                  courseTitle="CS333: Data Structures and Algorithms"
                 />
               )
             } 

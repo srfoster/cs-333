@@ -1,8 +1,0 @@
-id: 17
-question: "Analyze polynomial functions and determine upper bounds."
-answer: "TODO: Add answer"
-topics: ["big-o", "polynomials"]
-type: "problem_solving"
-points: 4
-difficulty: "medium"
-learning_objectives: []

@@ -1,5 +1,5 @@
 concept_map:
-  - category: "Data Structures and Algorithms to Know by Heart"
+  - category: "Arrays, Lists, and a Taste of Complexity Theory"
     concepts:
       - name: "Big picture"
         description: "Two questions to help organize the content of this book/course."
@@ -11,5 +11,3 @@ concept_map:
           - "questions/insertion-sort-implementation-and-analysis.yml"
           - "questions/selection-sort-implementation-and-analysis.yml"
           - "questions/bubble-sort-implementation-and-analysis.yml"
-
-

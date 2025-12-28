@@ -1,83 +1,107 @@
-# CS-333: Data Structures and Algorithms
+# CS333: Data Structures and Algorithms I
 
-Welcome to CS-333! This course explores fundamental data structures and algorithms that are essential for efficient problem-solving in computer science.
+Welcome to CS333! This course explores fundamental data structures and algorithms that are essential for efficient problem-solving in computer science.
 
 ## Course Overview
 
-In this course, you'll learn:
+This course provides a comprehensive study of algorithm design and analysis, covering essential data structures, algorithmic paradigms, and computational complexity theory. Through ~40 core exam questions across four chapters, students will master the mathematical foundations of algorithm analysis, develop proficiency with fundamental data structures, and learn to apply key algorithmic strategies to solve complex computational problems.
 
-- **Basic Data Structures**: Arrays, linked lists, stacks, and queues
-- **Trees and Graphs**: Binary trees, BSTs, heaps, and graph representations
-- **Sorting and Searching**: Efficient algorithms for organizing and finding data
-- **Algorithm Analysis**: Big-O notation and complexity analysis
-- **Advanced Structures**: Hash tables, AVL trees, and priority queues
-
-## Getting Started
-
-Explore the course content using the navigation above:
-
-- **Textbook**: Read through course materials and concepts
-- **Practice Exam**: Test your knowledge with practice questions
+The curriculum progresses from foundational data structures (arrays, lists, basic sorting) through mathematical analysis techniques (Big-O notation, recurrence relations) to advanced topics including graph algorithms, dynamic programming, and NP-completeness theory. Students will learn both the theoretical frameworks for analyzing algorithmic efficiency and the practical skills needed to implement and optimize real-world algorithms.
 
 ## Topics
 
-### Chapter 1: Algorithms and Data Structures to Know By Heart
+### [Chapter 1: Arrays, Lists, and a Taste of Complexity Theory](content/chapter-01/)
 
-* Basic structures: lists, arrays, stacks, queues
-* Basic patterns: pointer, double pointer, sliding window, etc.
-* Complexity
-* Mathematical formalities of complexity
+**Big Picture:**
 
-* Sorting and big O - https://www.youtube.com/watch?v=RGuJga2Gl_k
-* Big o -
-  - https://www.youtube.com/watch?v=kgBjXUE_Nwc
-  - https://www.youtube.com/watch?v=MyeV2_tGqvw  Lol "performance enhancing" 
+* Organizing data structures from primitive datums to complex graphs
+* Categorizing algorithms from basic search to NP-complete problems
 
-### Chapter 2: Advanced Data Structures and their Algorithms
+**Arrays and Lists:**
 
+* Fundamental differences between arrays and linked lists
+* Implementation details of linked list structures
+* Performance comparison: search, insertion, deletion, updates, and swapping
+* Accumulator and transformation patterns
 
+**Basic Sorting Algorithms:**
 
-* Complexity
-
-* Trees and Recursion (fib)
-* Graphs
-
-
-### Chapter 3: Advanced Algorithmic Patterns 
-
-* Greedy, div conq, dyn prog, network flow
-* Greedy...
-* Divide and Conquer
-  - Quick sort
-  - Merge sort
-
-### Chapter 4: Intractability
-
-* P=NP, NP-Complete
-* Beyond intractability...
+* Insertion Sort: implementation and O(n²) analysis
+* Selection Sort: implementation and O(n²) analysis  
+* Choosing between arrays and lists for different sorting algorithms
+* When simple sorting algorithms are appropriate
 
 ---
 
-Topics to add somewhere:
+### [Chapter 2: Mathematics of Algorithm Complexity](content/chapter-02/)
 
-Best/Average/Worst Case Analysis - Distinguishing between different scenarios for the same algorithm
+**Big-O Notation and Asymptotic Analysis:**
 
-Amortized Analysis - Understanding average cost over a sequence of operations (e.g., dynamic array resizing)
+* Mathematical definition of Big-O notation
+* Determining asymptotic upper bounds for functions
+* Distinguishing Big-O (O), Big-Omega (Ω), and Big-Theta (Θ)
+* Comparing function classes: polynomials, logarithms, exponentials
+* Analyzing nested loops and complex code structures
+* Ranking algorithms by time complexity
 
-Space-Time Tradeoffs - Understanding when to trade memory for speed or vice versa
+---
 
-Practical Complexity - Understanding constants and lower-order terms matter in practice (when is O(n log n) actually slower than O(n²) for small n?)
+### [Chapter 3: Recursion, Trees, and Graphs](content/chapter-03/) 
 
-Master Theorem - For solving divide-and-conquer recurrences (you have recurrence relations but not the Master Theorem specifically)
+**Recursion:**
 
-Loop Invariants - Proving algorithm correctness
+* Comparing iterative vs. recursive implementations (factorial example)
+* Fibonacci: call trees, recurrence relations, memoization optimization
+* Writing and solving recurrence relations
 
-Comparing Algorithms Empirically - Actually measuring runtime vs theoretical analysis
+**Tree Data Structures:**
 
-Common Algorithm Patterns - Two pointers, sliding window, etc. and their complexities
+* Comparing BSTs, AVL Trees, Red-Black Trees, and B-Trees
+* Balancing mechanisms and height guarantees
+* Real-world use cases and performance trade-offs
 
---- 
+**Graph Algorithms:**
 
-https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithms_Nutshell%20.pdf
+* Graph representation (adjacency matrix vs. adjacency list)
+* BFS and DFS traversal with connected components
+* Shortest paths: BFS for unweighted graphs
+* Dijkstra's algorithm: execution, path reconstruction, negative edge constraints
+* Minimum spanning trees: Prim's and Kruskal's algorithms with correctness proofs
 
-https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithm%20Design%20-%20John%20Kleinberg%20-%20%C3%89va%20Tardos.pdf
+---
+
+### [Chapter 4: Algorithm Paradigms and Intractability](content/chapter-04/)
+
+**Greedy Algorithms:**
+
+* Activity selection (interval scheduling)
+* Fractional knapsack problem
+* Huffman encoding for data compression
+
+**Divide and Conquer:**
+
+* Merge sort analysis with Master Theorem application
+* Quick sort: best, average, and worst-case analysis
+* Recurrence relations: T(n) = 2T(n/2) + O(n) patterns
+
+**Dynamic Programming:**
+
+* 0/1 Knapsack problem
+* Longest Common Subsequence (LCS)
+* Matrix chain multiplication
+
+**Network Flow:**
+
+* Ford-Fulkerson algorithm for maximum flow
+* Max-flow min-cut theorem and applications
+
+**Computational Complexity:**
+
+* SAT to 3-SAT reduction: executing the transformation algorithm
+* NP-completeness proofs: polynomial-time reductions, P vs NP, verifiers
+
+
+## Further Reading
+
+* [Algorithm Design](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithm%20Design%20-%20John%20Kleinberg%20-%20%C3%89va%20Tardos.pdf)
+* [Algorithms in a Nutshell](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithms_Nutshell%20.pdf)

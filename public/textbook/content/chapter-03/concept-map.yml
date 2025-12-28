@@ -1,39 +1,25 @@
 concept_map:
-  - category: "Recursion and Trees"
+  - category: "Recursion, Trees, and Graphs"
     concepts:
       - name: "Recursion"
-        description: "Recursive algorithms and their analysis"
+        description: "Recursive algorithms and data structures"
         exam_questions:
           - "questions/iterative-vs-recursive.yml"
           - "questions/fibonacci-call-tree-optimizations-and-analysis.yml"
-      - name: "Trees"
-        description: "Understanding tree data structures and their properties"
-        exam_questions:
-          - "questions/bst-ordering-properties.yml"
-          - "questions/avl-insertions.yml"
-          - "questions/red-black-balancing.yml"
-          - "questions/btree-construction.yml"
-          - "questions/tree-tradeoffs.yml"
+          - "questions/tree-comparison.yml"
   - category: "Graphs"
     concepts:
       - name: "Graph Fundamentals"
         description: "Graph representation and basic traversal algorithms"
         exam_questions:
           - "questions/graph-representation.yml"
-          - "questions/bfs-traversal.yml"
-          - "questions/dfs-traversal.yml"
-          - "questions/connected-components.yml"
+          - "questions/graph-traversal-and-connectivity.yml"
       - name: "Shortest Paths"
         description: "Finding shortest paths in weighted and unweighted graphs"
         exam_questions:
           - "questions/bfs-shortest-path.yml"
-          - "questions/dijkstra-execution.yml"
-          - "questions/dijkstra-constraints.yml"
-          - "questions/shortest-path-reconstruction.yml"
+          - "questions/dijkstra-algorithm.yml"
       - name: "Minimum Spanning Trees"
         description: "Constructing minimum spanning trees with greedy algorithms"
         exam_questions:
-          - "questions/mst-properties.yml"
-          - "questions/prim-algorithm.yml"
-          - "questions/kruskal-algorithm.yml"
-          - "questions/greedy-correctness.yml"
+          - "questions/minimum-spanning-trees.yml"
