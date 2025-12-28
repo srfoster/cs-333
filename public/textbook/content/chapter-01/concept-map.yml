@@ -1,13 +1,15 @@
 concept_map:
-  - category: "Arrays, Lists, and a Taste of Complexity Theory"
+  - category: "Mathematics of Algorithm Complexity"
     concepts:
       - name: "Big picture"
-        description: "Two questions to help organize the content of this book/course."
+        description: "Table of content for the material."
         exam_questions:
           - "questions/data-structure-inventory-datums-to-graphs.yml"
-      - name: "Basic Sorting Algorithms"
-        description: "Insertion Sort and Selection Sort algorithms, their implementations, and analyses."
+      - name: "Big-O Notation"
+        description: "Mathematics of algorithm analysis"
         exam_questions:
-          - "questions/insertion-sort-implementation-and-analysis.yml"
-          - "questions/selection-sort-implementation-and-analysis.yml"
-          - "questions/bubble-sort-implementation-and-analysis.yml"
+          - "questions/big-o-definition.yml"
+          - "questions/linear-search-complexity.yml"
+          - "questions/find-minimum-complexity.yml"
+          - "questions/duplicate-detection-complexity.yml"
+          - "questions/matrix-operations-complexity.yml"

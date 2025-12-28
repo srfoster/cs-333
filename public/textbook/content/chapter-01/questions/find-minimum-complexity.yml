@@ -1,0 +1,29 @@
+id: "ch1-find-minimum-complexity"
+type: "short-answer"
+chapter: 1
+question: |
+  **Write an algorithm that finds the minimum value in an unsorted array.**
+  
+  **Level 0** Discuss the big-picture significance of this problem and how it relates to Big-O (O), Big-Omega (Ω), and Big-Theta (Θ) notation. Explain why this problem is different from linear search in terms of complexity bounds.
+  
+  **Level 1** Give example inputs and pseudocode for finding the minimum value; step through your algorithm.
+  
+  **Level 2** Implement your algorithm in a language of your choice.
+  
+  **Level 3** Analyze this algorithm using Ω, O, and Θ notation. Explain why all three notations converge to the same bound for this algorithm, unlike linear search.
+answer: |
+  **Finding Minimum Analysis:**
+  - Must examine every element: Ω(n) lower bound
+  - Never need more than one pass: O(n) upper bound
+  - Tight bound: Θ(n) - always exactly n comparisons
+  
+  This algorithm shows when best case equals worst case, giving a tight Θ bound. Unlike linear search, we cannot terminate early - the minimum could be anywhere, including the last position. Every element must be checked to guarantee correctness. This demonstrates that when an algorithm's best and worst cases coincide, we can describe it with a tight Θ bound.
+  
+  **Key Insight:** Big-Omega describes the best case (lower bound), Big-O describes the worst case (upper bound), and Big-Theta describes a tight bound when both converge. Finding minimum always requires Θ(n) work because you cannot skip any elements.
+topics:
+  - "Algorithm Analysis"
+  - "Asymptotic Notation"
+  - "Big-O"
+  - "Big-Omega"
+  - "Big-Theta"
+  - "Array Algorithms"
