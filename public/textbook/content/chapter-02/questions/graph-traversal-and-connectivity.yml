@@ -1,50 +1,29 @@
-id: "ch3-graph-traversal-connectivity"
+id: "ch2-graph-traversal-connectivity"
 type: "short-answer"
-chapter: 3
+chapter: 2
 question: |
-  Consider the following graph with vertices {A, B, C, D, E, F, G} and edges: A-B, A-C, B-D, C-D, E-F, E-G.
+  **Write BFS and DFS algorithms to traverse a graph.**
   
-  (a) Perform BFS starting from vertex A. Show the order vertices are visited, the contents of the queue at each step, and label each vertex with its distance from A.
+  **Level 1** Discuss the big-picture significance of graph traversal and why both BFS and DFS are fundamental algorithms.
   
-  (b) Perform DFS starting from vertex A. Show the order vertices are visited and identify which edges are tree edges vs. back edges.
+  **Level 2** For sample graphs, demonstrate both algorithms and give pseudocode.
   
-  (c) Use either BFS or DFS to determine the number of connected components in this graph. List the vertices in each component and explain your algorithm.
+  **Level 3** Implement both BFS and DFS in a language of your choice.
   
-  (d) Compare BFS and DFS: What are the key differences in their implementation (data structures), properties (what they find), and typical use cases?
+  **Level 4** Analyze the time and space complexity of both algorithms. Explain when you would choose one over the other and how they enable more complex graph algorithms.
+
 answer: |
-  (a) BFS from A:
-     - Step 1: Queue = [A]. Dequeue A (distance 0), enqueue neighbors B, C. Queue = [B, C]
-     - Step 2: Dequeue B (distance 1), enqueue D. Queue = [C, D]
-     - Step 3: Dequeue C (distance 1), D already visited. Queue = [D]
-     - Step 4: Dequeue D (distance 2), no new neighbors. Queue = []
-     - Order: A, B, C, D. Distances: A=0, B=1, C=1, D=2. Cannot reach E, F, G from A.
+  **BFS vs DFS:**
+  - Both: O(V+E) time, O(V) space for visited set
+  - BFS uses queue (FIFO), explores layer-by-layer, finds shortest paths in unweighted graphs
+  - DFS uses stack/recursion (LIFO), explores depth-first, better for cycle detection and topological sort
   
-  (b) DFS from A (assuming alphabetical neighbor order):
-     - Start at A, visit B (edge A-B is tree edge)
-     - From B, visit D (edge B-D is tree edge)
-     - From D, can reach C (edge D-C is tree edge)
-     - From C, can reach A (edge C-A is back edge - A already visited)
-     - Backtrack to D, B, A. No more unvisited neighbors.
-     - Order: A, B, D, C
-     - Tree edges: A-B, B-D, D-C. Back edge: C-A (completes cycle A-B-D-C-A)
+  **Space trade-offs:**
+  - BFS: O(width) queue space - worse for wide graphs
+  - DFS: O(depth) stack space - worse for deep graphs
   
-  (c) Connected components algorithm:
-     1. Mark all vertices unvisited
-     2. For each unvisited vertex, start BFS/DFS and mark all reachable vertices
-     3. Count how many times step 2 executes
-     
-     Execution:
-     - Start BFS at A → reaches {A, B, C, D} → Component 1
-     - Next unvisited is E → BFS reaches {E, F, G} → Component 2
-     - All vertices visited → 2 components total
-     
-     Components: {A, B, C, D} and {E, F, G}
-  
-  (d) BFS vs DFS comparison:
-     - Implementation: BFS uses a queue (FIFO), DFS uses a stack (LIFO) or recursion
-     - Properties: BFS finds shortest paths in unweighted graphs, visits by distance layers. DFS explores deeply first, useful for detecting cycles and topological sorting
-     - Use cases: BFS for shortest paths, level-order traversal, social networks ("degrees of separation"). DFS for cycle detection, maze solving, topological sort, connected components
-     - Space: BFS can use O(width) space, DFS uses O(depth) space
+  **Why They Matter:** Graph traversal is the foundation for all graph algorithms. BFS enables shortest path algorithms (Dijkstra extends it with priority queue). DFS enables topological sorting, cycle detection, and maze solving. Every graph algorithm builds on these two fundamental patterns.
+
 topics:
   - "Breadth-First Search"
   - "Depth-First Search"
