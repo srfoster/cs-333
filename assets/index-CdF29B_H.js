@@ -747,7 +747,7 @@ Each clause produces O(k) new clauses where k is clause length. Total O(n×k) wh
 
 **Significance:**
 Once we know SAT is NP-complete (Cook-Levin), this shows 3-SAT is NP-complete by reduction.
-`,topics:["NP-completeness","Reductions","SAT","3-SAT","Polynomial-time Transformations"]}},"content/temp-ch05/bubble-sort-implementation-and-analysis.yml":{type:"yaml",module:{id:13,question:"Implement bubble sort and analyze its time complexity.",answer:"TODO: Add answer",topics:["sorting","bubble sort","analysis"],type:"problem_solving",points:5,difficulty:"medium",learning_objectives:[]}},"content/temp-ch05/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Bonus Questions",concepts:[{name:"Advanced Topics",description:"Challenge problems beyond exam scope",exam_questions:["bubble-sort-implementation-and-analysis.yml","structural-recursion-on-lists-vs-arrays.yml"]}]}]}},"content/temp-ch05/structural-recursion-on-lists-vs-arrays.yml":{type:"yaml",module:{id:10,question:"Compare structural recursion on lists vs arrays.",answer:"TODO: Add answer",topics:["recursion","arrays","linked lists"],type:"conceptual",points:3,difficulty:"medium",learning_objectives:[]}},"content/chapter-01/index.md":{type:"markdown",module:`# Chapter 2: Mathematics of Algorithm Complexity\r
+`,topics:["NP-completeness","Reductions","SAT","3-SAT","Polynomial-time Transformations"]}},"content/temp-ch05/bubble-sort-implementation-and-analysis.yml":{type:"yaml",module:{id:13,question:"Implement bubble sort and analyze its time complexity.",answer:"TODO: Add answer",topics:["sorting","bubble sort","analysis"],type:"problem_solving",points:5,difficulty:"medium",learning_objectives:[]}},"content/temp-ch05/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Bonus Questions",concepts:[{name:"Advanced Topics",description:"Challenge problems beyond exam scope",exam_questions:["bubble-sort-implementation-and-analysis.yml","structural-recursion-on-lists-vs-arrays.yml"]}]}]}},"content/temp-ch05/structural-recursion-on-lists-vs-arrays.yml":{type:"yaml",module:{id:10,question:"Compare structural recursion on lists vs arrays.",answer:"TODO: Add answer",topics:["recursion","arrays","linked lists"],type:"conceptual",points:3,difficulty:"medium",learning_objectives:[]}},"content/chapter-01/index.md":{type:"markdown",module:`# Chapter 1: Mathematics of Algorithm Complexity\r
 \r
 This chapter develops the mathematical foundations for analyzing algorithm efficiency using asymptotic notation.\r
 \r
@@ -1342,7 +1342,7 @@ Big O\r
 \r
 {{YouTube:https://www.youtube.com/watch?v=Q_1M2JaijjQ}}\r
 \r
-{{YouTube:https://www.youtube.com/watch?v=MyeV2_tGqvw}} `},"content/chapter-02/index.md":{type:"markdown",module:`# Chapter 3: Recursion, Trees, and Graphs\r
+{{YouTube:https://www.youtube.com/watch?v=MyeV2_tGqvw}} `},"content/chapter-02/index.md":{type:"markdown",module:`# Chapter 2: Recursion, Trees, and Graphs\r
 \r
 This chapter explores recursive algorithms and the hierarchical and networked data structures that naturally support them.\r
 \r
@@ -4142,36 +4142,13 @@ Welcome to CS333! This course explores fundamental data structures and algorithm
 \r
 ## Course Overview\r
 \r
-This course provides a comprehensive study of algorithm design and analysis, covering essential data structures, algorithmic paradigms, and computational complexity theory. Through ~40 core exam questions across four chapters, students will master the mathematical foundations of algorithm analysis, develop proficiency with fundamental data structures, and learn to apply key algorithmic strategies to solve complex computational problems.\r
+This course provides a comprehensive study of algorithm design and analysis, covering essential data structures, algorithmic paradigms, and computational complexity theory. Through core exam questions across three chapters, students will master the mathematical foundations of algorithm analysis, develop proficiency with fundamental data structures, and learn to apply key algorithmic strategies to solve complex computational problems.\r
 \r
-The curriculum progresses from foundational data structures (arrays, lists, basic sorting) through mathematical analysis techniques (Big-O notation, recurrence relations) to advanced topics including graph algorithms, dynamic programming, and NP-completeness theory. Students will learn both the theoretical frameworks for analyzing algorithmic efficiency and the practical skills needed to implement and optimize real-world algorithms.\r
+The curriculum progresses from mathematical analysis techniques (Big-O notation, recurrence relations) through advanced graph algorithms to key algorithmic paradigms including greedy algorithms, divide-and-conquer, dynamic programming, network flow, and NP-completeness theory. Students will learn both the theoretical frameworks for analyzing algorithmic efficiency and the practical skills needed to implement and optimize real-world algorithms.\r
 \r
 ## Topics\r
 \r
-### [Chapter 1: Arrays, Lists, and a Taste of Complexity Theory](content/chapter-01/)\r
-\r
-**Big Picture:**\r
-\r
-* Organizing data structures from primitive datums to complex graphs\r
-* Categorizing algorithms from basic search to NP-complete problems\r
-\r
-**Arrays and Lists:**\r
-\r
-* Fundamental differences between arrays and linked lists\r
-* Implementation details of linked list structures\r
-* Performance comparison: search, insertion, deletion, updates, and swapping\r
-* Accumulator and transformation patterns\r
-\r
-**Basic Sorting Algorithms:**\r
-\r
-* Insertion Sort: implementation and O(n²) analysis\r
-* Selection Sort: implementation and O(n²) analysis  \r
-* Choosing between arrays and lists for different sorting algorithms\r
-* When simple sorting algorithms are appropriate\r
-\r
----\r
-\r
-### [Chapter 2: Mathematics of Algorithm Complexity](content/chapter-02/)\r
+### [Chapter 1: Mathematics of Algorithm Complexity](content/chapter-01/)\r
 \r
 **Big-O Notation and Asymptotic Analysis:**\r
 \r
@@ -4181,10 +4158,12 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 * Comparing function classes: polynomials, logarithms, exponentials\r
 * Analyzing nested loops and complex code structures\r
 * Ranking algorithms by time complexity\r
+* Lists vs Arrays\r
+* Searching and basic sorting\r
 \r
 ---\r
 \r
-### [Chapter 3: Recursion, Trees, and Graphs](content/chapter-03/) \r
+### [Chapter 2: Recursion, Trees, and Graphs](content/chapter-02/) \r
 \r
 **Recursion:**\r
 \r
@@ -4208,7 +4187,7 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 \r
 ---\r
 \r
-### [Chapter 4: Algorithm Paradigms and Intractability](content/chapter-04/)\r
+### [Chapter 3: Algorithm Paradigms and Intractability](content/chapter-03/)\r
 \r
 **Greedy Algorithms:**\r
 \r
@@ -4236,8 +4215,9 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 **Computational Complexity:**\r
 \r
 * SAT to 3-SAT reduction: executing the transformation algorithm\r
-* NP-completeness proofs: polynomial-time reductions, P vs NP, verifiers\r
+* 3-SAT NP-completeness proof structure\r
 \r
+---\r
 \r
 ## Further Reading\r
 \r

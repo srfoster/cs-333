@@ -4,36 +4,13 @@ Welcome to CS333! This course explores fundamental data structures and algorithm
 
 ## Course Overview
 
-This course provides a comprehensive study of algorithm design and analysis, covering essential data structures, algorithmic paradigms, and computational complexity theory. Through ~40 core exam questions across four chapters, students will master the mathematical foundations of algorithm analysis, develop proficiency with fundamental data structures, and learn to apply key algorithmic strategies to solve complex computational problems.
+This course provides a comprehensive study of algorithm design and analysis, covering essential data structures, algorithmic paradigms, and computational complexity theory. Through core exam questions across three chapters, students will master the mathematical foundations of algorithm analysis, develop proficiency with fundamental data structures, and learn to apply key algorithmic strategies to solve complex computational problems.
 
-The curriculum progresses from foundational data structures (arrays, lists, basic sorting) through mathematical analysis techniques (Big-O notation, recurrence relations) to advanced topics including graph algorithms, dynamic programming, and NP-completeness theory. Students will learn both the theoretical frameworks for analyzing algorithmic efficiency and the practical skills needed to implement and optimize real-world algorithms.
+The curriculum progresses from mathematical analysis techniques (Big-O notation, recurrence relations) through advanced graph algorithms to key algorithmic paradigms including greedy algorithms, divide-and-conquer, dynamic programming, network flow, and NP-completeness theory. Students will learn both the theoretical frameworks for analyzing algorithmic efficiency and the practical skills needed to implement and optimize real-world algorithms.
 
 ## Topics
 
-### [Chapter 1: Arrays, Lists, and a Taste of Complexity Theory](content/chapter-01/)
-
-**Big Picture:**
-
-* Organizing data structures from primitive datums to complex graphs
-* Categorizing algorithms from basic search to NP-complete problems
-
-**Arrays and Lists:**
-
-* Fundamental differences between arrays and linked lists
-* Implementation details of linked list structures
-* Performance comparison: search, insertion, deletion, updates, and swapping
-* Accumulator and transformation patterns
-
-**Basic Sorting Algorithms:**
-
-* Insertion Sort: implementation and O(n²) analysis
-* Selection Sort: implementation and O(n²) analysis  
-* Choosing between arrays and lists for different sorting algorithms
-* When simple sorting algorithms are appropriate
-
----
-
-### [Chapter 2: Mathematics of Algorithm Complexity](content/chapter-02/)
+### [Chapter 1: Mathematics of Algorithm Complexity](content/chapter-01/)
 
 **Big-O Notation and Asymptotic Analysis:**
 
@@ -43,10 +20,12 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 * Comparing function classes: polynomials, logarithms, exponentials
 * Analyzing nested loops and complex code structures
 * Ranking algorithms by time complexity
+* Lists vs Arrays
+* Searching and basic sorting
 
 ---
 
-### [Chapter 3: Recursion, Trees, and Graphs](content/chapter-03/) 
+### [Chapter 2: Recursion, Trees, and Graphs](content/chapter-02/) 
 
 **Recursion:**
 
@@ -70,7 +49,7 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 
 ---
 
-### [Chapter 4: Algorithm Paradigms and Intractability](content/chapter-04/)
+### [Chapter 3: Algorithm Paradigms and Intractability](content/chapter-03/)
 
 **Greedy Algorithms:**
 
@@ -98,8 +77,9 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 **Computational Complexity:**
 
 * SAT to 3-SAT reduction: executing the transformation algorithm
-* NP-completeness proofs: polynomial-time reductions, P vs NP, verifiers
+* 3-SAT NP-completeness proof structure
 
+---
 
 ## Further Reading
 
