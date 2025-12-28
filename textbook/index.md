@@ -10,7 +10,7 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 
 ## Topics
 
-### Chapter 1: Arrays, Lists, and a Taste of Complexity Theory
+### [Chapter 1: Arrays, Lists, and a Taste of Complexity Theory](content/chapter-01/)
 
 **Big Picture:**
 
@@ -33,7 +33,7 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 
 ---
 
-### Chapter 2: Mathematics of Algorithm Complexity
+### [Chapter 2: Mathematics of Algorithm Complexity](content/chapter-02/)
 
 **Big-O Notation and Asymptotic Analysis:**
 
@@ -46,7 +46,7 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 
 ---
 
-### Chapter 3: Recursion, Trees, and Graphs 
+### [Chapter 3: Recursion, Trees, and Graphs](content/chapter-03/) 
 
 **Recursion:**
 
@@ -70,7 +70,7 @@ The curriculum progresses from foundational data structures (arrays, lists, basi
 
 ---
 
-### Chapter 4: Algorithm Paradigms and Intractability
+### [Chapter 4: Algorithm Paradigms and Intractability](content/chapter-04/)
 
 **Greedy Algorithms:**
 
