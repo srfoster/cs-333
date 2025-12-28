@@ -13,3 +13,8 @@ concept_map:
           - "questions/find-minimum-complexity.yml"
           - "questions/duplicate-detection-complexity.yml"
           - "questions/matrix-operations-complexity.yml"
+      - name: "Basic Sorting Algorithms"
+        description: "Insertion Sort and Selection Sort algorithms, their implementations, and analyses."
+        exam_questions:
+          - "questions/insertion-sort-implementation-and-analysis.yml"
+          - "questions/selection-sort-implementation-and-analysis.yml"
