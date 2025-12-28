@@ -31,6 +31,18 @@ body {
   margin-right: -50vw;
 }
 
+.header-content {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
 /* Override the header gradient color */
 .app header {
   background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
