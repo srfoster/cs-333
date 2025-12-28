@@ -55,6 +55,33 @@ The Fibonacci sequence perfectly illustrates both recursion's beauty and its pit
 
 Enter memoization: the technique of caching results to avoid redundant computation. By storing each Fibonacci number when we first compute it, we transform an exponential algorithm into a linear one. This isn't just an optimization—it's a fundamental transformation of the algorithm's complexity class. Memoization exemplifies a crucial principle: sometimes the right data structure (here, a cache) turns an impractical algorithm into a practical one.
 
+**Pseudocode:**
+```
+// Factorial - O(n) time, O(n) space
+FUNCTION factorial(n):
+    IF n ≤ 1 THEN
+        RETURN 1
+    RETURN n * factorial(n - 1)
+
+// Naive Fibonacci - O(2ⁿ) time, O(n) space
+FUNCTION fibonacciNaive(n):
+    IF n ≤ 1 THEN
+        RETURN n
+    RETURN fibonacciNaive(n - 1) + fibonacciNaive(n - 2)
+
+// Memoized Fibonacci - O(n) time, O(n) space
+memo ← EMPTY MAP
+FUNCTION fibonacciMemo(n):
+    IF n ≤ 1 THEN
+        RETURN n
+    IF memo CONTAINS n THEN
+        RETURN memo[n]
+    result ← fibonacciMemo(n - 1) + fibonacciMemo(n - 2)
+    memo[n] ← result
+    RETURN result
+```
+
+**Java Implementation:**
 ```java
 public class RecursionExamples {
     
@@ -110,6 +137,37 @@ But there's a catch—a potentially devastating one. BSTs only achieve O(log n) 
 
 This fragility is why we need self-balancing trees: AVL trees, Red-Black trees, B-trees. These structures guarantee balance through strategic rotations and recoloring, ensuring that even adversarial insertion patterns maintain logarithmic height. The simple BST is beautiful and instructive, but production systems demand the guarantees that self-balancing trees provide.
 
+**Pseudocode:**
+```
+// BST Insert - O(log n) average, O(n) worst case
+FUNCTION insert(root, value):
+    IF root = NULL THEN
+        RETURN NEW NODE(value)
+    IF value < root.data THEN
+        root.left ← insert(root.left, value)
+    ELSE IF value > root.data THEN
+        root.right ← insert(root.right, value)
+    RETURN root
+
+// BST Search - O(log n) average, O(n) worst case
+FUNCTION search(root, value):
+    IF root = NULL THEN
+        RETURN false
+    IF root.data = value THEN
+        RETURN true
+    IF value < root.data THEN
+        RETURN search(root.left, value)
+    RETURN search(root.right, value)
+
+// Inorder Traversal - O(n) time
+FUNCTION inorder(root):
+    IF root ≠ NULL THEN
+        inorder(root.left)
+        PRINT root.data
+        inorder(root.right)
+```
+
+**Java Implementation:**
 ```java
 public class BinarySearchTree {
     private Node root;
@@ -196,6 +254,73 @@ AVL trees recognize four imbalance cases: left-left, left-right, right-right, an
 
 The cost of this perfect balance is complexity. AVL tree implementation is intricate, requiring careful attention to height updates and rotation logic. Moreover, AVL trees can be overly aggressive in maintaining balance, performing rotations even when slight imbalance would be acceptable. This leads to our next structure: Red-Black trees.
 
+**Pseudocode:**
+```
+// AVL Insert with Balancing - O(log n)
+FUNCTION insert(root, value):
+    // Standard BST insertion
+    IF root = NULL THEN
+        RETURN NEW NODE(value, height=1)
+    
+    IF value < root.data THEN
+        root.left ← insert(root.left, value)
+    ELSE IF value > root.data THEN
+        root.right ← insert(root.right, value)
+    ELSE
+        RETURN root  // Duplicates not allowed
+    
+    // Update height
+    root.height ← 1 + MAX(height(root.left), height(root.right))
+    
+    // Get balance factor
+    balance ← getBalance(root)
+    
+    // Left-Left Case
+    IF balance > 1 AND value < root.left.data THEN
+        RETURN rotateRight(root)
+    
+    // Right-Right Case
+    IF balance < -1 AND value > root.right.data THEN
+        RETURN rotateLeft(root)
+    
+    // Left-Right Case
+    IF balance > 1 AND value > root.left.data THEN
+        root.left ← rotateLeft(root.left)
+        RETURN rotateRight(root)
+    
+    // Right-Left Case
+    IF balance < -1 AND value < root.right.data THEN
+        root.right ← rotateRight(root.right)
+        RETURN rotateLeft(root)
+    
+    RETURN root
+
+FUNCTION rotateRight(y):
+    x ← y.left
+    T2 ← x.right
+    
+    x.right ← y
+    y.left ← T2
+    
+    y.height ← 1 + MAX(height(y.left), height(y.right))
+    x.height ← 1 + MAX(height(x.left), height(x.right))
+    
+    RETURN x
+
+FUNCTION rotateLeft(x):
+    y ← x.right
+    T2 ← y.left
+    
+    y.left ← x
+    x.right ← T2
+    
+    x.height ← 1 + MAX(height(x.left), height(x.right))
+    y.height ← 1 + MAX(height(y.left), height(y.right))
+    
+    RETURN y
+```
+
+**Java Implementation:**
 ```java
 public class AVLTree {
     private Node root;
@@ -437,6 +562,82 @@ The genius of Red-Black trees lies in their rebalancing strategy. Many insertion
 
 Understanding Red-Black trees requires thinking about color as a form of metadata that encodes balance information. Black height (black nodes on any root-to-leaf path) acts as a balance measure. Violations get fixed by strategically rotating and recoloring, propagating fixes up the tree until the root.
 
+**Pseudocode:**
+```
+// Red-Black Tree Insert - O(log n)
+FUNCTION insert(tree, value):
+    // Standard BST insertion
+    newNode ← NEW NODE(value, color=RED)
+    IF tree.root = NULL THEN
+        newNode.color ← BLACK
+        tree.root ← newNode
+        RETURN
+    
+    parent ← NULL
+    current ← tree.root
+    WHILE current ≠ NULL DO
+        parent ← current
+        IF value < current.data THEN
+            current ← current.left
+        ELSE IF value > current.data THEN
+            current ← current.right
+        ELSE
+            RETURN  // Duplicate
+    
+    newNode.parent ← parent
+    IF value < parent.data THEN
+        parent.left ← newNode
+    ELSE
+        parent.right ← newNode
+    
+    fixViolation(tree, newNode)
+
+FUNCTION fixViolation(tree, node):
+    WHILE node ≠ tree.root AND node.parent.color = RED DO
+        parent ← node.parent
+        grandparent ← parent.parent
+        
+        IF parent = grandparent.left THEN
+            uncle ← grandparent.right
+            
+            // Case 1: Uncle is red (recolor)
+            IF uncle ≠ NULL AND uncle.color = RED THEN
+                parent.color ← BLACK
+                uncle.color ← BLACK
+                grandparent.color ← RED
+                node ← grandparent
+            ELSE
+                // Case 2: Node is right child (left rotation)
+                IF node = parent.right THEN
+                    node ← parent
+                    rotateLeft(tree, node)
+                    parent ← node.parent
+                
+                // Case 3: Node is left child (right rotation + recolor)
+                parent.color ← BLACK
+                grandparent.color ← RED
+                rotateRight(tree, grandparent)
+        ELSE
+            // Mirror cases for right side
+            uncle ← grandparent.left
+            IF uncle ≠ NULL AND uncle.color = RED THEN
+                parent.color ← BLACK
+                uncle.color ← BLACK
+                grandparent.color ← RED
+                node ← grandparent
+            ELSE
+                IF node = parent.left THEN
+                    node ← parent
+                    rotateRight(tree, node)
+                    parent ← node.parent
+                parent.color ← BLACK
+                grandparent.color ← RED
+                rotateLeft(tree, grandparent)
+    
+    tree.root.color ← BLACK
+```
+
+**Java Implementation:**
 ```java
 public class RedBlackTree {
     private Node root;
@@ -792,6 +993,50 @@ Graph representation matters. Adjacency matrices use O(V²) space but provide O(
 
 Graph traversal algorithms explore the graph systematically. Breadth-First Search (BFS) explores by layers: visit all neighbors before visiting neighbors' neighbors. Depth-First Search (DFS) explores by diving deep: follow a path until it ends, then backtrack. These simple strategies solve surprisingly complex problems: connected components, shortest paths in unweighted graphs, topological sorting, cycle detection.
 
+**Pseudocode:**
+```
+// BFS - O(V + E) time
+FUNCTION BFS(graph, start):
+    visited ← NEW BOOLEAN ARRAY of size V (all false)
+    queue ← NEW QUEUE
+    
+    visited[start] ← true
+    queue.ENQUEUE(start)
+    
+    WHILE queue is not empty DO
+        vertex ← queue.DEQUEUE()
+        PRINT vertex
+        
+        FOR each neighbor IN graph.adjacencyList[vertex] DO
+            IF NOT visited[neighbor] THEN
+                visited[neighbor] ← true
+                queue.ENQUEUE(neighbor)
+
+// DFS - O(V + E) time
+FUNCTION DFS(graph, start):
+    visited ← NEW BOOLEAN ARRAY of size V (all false)
+    DFSUtil(graph, start, visited)
+
+FUNCTION DFSUtil(graph, vertex, visited):
+    visited[vertex] ← true
+    PRINT vertex
+    
+    FOR each neighbor IN graph.adjacencyList[vertex] DO
+        IF NOT visited[neighbor] THEN
+            DFSUtil(graph, neighbor, visited)
+
+// Check Connectivity - O(V + E) time
+FUNCTION isConnected(graph):
+    visited ← NEW BOOLEAN ARRAY of size V (all false)
+    DFSUtil(graph, 0, visited)
+    
+    FOR i ← 0 TO V - 1 DO
+        IF NOT visited[i] THEN
+            RETURN false
+    RETURN true
+```
+
+**Java Implementation:**
 ```java
 import java.util.*;
 
@@ -881,6 +1126,29 @@ The key insight is that once we've selected a vertex as having minimum distance,
 
 The priority queue is crucial for efficiency. Selecting the minimum-distance vertex naively takes O(V) time; with V iterations, that's O(V²). But a min-heap priority queue reduces vertex selection to O(log V), and we perform E distance updates, each taking O(log V) to update the heap. Total complexity: O((V + E) log V), often simplified to O(E log V) for connected graphs.
 
+**Pseudocode:**
+```
+// Dijkstra's Algorithm - O((V + E) log V)
+FUNCTION dijkstra(graph, source):
+    dist ← NEW ARRAY of size V (all ∞)
+    dist[source] ← 0
+    
+    pq ← NEW MIN PRIORITY QUEUE
+    pq.INSERT(source, 0)
+    
+    WHILE pq is not empty DO
+        u ← pq.EXTRACT_MIN()
+        
+        FOR each edge (u, v, weight) IN graph.adjacencyList[u] DO
+            // Relaxation step
+            IF dist[u] + weight < dist[v] THEN
+                dist[v] ← dist[u] + weight
+                pq.INSERT(v, dist[v])
+    
+    RETURN dist
+```
+
+**Java Implementation:**
 ```java
 import java.util.*;
 
@@ -976,6 +1244,37 @@ Prim's algorithm grows a single tree from an arbitrary starting vertex, always a
 
 Kruskal's algorithm considers edges in order of increasing weight, adding each edge unless it would create a cycle. This requires a data structure to detect cycles efficiently—enter the Union-Find (disjoint set) structure. Union-Find maintains connected components, allowing O(α(n)) (effectively constant) time to check if two vertices are connected and to merge components.
 
+**Pseudocode:**
+```
+// Prim's MST Algorithm - O(E log V)
+FUNCTION primMST(graph, vertices):
+    visited ← NEW BOOLEAN ARRAY of size V (all false)
+    mstWeight ← 0
+    pq ← NEW MIN PRIORITY QUEUE
+    
+    // Start from vertex 0
+    visited[0] ← true
+    FOR each edge IN graph.adjacencyList[0] DO
+        pq.INSERT(edge)
+    
+    WHILE pq is not empty DO
+        edge ← pq.EXTRACT_MIN()
+        target ← edge.target
+        
+        IF visited[target] THEN
+            CONTINUE  // Skip edges to already-visited vertices
+        
+        visited[target] ← true
+        mstWeight ← mstWeight + edge.weight
+        
+        FOR each nextEdge IN graph.adjacencyList[target] DO
+            IF NOT visited[nextEdge.target] THEN
+                pq.INSERT(nextEdge)
+    
+    RETURN mstWeight
+```
+
+**Java Implementation:**
 ```java
 import java.util.*;
 
@@ -1048,6 +1347,56 @@ The Union-Find data structure solves this elegantly. It maintains a partition of
 
 Union-Find achieves nearly constant time per operation through two optimizations. Path compression flattens trees during find operations: after finding the root, make all visited nodes point directly to it. Union by rank keeps trees shallow by always attaching the shorter tree to the taller one. Together, these give O(α(n)) time per operation, where α is the inverse Ackermann function—effectively constant.
 
+**Pseudocode:**
+```
+// Kruskal's MST Algorithm - O(E log E)
+FUNCTION kruskalMST(edges, vertices):
+    // Sort edges by weight
+    SORT edges by weight (ascending)
+    
+    // Initialize Union-Find
+    parent ← NEW ARRAY of size V
+    rank ← NEW ARRAY of size V
+    FOR i ← 0 TO V - 1 DO
+        parent[i] ← i
+        rank[i] ← 0
+    
+    mstWeight ← 0
+    edgesAdded ← 0
+    
+    FOR each edge IN edges DO
+        IF edgesAdded = V - 1 THEN
+            BREAK  // MST complete
+        
+        rootU ← find(edge.source, parent)
+        rootV ← find(edge.target, parent)
+        
+        // If in different components, add edge
+        IF rootU ≠ rootV THEN
+            mstWeight ← mstWeight + edge.weight
+            edgesAdded ← edgesAdded + 1
+            union(rootU, rootV, parent, rank)
+    
+    RETURN mstWeight
+
+// Union-Find with Path Compression
+FUNCTION find(x, parent):
+    IF parent[x] ≠ x THEN
+        parent[x] ← find(parent[x], parent)  // Path compression
+    RETURN parent[x]
+
+// Union-Find with Union by Rank
+FUNCTION union(x, y, parent, rank):
+    IF rank[x] < rank[y] THEN
+        parent[x] ← y
+    ELSE IF rank[x] > rank[y] THEN
+        parent[y] ← x
+    ELSE
+        parent[y] ← x
+        rank[x] ← rank[x] + 1
+```
+
+**Java Implementation:**
 ```java
 import java.util.*;
 

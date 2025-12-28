@@ -70,6 +70,66 @@ Fractional knapsack extends this idea: given items with weights and values, fill
 
 Huffman coding solves optimal prefix-free encoding: given character frequencies, construct a binary tree where common characters have shorter codes. The greedy strategy: repeatedly merge the two lowest-frequency nodes. This builds an optimal code tree from the bottom up, a beautiful application of greedy principles to information theory.
 
+**Pseudocode:**
+```
+// Activity Selection - O(n log n)
+FUNCTION activitySelection(activities):
+    SORT activities by finish time (ascending)
+    
+    selected ← NEW LIST
+    selected.ADD(activities[0])
+    lastFinish ← activities[0].finish
+    
+    FOR i ← 1 TO length(activities) - 1 DO
+        IF activities[i].start ≥ lastFinish THEN
+            selected.ADD(activities[i])
+            lastFinish ← activities[i].finish
+    
+    RETURN selected
+
+// Fractional Knapsack - O(n log n)
+FUNCTION fractionalKnapsack(items, capacity):
+    // Calculate value per weight and sort
+    FOR each item IN items DO
+        item.ratio ← item.value / item.weight
+    SORT items by ratio (descending)
+    
+    totalValue ← 0.0
+    remaining ← capacity
+    
+    FOR each item IN items DO
+        IF item.weight ≤ remaining THEN
+            totalValue ← totalValue + item.value
+            remaining ← remaining - item.weight
+        ELSE
+            // Take fraction of item
+            totalValue ← totalValue + (item.ratio * remaining)
+            BREAK
+    
+    RETURN totalValue
+
+// Huffman Coding - O(n log n)
+FUNCTION huffmanCoding(frequencies):
+    pq ← NEW MIN PRIORITY QUEUE
+    
+    FOR each (char, freq) IN frequencies DO
+        node ← NEW NODE(char, freq)
+        pq.INSERT(node)
+    
+    WHILE pq.size() > 1 DO
+        left ← pq.EXTRACT_MIN()
+        right ← pq.EXTRACT_MIN()
+        
+        parent ← NEW NODE(NULL, left.freq + right.freq)
+        parent.left ← left
+        parent.right ← right
+        
+        pq.INSERT(parent)
+    
+    RETURN pq.EXTRACT_MIN()  // Root of Huffman tree
+```
+
+**Java Implementation:**
 ```java
 import java.util.*;
 
@@ -203,6 +263,76 @@ Quick sort takes a different approach: choose a pivot, partition around it (elem
 
 The Master Theorem provides a cookbook for analyzing divide-and-conquer recurrences. For T(n) = aT(n/b) + f(n), compare f(n) to n^(log_b a). If f(n) is polynomially smaller, time is Θ(n^(log_b a)). If equal, it's Θ(n^(log_b a) log n). If larger, it's Θ(f(n)). This theorem handles most divide-and-conquer algorithms, turning complex recurrence analysis into pattern matching.
 
+**Pseudocode:**
+```
+// Merge Sort - O(n log n)
+FUNCTION mergeSort(arr, left, right):
+    IF left < right THEN
+        mid ← (left + right) / 2
+        mergeSort(arr, left, mid)
+        mergeSort(arr, mid + 1, right)
+        merge(arr, left, mid, right)
+
+FUNCTION merge(arr, left, mid, right):
+    leftSize ← mid - left + 1
+    rightSize ← right - mid
+    
+    L ← NEW ARRAY of size leftSize
+    R ← NEW ARRAY of size rightSize
+    
+    COPY arr[left...mid] to L
+    COPY arr[mid+1...right] to R
+    
+    i ← 0, j ← 0, k ← left
+    WHILE i < leftSize AND j < rightSize DO
+        IF L[i] ≤ R[j] THEN
+            arr[k] ← L[i]
+            i ← i + 1
+        ELSE
+            arr[k] ← R[j]
+            j ← j + 1
+        k ← k + 1
+    
+    COPY remaining L elements (if any)
+    COPY remaining R elements (if any)
+
+// Quick Sort - O(n log n) average, O(n²) worst
+FUNCTION quickSort(arr, low, high):
+    IF low < high THEN
+        pivotIndex ← partition(arr, low, high)
+        quickSort(arr, low, pivotIndex - 1)
+        quickSort(arr, pivotIndex + 1, high)
+
+FUNCTION partition(arr, low, high):
+    pivot ← arr[high]
+    i ← low - 1
+    
+    FOR j ← low TO high - 1 DO
+        IF arr[j] < pivot THEN
+            i ← i + 1
+            SWAP arr[i] and arr[j]
+    
+    SWAP arr[i + 1] and arr[high]
+    RETURN i + 1
+
+// Binary Search - O(log n)
+FUNCTION binarySearch(arr, target):
+    left ← 0
+    right ← length(arr) - 1
+    
+    WHILE left ≤ right DO
+        mid ← (left + right) / 2
+        IF arr[mid] = target THEN
+            RETURN mid
+        ELSE IF arr[mid] < target THEN
+            left ← mid + 1
+        ELSE
+            right ← mid - 1
+    
+    RETURN -1
+```
+
+**Java Implementation:**
 ```java
 public class DivideAndConquer {
     
@@ -325,6 +455,93 @@ LCS (Longest Common Subsequence) finds the longest sequence appearing in two str
 
 Matrix chain multiplication optimizes the order of multiplying matrices. Multiplying A×B×C can be done as (A×B)×C or A×(B×C), with different costs. The DP solution tries all possible split points, taking the minimum cost. This illustrates DP's flexibility—the recurrence considers all possibilities, but memoization ensures each is computed once.
 
+**Pseudocode:**
+```
+// 0/1 Knapsack - O(n × capacity)
+FUNCTION knapsack01(weights, values, capacity):
+    n ← length(weights)
+    dp ← NEW 2D ARRAY of size (n+1) × (capacity+1)
+    
+    FOR i ← 0 TO n DO
+        FOR w ← 0 TO capacity DO
+            IF i = 0 OR w = 0 THEN
+                dp[i][w] ← 0
+            ELSE IF weights[i-1] ≤ w THEN
+                dp[i][w] ← MAX(values[i-1] + dp[i-1][w-weights[i-1]], 
+                               dp[i-1][w])
+            ELSE
+                dp[i][w] ← dp[i-1][w]
+    
+    RETURN dp[n][capacity]
+
+// Longest Common Subsequence - O(m × n)
+FUNCTION LCS(s1, s2):
+    m ← length(s1)
+    n ← length(s2)
+    dp ← NEW 2D ARRAY of size (m+1) × (n+1)
+    
+    FOR i ← 1 TO m DO
+        FOR j ← 1 TO n DO
+            IF s1[i-1] = s2[j-1] THEN
+                dp[i][j] ← dp[i-1][j-1] + 1
+            ELSE
+                dp[i][j] ← MAX(dp[i-1][j], dp[i][j-1])
+    
+    RETURN dp[m][n]
+
+// Matrix Chain Multiplication - O(n³)
+FUNCTION matrixChainOrder(dims):
+    n ← length(dims) - 1
+    dp ← NEW 2D ARRAY of size n × n (all 0)
+    
+    FOR len ← 2 TO n DO
+        FOR i ← 0 TO n - len DO
+            j ← i + len - 1
+            dp[i][j] ← ∞
+            
+            FOR k ← i TO j - 1 DO
+                cost ← dp[i][k] + dp[k+1][j] + 
+                       dims[i] × dims[k+1] × dims[j+1]
+                dp[i][j] ← MIN(dp[i][j], cost)
+    
+    RETURN dp[0][n-1]
+
+// Coin Change - O(n × amount)
+FUNCTION coinChange(coins, amount):
+    dp ← NEW ARRAY of size (amount+1) filled with ∞
+    dp[0] ← 0
+    
+    FOR i ← 1 TO amount DO
+        FOR each coin IN coins DO
+            IF coin ≤ i THEN
+                dp[i] ← MIN(dp[i], dp[i - coin] + 1)
+    
+    RETURN (dp[amount] = ∞) ? -1 : dp[amount]
+
+// Edit Distance - O(m × n)
+FUNCTION editDistance(s1, s2):
+    m ← length(s1)
+    n ← length(s2)
+    dp ← NEW 2D ARRAY of size (m+1) × (n+1)
+    
+    FOR i ← 0 TO m DO
+        dp[i][0] ← i
+    FOR j ← 0 TO n DO
+        dp[0][j] ← j
+    
+    FOR i ← 1 TO m DO
+        FOR j ← 1 TO n DO
+            IF s1[i-1] = s2[j-1] THEN
+                dp[i][j] ← dp[i-1][j-1]
+            ELSE
+                dp[i][j] ← 1 + MIN(dp[i-1][j],    // delete
+                                    dp[i][j-1],    // insert
+                                    dp[i-1][j-1])  // replace
+    
+    RETURN dp[m][n]
+```
+
+**Java Implementation:**
 ```java
 import java.util.*;
 
@@ -440,6 +657,60 @@ public class DynamicProgramming {
 
 ### Network Flow - Ford-Fulkerson
 
+**Pseudocode:**
+```
+// Ford-Fulkerson (Edmonds-Karp with BFS) - O(V × E²)
+FUNCTION maxFlow(capacity, source, sink):
+    n ← size of capacity matrix
+    residual ← COPY of capacity matrix
+    maxFlow ← 0
+    parent ← NEW ARRAY of size n
+    
+    // While augmenting path exists
+    WHILE BFS(residual, source, sink, parent) DO
+        // Find minimum capacity along path
+        pathFlow ← ∞
+        v ← sink
+        WHILE v ≠ source DO
+            u ← parent[v]
+            pathFlow ← MIN(pathFlow, residual[u][v])
+            v ← u
+        
+        // Update residual capacities
+        v ← sink
+        WHILE v ≠ source DO
+            u ← parent[v]
+            residual[u][v] ← residual[u][v] - pathFlow
+            residual[v][u] ← residual[v][u] + pathFlow
+            v ← u
+        
+        maxFlow ← maxFlow + pathFlow
+    
+    RETURN maxFlow
+
+FUNCTION BFS(residual, source, sink, parent):
+    visited ← NEW BOOLEAN ARRAY of size n (all false)
+    queue ← NEW QUEUE
+    
+    visited[source] ← true
+    queue.ENQUEUE(source)
+    
+    WHILE queue is not empty DO
+        u ← queue.DEQUEUE()
+        
+        FOR v ← 0 TO n - 1 DO
+            IF NOT visited[v] AND residual[u][v] > 0 THEN
+                visited[v] ← true
+                parent[v] ← u
+                queue.ENQUEUE(v)
+                
+                IF v = sink THEN
+                    RETURN true
+    
+    RETURN false
+```
+
+**Java Implementation:**
 ```java
 import java.util.*;
 
@@ -532,6 +803,62 @@ The implementation uses a residual graph: for each edge with flow f and capacity
 
 The max-flow min-cut theorem is fundamental: the maximum flow equals the minimum cut capacity. A cut partitions vertices into two sets; its capacity is the sum of forward edge capacities crossing the cut. This duality connects flow optimization to graph partitioning, with applications from scheduling to network resilience.
 
+**Pseudocode:**
+```
+// SAT Brute Force Solver - O(2ⁿ)
+FUNCTION solveSAT(formula, numVars):
+    // Try all 2ⁿ possible assignments
+    FOR assignment ← 0 TO 2^numVars - 1 DO
+        values ← NEW BOOLEAN ARRAY of size numVars
+        
+        // Convert assignment number to boolean array
+        FOR i ← 0 TO numVars - 1 DO
+            values[i] ← (assignment & (1 << i)) ≠ 0
+        
+        // Check if this assignment satisfies all clauses
+        IF evaluateFormula(formula, values) THEN
+            RETURN values  // Found satisfying assignment
+    
+    RETURN NULL  // No satisfying assignment exists
+
+FUNCTION evaluateFormula(formula, assignment):
+    FOR each clause IN formula DO
+        satisfied ← false
+        FOR each literal IN clause DO
+            value ← assignment[literal.variable]
+            IF literal.negated THEN
+                value ← NOT value
+            IF value = true THEN
+                satisfied ← true
+                BREAK
+        
+        IF NOT satisfied THEN
+            RETURN false  // Clause not satisfied
+    
+    RETURN true  // All clauses satisfied
+
+// Convert to 3-SAT - Polynomial time reduction
+FUNCTION convertTo3SAT(clause):
+    IF length(clause) ≤ 3 THEN
+        RETURN clause
+    
+    // Split long clause into multiple 3-literal clauses
+    // using auxiliary variables
+    newClauses ← EMPTY LIST
+    current ← clause[0], clause[1], aux₀
+    newClauses.ADD(current)
+    
+    FOR i ← 2 TO length(clause) - 3 DO
+        current ← NOT auxᵢ₋₁, clause[i], auxᵢ
+        newClauses.ADD(current)
+    
+    final ← NOT auxₙ₋₂, clause[n-2], clause[n-1]
+    newClauses.ADD(final)
+    
+    RETURN newClauses
+```
+
+**Java Implementation:**
 ```java
 import java.util.*;
 
@@ -726,6 +1053,7 @@ Merge Sort:
 {{YouTube:https://www.youtube.com/watch?v=es2T6KY45cA}}
 
 {{YouTube:https://www.youtube.com/watch?v=3j0SWDX4AtU}}
+
 Quick Sort:
 
 {{YouTube:https://www.youtube.com/watch?v=XE4VP_8Y0BU}}
@@ -737,6 +1065,7 @@ Quick Sort:
 {{YouTube:https://www.youtube.com/watch?v=MZaf_9IZCrc}}
 
 {{YouTube:https://www.youtube.com/watch?v=aXXWXz5rF64}}
+
 Master Theorem:
 
 {{YouTube:https://www.youtube.com/watch?v=2H0GKdrIowU}}
@@ -772,9 +1101,9 @@ Network Flow
 
 Dynamic Programming
 
-{{YouTube:https://www.youtube.com/watch?v=Hdr64lKQ3e4}}
-
 {{YouTube:https://www.youtube.com/watch?v=oifN-YVlrq8}}
+
+{{YouTube:https://www.youtube.com/watch?v=Hdr64lKQ3e4}}
 
 {{YouTube:https://www.youtube.com/watch?v=rE5h11FwiVw}}
 

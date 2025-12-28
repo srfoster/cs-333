@@ -62,6 +62,50 @@ Linearithmic time: O(n log n) marks a crucial threshold. This is the best we can
 
 Beyond this, we enter the realm of diminishing practicality. Quadratic algorithms O(n²) struggle with thousands of elements. Cubic algorithms O(n³) collapse under hundreds. Exponential algorithms O(2ⁿ) are intractable beyond the tiniest inputs. These aren't slow algorithms—they're fundamentally limited by the mathematical structure of their approach.
 
+**Pseudocode:**
+```
+// O(1) - Constant Time
+FUNCTION getFirstElement(arr):
+    RETURN arr[0]
+
+// O(log n) - Logarithmic Time
+FUNCTION binarySearch(arr, target):
+    left ← 0
+    right ← length(arr) - 1
+    WHILE left ≤ right DO
+        mid ← (left + right) / 2
+        IF arr[mid] = target THEN
+            RETURN mid
+        ELSE IF arr[mid] < target THEN
+            left ← mid + 1
+        ELSE
+            right ← mid - 1
+    RETURN -1
+
+// O(n) - Linear Time
+FUNCTION findMax(arr):
+    max ← arr[0]
+    FOR i ← 1 TO length(arr) - 1 DO
+        IF arr[i] > max THEN
+            max ← arr[i]
+    RETURN max
+
+// O(n²) - Quadratic Time
+FUNCTION hasDuplicate(arr):
+    FOR i ← 0 TO length(arr) - 1 DO
+        FOR j ← i + 1 TO length(arr) - 1 DO
+            IF arr[i] = arr[j] THEN
+                RETURN true
+    RETURN false
+
+// O(2ⁿ) - Exponential Time
+FUNCTION fibonacciNaive(n):
+    IF n ≤ 1 THEN
+        RETURN n
+    RETURN fibonacciNaive(n - 1) + fibonacciNaive(n - 2)
+```
+
+**Java Implementation:**
 ```java
 public class ComplexityExamples {
     
@@ -205,6 +249,62 @@ Nested loops demand careful analysis. If both loops iterate over n elements, the
 
 Sequential loops don't nest—they follow each other. Three consecutive O(n) loops give O(n) + O(n) + O(n) = O(3n) = O(n). The fastest-growing term dominates in sum, just as the largest term dominates in products.
 
+**Pseudocode:**
+```
+// Single Loop - O(n)
+FUNCTION sumArray(arr):
+    sum ← 0
+    FOR i ← 0 TO length(arr) - 1 DO
+        sum ← sum + arr[i]
+    RETURN sum
+
+// Logarithmic Loop - O(log n)
+FUNCTION powerOfTwo(n):
+    result ← 1
+    power ← 1
+    WHILE power < n DO
+        result ← result * 2
+        power ← power * 2
+    RETURN result
+
+// Standard Nested Loops - O(n²)
+FUNCTION printPairs(arr):
+    FOR i ← 0 TO length(arr) - 1 DO
+        FOR j ← 0 TO length(arr) - 1 DO
+            PRINT arr[i], arr[j]
+
+// Triangular Nested Loops - O(n²)
+FUNCTION printUniquePairs(arr):
+    FOR i ← 0 TO length(arr) - 1 DO
+        FOR j ← i + 1 TO length(arr) - 1 DO
+            PRINT arr[i], arr[j]
+
+// Logarithmic Inner Loop - O(n log n)
+FUNCTION nestedLogarithmic(n):
+    FOR i ← 0 TO n - 1 DO
+        j ← 1
+        WHILE j < n DO
+            PRINT i, j
+            j ← j * 2
+
+// Sequential Loops - O(n)
+FUNCTION sequentialLoops(arr):
+    sum1 ← 0
+    FOR i ← 0 TO length(arr) - 1 DO
+        sum1 ← sum1 + arr[i]
+    
+    sum2 ← 0
+    FOR j ← 0 TO length(arr) - 1 DO
+        sum2 ← sum2 + arr[j]
+    
+    sum3 ← 0
+    FOR k ← 0 TO length(arr) - 1 DO
+        sum3 ← sum3 + arr[k]
+    
+    RETURN sum1 + sum2 + sum3
+```
+
+**Java Implementation:**
 ```java
 public class LoopAnalysis {
     
@@ -297,8 +397,38 @@ The sequential loops example reinforces that addition of complexities is dominat
 
 Time complexity dominates discussions of algorithm efficiency, but space complexity—the memory an algorithm requires—is equally crucial. In resource-constrained environments (embedded systems, mobile devices, large-scale cloud computing), memory can be the limiting factor. Moreover, space and time often trade off: faster algorithms frequently consume more memory.
 
-```java
+**Pseudocode:**
+```
+// O(1) Space - Constant extra space
+FUNCTION sumIterative(n):
+    sum ← 0
+    FOR i ← 1 TO n DO
+        sum ← sum + i
+    RETURN sum
 
+// O(n) Space - Linear extra space (recursion stack)
+FUNCTION sumRecursive(n):
+    IF n ≤ 0 THEN
+        RETURN 0
+    RETURN n + sumRecursive(n - 1)
+
+// O(n) Space - Explicit array storage
+FUNCTION createArray(n):
+    arr ← NEW ARRAY of size n
+    FOR i ← 0 TO n - 1 DO
+        arr[i] ← i * i
+    RETURN arr
+
+// O(n²) Space - Two-dimensional array
+FUNCTION createMatrix(n):
+    matrix ← NEW 2D ARRAY of size n × n
+    FOR i ← 0 TO n - 1 DO
+        FOR j ← 0 TO n - 1 DO
+            matrix[i][j] ← i * j
+    RETURN matrix
+```
+
+**Java Implementation:**
 ```java
 public class SpaceComplexity {
     

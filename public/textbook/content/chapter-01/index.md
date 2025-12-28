@@ -46,6 +46,47 @@ However, this flexibility comes at a cost. Random access, the ability to jump di
 
 The implementation below demonstrates a generic linked list in Java. Notice how the Node class is declared as a static inner class—this is a common pattern that keeps the node implementation encapsulated while avoiding unnecessary references to the outer class. The generic type parameter `<T>` makes our list reusable for any reference type, embodying the principle of code reusability that's central to modern software engineering.
 
+**Pseudocode:**
+```
+CLASS LinkedList:
+    head ← null
+    size ← 0
+    
+    FUNCTION addFirst(data):
+        newNode ← CREATE Node(data)
+        newNode.next ← head
+        head ← newNode
+        size ← size + 1
+    
+    FUNCTION addLast(data):
+        newNode ← CREATE Node(data)
+        IF head = null THEN
+            head ← newNode
+        ELSE
+            current ← head
+            WHILE current.next ≠ null DO
+                current ← current.next
+            current.next ← newNode
+        size ← size + 1
+    
+    FUNCTION removeFirst():
+        IF head = null THEN
+            ERROR "List is empty"
+        data ← head.data
+        head ← head.next
+        size ← size - 1
+        RETURN data
+    
+    FUNCTION contains(data):
+        current ← head
+        WHILE current ≠ null DO
+            IF current.data = data THEN
+                RETURN true
+            current ← current.next
+        RETURN false
+```
+
+**Java Implementation:**
 ```java
 public class LinkedList<T> {
     private Node<T> head;
@@ -152,6 +193,42 @@ But here's the beautiful mathematics of amortization: if we double the capacity 
 
 This doubling strategy creates an elegant balance. Double too aggressively (say, multiply by 10), and you waste memory. Double too conservatively (add a fixed amount), and you resize too frequently, degrading performance. The factor of 2 sits in the sweet spot, proving that sometimes the right constant matters as much as the asymptotic complexity.
 
+**Pseudocode:**
+```
+CLASS DynamicArray:
+    array ← new Array[10]
+    size ← 0
+    capacity ← 10
+    
+    FUNCTION add(element):
+        IF size = capacity THEN
+            resize()
+        array[size] ← element
+        size ← size + 1
+    
+    FUNCTION get(index):
+        IF index < 0 OR index ≥ size THEN
+            ERROR "Index out of bounds"
+        RETURN array[index]
+    
+    FUNCTION remove(index):
+        IF index < 0 OR index ≥ size THEN
+            ERROR "Index out of bounds"
+        element ← array[index]
+        FOR i ← index TO size - 2 DO
+            array[i] ← array[i + 1]
+        array[size - 1] ← null
+        size ← size - 1
+        RETURN element
+    
+    FUNCTION resize():
+        capacity ← capacity × 2
+        newArray ← new Array[capacity]
+        COPY array TO newArray
+        array ← newArray
+```
+
+**Java Implementation:**
 ```java
 public class DynamicArray<T> {
     private Object[] array;
@@ -235,6 +312,22 @@ Why study an O(n²) algorithm when we have O(n log n) alternatives? Because inse
 
 For small arrays (typically under 10-20 elements), insertion sort often outperforms merge sort and quicksort due to lower constant factors and better cache locality. This is why many optimized sorting implementations, including Java's `Arrays.sort`, switch to insertion sort for small subarrays. Understanding when a "slow" algorithm outperforms a "fast" one teaches us that big-O notation tells only part of the story.
 
+**Pseudocode:**
+```
+FUNCTION insertionSort(arr):
+    FOR i ← 1 TO length(arr) - 1 DO
+        key ← arr[i]
+        j ← i - 1
+        
+        // Move elements greater than key one position ahead
+        WHILE j ≥ 0 AND arr[j] > key DO
+            arr[j + 1] ← arr[j]
+            j ← j - 1
+        
+        arr[j + 1] ← key
+```
+
+**Java Implementation:**
 ```java
 public class InsertionSort {
     // O(n²) worst case, O(n) best case (already sorted)
@@ -289,6 +382,23 @@ However, this consistency comes at a cost: selection sort isn't stable. When we 
 
 The algorithm's saving grace is its minimal number of swaps: at most n-1. If swaps are expensive—perhaps you're sorting large objects or writing to slow storage—selection sort's O(n) swaps can outweigh its O(n²) comparisons. This is a perfect example of how real-world constraints can make a theoretically inferior algorithm practically superior.
 
+**Pseudocode:**
+```
+FUNCTION selectionSort(arr):
+    FOR i ← 0 TO length(arr) - 2 DO
+        minIndex ← i
+        
+        // Find the minimum element in unsorted portion
+        FOR j ← i + 1 TO length(arr) - 1 DO
+            IF arr[j] < arr[minIndex] THEN
+                minIndex ← j
+        
+        // Swap minimum element with first unsorted element
+        IF minIndex ≠ i THEN
+            SWAP arr[i] AND arr[minIndex]
+```
+
+**Java Implementation:**
 ```java
 public class SelectionSort {
     // O(n²) in all cases
