@@ -8,7 +8,9 @@
     "build": "npm run compile && vite build",
     "preview": "vite preview",
     "compile": "node scripts/compile-content.js",
-    "deploy": "npm run build && gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -t",
+    "deploy:force": "gh-pages -d dist -t -f"
   },
   "dependencies": {
     "@srfoster/textbook-lib": "file:../cis-110/textbook-lib",

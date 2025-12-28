@@ -6,7 +6,11 @@ concept_map:
         exam_questions:
           - "questions/iterative-vs-recursive.yml"
           - "questions/fibonacci-call-tree-optimizations-and-analysis.yml"
-          - "questions/tree-comparison.yml"
+      - name: "Tree Structures"
+        description: "Binary search trees, self-balancing trees, and multi-way trees"
+        exam_questions:
+          - "questions/bst-avl-redblack-comparison.yml"
+          - "questions/btree-analysis.yml"
   - category: "Graphs"
     concepts:
       - name: "Graph Fundamentals"

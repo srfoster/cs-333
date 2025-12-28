@@ -1,9 +1,73 @@
-id: "ch3-graph-representation"
+id: "ch2-graph-representation"
 type: "short-answer"
-chapter: 3
-question: "An undirected graph has 1,000 vertices and 1,200 edges. Would an adjacency list or adjacency matrix be more appropriate? Justify your answer in terms of time and space complexity."
-answer: "Adjacency list is more appropriate. Space: Matrix requires O(V²) = O(1,000,000) space, while list requires O(V + E) = O(1,000 + 1,200) = O(2,200) space - much more efficient for this sparse graph (only 1,200 edges vs. 499,500 possible). Time: For operations like 'find all neighbors', list is O(degree) vs matrix O(V). Edge existence check is O(1) for matrix vs O(degree) for list, but with average degree ≈ 2.4, this difference is negligible. The massive space savings make adjacency list the clear choice."
+chapter: 2
+question: |
+  You're building a social network feature that needs to support two operations:
+  
+  1. **Check friendship**: `areFriends(user1, user2)` - returns true if two users are friends
+  2. **Get friend list**: `getFriends(user)` - returns all friends of a user to display their feed
+  
+  Your system has **1 million users** with an average of **150 friends each** (total: 75 million friendships).
+  
+  **Level 1** Discuss the big-picture significance of large graph representation and why it's important to consider various graph data structure representations carefully.
+
+  **Level 2**  Illustrate one or more data structure(s) for storing these friendships. For a smaller example (5 users, 6 friendships):
+
+  - Draw/describe each data structure you're considering
+  - Walk through how each operation (`areFriends`, `getFriends`) would execute with your structures
+  - Calculate space requirements for both your small example and the 1M-user system
+  - Give pseudocode for the key operations using each structure
+
+  **Level 3** Implement your data structure(s) in your preferred language. Each should support:
+
+  - `addFriendship(user1, user2)`
+  - `areFriends(user1, user2)` 
+  - `getFriends(user)` - returns list/array of friends
+  
+  Write comprehensive tests:
+
+  - Empty graph (0 users)
+  - Single user with no friends
+  - Small graph (5 users, 6 friendships)
+  - Larger graph (1000 users, 1200 friendships)
+  - Measure actual memory usage and operation times
+
+  **Level 4** Discuss the time and space complexity for your data structure(s) and the circumstances under which one might be preferred over another. 
+
+answer: |
+  **Level 1**: The representation determines whether your system uses hundreds of megabytes or terabytes of memory—the difference between feasible and impossible. It also affects whether displaying a user's feed requires scanning millions of entries or just their actual friends. Poor choices lead to systems that either can't fit in memory or have multi-second response times for simple operations.
+
+  **Level 2**: 
+  Two natural approaches emerge:
+  
+  **2D array approach** (5×5 = 25 entries): Store a V×V boolean grid where grid[i][j] = true if i and j are friends
+  Example: [[0,1,0,1,0], [1,0,1,0,0], [0,1,0,1,1], [1,0,1,0,1], [0,0,1,1,0]]
+  
+  **Array-of-lists approach** (5 arrays): Store V lists where list[i] contains all friends of user i
+  Example: [0:[1,3], 1:[0,2], 2:[1,3,4], 3:[0,2,4], 4:[2,3]]
+  
+  areFriends operations: Grid checks [i][j] in O(1). List searches list[i] in O(degree(i)).
+  getFriends operations: Grid scans entire row in O(V). List returns list[i] in O(1) access + O(degree) to iterate.
+  
+  Space for 1M users, 75M edges: Grid = 1M × 1M = 1TB. Lists = 1M + 150M entries = ~150MB.
+  
+  Pseudocode for grid.areFriends(u,v): return grid[u][v]
+  Pseudocode for lists.getFriends(u): return lists[u]
+
+  **Level 3**: Implementation uses 2D array/boolean[][] for grid approach, array of lists/List<Integer>[] for list approach. Both handle undirected edges symmetrically. Tests verify: empty graphs, single user, correct friendship detection, complete friend retrieval. Performance tests on 1000-user graph confirm dramatic space differences (~1M vs ~3200 memory units) and operation trade-offs.
+
+  **Level 4**: 
+  Space complexity proof: Grid stores V² booleans = Θ(V²). Lists store V list containers + 2E edge references (for undirected) = Θ(V+E).
+  
+  Time complexity proof: Grid[i][j] is direct array access = O(1). Lists must search list[i] = O(|list[i]|) = O(degree(i)). Getting friends: grid scans entire row = O(V); lists return container immediately = O(1) access + O(degree) to iterate.
+  
+  Critical insight: For sparse graphs (E << V²), lists win on both space and the operation that matters most. Graph algorithms iterate over neighbors, not check individual edges. The pattern "for each friend of u" takes O(V²) with grids (must check all V slots for each user) but O(V+E) with lists (only visit actual friends).
+  
+  Real-world impact: Social networks (E ≈ 150V), road maps (E ≈ 3V), web graphs (E ≈ 10V) are all sparse. Lists save 100-1000× memory while making algorithms faster. Grids only justify themselves for dense graphs (E ≈ V²) where most pairs are connected, or for workloads dominated by "are these two connected?" queries (rare in practice). This is why graph databases, routing systems, and network analysis tools universally adopt list-based representations (often called "adjacency lists") as their default.
+
 topics:
   - "Graph Representation"
+  - "Adjacency Matrix"
+  - "Adjacency List"
   - "Sparse Graphs"
-  - "Space Complexity"
+  - "Space-Time Trade-offs"

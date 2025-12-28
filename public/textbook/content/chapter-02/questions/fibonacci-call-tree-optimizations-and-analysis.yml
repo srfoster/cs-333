@@ -1,34 +1,47 @@
-id: 21
-question: |
-  Consider the recursive Fibonacci implementation:
-  
-  ```python
-  def fib(n):
-      if n <= 1:
-          return n
-      return fib(n-1) + fib(n-2)
-  ```
-  
-  (a) Draw the call tree for `fib(5)` and identify repeated computations.
-  
-  (b) Write the recurrence relation T(n) for the number of function calls and explain why this leads to exponential time complexity.
-  
-  (c) Describe memoization as an optimization technique and explain how it improves the time complexity to O(n).
-answer: |
-  (a) The call tree shows fib(5) calls fib(4) and fib(3), fib(4) calls fib(3) and fib(2), etc. Many values like fib(3), fib(2), fib(1) are computed multiple times - for example, fib(3) is computed twice, fib(2) is computed three times.
-  
-  (b) T(n) = T(n-1) + T(n-2) + O(1). This recurrence doesn't fit the Master Theorem form, but solving it shows T(n) ≈ φ^n where φ ≈ 1.618 (golden ratio), making it exponential. Each call branches into two recursive calls, creating an exponentially growing call tree.
-  
-  (c) Memoization stores previously computed results in a lookup table (dictionary/array). Before computing fib(n), check if it's already cached; if so, return the cached value. This eliminates redundant computation, ensuring each fib(i) is computed only once, reducing time complexity from O(2^n) to O(n) with O(n) space.
-topics:
-  - recursion
-  - optimization
-  - call trees
-  - recurrence relations
+id: "ch2-fibonacci-call-tree-optimizations-and-analysis"
 type: "short-answer"
-points: 10
-difficulty: "medium"
-learning_objectives:
-  - "Understand recursive call trees"
-  - "Analyze recursive algorithms using recurrence relations"
-  - "Apply optimization techniques to recursive solutions"
+chapter: 2
+question: |
+  **Write three implementations of the Fibonacci function: (1) naive recursive, (2) memoized recursive, and (3) iterative bottom-up.**
+  
+  **Level 0** Discuss why the naive Fibonacci recursion is a classic example of algorithmic inefficiency and why this problem is fundamental to understanding dynamic programming. Explain the broader significance of memoization as an optimization technique.
+  
+  **Level 1** For naive recursion: Draw or describe the call tree for fib(5) and identify repeated computations. For memoization: Explain how caching eliminates redundant calls. For iteration: Describe the bottom-up approach. Provide pseudocode for all three versions and step through them with small examples.
+  
+  **Level 2** Implement all three versions in a language of your choice.
+  
+  **Level 3** Analyze the time and space complexity of each approach:
+  - Write the recurrence relation T(n) for naive recursion and explain why it leads to O(2ⁿ) time
+  - Explain how memoization reduces complexity to O(n) time with O(n) space
+  - Show that iteration achieves O(n) time with O(1) space
+  - Discuss the trade-offs between these approaches and when each is appropriate
+answer: |
+  **Complexity Analysis:**
+  
+  **1. Naive Recursion:**
+  - Time: O(2ⁿ) - Recurrence T(n) = T(n-1) + T(n-2) + O(1) grows exponentially
+  - Space: O(n) - Maximum call stack depth
+  - Problem: Recomputes same values exponentially many times (fib(3) computed 2 times, fib(2) computed 3 times in fib(5))
+  
+  **2. Memoized Recursion:**
+  - Time: O(n) - Each fib(i) computed exactly once, then cached
+  - Space: O(n) - Cache storage + O(n) call stack
+  - Benefit: Elegant code with dramatic performance improvement through caching
+  
+  **3. Iterative Bottom-Up:**
+  - Time: O(n) - Single loop computing values in order
+  - Space: O(1) - Only need two variables (previous two values)
+  - Benefit: Most efficient approach, no recursion overhead
+  
+  **Key Insights:**
+  - Call tree visualization shows why naive approach is O(2ⁿ): full binary tree of height n has ~2ⁿ nodes
+  - Memoization transforms overlapping subproblems into single computations
+  - This pattern (naive → memoized → bottom-up) applies to all dynamic programming problems
+  - Choice depends on: code clarity vs space efficiency vs performance requirements
+topics:
+  - "Recursion"
+  - "Dynamic Programming"
+  - "Memoization"
+  - "Call Trees"
+  - "Recurrence Relations"
+  - "Algorithm Optimization"

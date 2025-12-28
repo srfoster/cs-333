@@ -1,25 +1,36 @@
-id: "ch1-iterative-vs-recursive"
+id: "ch2-iterative-vs-recursive"
 type: "short-answer"
-chapter: 1
+chapter: 2
 question: |
-  Two implementations of factorial are shown below (one recursive, one iterative). Analyze and compare their time complexity and auxiliary space usage, and explain why they differ.
-
-  ```python
-  def factorial_recursive(n):
-      if n <= 1:
-          return 1
-      return n * factorial_recursive(n - 1)
-  ```
-
-  ```python
-  def factorial_iterative(n):
-      result = 1
-      for i in range(2, n + 1):
-          result *= i
-      return result
-  ```
-answer: "Both have O(n) time complexity as they perform n multiplications. However, the recursive version requires O(n) auxiliary space for the call stack (one frame per recursive call), while the iterative version uses O(1) space (only local variables). The difference arises because recursion implicitly uses the call stack to store intermediate states, whereas iteration explicitly manages state with variables."
+  **Write both recursive and iterative implementations of the factorial function.**
+  
+  **Level 0** Discuss the fundamental trade-offs between recursive and iterative approaches to problem-solving. Explain why understanding both paradigms is essential in algorithm design.
+  
+  **Level 1** Provide example inputs (e.g., factorial(5)). Give pseudocode for both the recursive approach (using the mathematical definition: n! = n × (n-1)!) and the iterative approach (using a loop). Step through each version with a small example.
+  
+  **Level 2** Implement both versions in a language of your choice.
+  
+  **Level 3** Analyze and compare the time complexity and space complexity of both implementations. Explain why they have the same time complexity but different space complexity. Discuss when you would choose recursion over iteration and vice versa.
+answer: |
+  **Complexity Comparison:**
+  - **Time Complexity**: Both O(n) - n multiplications required
+  - **Space Complexity**: 
+    - Recursive: O(n) - call stack depth of n frames
+    - Iterative: O(1) - only local variables
+  
+  **Key Insights:**
+  - Recursion uses implicit state (call stack) while iteration uses explicit state (variables)
+  - Each recursive call adds a stack frame storing local variables and return address
+  - Stack overflow risk with deep recursion (typically ~1000-10000 calls depending on language/platform)
+  - Iteration is more space-efficient but recursion can be more elegant for naturally recursive problems
+  
+  **When to Choose:**
+  - **Recursion**: Tree/graph traversal, divide-and-conquer, problems with recursive structure
+  - **Iteration**: Simple loops, space-constrained environments, performance-critical code
+  - **Note**: Tail recursion (when recursive call is last operation) can be optimized to O(1) space by some compilers
 topics:
   - "Algorithm Analysis"
   - "Recursion"
+  - "Iteration"
   - "Space Complexity"
+  - "Call Stack"

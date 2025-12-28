@@ -1,8 +1,32 @@
-id: 11
-question: "Implement insertion sort and analyze its time complexity."
-answer: "TODO: Add answer"
-topics: ["sorting", "insertion sort", "analysis"]
-type: "problem_solving"
-points: 5
-difficulty: "medium"
-learning_objectives: []
+id: "ch1-insertion-sort-implementation-and-analysis"
+type: "short-answer"
+chapter: 1
+question: |
+  **Write an insertion sort algorithm that sorts an array of integers in ascending order.**
+  
+  **Level 0** Discuss the big-picture significance of insertion sort and why it's an important algorithm to understand despite not being the fastest sorting algorithm.
+  
+  **Level 1** Provide example inputs showing best-case (already sorted) and worst-case (reverse sorted) scenarios. Give the pseudocode for insertion sort and step through it with a small example array.
+  
+  **Level 2** Implement insertion sort in a language of your choice.
+  
+  **Level 3** Analyze the time complexity for best case, worst case, and average case. Explain why insertion sort is adaptive (performs better on partially sorted data) and stable (preserves relative order of equal elements).
+answer: |
+  **Insertion Sort Analysis:**
+  - Best case: O(n) - array already sorted, only comparisons needed
+  - Worst case: O(n²) - array reverse sorted, maximum shifts required
+  - Average case: O(n²) - roughly half the elements need to be shifted on average
+  
+  **Key Properties:**
+  - **Adaptive**: Performance improves with partially sorted data because fewer shifts are needed
+  - **Stable**: Equal elements maintain their original relative order
+  - **In-place**: Requires only O(1) extra space
+  - **Online**: Can sort data as it arrives
+  
+  **Why It Matters:** Despite quadratic worst-case complexity, insertion sort is often the fastest algorithm for small arrays (< 10-20 elements) and nearly sorted data. Many advanced algorithms like Timsort use insertion sort as a subroutine for small subarrays.
+topics:
+  - "Sorting Algorithms"
+  - "Insertion Sort"
+  - "Algorithm Analysis"
+  - "Adaptive Algorithms"
+  - "Stable Sorting"

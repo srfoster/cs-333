@@ -1,9 +1,0 @@
-id: "ch3-greedy-correctness"
-type: "short-answer"
-chapter: 3
-question: "Explain why Kruskal's greedy selection of the next smallest edge does not lead to cycles and still produces a minimum spanning tree."
-answer: "Cycle Prevention: Kruskal's only adds edge (u,v) if find(u) ≠ find(v), meaning u and v are in different components. Adding such an edge cannot create a cycle (would need a path u→v already, but they're in different components). Optimality: Proven by cut property - for any cut, the minimum-weight crossing edge is in some MST. Each Kruskal edge is minimum-weight for the cut between its component and all others. By adding edges in sorted order and avoiding cycles, we build an MST incrementally. The greedy choice (smallest available edge) is always safe by the cut property."
-topics:
-  - "Greedy Algorithms"
-  - "Algorithm Correctness"
-  - "MST Theory"
