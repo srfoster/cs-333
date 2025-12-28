@@ -2,7 +2,7 @@ id: "ch3-matrix-chain"
 type: "short-answer"
 chapter: 3
 question: |
-  **Find the optimal parenthesization for matrix chain multiplication.**
+  **Implement the matrix chain multiplication optimization algorithm.**
   
   **Level 0** Discuss why matrix multiplication order matters and the significance of this optimization problem.
   

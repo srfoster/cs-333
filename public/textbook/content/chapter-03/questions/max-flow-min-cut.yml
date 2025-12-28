@@ -2,7 +2,7 @@ id: "ch3-max-flow-min-cut"
 type: "short-answer"
 chapter: 3
 question: |
-  **Prove and apply the max-flow min-cut theorem.**
+  **Implement algorithms demonstrating the max-flow min-cut theorem.**
   
   **Level 0** Discuss the significance of the max-flow min-cut theorem as a fundamental duality in optimization.
   

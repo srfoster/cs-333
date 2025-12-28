@@ -2,7 +2,7 @@ id: "ch3-knapsack-dp"
 type: "short-answer"
 chapter: 3
 question: |
-  **Solve the 0/1 knapsack problem using dynamic programming.**
+  **Implement the 0/1 knapsack algorithm using dynamic programming.**
   
   **Level 0** Discuss why DP is needed for 0/1 knapsack and what problems exhibit optimal substructure.
   

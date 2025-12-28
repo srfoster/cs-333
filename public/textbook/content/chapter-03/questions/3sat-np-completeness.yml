@@ -2,7 +2,7 @@ id: "ch3-3sat-np-completeness"
 type: "short-answer"
 chapter: 3
 question: |
-  **Prove that 3-SAT is NP-complete.**
+  **Implement a proof that 3-SAT is NP-complete.**
   
   **Level 0** Discuss why 3-SAT is a canonical NP-complete problem and its importance in complexity theory.
   

@@ -2,7 +2,7 @@ id: "ch2-graph-traversal-connectivity"
 type: "short-answer"
 chapter: 2
 question: |
-  **Write BFS and DFS algorithms to traverse a graph.**
+  **Implement BFS and DFS algorithms to traverse a graph.**
   
   **Level 0** Discuss the big-picture significance of graph traversal and why both BFS and DFS are fundamental algorithms.
   

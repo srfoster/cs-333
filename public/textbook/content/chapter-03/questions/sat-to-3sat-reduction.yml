@@ -2,7 +2,7 @@ id: "ch3-sat-to-3sat-reduction"
 type: "short-answer"
 chapter: 3
 question: |
-  **Reduce SAT to 3-SAT to show 3-SAT is NP-complete.**
+  **Implement a reduction from SAT to 3-SAT to show 3-SAT is NP-complete.**
   
   **Level 0** Discuss why reductions are fundamental to complexity theory and what it means for a problem to be NP-complete.
   

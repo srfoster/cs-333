@@ -2,7 +2,7 @@ id: "ch2-minimum-spanning-trees"
 type: "short-answer"
 chapter: 2
 question: |
-  **Implement algorithms to find minimum spanning trees (MSTs) in weighted graphs.**
+  **Implement minimum spanning tree algorithms (Prim's and Kruskal's).**
   
   **Level 0** Discuss why minimum spanning trees are important and what problems they solve.
   

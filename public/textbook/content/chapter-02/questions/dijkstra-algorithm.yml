@@ -2,7 +2,7 @@ id: "ch2-dijkstra-algorithm"
 type: "short-answer"
 chapter: 2
 question: |
-  **Implement Dijkstra's algorithm to find shortest paths in a weighted graph.**
+  **Implement Dijkstra's algorithm for shortest paths in weighted graphs.**
   
   **Level 0** Discuss why Dijkstra's algorithm is significant and how it extends BFS to handle weighted graphs.
   

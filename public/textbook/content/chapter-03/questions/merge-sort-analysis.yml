@@ -2,7 +2,7 @@ id: "ch3-merge-sort-analysis"
 type: "short-answer"
 chapter: 3
 question: |
-  **Analyze merge sort as a divide-and-conquer algorithm.**
+  **Implement and analyze merge sort as a divide-and-conquer algorithm.**
   
   **Level 0** Discuss why divide-and-conquer is a powerful paradigm and where merge sort is used.
   

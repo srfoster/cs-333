@@ -2,7 +2,7 @@ id: "ch1-insertion-sort-implementation-and-analysis"
 type: "short-answer"
 chapter: 1
 question: |
-  **Write an insertion sort algorithm that sorts an array of integers in ascending order.**
+  **Implement insertion sort to sort an array of integers in ascending order.**
   
   **Level 0** Discuss the big-picture significance of insertion sort and why it's an important algorithm to understand despite not being the fastest sorting algorithm.
   

@@ -2,7 +2,7 @@ id: "ch2-bfs-shortest-path"
 type: "short-answer"
 chapter: 2
 question: |
-  **Use BFS to find shortest paths in an unweighted graph.**
+  **Implement BFS to find shortest paths in unweighted graphs.**
   
   **Level 0** Discuss why BFS naturally finds shortest paths in unweighted graphs and why this property is significant.
   

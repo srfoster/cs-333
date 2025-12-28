@@ -2,7 +2,9 @@ id: "ch2-graph-representation"
 type: "short-answer"
 chapter: 2
 question: |
-  You're building a social network feature that needs to support two operations:
+  **Implement graph data structures for a social network feature.**
+  
+  You need to support two operations:
   
   1. **Check friendship**: `areFriends(user1, user2)` - returns true if two users are friends
   2. **Get friend list**: `getFriends(user)` - returns all friends of a user to display their feed

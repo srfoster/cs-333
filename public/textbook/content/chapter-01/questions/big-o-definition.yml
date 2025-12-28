@@ -2,7 +2,7 @@ id: "ch1-big-o-definition"
 type: "short-answer"
 chapter: 1
 question: |
-  **Write an algorithm that returns the sum of the numbers from 1 to n.**
+  **Implement an algorithm that returns the sum of the numbers from 1 to n.**
   
   **Level 0** Discuss the big-picture significance of this problem in the context of computer science.
   
