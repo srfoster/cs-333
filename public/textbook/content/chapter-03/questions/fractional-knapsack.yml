@@ -2,7 +2,7 @@ id: "ch3-fractional-knapsack"
 type: "short-answer"
 chapter: 3
 question: |
-  **Implement the fractional knapsack greedy algorithm.**
+  **Implement a greedy solution to the fractional knapsack problem.**
   
   **Level 0** Discuss the difference between fractional and 0/1 knapsack and why one admits a greedy solution while the other doesn't.
   

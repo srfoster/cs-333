@@ -2,7 +2,7 @@ id: "ch3-activity-selection"
 type: "short-answer"
 chapter: 3
 question: |
-  **Implement the activity selection greedy algorithm.**
+  **Implement a greedy solution to the activity selection problem.**
   
   **Level 0** Discuss why greedy algorithms sometimes produce optimal solutions and why activity selection is a classic example.
   

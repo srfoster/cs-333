@@ -2,7 +2,7 @@ id: "ch3-huffman-encoding"
 type: "short-answer"
 chapter: 3
 question: |
-  **Implement Huffman encoding for data compression.**
+  **Implement the Huffman encoding algorithm for data compression.**
   
   **Level 0** Discuss why Huffman encoding is significant for data compression and where it's used.
   

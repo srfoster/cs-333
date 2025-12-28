@@ -2,7 +2,7 @@ id: "ch3-lcs-problem"
 type: "short-answer"
 chapter: 3
 question: |
-  **Implement the longest common subsequence (LCS) algorithm using dynamic programming.**
+  **Implement a dynamic programming solution to the longest common subsequence (LCS) problem.**
   
   **Level 0** Discuss the significance of LCS in bioinformatics, version control, and other applications.
   

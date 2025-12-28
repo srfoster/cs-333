@@ -2,7 +2,7 @@ id: "ch3-matrix-chain"
 type: "short-answer"
 chapter: 3
 question: |
-  **Implement the matrix chain multiplication optimization algorithm.**
+  **Implement a dynamic programming solution to the matrix chain multiplication optimization problem.**
   
   **Level 0** Discuss why matrix multiplication order matters and the significance of this optimization problem.
   

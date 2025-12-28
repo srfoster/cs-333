@@ -2,7 +2,7 @@ id: "ch3-ford-fulkerson"
 type: "short-answer"
 chapter: 3
 question: |
-  **Implement the Ford-Fulkerson maximum flow algorithm.**
+  **Implement the Ford-Fulkerson algorithm (maximum flow problem).**
   
   **Level 0** Discuss why maximum flow problems are important and where they arise.
   

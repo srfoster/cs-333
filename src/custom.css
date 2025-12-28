@@ -1,5 +1,36 @@
 /* CS-333 Custom Styles */
 
+/* Fix mobile/narrow screen layout issues */
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: block !important;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app header {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 /* Override the header gradient color */
 .app header {
   background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
