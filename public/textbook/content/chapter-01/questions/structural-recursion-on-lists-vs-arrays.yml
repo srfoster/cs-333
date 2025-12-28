@@ -1,8 +1,0 @@
-id: 10
-question: "Compare structural recursion on lists vs arrays."
-answer: "TODO: Add answer"
-topics: ["recursion", "arrays", "linked lists"]
-type: "conceptual"
-points: 3
-difficulty: "medium"
-learning_objectives: []

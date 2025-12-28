@@ -15,5 +15,4 @@ concept_map:
       - name: "Recursive Analysis"
         description: "Analyzing recursive algorithms"
         exam_questions:
-          - "../chapter-03/questions/iterative-vs-recursive.yml"
           - "questions/recurrence-relations.yml"
