@@ -1,4 +1,4 @@
-# Chapter 3: Recursion, Trees, and Graphs
+# Chapter 2: Recursion, Trees, and Graphs
 
 This chapter explores recursive algorithms and the hierarchical and networked data structures that naturally support them.
 

@@ -1,4 +1,4 @@
-# Chapter 2: Mathematics of Algorithm Complexity
+# Chapter 1: Mathematics of Algorithm Complexity
 
 This chapter develops the mathematical foundations for analyzing algorithm efficiency using asymptotic notation.
 
