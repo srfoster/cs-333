@@ -1,0 +1,27 @@
+id: "ch1-linear-search-complexity"
+type: "short-answer"
+chapter: 1
+question: |
+  **Write an algorithm that searches for a target value in an unsorted array.**
+  
+  **Level 0** Discuss the big-picture significance of this problem and how it relates to Big-O (O), Big-Omega (Ω), and Big-Theta (Θ) notation.
+  
+  **Level 1** Discuss the intuition behind this problem by giving example inputs (including best case and worst case scenarios); give the pseudocode for a linear search algorithm and step through it.
+  
+  **Level 2** Implement your algorithm in a language of your choice.
+  
+  **Level 3** Analyze the best-case, worst-case, and average-case time complexity using Ω, O, and Θ notation. Explain why this algorithm demonstrates the difference between these three notations.
+answer: |
+  **Linear Search Analysis:**
+  - Best case: Ω(1) - target found at first position
+  - Worst case: O(n) - target at last position or not found
+  - Average case: Θ(n) - on average, check half the array
+  
+  This algorithm demonstrates how Ω (lower bound) and O (upper bound) can differ significantly. The best case is dramatically better than the worst case, showing that Big-O and Big-Omega describe different scenarios. The average case is Θ(n) because we expect to examine roughly n/2 elements on average, which is still linear growth.
+topics:
+  - "Algorithm Analysis"
+  - "Asymptotic Notation"
+  - "Big-O"
+  - "Big-Omega"
+  - "Big-Theta"
+  - "Linear Search"

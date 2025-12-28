@@ -1,0 +1,36 @@
+id: "ch1-matrix-operations-complexity"
+type: "short-answer"
+chapter: 1
+question: |
+  **Write an algorithm that performs two tasks on an n×n matrix:**
+  1. Initialize the matrix by filling all positions with sequential values (1, 2, 3, ...)
+  2. Search the first row for a specific target value
+  
+  **Level 0** Discuss why this problem clearly demonstrates the concept of dominant terms when analyzing algorithms with multiple operations.
+  
+  **Level 1** Provide example inputs (e.g., a 3×3 matrix) and give pseudocode for both initialization and searching. Step through your algorithm showing how many operations each task requires.
+  
+  **Level 2** Implement your algorithm in a language of your choice, clearly separating the initialization phase from the search phase.
+  
+  **Level 3** Analyze the time complexity of each operation. Show that initialization requires O(n²) operations (filling n² positions) while searching requires O(n) operations (checking n elements). Explain why O(n² + n) simplifies to O(n²).
+answer: |
+  **Complexity Analysis:**
+  - Matrix initialization: O(n²) - must fill n×n = n² positions
+  - First row search: O(n) - linear search through n elements
+  - Combined: O(n² + n)
+  
+  **Why O(n² + n) = O(n²):**
+  - The initialization dominates because it operates on n² elements
+  - The search operates on only n elements
+  - Mathematically: n² + n = n(n + 1) = O(n²)
+  - Visual example for n=10: 100 cells to fill + 10 cells to search = 110 operations ≈ 100
+  - Visual example for n=100: 10,000 cells to fill + 100 cells to search = 10,100 operations ≈ 10,000
+  - As n increases, the +n term becomes less than 1% of the total cost
+  
+  **Key Insight:** This problem makes the dominance relationship visually clear - you can see that filling an entire n×n grid requires far more work than examining a single row. The matrix structure helps visualize why quadratic terms dominate linear terms in Big-O analysis.
+topics:
+  - "Algorithm Analysis"
+  - "Big-O"
+  - "Dominant Terms"
+  - "Matrix Operations"
+  - "Asymptotic Simplification"

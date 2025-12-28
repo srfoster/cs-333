@@ -1,1572 +1,1223 @@
-# Chapter 3: Recursion, Trees, and Graphs
+# Chapter 4: Algorithm Paradigms and Intractability
 
-This chapter explores recursive algorithms and the hierarchical and networked data structures that naturally support them.
+This chapter introduces powerful algorithm design strategies and explores the fundamental limits of computation.
 
-## Recursion
+## Greedy Algorithms
 
-Recursion is a powerful problem-solving technique where functions call themselves. You'll learn:
+Greedy algorithms make locally optimal choices hoping to find global optima. You'll study:
 
-* How recursion relates to iteration
-* Writing and solving recurrence relations
-* Analyzing recursive algorithms (including the Fibonacci sequence)
-* Optimization techniques like memoization
+* **Activity Selection**: Scheduling non-overlapping intervals
+* **Fractional Knapsack**: Maximizing value with divisible items
+* **Huffman Encoding**: Optimal prefix-free codes for compression
 
-## Tree Data Structures
+## Divide and Conquer
 
-Trees provide hierarchical organization with efficient search and modification. We'll compare:
+Break problems into smaller subproblems, solve recursively, and combine results:
 
-* **Binary Search Trees (BSTs)**: Simple but potentially unbalanced
-* **AVL Trees**: Strict balance guarantees faster lookups
-* **Red-Black Trees**: Looser balance, fewer rotations
-* **B-Trees**: Multi-way trees optimized for disk access
+* **Merge Sort**: O(n log n) sorting via recursive splitting
+* **Quick Sort**: Randomized partitioning with excellent average case
+* **Master Theorem**: Analyzing divide-and-conquer recurrences
 
-## Graph Algorithms
+## Dynamic Programming
 
-Graphs model relationships and networks. You'll master:
+Optimize overlapping subproblems by storing intermediate results:
 
-* **Representation**: Adjacency matrices vs. adjacency lists
-* **Traversal**: BFS and DFS for exploring graphs
-* **Shortest Paths**: BFS for unweighted graphs, Dijkstra for weighted
-* **Minimum Spanning Trees**: Prim's and Kruskal's algorithms
+* **0/1 Knapsack**: Making optimal choices with indivisible items
+* **Longest Common Subsequence (LCS)**: Finding shared patterns
+* **Matrix Chain Multiplication**: Optimal parenthesization
+
+## Network Flow
+
+Model flow through networks with capacity constraints:
+
+* **Ford-Fulkerson Algorithm**: Finding maximum flow
+* **Max-Flow Min-Cut Theorem**: Fundamental duality result
+
+## Computational Complexity
+
+Some problems may be fundamentally intractable. You'll explore:
+
+* **P vs NP**: The most important open problem in computer science
+* **NP-Completeness**: Problems as hard as any in NP
+* **Reductions**: SAT to 3-SAT transformation
+* **Practical Implications**: When to seek approximations or heuristics
 
 ## Key Learning Goals
 
 By the end of this chapter, you should be able to:
 
-* Write and analyze recursive algorithms
-* Solve recurrence relations using multiple techniques
-* Choose appropriate tree structures for different applications
-* Implement BFS and DFS traversal algorithms
-* Apply Dijkstra's algorithm to find shortest paths
-* Use Prim's or Kruskal's to find minimum spanning trees
-* Prove correctness of greedy graph algorithms
+* Recognize when greedy algorithms are appropriate
+* Apply divide-and-conquer with Master Theorem analysis
+* Solve optimization problems using dynamic programming
+* Compute maximum flow in networks
+* Understand the significance of P vs NP
+* Perform polynomial-time reductions between problems
+* Recognize NP-complete problems and their implications
 
 ## Code
 
-### The Power and Peril of Recursion
+### Greedy Algorithms: Local Choices, Global Optimality
 
-Recursion is perhaps the most elegant and the most dangerous tool in a programmer's arsenal. At its essence, recursion is a function calling itself—a seemingly circular definition that, through the magic of base cases, produces correct results. Recursion transforms complex problems into simpler versions of themselves, building solutions from the ground up through the call stack.
+Greedy algorithms embody algorithmic optimism: make the locally best choice at each step, and trust that these choices lead to a globally optimal solution. This strategy is remarkably effective for certain problems—and catastrophically wrong for others. Understanding when greedy works requires mathematical insight into problem structure.
 
-The beauty of recursion lies in its correspondence to mathematical induction. To prove a property holds for all natural numbers, we prove it for 0 (base case) and show that if it holds for n, it holds for n+1 (inductive step). Recursive functions follow the same pattern: handle the base case, then reduce the problem toward the base case. This mathematical foundation gives recursive solutions an almost proof-like quality.
+The greedy approach is appealingly simple: no need to explore all possibilities, no need to remember past decisions. Just scan through options and pick the best available. This simplicity translates to efficiency—greedy algorithms often run in polynomial time, while exhaustive search would be exponential.
 
-But recursion's elegance masks danger. Each recursive call consumes stack space, and the call stack is finite. Deeply recursive algorithms can exhaust stack memory, causing runtime errors. Moreover, naive recursion can perform redundant computation—calculating the same values repeatedly without remembering previous results.
+But greedy algorithms require proof. Unlike dynamic programming, where optimal solutions clearly compose from optimal sub-solutions, greedy algorithms rely on the "greedy choice property": the locally optimal choice is part of a globally optimal solution. This property must be proved, not assumed.
 
-The Fibonacci sequence perfectly illustrates both recursion's beauty and its pitfalls. The mathematical definition is inherently recursive: F(n) = F(n-1) + F(n-2). A direct translation into code seems natural, even obvious. Yet this naive implementation is catastrophically inefficient, recomputing the same values exponentially many times.
+Activity selection illustrates greedy algorithms at their finest. Given activities with start and finish times, select the maximum number of non-overlapping activities. The greedy strategy: always choose the activity that finishes earliest. Why? Because finishing early leaves maximum room for future activities. This intuition can be formalized into a correctness proof via exchange arguments.
 
-Enter memoization: the technique of caching results to avoid redundant computation. By storing each Fibonacci number when we first compute it, we transform an exponential algorithm into a linear one. This isn't just an optimization—it's a fundamental transformation of the algorithm's complexity class. Memoization exemplifies a crucial principle: sometimes the right data structure (here, a cache) turns an impractical algorithm into a practical one.
+Fractional knapsack extends this idea: given items with weights and values, fill a knapsack to maximize value. If items are divisible (fractional knapsack), greedy works: always take the highest value-per-weight item. But if items are indivisible (0/1 knapsack), greedy fails—this becomes an NP-hard problem requiring dynamic programming.
+
+Huffman coding solves optimal prefix-free encoding: given character frequencies, construct a binary tree where common characters have shorter codes. The greedy strategy: repeatedly merge the two lowest-frequency nodes. This builds an optimal code tree from the bottom up, a beautiful application of greedy principles to information theory.
 
 **Pseudocode:**
 ```
-// Factorial - O(n) time, O(n) space
-FUNCTION factorial(n):
-    IF n ≤ 1 THEN
-        RETURN 1
-    RETURN n * factorial(n - 1)
+// Activity Selection - O(n log n)
+FUNCTION activitySelection(activities):
+    SORT activities by finish time (ascending)
+    
+    selected ← NEW LIST
+    selected.ADD(activities[0])
+    lastFinish ← activities[0].finish
+    
+    FOR i ← 1 TO length(activities) - 1 DO
+        IF activities[i].start ≥ lastFinish THEN
+            selected.ADD(activities[i])
+            lastFinish ← activities[i].finish
+    
+    RETURN selected
 
-// Naive Fibonacci - O(2ⁿ) time, O(n) space
-FUNCTION fibonacciNaive(n):
-    IF n ≤ 1 THEN
-        RETURN n
-    RETURN fibonacciNaive(n - 1) + fibonacciNaive(n - 2)
+// Fractional Knapsack - O(n log n)
+FUNCTION fractionalKnapsack(items, capacity):
+    // Calculate value per weight and sort
+    FOR each item IN items DO
+        item.ratio ← item.value / item.weight
+    SORT items by ratio (descending)
+    
+    totalValue ← 0.0
+    remaining ← capacity
+    
+    FOR each item IN items DO
+        IF item.weight ≤ remaining THEN
+            totalValue ← totalValue + item.value
+            remaining ← remaining - item.weight
+        ELSE
+            // Take fraction of item
+            totalValue ← totalValue + (item.ratio * remaining)
+            BREAK
+    
+    RETURN totalValue
 
-// Memoized Fibonacci - O(n) time, O(n) space
-memo ← EMPTY MAP
-FUNCTION fibonacciMemo(n):
-    IF n ≤ 1 THEN
-        RETURN n
-    IF memo CONTAINS n THEN
-        RETURN memo[n]
-    result ← fibonacciMemo(n - 1) + fibonacciMemo(n - 2)
-    memo[n] ← result
-    RETURN result
+// Huffman Coding - O(n log n)
+FUNCTION huffmanCoding(frequencies):
+    pq ← NEW MIN PRIORITY QUEUE
+    
+    FOR each (char, freq) IN frequencies DO
+        node ← NEW NODE(char, freq)
+        pq.INSERT(node)
+    
+    WHILE pq.size() > 1 DO
+        left ← pq.EXTRACT_MIN()
+        right ← pq.EXTRACT_MIN()
+        
+        parent ← NEW NODE(NULL, left.freq + right.freq)
+        parent.left ← left
+        parent.right ← right
+        
+        pq.INSERT(parent)
+    
+    RETURN pq.EXTRACT_MIN()  // Root of Huffman tree
 ```
 
 **Java Implementation:**
 ```java
-public class RecursionExamples {
+import java.util.*;
+
+public class GreedyAlgorithms {
     
-    // Factorial: O(n) time, O(n) space (call stack)
-    public static int factorial(int n) {
-        if (n <= 1) {
-            return 1;
-        }
-        return n * factorial(n - 1);
-    }
-    
-    // Fibonacci - Naive: O(2ⁿ) time, O(n) space
-    public static int fibonacciNaive(int n) {
-        if (n <= 1) {
-            return n;
-        }
-        return fibonacciNaive(n - 1) + fibonacciNaive(n - 2);
-    }
-    
-    // Fibonacci - Memoized: O(n) time, O(n) space
-    public static int fibonacciMemo(int n) {
-        return fibonacciMemo(n, new int[n + 1]);
-    }
-    
-    private static int fibonacciMemo(int n, int[] memo) {
-        if (n <= 1) {
-            return n;
-        }
-        if (memo[n] != 0) {
-            return memo[n];
-        }
-        memo[n] = fibonacciMemo(n - 1, memo) + fibonacciMemo(n - 2, memo);
-        return memo[n];
-    }
-}
-```
-
-**Recursion in Practice:**
-
-The factorial function demonstrates recursion at its simplest: a single recursive call that makes the problem smaller. Each call to `factorial(n)` becomes `n * factorial(n-1)`, reducing n by 1 until reaching the base case. The call stack grows to depth n, then unwinds, multiplying values as it collapses.
-
-The naive Fibonacci implementation reveals recursion's dark side. To compute fibonacci(5), we compute fibonacci(4) and fibonacci(3). But fibonacci(4) recomputes fibonacci(3), and both recompute fibonacci(2) multiple times. The recursion tree has exponential nodes, even though there are only n unique values to compute. This explosion of redundant work makes the algorithm impractical beyond tiny inputs.
-
-The memoized version changes everything. The memo array acts as a cache—before computing fibonacci(n), we check if we've already computed it. If so, return the cached value. If not, compute it, cache it, then return it. This simple addition means each Fibonacci number is computed exactly once. The call tree's redundant branches are pruned away, leaving a linear chain of unique computations. We've transformed O(2ⁿ) into O(n) by adding O(n) space—a classic space-time tradeoff.
-
-### Binary Search Trees: Elegant but Fragile
-
-The binary search tree (BST) is one of computer science's foundational data structures. It combines the fast search of sorted arrays with the efficient insertion of linked lists—at least in theory. The BST property is elegantly simple: for every node, all values in its left subtree are smaller, and all values in its right subtree are larger. This recursive structure enables recursive algorithms of corresponding elegance.
-
-With a balanced BST, search, insertion, and deletion all take O(log n) time. The tree's height is logarithmic, and each operation descends one level per comparison, giving logarithmic performance. This is the promise that makes BSTs attractive: logarithmic operations without the complexity of array-based structures.
-
-But there's a catch—a potentially devastating one. BSTs only achieve O(log n) performance when balanced. Insert sorted data into a BST, and you get a linked list masquerading as a tree: every node has only a right child, creating a degenerate tree of height n. Now every operation is O(n), worse than a simple array.
-
-This fragility is why we need self-balancing trees: AVL trees, Red-Black trees, B-trees. These structures guarantee balance through strategic rotations and recoloring, ensuring that even adversarial insertion patterns maintain logarithmic height. The simple BST is beautiful and instructive, but production systems demand the guarantees that self-balancing trees provide.
-
-**Pseudocode:**
-```
-// BST Insert - O(log n) average, O(n) worst case
-FUNCTION insert(root, value):
-    IF root = NULL THEN
-        RETURN NEW NODE(value)
-    IF value < root.data THEN
-        root.left ← insert(root.left, value)
-    ELSE IF value > root.data THEN
-        root.right ← insert(root.right, value)
-    RETURN root
-
-// BST Search - O(log n) average, O(n) worst case
-FUNCTION search(root, value):
-    IF root = NULL THEN
-        RETURN false
-    IF root.data = value THEN
-        RETURN true
-    IF value < root.data THEN
-        RETURN search(root.left, value)
-    RETURN search(root.right, value)
-
-// Inorder Traversal - O(n) time
-FUNCTION inorder(root):
-    IF root ≠ NULL THEN
-        inorder(root.left)
-        PRINT root.data
-        inorder(root.right)
-```
-
-**Java Implementation:**
-```java
-public class BinarySearchTree {
-    private Node root;
-    
-    private static class Node {
-        int data;
-        Node left, right;
+    // Activity Selection: O(n log n)
+    static class Activity implements Comparable<Activity> {
+        int start, finish;
         
-        Node(int data) {
-            this.data = data;
-            this.left = null;
-            this.right = null;
+        Activity(int start, int finish) {
+            this.start = start;
+            this.finish = finish;
+        }
+        
+        @Override
+        public int compareTo(Activity other) {
+            return Integer.compare(this.finish, other.finish);
         }
     }
     
-    // O(log n) average, O(n) worst case
-    public void insert(int data) {
-        root = insertRec(root, data);
-    }
-    
-    private Node insertRec(Node node, int data) {
-        if (node == null) {
-            return new Node(data);
-        }
+    public static List<Activity> activitySelection(List<Activity> activities) {
+        Collections.sort(activities);
+        List<Activity> selected = new ArrayList<>();
         
-        if (data < node.data) {
-            node.left = insertRec(node.left, data);
-        } else if (data > node.data) {
-            node.right = insertRec(node.right, data);
-        }
+        selected.add(activities.get(0));
+        int lastFinish = activities.get(0).finish;
         
-        return node;
-    }
-    
-    // O(log n) average, O(n) worst case
-    public boolean search(int data) {
-        return searchRec(root, data);
-    }
-    
-    private boolean searchRec(Node node, int data) {
-        if (node == null) {
-            return false;
-        }
-        
-        if (data == node.data) {
-            return true;
-        }
-        
-        return data < node.data 
-            ? searchRec(node.left, data)
-            : searchRec(node.right, data);
-    }
-    
-    // In-order traversal: O(n)
-    public void inorder() {
-        inorderRec(root);
-    }
-    
-    private void inorderRec(Node node) {
-        if (node != null) {
-            inorderRec(node.left);
-            System.out.print(node.data + " ");
-            inorderRec(node.right);
-        }
-    }
-}
-```
-
-**BST Operations:**
-
-The insertion operation showcases recursion's elegance in tree algorithms. We recursively descend, comparing values at each node. When we find a null child (the proper location), we create and return a new node. As the recursion unwinds, these returned nodes are assigned to parent.left or parent.right, correctly linking the new node into the tree.
-
-The search operation exhibits the BST's fundamental property: at each node, we decide whether to search left or right based on comparison. In a balanced tree, each comparison eliminates roughly half the remaining nodes. This binary choice, repeated logarithmically many times, finds the target or determines its absence.
-
-In-order traversal (left-root-right) visits nodes in sorted order—a remarkable property. This is no coincidence: the BST property guarantees that left-subtree values precede the root, which precedes right-subtree values. This makes BSTs ideal for maintaining sorted data with efficient insertion, though the balance problem still looms.
-
-### AVL Trees: The Mathematics of Perfect Balance
-
-AVL trees, named for inventors Adelson-Velsky and Landis, enforce a strict balance invariant: for every node, the heights of its left and right subtrees differ by at most 1. This constraint seems simple, but it has profound implications. It guarantees that the tree's height is always O(log n), regardless of insertion order. This mathematical guarantee transforms the BST's average-case promise into a worst-case guarantee.
-
-The key mechanism is tree rotations. When an insertion violates the balance property, we perform one or two rotations to restore it. A rotation restructures three nodes and four subtrees, changing the tree's shape while preserving the BST property. The beauty of rotations is that they're local operations—O(1) time—yet they can rebalance the entire tree.
-
-AVL trees recognize four imbalance cases: left-left, left-right, right-right, and right-left. Each case has a corresponding fix: single or double rotations. The implementation tracks each node's height and balance factor (left height minus right height). After insertion, we check balance factors climbing back up the tree, rotating when necessary.
-
-The cost of this perfect balance is complexity. AVL tree implementation is intricate, requiring careful attention to height updates and rotation logic. Moreover, AVL trees can be overly aggressive in maintaining balance, performing rotations even when slight imbalance would be acceptable. This leads to our next structure: Red-Black trees.
-
-**Pseudocode:**
-```
-// AVL Insert with Balancing - O(log n)
-FUNCTION insert(root, value):
-    // Standard BST insertion
-    IF root = NULL THEN
-        RETURN NEW NODE(value, height=1)
-    
-    IF value < root.data THEN
-        root.left ← insert(root.left, value)
-    ELSE IF value > root.data THEN
-        root.right ← insert(root.right, value)
-    ELSE
-        RETURN root  // Duplicates not allowed
-    
-    // Update height
-    root.height ← 1 + MAX(height(root.left), height(root.right))
-    
-    // Get balance factor
-    balance ← getBalance(root)
-    
-    // Left-Left Case
-    IF balance > 1 AND value < root.left.data THEN
-        RETURN rotateRight(root)
-    
-    // Right-Right Case
-    IF balance < -1 AND value > root.right.data THEN
-        RETURN rotateLeft(root)
-    
-    // Left-Right Case
-    IF balance > 1 AND value > root.left.data THEN
-        root.left ← rotateLeft(root.left)
-        RETURN rotateRight(root)
-    
-    // Right-Left Case
-    IF balance < -1 AND value < root.right.data THEN
-        root.right ← rotateRight(root.right)
-        RETURN rotateLeft(root)
-    
-    RETURN root
-
-FUNCTION rotateRight(y):
-    x ← y.left
-    T2 ← x.right
-    
-    x.right ← y
-    y.left ← T2
-    
-    y.height ← 1 + MAX(height(y.left), height(y.right))
-    x.height ← 1 + MAX(height(x.left), height(x.right))
-    
-    RETURN x
-
-FUNCTION rotateLeft(x):
-    y ← x.right
-    T2 ← y.left
-    
-    y.left ← x
-    x.right ← T2
-    
-    x.height ← 1 + MAX(height(x.left), height(x.right))
-    y.height ← 1 + MAX(height(y.left), height(y.right))
-    
-    RETURN y
-```
-
-**Java Implementation:**
-```java
-public class AVLTree {
-    private Node root;
-    
-    private static class Node {
-        int data, height;
-        Node left, right;
-        
-        Node(int data) {
-            this.data = data;
-            this.height = 1;
-        }
-    }
-    
-    // Get height of node
-    private int height(Node node) {
-        return node == null ? 0 : node.height;
-    }
-    
-    // Get balance factor
-    private int getBalance(Node node) {
-        return node == null ? 0 : height(node.left) - height(node.right);
-    }
-    
-    // Update height of node
-    private void updateHeight(Node node) {
-        node.height = 1 + Math.max(height(node.left), height(node.right));
-    }
-    
-    // Right rotation
-    private Node rotateRight(Node y) {
-        Node x = y.left;
-        Node T2 = x.right;
-        
-        // Perform rotation
-        x.right = y;
-        y.left = T2;
-        
-        // Update heights
-        updateHeight(y);
-        updateHeight(x);
-        
-        return x;
-    }
-    
-    // Left rotation
-    private Node rotateLeft(Node x) {
-        Node y = x.right;
-        Node T2 = y.left;
-        
-        // Perform rotation
-        y.left = x;
-        x.right = T2;
-        
-        // Update heights
-        updateHeight(x);
-        updateHeight(y);
-        
-        return y;
-    }
-    
-    // Insert: O(log n) guaranteed
-    public void insert(int data) {
-        root = insertRec(root, data);
-    }
-    
-    private Node insertRec(Node node, int data) {
-        // Standard BST insertion
-        if (node == null) {
-            return new Node(data);
-        }
-        
-        if (data < node.data) {
-            node.left = insertRec(node.left, data);
-        } else if (data > node.data) {
-            node.right = insertRec(node.right, data);
-        } else {
-            return node; // Duplicate keys not allowed
-        }
-        
-        // Update height
-        updateHeight(node);
-        
-        // Get balance factor
-        int balance = getBalance(node);
-        
-        // Left Left Case
-        if (balance > 1 && data < node.left.data) {
-            return rotateRight(node);
-        }
-        
-        // Right Right Case
-        if (balance < -1 && data > node.right.data) {
-            return rotateLeft(node);
-        }
-        
-        // Left Right Case
-        if (balance > 1 && data > node.left.data) {
-            node.left = rotateLeft(node.left);
-            return rotateRight(node);
-        }
-        
-        // Right Left Case
-        if (balance < -1 && data < node.right.data) {
-            node.right = rotateRight(node.right);
-            return rotateLeft(node);
-        }
-        
-        return node;
-    }
-    
-    // Delete: O(log n) guaranteed
-    public void delete(int data) {
-        root = deleteRec(root, data);
-    }
-    
-    private Node deleteRec(Node node, int data) {
-        // Standard BST deletion
-        if (node == null) {
-            return node;
-        }
-        
-        if (data < node.data) {
-            node.left = deleteRec(node.left, data);
-        } else if (data > node.data) {
-            node.right = deleteRec(node.right, data);
-        } else {
-            // Node with one child or no child
-            if (node.left == null || node.right == null) {
-                node = (node.left != null) ? node.left : node.right;
-            } else {
-                // Node with two children: get inorder successor
-                Node temp = minValueNode(node.right);
-                node.data = temp.data;
-                node.right = deleteRec(node.right, temp.data);
+        for (int i = 1; i < activities.size(); i++) {
+            if (activities.get(i).start >= lastFinish) {
+                selected.add(activities.get(i));
+                lastFinish = activities.get(i).finish;
             }
         }
         
-        if (node == null) {
-            return node;
-        }
-        
-        // Update height
-        updateHeight(node);
-        
-        // Get balance factor
-        int balance = getBalance(node);
-        
-        // Left Left Case
-        if (balance > 1 && getBalance(node.left) >= 0) {
-            return rotateRight(node);
-        }
-        
-        // Left Right Case
-        if (balance > 1 && getBalance(node.left) < 0) {
-            node.left = rotateLeft(node.left);
-            return rotateRight(node);
-        }
-        
-        // Right Right Case
-        if (balance < -1 && getBalance(node.right) <= 0) {
-            return rotateLeft(node);
-        }
-        
-        // Right Left Case
-        if (balance < -1 && getBalance(node.right) > 0) {
-            node.right = rotateRight(node.right);
-            return rotateLeft(node);
-        }
-        
-        return node;
+        return selected;
     }
     
-    private Node minValueNode(Node node) {
-        Node current = node;
-        while (current.left != null) {
-            current = current.left;
+    // Fractional Knapsack: O(n log n)
+    static class Item implements Comparable<Item> {
+        int weight, value;
+        double valuePerWeight;
+        
+        Item(int weight, int value) {
+            this.weight = weight;
+            this.value = value;
+            this.valuePerWeight = (double) value / weight;
         }
-        return current;
-    }
-    
-    // Search: O(log n) guaranteed
-    public boolean search(int data) {
-        return searchRec(root, data);
-    }
-    
-    private boolean searchRec(Node node, int data) {
-        if (node == null) {
-            return false;
+        
+        @Override
+        public int compareTo(Item other) {
+            return Double.compare(other.valuePerWeight, this.valuePerWeight);
         }
-        if (data == node.data) {
-            return true;
+    }
+    
+    public static double fractionalKnapsack(List<Item> items, int capacity) {
+        Collections.sort(items);
+        double totalValue = 0;
+        
+        for (Item item : items) {
+            if (capacity >= item.weight) {
+                totalValue += item.value;
+                capacity -= item.weight;
+            } else {
+                totalValue += item.valuePerWeight * capacity;
+                break;
+            }
         }
-        return data < node.data 
-            ? searchRec(node.left, data)
-            : searchRec(node.right, data);
+        
+        return totalValue;
     }
     
-    // In-order traversal
-    public void inorder() {
-        inorderRec(root);
-        System.out.println();
+    // Huffman Coding: O(n log n)
+    static class HuffmanNode implements Comparable<HuffmanNode> {
+        char character;
+        int frequency;
+        HuffmanNode left, right;
+        
+        HuffmanNode(char character, int frequency) {
+            this.character = character;
+            this.frequency = frequency;
+        }
+        
+        @Override
+        public int compareTo(HuffmanNode other) {
+            return Integer.compare(this.frequency, other.frequency);
+        }
     }
     
-    private void inorderRec(Node node) {
-        if (node != null) {
-            inorderRec(node.left);
-            System.out.print(node.data + " ");
-            inorderRec(node.right);
+    public static HuffmanNode buildHuffmanTree(Map<Character, Integer> frequencies) {
+        PriorityQueue<HuffmanNode> pq = new PriorityQueue<>();
+        
+        for (Map.Entry<Character, Integer> entry : frequencies.entrySet()) {
+            pq.offer(new HuffmanNode(entry.getKey(), entry.getValue()));
+        }
+        
+        while (pq.size() > 1) {
+            HuffmanNode left = pq.poll();
+            HuffmanNode right = pq.poll();
+            
+            HuffmanNode parent = new HuffmanNode('\0', left.frequency + right.frequency);
+            parent.left = left;
+            parent.right = right;
+            
+            pq.offer(parent);
+        }
+        
+        return pq.poll();
+    }
+}
+```
+
+**Greedy Algorithm Insights:**
+
+Activity selection sorts by finish time—O(n log n)—then scans linearly, greedily selecting non-overlapping activities. The correctness relies on a key insight: if an activity A finishes before B, choosing A never makes the solution worse than choosing B, because A leaves at least as much room for future activities.
+
+Fractional knapsack sorts items by value-per-weight ratio—the "bang for buck." Then greedily pack items in order, taking whole items until one doesn't fit, then taking a fraction of the next. The greedy choice is obviously optimal: why take something with lower value-per-weight when higher value-per-weight is available?
+
+Huffman coding builds a tree bottom-up. The priority queue ensures we always merge the two least-frequent nodes. The resulting tree is optimal because frequent characters end up closer to the root (shorter codes), while rare characters are deeper (longer codes). This is information theory made concrete—the expected code length is minimized.
+
+The pattern across these problems: greedy works when the problem has optimal substructure (optimal solutions contain optimal sub-solutions) and the greedy choice property (locally optimal choices lead to global optimality). Not all problems have these properties, which is why greedy algorithms require careful analysis and proof.
+
+### Divide and Conquer: Breaking Problems Apart
+
+Divide and conquer embodies a powerful problem-solving paradigm: break a problem into smaller instances, solve them recursively, then combine results. This recursive decomposition often leads to efficient algorithms with elegant structure. The classic examples—merge sort, quick sort, binary search—demonstrate the paradigm's power.
+
+The three-step pattern is universal: **divide** the problem into subproblems, **conquer** the subproblems recursively, and **combine** sub-solutions into a complete solution. The art lies in choosing how to divide (to ensure balanced subproblems) and how to combine (to do so efficiently).
+
+Merge sort epitomizes elegant divide-and-conquer. Divide: split the array in half. Conquer: recursively sort each half. Combine: merge the two sorted halves. The merging step is linear, and the division is balanced, giving O(n log n) time. The algorithm's stability and predictable performance make it a workhorse for production systems.
+
+Quick sort takes a different approach: choose a pivot, partition around it (elements smaller than pivot go left, larger go right), then recursively sort each partition. Unlike merge sort, quicksort's work happens during division (partitioning), not combination. Average case: O(n log n). Worst case (bad pivots): O(n²). Randomized pivot selection makes worst case vanishingly unlikely.
+
+The Master Theorem provides a cookbook for analyzing divide-and-conquer recurrences. For T(n) = aT(n/b) + f(n), compare f(n) to n^(log_b a). If f(n) is polynomially smaller, time is Θ(n^(log_b a)). If equal, it's Θ(n^(log_b a) log n). If larger, it's Θ(f(n)). This theorem handles most divide-and-conquer algorithms, turning complex recurrence analysis into pattern matching.
+
+**Pseudocode:**
+```
+// Merge Sort - O(n log n)
+FUNCTION mergeSort(arr, left, right):
+    IF left < right THEN
+        mid ← (left + right) / 2
+        mergeSort(arr, left, mid)
+        mergeSort(arr, mid + 1, right)
+        merge(arr, left, mid, right)
+
+FUNCTION merge(arr, left, mid, right):
+    leftSize ← mid - left + 1
+    rightSize ← right - mid
+    
+    L ← NEW ARRAY of size leftSize
+    R ← NEW ARRAY of size rightSize
+    
+    COPY arr[left...mid] to L
+    COPY arr[mid+1...right] to R
+    
+    i ← 0, j ← 0, k ← left
+    WHILE i < leftSize AND j < rightSize DO
+        IF L[i] ≤ R[j] THEN
+            arr[k] ← L[i]
+            i ← i + 1
+        ELSE
+            arr[k] ← R[j]
+            j ← j + 1
+        k ← k + 1
+    
+    COPY remaining L elements (if any)
+    COPY remaining R elements (if any)
+
+// Quick Sort - O(n log n) average, O(n²) worst
+FUNCTION quickSort(arr, low, high):
+    IF low < high THEN
+        pivotIndex ← partition(arr, low, high)
+        quickSort(arr, low, pivotIndex - 1)
+        quickSort(arr, pivotIndex + 1, high)
+
+FUNCTION partition(arr, low, high):
+    pivot ← arr[high]
+    i ← low - 1
+    
+    FOR j ← low TO high - 1 DO
+        IF arr[j] < pivot THEN
+            i ← i + 1
+            SWAP arr[i] and arr[j]
+    
+    SWAP arr[i + 1] and arr[high]
+    RETURN i + 1
+
+// Binary Search - O(log n)
+FUNCTION binarySearch(arr, target):
+    left ← 0
+    right ← length(arr) - 1
+    
+    WHILE left ≤ right DO
+        mid ← (left + right) / 2
+        IF arr[mid] = target THEN
+            RETURN mid
+        ELSE IF arr[mid] < target THEN
+            left ← mid + 1
+        ELSE
+            right ← mid - 1
+    
+    RETURN -1
+```
+
+**Java Implementation:**
+```java
+public class DivideAndConquer {
+    
+    // Merge Sort: O(n log n)
+    public static void mergeSort(int[] arr) {
+        if (arr.length <= 1) return;
+        mergeSortHelper(arr, 0, arr.length - 1);
+    }
+    
+    private static void mergeSortHelper(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            
+            mergeSortHelper(arr, left, mid);
+            mergeSortHelper(arr, mid + 1, right);
+            merge(arr, left, mid, right);
+        }
+    }
+    
+    private static void merge(int[] arr, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+        
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+        
+        System.arraycopy(arr, left, L, 0, n1);
+        System.arraycopy(arr, mid + 1, R, 0, n2);
+        
+        int i = 0, j = 0, k = left;
+        
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k++] = L[i++];
+            } else {
+                arr[k++] = R[j++];
+            }
+        }
+        
+        while (i < n1) arr[k++] = L[i++];
+        while (j < n2) arr[k++] = R[j++];
+    }
+    
+    // Quick Sort: O(n log n) average, O(n²) worst
+    public static void quickSort(int[] arr) {
+        quickSortHelper(arr, 0, arr.length - 1);
+    }
+    
+    private static void quickSortHelper(int[] arr, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(arr, low, high);
+            quickSortHelper(arr, low, pivotIndex - 1);
+            quickSortHelper(arr, pivotIndex + 1, high);
+        }
+    }
+    
+    private static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+        
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        
+        swap(arr, i + 1, high);
+        return i + 1;
+    }
+    
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    
+    // Binary Search: O(log n)
+    public static int binarySearch(int[] arr, int target) {
+        return binarySearchHelper(arr, target, 0, arr.length - 1);
+    }
+    
+    private static int binarySearchHelper(int[] arr, int target, int left, int right) {
+        if (left > right) return -1;
+        
+        int mid = left + (right - left) / 2;
+        
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] > target) {
+            return binarySearchHelper(arr, target, left, mid - 1);
+        } else {
+            return binarySearchHelper(arr, target, mid + 1, right);
         }
     }
 }
 ```
 
-**AVL Tree Balance:**
+**Divide and Conquer in Practice:**
 
-The AVL implementation's heart lies in the four cases of imbalance. Left-Left occurs when we insert into the left subtree of a left child—fixed with a single right rotation. Right-Right is symmetric: insert right-right, rotate left. Left-Right and Right-Left require double rotations: first rotate the child, then rotate the parent.
+Merge sort's merge operation is the key to its efficiency. Two sorted arrays can be merged in linear time by maintaining pointers into each and always taking the smaller element. The two while loops at the end handle remaining elements after one array is exhausted. This linear merge, combined with logarithmic recursion depth, gives O(n log n) time.
 
-Each rotation takes O(1) time, and we perform at most two rotations per insertion. The height updates are equally crucial—after any structural change, we recalculate heights bottom-up. The balance factor (left height minus right height) tells us if rotation is needed: |balance| ≤ 1 means balanced, |balance| > 1 means rebalancing required.
+Quick sort's partition operation rearranges the array so elements less than the pivot precede it, and elements greater follow. The two-pointer technique swaps elements to achieve this in a single pass—O(n) time. The pivot's final position becomes the division point for recursive calls. Choosing a good pivot (ideally the median) ensures balanced partitions.
 
-Deletion is more complex than insertion, potentially requiring multiple rotations as imbalance propagates up the tree. Yet even with these complexities, AVL trees guarantee O(log n) operations. This guarantee is their superpower: no matter what sequence of operations you perform, worst-case performance is assured.
+Binary search, though simple, demonstrates divide-and-conquer elegance. Each comparison halves the search space. The midpoint calculation `mid = left + (right - left) / 2` avoids overflow that `(left + right) / 2` might cause—a subtle but important detail showing how theory meets practice.
 
-The trade-off is rotations. AVL trees perform more rotations than Red-Black trees, making them better for search-heavy workloads (where strict balance helps) but potentially worse for insertion-heavy ones. This is why understanding both structures matters—one size doesn't fit all problems.
+The Master Theorem analysis: Merge sort has a=2 (two subproblems), b=2 (half size each), f(n)=O(n) (merge time). So n^(log_2 2) = n, equal to f(n), giving case 2: Θ(n log n). Quick sort's average case analysis is similar, though worst-case analysis requires more sophisticated techniques.
 
-### Red-Black Trees: Practical Balance
+### Dynamic Programming: Optimal Substructure and Overlapping Subproblems
 
-Red-Black trees take a different approach to balance. Instead of strictly limiting height differences, they use node colors (red and black) to maintain looser balance constraints. These constraints still guarantee O(log n) height, but with fewer rotations required. The result is a structure that's slightly less balanced than AVL trees but requires less rebalancing work.
+Dynamic programming (DP) is perhaps the most powerful algorithmic technique for optimization problems. Like divide-and-conquer, DP breaks problems into subproblems. But DP applies when subproblems overlap—when the same sub-problem is solved repeatedly. By storing (memoizing) solutions to subproblems, DP avoids redundant computation, often transforming exponential algorithms into polynomial ones.
 
-The Red-Black properties are:
-1. Every node is either red or black
-2. The root is black
-3. All null leaves are black
-4. Red nodes have black children (no consecutive red nodes)
-5. All paths from root to null have the same number of black nodes
+The two key properties for DP are optimal substructure (optimal solutions contain optimal sub-solutions) and overlapping subproblems (subproblems recur multiple times). Optimal substructure suggests a recursive solution; overlapping subproblems suggest caching. Together, they define DP's domain.
 
-These properties ensure that the longest path (alternating black-red) is at most twice the shortest path (all black). This factor-of-two difference means height is at most 2 log n—still O(log n), but slightly less balanced than AVL's guarantee.
+Two approaches exist: top-down (memoization) and bottom-up (tabulation). Memoization adds caching to natural recursive code. Tabulation builds a table iteratively, solving smaller subproblems first. Both achieve the same complexity, but tabulation often has better constants (no recursion overhead) while memoization can be easier to code and skips unnecessary subproblems.
 
-The genius of Red-Black trees lies in their rebalancing strategy. Many insertions can be fixed by recoloring alone, without structural changes. When rotations are necessary, they're often simpler than AVL's cases. This makes Red-Black trees the choice for many production systems, including Java's TreeMap and C++'s std::map.
+The 0/1 knapsack problem exemplifies DP's power. Given items with weights and values, maximize value without exceeding capacity. For each item, we choose: take it (if it fits) or leave it. The recurrence: `dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w-weight[i]])`. The 2D table stores solutions to all subproblems, enabling polynomial-time solution to what seems like an exponential problem.
 
-Understanding Red-Black trees requires thinking about color as a form of metadata that encodes balance information. Black height (black nodes on any root-to-leaf path) acts as a balance measure. Violations get fixed by strategically rotating and recoloring, propagating fixes up the tree until the root.
+LCS (Longest Common Subsequence) finds the longest sequence appearing in two strings in the same relative order. Applications include diff tools and bioinformatics. The recurrence: if characters match, include them and continue; if not, try skipping in each string and take the better result. The 2D DP table encodes all possible subsequences implicitly.
+
+Matrix chain multiplication optimizes the order of multiplying matrices. Multiplying A×B×C can be done as (A×B)×C or A×(B×C), with different costs. The DP solution tries all possible split points, taking the minimum cost. This illustrates DP's flexibility—the recurrence considers all possibilities, but memoization ensures each is computed once.
 
 **Pseudocode:**
 ```
-// Red-Black Tree Insert - O(log n)
-FUNCTION insert(tree, value):
-    // Standard BST insertion
-    newNode ← NEW NODE(value, color=RED)
-    IF tree.root = NULL THEN
-        newNode.color ← BLACK
-        tree.root ← newNode
-        RETURN
+// 0/1 Knapsack - O(n × capacity)
+FUNCTION knapsack01(weights, values, capacity):
+    n ← length(weights)
+    dp ← NEW 2D ARRAY of size (n+1) × (capacity+1)
     
-    parent ← NULL
-    current ← tree.root
-    WHILE current ≠ NULL DO
-        parent ← current
-        IF value < current.data THEN
-            current ← current.left
-        ELSE IF value > current.data THEN
-            current ← current.right
-        ELSE
-            RETURN  // Duplicate
+    FOR i ← 0 TO n DO
+        FOR w ← 0 TO capacity DO
+            IF i = 0 OR w = 0 THEN
+                dp[i][w] ← 0
+            ELSE IF weights[i-1] ≤ w THEN
+                dp[i][w] ← MAX(values[i-1] + dp[i-1][w-weights[i-1]], 
+                               dp[i-1][w])
+            ELSE
+                dp[i][w] ← dp[i-1][w]
     
-    newNode.parent ← parent
-    IF value < parent.data THEN
-        parent.left ← newNode
-    ELSE
-        parent.right ← newNode
-    
-    fixViolation(tree, newNode)
+    RETURN dp[n][capacity]
 
-FUNCTION fixViolation(tree, node):
-    WHILE node ≠ tree.root AND node.parent.color = RED DO
-        parent ← node.parent
-        grandparent ← parent.parent
-        
-        IF parent = grandparent.left THEN
-            uncle ← grandparent.right
-            
-            // Case 1: Uncle is red (recolor)
-            IF uncle ≠ NULL AND uncle.color = RED THEN
-                parent.color ← BLACK
-                uncle.color ← BLACK
-                grandparent.color ← RED
-                node ← grandparent
-            ELSE
-                // Case 2: Node is right child (left rotation)
-                IF node = parent.right THEN
-                    node ← parent
-                    rotateLeft(tree, node)
-                    parent ← node.parent
-                
-                // Case 3: Node is left child (right rotation + recolor)
-                parent.color ← BLACK
-                grandparent.color ← RED
-                rotateRight(tree, grandparent)
-        ELSE
-            // Mirror cases for right side
-            uncle ← grandparent.left
-            IF uncle ≠ NULL AND uncle.color = RED THEN
-                parent.color ← BLACK
-                uncle.color ← BLACK
-                grandparent.color ← RED
-                node ← grandparent
-            ELSE
-                IF node = parent.left THEN
-                    node ← parent
-                    rotateRight(tree, node)
-                    parent ← node.parent
-                parent.color ← BLACK
-                grandparent.color ← RED
-                rotateLeft(tree, grandparent)
+// Longest Common Subsequence - O(m × n)
+FUNCTION LCS(s1, s2):
+    m ← length(s1)
+    n ← length(s2)
+    dp ← NEW 2D ARRAY of size (m+1) × (n+1)
     
-    tree.root.color ← BLACK
+    FOR i ← 1 TO m DO
+        FOR j ← 1 TO n DO
+            IF s1[i-1] = s2[j-1] THEN
+                dp[i][j] ← dp[i-1][j-1] + 1
+            ELSE
+                dp[i][j] ← MAX(dp[i-1][j], dp[i][j-1])
+    
+    RETURN dp[m][n]
+
+// Matrix Chain Multiplication - O(n³)
+FUNCTION matrixChainOrder(dims):
+    n ← length(dims) - 1
+    dp ← NEW 2D ARRAY of size n × n (all 0)
+    
+    FOR len ← 2 TO n DO
+        FOR i ← 0 TO n - len DO
+            j ← i + len - 1
+            dp[i][j] ← ∞
+            
+            FOR k ← i TO j - 1 DO
+                cost ← dp[i][k] + dp[k+1][j] + 
+                       dims[i] × dims[k+1] × dims[j+1]
+                dp[i][j] ← MIN(dp[i][j], cost)
+    
+    RETURN dp[0][n-1]
+
+// Coin Change - O(n × amount)
+FUNCTION coinChange(coins, amount):
+    dp ← NEW ARRAY of size (amount+1) filled with ∞
+    dp[0] ← 0
+    
+    FOR i ← 1 TO amount DO
+        FOR each coin IN coins DO
+            IF coin ≤ i THEN
+                dp[i] ← MIN(dp[i], dp[i - coin] + 1)
+    
+    RETURN (dp[amount] = ∞) ? -1 : dp[amount]
+
+// Edit Distance - O(m × n)
+FUNCTION editDistance(s1, s2):
+    m ← length(s1)
+    n ← length(s2)
+    dp ← NEW 2D ARRAY of size (m+1) × (n+1)
+    
+    FOR i ← 0 TO m DO
+        dp[i][0] ← i
+    FOR j ← 0 TO n DO
+        dp[0][j] ← j
+    
+    FOR i ← 1 TO m DO
+        FOR j ← 1 TO n DO
+            IF s1[i-1] = s2[j-1] THEN
+                dp[i][j] ← dp[i-1][j-1]
+            ELSE
+                dp[i][j] ← 1 + MIN(dp[i-1][j],    // delete
+                                    dp[i][j-1],    // insert
+                                    dp[i-1][j-1])  // replace
+    
+    RETURN dp[m][n]
 ```
 
 **Java Implementation:**
 ```java
-public class RedBlackTree {
-    private Node root;
-    private static final boolean RED = true;
-    private static final boolean BLACK = false;
+import java.util.*;
+
+public class DynamicProgramming {
     
-    private static class Node {
-        int data;
-        Node left, right, parent;
-        boolean color;
+    // 0/1 Knapsack: O(n * capacity)
+    public static int knapsack01(int[] weights, int[] values, int capacity) {
+        int n = weights.length;
+        int[][] dp = new int[n + 1][capacity + 1];
         
-        Node(int data) {
-            this.data = data;
-            this.color = RED; // New nodes are always red
-        }
-    }
-    
-    // Insert: O(log n) guaranteed
-    public void insert(int data) {
-        Node newNode = new Node(data);
-        
-        if (root == null) {
-            root = newNode;
-            root.color = BLACK;
-            return;
-        }
-        
-        // Standard BST insertion
-        Node parent = null;
-        Node current = root;
-        
-        while (current != null) {
-            parent = current;
-            if (data < current.data) {
-                current = current.left;
-            } else if (data > current.data) {
-                current = current.right;
-            } else {
-                return; // Duplicate keys not allowed
-            }
-        }
-        
-        newNode.parent = parent;
-        if (data < parent.data) {
-            parent.left = newNode;
-        } else {
-            parent.right = newNode;
-        }
-        
-        // Fix Red-Black Tree properties
-        fixInsert(newNode);
-    }
-    
-    private void fixInsert(Node node) {
-        Node parent, grandparent;
-        
-        while (node != root && node.color == RED && node.parent.color == RED) {
-            parent = node.parent;
-            grandparent = parent.parent;
-            
-            // Case A: Parent is left child of grandparent
-            if (parent == grandparent.left) {
-                Node uncle = grandparent.right;
-                
-                // Case 1: Uncle is red - recolor
-                if (uncle != null && uncle.color == RED) {
-                    grandparent.color = RED;
-                    parent.color = BLACK;
-                    uncle.color = BLACK;
-                    node = grandparent;
+        for (int i = 1; i <= n; i++) {
+            for (int w = 1; w <= capacity; w++) {
+                if (weights[i - 1] <= w) {
+                    dp[i][w] = Math.max(
+                        values[i - 1] + dp[i - 1][w - weights[i - 1]],
+                        dp[i - 1][w]
+                    );
                 } else {
-                    // Case 2: Node is right child - left rotation
-                    if (node == parent.right) {
-                        rotateLeft(parent);
-                        node = parent;
-                        parent = node.parent;
-                    }
-                    
-                    // Case 3: Node is left child - right rotation
-                    rotateRight(grandparent);
-                    boolean temp = parent.color;
-                    parent.color = grandparent.color;
-                    grandparent.color = temp;
-                    node = parent;
-                }
-            } 
-            // Case B: Parent is right child of grandparent
-            else {
-                Node uncle = grandparent.left;
-                
-                // Case 1: Uncle is red - recolor
-                if (uncle != null && uncle.color == RED) {
-                    grandparent.color = RED;
-                    parent.color = BLACK;
-                    uncle.color = BLACK;
-                    node = grandparent;
-                } else {
-                    // Case 2: Node is left child - right rotation
-                    if (node == parent.left) {
-                        rotateRight(parent);
-                        node = parent;
-                        parent = node.parent;
-                    }
-                    
-                    // Case 3: Node is right child - left rotation
-                    rotateLeft(grandparent);
-                    boolean temp = parent.color;
-                    parent.color = grandparent.color;
-                    grandparent.color = temp;
-                    node = parent;
+                    dp[i][w] = dp[i - 1][w];
                 }
             }
         }
         
-        root.color = BLACK;
+        return dp[n][capacity];
     }
     
-    private void rotateLeft(Node node) {
-        Node rightChild = node.right;
-        node.right = rightChild.left;
+    // Longest Common Subsequence: O(m * n)
+    public static int longestCommonSubsequence(String text1, String text2) {
+        int m = text1.length();
+        int n = text2.length();
+        int[][] dp = new int[m + 1][n + 1];
         
-        if (node.right != null) {
-            node.right.parent = node;
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
         }
         
-        rightChild.parent = node.parent;
-        
-        if (node.parent == null) {
-            root = rightChild;
-        } else if (node == node.parent.left) {
-            node.parent.left = rightChild;
-        } else {
-            node.parent.right = rightChild;
-        }
-        
-        rightChild.left = node;
-        node.parent = rightChild;
+        return dp[m][n];
     }
     
-    private void rotateRight(Node node) {
-        Node leftChild = node.left;
-        node.left = leftChild.right;
+    // Matrix Chain Multiplication: O(n³)
+    public static int matrixChainMultiplication(int[] dims) {
+        int n = dims.length - 1;
+        int[][] dp = new int[n][n];
         
-        if (node.left != null) {
-            node.left.parent = node;
+        for (int len = 2; len <= n; len++) {
+            for (int i = 0; i < n - len + 1; i++) {
+                int j = i + len - 1;
+                dp[i][j] = Integer.MAX_VALUE;
+                
+                for (int k = i; k < j; k++) {
+                    int cost = dp[i][k] + dp[k + 1][j] + 
+                              dims[i] * dims[k + 1] * dims[j + 1];
+                    dp[i][j] = Math.min(dp[i][j], cost);
+                }
+            }
         }
         
-        leftChild.parent = node.parent;
-        
-        if (node.parent == null) {
-            root = leftChild;
-        } else if (node == node.parent.left) {
-            node.parent.left = leftChild;
-        } else {
-            node.parent.right = leftChild;
-        }
-        
-        leftChild.right = node;
-        node.parent = leftChild;
+        return dp[0][n - 1];
     }
     
-    // Search: O(log n) guaranteed
-    public boolean search(int data) {
-        Node current = root;
+    // Coin Change: O(n * amount)
+    public static int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
         
-        while (current != null) {
-            if (data == current.data) {
-                return true;
-            } else if (data < current.data) {
-                current = current.left;
-            } else {
-                current = current.right;
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (coin <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
+            }
+        }
+        
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+    
+    // Edit Distance (Levenshtein): O(m * n)
+    public static int editDistance(String word1, String word2) {
+        int m = word1.length();
+        int n = word2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        
+        for (int i = 0; i <= m; i++) dp[i][0] = i;
+        for (int j = 0; j <= n; j++) dp[0][j] = j;
+        
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = 1 + Math.min(
+                        dp[i - 1][j],      // Delete
+                        Math.min(
+                            dp[i][j - 1],  // Insert
+                            dp[i - 1][j - 1] // Replace
+                        )
+                    );
+                }
+            }
+        }
+        
+        return dp[m][n];
+    }
+}
+```
+
+### Network Flow - Ford-Fulkerson
+
+**Pseudocode:**
+```
+// Ford-Fulkerson (Edmonds-Karp with BFS) - O(V × E²)
+FUNCTION maxFlow(capacity, source, sink):
+    n ← size of capacity matrix
+    residual ← COPY of capacity matrix
+    maxFlow ← 0
+    parent ← NEW ARRAY of size n
+    
+    // While augmenting path exists
+    WHILE BFS(residual, source, sink, parent) DO
+        // Find minimum capacity along path
+        pathFlow ← ∞
+        v ← sink
+        WHILE v ≠ source DO
+            u ← parent[v]
+            pathFlow ← MIN(pathFlow, residual[u][v])
+            v ← u
+        
+        // Update residual capacities
+        v ← sink
+        WHILE v ≠ source DO
+            u ← parent[v]
+            residual[u][v] ← residual[u][v] - pathFlow
+            residual[v][u] ← residual[v][u] + pathFlow
+            v ← u
+        
+        maxFlow ← maxFlow + pathFlow
+    
+    RETURN maxFlow
+
+FUNCTION BFS(residual, source, sink, parent):
+    visited ← NEW BOOLEAN ARRAY of size n (all false)
+    queue ← NEW QUEUE
+    
+    visited[source] ← true
+    queue.ENQUEUE(source)
+    
+    WHILE queue is not empty DO
+        u ← queue.DEQUEUE()
+        
+        FOR v ← 0 TO n - 1 DO
+            IF NOT visited[v] AND residual[u][v] > 0 THEN
+                visited[v] ← true
+                parent[v] ← u
+                queue.ENQUEUE(v)
+                
+                IF v = sink THEN
+                    RETURN true
+    
+    RETURN false
+```
+
+**Java Implementation:**
+```java
+import java.util.*;
+
+public class NetworkFlow {
+    
+    // Ford-Fulkerson with BFS (Edmonds-Karp): O(V * E²)
+    public static int maxFlow(int[][] capacity, int source, int sink) {
+        int n = capacity.length;
+        int[][] residual = new int[n][n];
+        
+        // Initialize residual graph
+        for (int i = 0; i < n; i++) {
+            System.arraycopy(capacity[i], 0, residual[i], 0, n);
+        }
+        
+        int maxFlow = 0;
+        int[] parent = new int[n];
+        
+        // While there exists an augmenting path
+        while (bfs(residual, source, sink, parent)) {
+            // Find minimum capacity along the path
+            int pathFlow = Integer.MAX_VALUE;
+            for (int v = sink; v != source; v = parent[v]) {
+                int u = parent[v];
+                pathFlow = Math.min(pathFlow, residual[u][v]);
+            }
+            
+            // Update residual capacities
+            for (int v = sink; v != source; v = parent[v]) {
+                int u = parent[v];
+                residual[u][v] -= pathFlow;
+                residual[v][u] += pathFlow;
+            }
+            
+            maxFlow += pathFlow;
+        }
+        
+        return maxFlow;
+    }
+    
+    private static boolean bfs(int[][] residual, int source, int sink, int[] parent) {
+        int n = residual.length;
+        boolean[] visited = new boolean[n];
+        Queue<Integer> queue = new LinkedList<>();
+        
+        queue.offer(source);
+        visited[source] = true;
+        parent[source] = -1;
+        
+        while (!queue.isEmpty()) {
+            int u = queue.poll();
+            
+            for (int v = 0; v < n; v++) {
+                if (!visited[v] && residual[u][v] > 0) {
+                    visited[v] = true;
+                    parent[v] = u;
+                    queue.offer(v);
+                    
+                    if (v == sink) {
+                        return true;
+                    }
+                }
             }
         }
         
         return false;
     }
-    
-    // Delete: O(log n) guaranteed
-    public void delete(int data) {
-        Node node = findNode(root, data);
-        if (node == null) return;
-        
-        deleteNode(node);
-    }
-    
-    private Node findNode(Node node, int data) {
-        while (node != null) {
-            if (data == node.data) {
-                return node;
-            } else if (data < node.data) {
-                node = node.left;
-            } else {
-                node = node.right;
-            }
-        }
-        return null;
-    }
-    
-    private void deleteNode(Node node) {
-        Node replacement;
-        Node child;
-        
-        // Node has two children
-        if (node.left != null && node.right != null) {
-            Node successor = minimum(node.right);
-            node.data = successor.data;
-            node = successor;
-        }
-        
-        // Node has at most one child
-        child = (node.left != null) ? node.left : node.right;
-        
-        if (node.color == BLACK) {
-            node.color = (child != null) ? child.color : BLACK;
-            fixDelete(node);
-        }
-        
-        replaceNode(node, child);
-    }
-    
-    private void fixDelete(Node node) {
-        while (node != root && node.color == BLACK) {
-            if (node == node.parent.left) {
-                Node sibling = node.parent.right;
-                
-                // Case 1: Sibling is red
-                if (sibling.color == RED) {
-                    sibling.color = BLACK;
-                    node.parent.color = RED;
-                    rotateLeft(node.parent);
-                    sibling = node.parent.right;
-                }
-                
-                // Case 2: Sibling's children are black
-                if ((sibling.left == null || sibling.left.color == BLACK) &&
-                    (sibling.right == null || sibling.right.color == BLACK)) {
-                    sibling.color = RED;
-                    node = node.parent;
-                } else {
-                    // Case 3: Sibling's right child is black
-                    if (sibling.right == null || sibling.right.color == BLACK) {
-                        if (sibling.left != null) {
-                            sibling.left.color = BLACK;
-                        }
-                        sibling.color = RED;
-                        rotateRight(sibling);
-                        sibling = node.parent.right;
-                    }
-                    
-                    // Case 4: Sibling's right child is red
-                    sibling.color = node.parent.color;
-                    node.parent.color = BLACK;
-                    if (sibling.right != null) {
-                        sibling.right.color = BLACK;
-                    }
-                    rotateLeft(node.parent);
-                    node = root;
-                }
-            } else {
-                // Symmetric cases for right child
-                Node sibling = node.parent.left;
-                
-                if (sibling.color == RED) {
-                    sibling.color = BLACK;
-                    node.parent.color = RED;
-                    rotateRight(node.parent);
-                    sibling = node.parent.left;
-                }
-                
-                if ((sibling.right == null || sibling.right.color == BLACK) &&
-                    (sibling.left == null || sibling.left.color == BLACK)) {
-                    sibling.color = RED;
-                    node = node.parent;
-                } else {
-                    if (sibling.left == null || sibling.left.color == BLACK) {
-                        if (sibling.right != null) {
-                            sibling.right.color = BLACK;
-                        }
-                        sibling.color = RED;
-                        rotateLeft(sibling);
-                        sibling = node.parent.left;
-                    }
-                    
-                    sibling.color = node.parent.color;
-                    node.parent.color = BLACK;
-                    if (sibling.left != null) {
-                        sibling.left.color = BLACK;
-                    }
-                    rotateRight(node.parent);
-                    node = root;
-                }
-            }
-        }
-        
-        node.color = BLACK;
-    }
-    
-    private void replaceNode(Node node, Node child) {
-        if (node.parent == null) {
-            root = child;
-        } else if (node == node.parent.left) {
-            node.parent.left = child;
-        } else {
-            node.parent.right = child;
-        }
-        
-        if (child != null) {
-            child.parent = node.parent;
-        }
-    }
-    
-    private Node minimum(Node node) {
-        while (node.left != null) {
-            node = node.left;
-        }
-        return node;
-    }
-    
-    // In-order traversal
-    public void inorder() {
-        inorderRec(root);
-        System.out.println();
-    }
-    
-    private void inorderRec(Node node) {
-        if (node != null) {
-            inorderRec(node.left);
-            System.out.print(node.data + "(" + (node.color ? "R" : "B") + ") ");
-            inorderRec(node.right);
-        }
-    }
 }
 ```
 
-**Red-Black Tree Implementation:**
+**Dynamic Programming in Practice:**
 
-The `fixInsert` method handles the complex cases of rebalancing after insertion. New nodes start red (to avoid increasing black height). If the parent is also red, we have a violation. The uncle's color determines our fix: if the uncle is red, recolor grandparent, parent, and uncle; if black, perform rotations.
+The knapsack implementation fills a 2D table where `dp[i][w]` represents the maximum value using items 0..i-1 with capacity w. The inner condition checks if the current item fits; if so, we choose the better of taking it or leaving it. The final answer is `dp[n][capacity]`—the maximum value using all items.
 
-The symmetry in the code reflects the symmetry of the tree structure: cases for left children mirror cases for right children. This duplication is unavoidable—left and right rotations are mirror operations, and balance violations on opposite sides require opposite fixes.
+LCS fills a 2D table where `dp[i][j]` is the LCS length of text1[0..i-1] and text2[0..j-1]. Matching characters extend the LCS from position [i-1][j-1]. Mismatches take the better of skipping in each string. The table implicitly encodes which characters match, enabling path reconstruction.
 
-Deletion is notoriously complex in Red-Black trees. Removing a black node can violate the black-height property, requiring cascading fixes up the tree. The `fixDelete` method handles four cases per side, combining rotations and recoloring to restore properties. This complexity is why many textbooks skim deletion—but understanding it reveals the full depth of the data structure.
+Matrix chain multiplication uses a 1D array of dimensions (for n matrices, n+1 dimensions) and fills a 2D table. `dp[i][j]` is the minimum cost to multiply matrices i through j. The inner loop tries all split points k, computing cost as left-chain-cost + right-chain-cost + splitting-cost. The O(n³) complexity is far better than the exponential number of parenthesizations.
 
-The in-order traversal prints colors (R or B) alongside values, making tree structure visible. This is invaluable for debugging and understanding how operations affect balance. In production code, you wouldn't print colors, but during development, this visibility is essential.
+Coin change demonstrates 1D DP: `dp[i]` is the minimum coins to make amount i. For each amount, we try using each coin, taking the minimum. The recurrence `dp[i] = min(dp[i], dp[i-coin] + 1)` captures the optimal substructure: the best way to make amount i uses the best way to make i-coin, plus one more coin.
 
-### Graphs: Modeling Relationships
+Edit distance measures how many single-character edits transform one string into another. Applications include spell-checking and DNA sequence alignment. The DP recurrence considers three operations: insert, delete, or replace. Matching characters cost nothing; mismatches take the cheapest operation. This formulation makes a complex problem tractable.
 
-Graphs are perhaps the most versatile data structure in computer science. They model networks, relationships, dependencies, maps, social connections, web links—any scenario where entities have pairwise connections. Unlike trees, graphs embrace cycles and multiple paths, making them both more powerful and more complex.
+### Network Flow: Modeling Capacity Constraints
 
-A graph consists of vertices (nodes) connected by edges. Edges can be directed (one-way) or undirected (bidirectional), weighted (with associated costs) or unweighted (binary connections). This flexibility makes graphs applicable to countless domains, from GPS navigation to social network analysis to compiler optimization.
+Network flow problems model scenarios where resources flow through a network with capacity constraints. Water through pipes, traffic through roads, data through networks—all fit the flow framework. The maximum flow problem asks: given a network with edge capacities, what's the maximum flow from source to sink?
 
-Graph representation matters. Adjacency matrices use O(V²) space but provide O(1) edge lookup. Adjacency lists use O(V + E) space (where E is edge count) and iterate over neighbors in O(degree) time. For sparse graphs (E << V²), adjacency lists win. For dense graphs (E ≈ V²), matrices are competitive. The implementation below uses adjacency lists—the more common choice.
+The Ford-Fulkerson method is conceptually simple: while an augmenting path exists (a path from source to sink with remaining capacity), push more flow through it. The flow amount is limited by the path's minimum capacity edge—the bottleneck. Repeat until no augmenting path exists. At termination, the flow is maximum.
 
-Graph traversal algorithms explore the graph systematically. Breadth-First Search (BFS) explores by layers: visit all neighbors before visiting neighbors' neighbors. Depth-First Search (DFS) explores by diving deep: follow a path until it ends, then backtrack. These simple strategies solve surprisingly complex problems: connected components, shortest paths in unweighted graphs, topological sorting, cycle detection.
+The implementation uses a residual graph: for each edge with flow f and capacity c, the residual capacity is c-f forward and f backward. The backward edges enable "undoing" flow, crucial for finding optimal solutions. BFS finds augmenting paths (making this the Edmonds-Karp algorithm), guaranteeing O(VE²) time.
+
+The max-flow min-cut theorem is fundamental: the maximum flow equals the minimum cut capacity. A cut partitions vertices into two sets; its capacity is the sum of forward edge capacities crossing the cut. This duality connects flow optimization to graph partitioning, with applications from scheduling to network resilience.
 
 **Pseudocode:**
 ```
-// BFS - O(V + E) time
-FUNCTION BFS(graph, start):
-    visited ← NEW BOOLEAN ARRAY of size V (all false)
-    queue ← NEW QUEUE
-    
-    visited[start] ← true
-    queue.ENQUEUE(start)
-    
-    WHILE queue is not empty DO
-        vertex ← queue.DEQUEUE()
-        PRINT vertex
+// SAT Brute Force Solver - O(2ⁿ)
+FUNCTION solveSAT(formula, numVars):
+    // Try all 2ⁿ possible assignments
+    FOR assignment ← 0 TO 2^numVars - 1 DO
+        values ← NEW BOOLEAN ARRAY of size numVars
         
-        FOR each neighbor IN graph.adjacencyList[vertex] DO
-            IF NOT visited[neighbor] THEN
-                visited[neighbor] ← true
-                queue.ENQUEUE(neighbor)
-
-// DFS - O(V + E) time
-FUNCTION DFS(graph, start):
-    visited ← NEW BOOLEAN ARRAY of size V (all false)
-    DFSUtil(graph, start, visited)
-
-FUNCTION DFSUtil(graph, vertex, visited):
-    visited[vertex] ← true
-    PRINT vertex
+        // Convert assignment number to boolean array
+        FOR i ← 0 TO numVars - 1 DO
+            values[i] ← (assignment & (1 << i)) ≠ 0
+        
+        // Check if this assignment satisfies all clauses
+        IF evaluateFormula(formula, values) THEN
+            RETURN values  // Found satisfying assignment
     
-    FOR each neighbor IN graph.adjacencyList[vertex] DO
-        IF NOT visited[neighbor] THEN
-            DFSUtil(graph, neighbor, visited)
+    RETURN NULL  // No satisfying assignment exists
 
-// Check Connectivity - O(V + E) time
-FUNCTION isConnected(graph):
-    visited ← NEW BOOLEAN ARRAY of size V (all false)
-    DFSUtil(graph, 0, visited)
+FUNCTION evaluateFormula(formula, assignment):
+    FOR each clause IN formula DO
+        satisfied ← false
+        FOR each literal IN clause DO
+            value ← assignment[literal.variable]
+            IF literal.negated THEN
+                value ← NOT value
+            IF value = true THEN
+                satisfied ← true
+                BREAK
+        
+        IF NOT satisfied THEN
+            RETURN false  // Clause not satisfied
     
-    FOR i ← 0 TO V - 1 DO
-        IF NOT visited[i] THEN
-            RETURN false
-    RETURN true
+    RETURN true  // All clauses satisfied
+
+// Convert to 3-SAT - Polynomial time reduction
+FUNCTION convertTo3SAT(clause):
+    IF length(clause) ≤ 3 THEN
+        RETURN clause
+    
+    // Split long clause into multiple 3-literal clauses
+    // using auxiliary variables
+    newClauses ← EMPTY LIST
+    current ← clause[0], clause[1], aux₀
+    newClauses.ADD(current)
+    
+    FOR i ← 2 TO length(clause) - 3 DO
+        current ← NOT auxᵢ₋₁, clause[i], auxᵢ
+        newClauses.ADD(current)
+    
+    final ← NOT auxₙ₋₂, clause[n-2], clause[n-1]
+    newClauses.ADD(final)
+    
+    RETURN newClauses
 ```
 
 **Java Implementation:**
 ```java
 import java.util.*;
 
-public class Graph {
-    private int vertices;
-    private List<List<Integer>> adjacencyList;
+public class SATProblems {
     
-    public Graph(int vertices) {
-        this.vertices = vertices;
-        adjacencyList = new ArrayList<>(vertices);
-        for (int i = 0; i < vertices; i++) {
-            adjacencyList.add(new ArrayList<>());
+    // Boolean Satisfiability representation
+    static class Clause {
+        List<Literal> literals;
+        
+        Clause() {
+            this.literals = new ArrayList<>();
+        }
+        
+        void addLiteral(int variable, boolean negated) {
+            literals.add(new Literal(variable, negated));
+        }
+        
+        boolean evaluate(boolean[] assignment) {
+            for (Literal lit : literals) {
+                boolean value = assignment[lit.variable];
+                if (lit.negated) value = !value;
+                if (value) return true;
+            }
+            return false;
         }
     }
     
-    public void addEdge(int source, int dest) {
-        adjacencyList.get(source).add(dest);
-        adjacencyList.get(dest).add(source); // For undirected graph
+    static class Literal {
+        int variable;
+        boolean negated;
+        
+        Literal(int variable, boolean negated) {
+            this.variable = variable;
+            this.negated = negated;
+        }
     }
     
-    // Breadth-First Search: O(V + E)
-    public void bfs(int start) {
-        boolean[] visited = new boolean[vertices];
-        Queue<Integer> queue = new LinkedList<>();
+    static class SATFormula {
+        List<Clause> clauses;
+        int numVariables;
         
-        visited[start] = true;
-        queue.offer(start);
+        SATFormula(int numVariables) {
+            this.numVariables = numVariables;
+            this.clauses = new ArrayList<>();
+        }
         
-        while (!queue.isEmpty()) {
-            int vertex = queue.poll();
-            System.out.print(vertex + " ");
-            
-            for (int neighbor : adjacencyList.get(vertex)) {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    queue.offer(neighbor);
+        void addClause(Clause clause) {
+            clauses.add(clause);
+        }
+        
+        boolean evaluate(boolean[] assignment) {
+            for (Clause clause : clauses) {
+                if (!clause.evaluate(assignment)) {
+                    return false;
                 }
-            }
-        }
-    }
-    
-    // Depth-First Search: O(V + E)
-    public void dfs(int start) {
-        boolean[] visited = new boolean[vertices];
-        dfsRec(start, visited);
-    }
-    
-    private void dfsRec(int vertex, boolean[] visited) {
-        visited[vertex] = true;
-        System.out.print(vertex + " ");
-        
-        for (int neighbor : adjacencyList.get(vertex)) {
-            if (!visited[neighbor]) {
-                dfsRec(neighbor, visited);
-            }
-        }
-    }
-    
-    // Check if graph is connected: O(V + E)
-    public boolean isConnected() {
-        boolean[] visited = new boolean[vertices];
-        dfsRec(0, visited);
-        
-        for (boolean v : visited) {
-            if (!v) return false;
-        }
-        return true;
-    }
-}
-```
-
-**Graph Traversal Insights:**
-
-BFS uses a queue (FIFO) to process vertices in order of discovery. This ensures we visit vertices layer by layer: first the start vertex, then all vertices one edge away, then all vertices two edges away, and so on. This layered exploration makes BFS ideal for finding shortest paths in unweighted graphs—the first time we reach a vertex is necessarily via the shortest path.
-
-DFS uses recursion (or explicitly, a stack) to explore deeply before backtracking. Each recursive call follows one edge, exploring that branch completely before trying alternatives. This depth-first strategy makes DFS natural for problems requiring exhaustive exploration: finding all paths, detecting cycles, or computing topological orderings.
-
-The `isConnected` method demonstrates how simple graph traversals solve complex questions. Connectivity—whether all vertices are reachable from a given start—is answered by a single DFS. If we mark n vertices as visited, the graph is connected. If fewer, it's disconnected. This is the power of graph algorithms: complex questions often have surprisingly simple algorithmic answers.
-
-Both BFS and DFS run in O(V + E) time—linear in the graph's size. We visit each vertex once and examine each edge once (or twice for undirected graphs). This linearity makes them fundamental building blocks for more complex graph algorithms.
-
-### Dijkstra's Algorithm: Shortest Paths with Weights
-
-Dijkstra's algorithm solves the single-source shortest path problem for graphs with non-negative edge weights. From a starting vertex, it computes the shortest path to every other vertex. The algorithm is greedy: repeatedly select the unvisited vertex with minimum distance, then update distances to its neighbors.
-
-The key insight is that once we've selected a vertex as having minimum distance, that distance is final—we've found the shortest path to it. Why? Because all edges have non-negative weights. Any path through unvisited vertices would have at least the same distance (since we chose the minimum), plus additional positive weight. This greedy choice property makes Dijkstra's algorithm correct.
-
-The priority queue is crucial for efficiency. Selecting the minimum-distance vertex naively takes O(V) time; with V iterations, that's O(V²). But a min-heap priority queue reduces vertex selection to O(log V), and we perform E distance updates, each taking O(log V) to update the heap. Total complexity: O((V + E) log V), often simplified to O(E log V) for connected graphs.
-
-**Pseudocode:**
-```
-// Dijkstra's Algorithm - O((V + E) log V)
-FUNCTION dijkstra(graph, source):
-    dist ← NEW ARRAY of size V (all ∞)
-    dist[source] ← 0
-    
-    pq ← NEW MIN PRIORITY QUEUE
-    pq.INSERT(source, 0)
-    
-    WHILE pq is not empty DO
-        u ← pq.EXTRACT_MIN()
-        
-        FOR each edge (u, v, weight) IN graph.adjacencyList[u] DO
-            // Relaxation step
-            IF dist[u] + weight < dist[v] THEN
-                dist[v] ← dist[u] + weight
-                pq.INSERT(v, dist[v])
-    
-    RETURN dist
-```
-
-**Java Implementation:**
-```java
-import java.util.*;
-
-public class DijkstraAlgorithm {
-    
-    private static class Edge {
-        int target;
-        int weight;
-        
-        Edge(int target, int weight) {
-            this.target = target;
-            this.weight = weight;
-        }
-    }
-    
-    private static class Node implements Comparable<Node> {
-        int vertex;
-        int distance;
-        
-        Node(int vertex, int distance) {
-            this.vertex = vertex;
-            this.distance = distance;
-        }
-        
-        @Override
-        public int compareTo(Node other) {
-            return Integer.compare(this.distance, other.distance);
-        }
-    }
-    
-    // Dijkstra's Algorithm: O((V + E) log V) with priority queue
-    public static int[] dijkstra(List<List<Edge>> graph, int source) {
-        int n = graph.size();
-        int[] distances = new int[n];
-        Arrays.fill(distances, Integer.MAX_VALUE);
-        distances[source] = 0;
-        
-        PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.offer(new Node(source, 0));
-        
-        boolean[] visited = new boolean[n];
-        
-        while (!pq.isEmpty()) {
-            Node current = pq.poll();
-            int u = current.vertex;
-            
-            if (visited[u]) continue;
-            visited[u] = true;
-            
-            for (Edge edge : graph.get(u)) {
-                int v = edge.target;
-                int weight = edge.weight;
-                
-                if (distances[u] + weight < distances[v]) {
-                    distances[v] = distances[u] + weight;
-                    pq.offer(new Node(v, distances[v]));
-                }
-            }
-        }
-        
-        return distances;
-    }
-    
-    // Reconstruct shortest path
-    public static List<Integer> reconstructPath(int[] parent, int target) {
-        List<Integer> path = new ArrayList<>();
-        for (int v = target; v != -1; v = parent[v]) {
-            path.add(v);
-        }
-        Collections.reverse(path);
-        return path;
-    }
-}
-```
-
-**Dijkstra in Practice:**
-
-The algorithm maintains a distance array initialized to infinity (represented by `Integer.MAX_VALUE`), except the source which starts at 0. The priority queue orders vertices by distance, ensuring we always process the minimum-distance unvisited vertex next.
-
-The relaxation step is key: for each edge (u, v) with weight w, if distance[u] + w < distance[v], we've found a shorter path to v. Update distance[v] and add v to the priority queue with its new distance. The priority queue naturally handles vertices being added multiple times with different distances—we ignore outdated entries using the visited array.
-
-Path reconstruction requires augmenting the algorithm with a parent array. When we relax an edge, we also store parent[v] = u. After the algorithm completes, we can trace back from any vertex to the source, reconstructing the shortest path tree.
-
-Dijkstra's algorithm fails with negative edge weights. A shorter path might appear after we've marked a vertex as final, violating the algorithm's invariant. For graphs with negative weights (but no negative cycles), the Bellman-Ford algorithm handles this at the cost of O(VE) time.
-
-### Minimum Spanning Trees: Connecting Everything Efficiently
-
-A spanning tree of a graph connects all vertices with the minimum number of edges (V-1 edges for V vertices) while avoiding cycles. A minimum spanning tree (MST) does this with minimum total edge weight. MSTs solve problems like network design: connecting cities with minimum cable length, or connecting computers with minimum cost.
-
-Two classical algorithms solve the MST problem: Prim's and Kruskal's. Both are greedy, repeatedly making locally optimal choices that lead to a globally optimal solution. Both produce the same total weight (the MST is unique if all edge weights are distinct), though the actual trees might differ.
-
-Prim's algorithm grows a single tree from an arbitrary starting vertex, always adding the minimum-weight edge that connects a tree vertex to a non-tree vertex. It's similar to Dijkstra's but selects edges by weight rather than cumulative distance. The priority queue contains edges from the growing tree to unexplored vertices.
-
-Kruskal's algorithm considers edges in order of increasing weight, adding each edge unless it would create a cycle. This requires a data structure to detect cycles efficiently—enter the Union-Find (disjoint set) structure. Union-Find maintains connected components, allowing O(α(n)) (effectively constant) time to check if two vertices are connected and to merge components.
-
-**Pseudocode:**
-```
-// Prim's MST Algorithm - O(E log V)
-FUNCTION primMST(graph, vertices):
-    visited ← NEW BOOLEAN ARRAY of size V (all false)
-    mstWeight ← 0
-    pq ← NEW MIN PRIORITY QUEUE
-    
-    // Start from vertex 0
-    visited[0] ← true
-    FOR each edge IN graph.adjacencyList[0] DO
-        pq.INSERT(edge)
-    
-    WHILE pq is not empty DO
-        edge ← pq.EXTRACT_MIN()
-        target ← edge.target
-        
-        IF visited[target] THEN
-            CONTINUE  // Skip edges to already-visited vertices
-        
-        visited[target] ← true
-        mstWeight ← mstWeight + edge.weight
-        
-        FOR each nextEdge IN graph.adjacencyList[target] DO
-            IF NOT visited[nextEdge.target] THEN
-                pq.INSERT(nextEdge)
-    
-    RETURN mstWeight
-```
-
-**Java Implementation:**
-```java
-import java.util.*;
-
-public class PrimsAlgorithm {
-    
-    private static class Edge implements Comparable<Edge> {
-        int target;
-        int weight;
-        
-        Edge(int target, int weight) {
-            this.target = target;
-            this.weight = weight;
-        }
-        
-        @Override
-        public int compareTo(Edge other) {
-            return Integer.compare(this.weight, other.weight);
-        }
-    }
-    
-    // Prim's Algorithm: O(E log V)
-    public static List<int[]> primMST(List<List<Edge>> graph) {
-        int n = graph.size();
-        List<int[]> mst = new ArrayList<>();
-        boolean[] inMST = new boolean[n];
-        PriorityQueue<Edge> pq = new PriorityQueue<>();
-        
-        // Start from vertex 0
-        inMST[0] = true;
-        for (Edge edge : graph.get(0)) {
-            pq.offer(edge);
-        }
-        
-        while (!pq.isEmpty() && mst.size() < n - 1) {
-            Edge edge = pq.poll();
-            int v = edge.target;
-            
-            if (inMST[v]) continue;
-            
-            inMST[v] = true;
-            mst.add(new int[]{v, edge.weight});
-            
-            for (Edge nextEdge : graph.get(v)) {
-                if (!inMST[nextEdge.target]) {
-                    pq.offer(nextEdge);
-                }
-            }
-        }
-        
-        return mst;
-    }
-}
-```
-
-**Prim's Algorithm Insights:**
-
-Prim's maintains a clear invariant: at each step, we have a connected tree, and we add the minimum-weight edge that extends it. The priority queue holds edges from tree vertices to non-tree vertices. When we extract the minimum-weight edge and its target isn't yet in the tree, we add both to the MST.
-
-The `inMST` array tracks which vertices are already in the tree—crucial for avoiding cycles. When we add vertex v, we explore all its edges. For each edge to a non-tree vertex, we add it to the priority queue. The queue naturally sorts these edges, ensuring we always select the minimum-weight extension.
-
-The algorithm completes after adding V-1 edges (a tree on V vertices always has exactly V-1 edges). The complexity O(E log V) comes from E edge insertions into the priority queue, each taking O(log V) time. For dense graphs where E ≈ V², this matches the Fibonacci heap-optimized version's O(E + V log V).
-
-Prim's works well for dense graphs represented as adjacency matrices. Starting from any vertex guarantees we find an MST—unlike Kruskal's, which processes edges globally. This local growth property also makes Prim's easier to visualize and understand.
-
-### Kruskal's Algorithm and Union-Find
-
-Kruskal's takes a global view: sort all edges by weight, then add edges greedily if they don't create cycles. This edge-centric approach contrasts with Prim's vertex-centric growth. The challenge is cycle detection—naively checking for cycles after each edge addition would be expensive.
-
-The Union-Find data structure solves this elegantly. It maintains a partition of vertices into disjoint sets (connected components). Two operations suffice: `find(x)` returns x's component representative, and `union(x, y)` merges their components. Initially, each vertex is its own component. Adding an edge (u, v) is valid only if find(u) ≠ find(v)—they're in different components, so no cycle forms.
-
-Union-Find achieves nearly constant time per operation through two optimizations. Path compression flattens trees during find operations: after finding the root, make all visited nodes point directly to it. Union by rank keeps trees shallow by always attaching the shorter tree to the taller one. Together, these give O(α(n)) time per operation, where α is the inverse Ackermann function—effectively constant.
-
-**Pseudocode:**
-```
-// Kruskal's MST Algorithm - O(E log E)
-FUNCTION kruskalMST(edges, vertices):
-    // Sort edges by weight
-    SORT edges by weight (ascending)
-    
-    // Initialize Union-Find
-    parent ← NEW ARRAY of size V
-    rank ← NEW ARRAY of size V
-    FOR i ← 0 TO V - 1 DO
-        parent[i] ← i
-        rank[i] ← 0
-    
-    mstWeight ← 0
-    edgesAdded ← 0
-    
-    FOR each edge IN edges DO
-        IF edgesAdded = V - 1 THEN
-            BREAK  // MST complete
-        
-        rootU ← find(edge.source, parent)
-        rootV ← find(edge.target, parent)
-        
-        // If in different components, add edge
-        IF rootU ≠ rootV THEN
-            mstWeight ← mstWeight + edge.weight
-            edgesAdded ← edgesAdded + 1
-            union(rootU, rootV, parent, rank)
-    
-    RETURN mstWeight
-
-// Union-Find with Path Compression
-FUNCTION find(x, parent):
-    IF parent[x] ≠ x THEN
-        parent[x] ← find(parent[x], parent)  // Path compression
-    RETURN parent[x]
-
-// Union-Find with Union by Rank
-FUNCTION union(x, y, parent, rank):
-    IF rank[x] < rank[y] THEN
-        parent[x] ← y
-    ELSE IF rank[x] > rank[y] THEN
-        parent[y] ← x
-    ELSE
-        parent[y] ← x
-        rank[x] ← rank[x] + 1
-```
-
-**Java Implementation:**
-```java
-import java.util.*;
-
-public class KruskalsAlgorithm {
-    
-    private static class Edge implements Comparable<Edge> {
-        int source, target, weight;
-        
-        Edge(int source, int target, int weight) {
-            this.source = source;
-            this.target = target;
-            this.weight = weight;
-        }
-        
-        @Override
-        public int compareTo(Edge other) {
-            return Integer.compare(this.weight, other.weight);
-        }
-    }
-    
-    // Union-Find data structure
-    private static class UnionFind {
-        int[] parent, rank;
-        
-        UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-            }
-        }
-        
-        int find(int x) {
-            if (parent[x] != x) {
-                parent[x] = find(parent[x]); // Path compression
-            }
-            return parent[x];
-        }
-        
-        boolean union(int x, int y) {
-            int rootX = find(x);
-            int rootY = find(y);
-            
-            if (rootX == rootY) return false;
-            
-            // Union by rank
-            if (rank[rootX] < rank[rootY]) {
-                parent[rootX] = rootY;
-            } else if (rank[rootX] > rank[rootY]) {
-                parent[rootY] = rootX;
-            } else {
-                parent[rootY] = rootX;
-                rank[rootX]++;
             }
             return true;
         }
+        
+        // Brute force SAT solver: O(2ⁿ * m) where n = variables, m = clauses
+        // This is exponential - illustrating why SAT is NP-complete
+        boolean solveBruteForce() {
+            return tryAssignment(new boolean[numVariables], 0);
+        }
+        
+        private boolean tryAssignment(boolean[] assignment, int varIndex) {
+            if (varIndex == numVariables) {
+                return evaluate(assignment);
+            }
+            
+            // Try false
+            assignment[varIndex] = false;
+            if (tryAssignment(assignment, varIndex + 1)) {
+                return true;
+            }
+            
+            // Try true
+            assignment[varIndex] = true;
+            return tryAssignment(assignment, varIndex + 1);
+        }
     }
     
-    // Kruskal's Algorithm: O(E log E)
-    public static List<Edge> kruskalMST(int vertices, List<Edge> edges) {
-        Collections.sort(edges);
-        UnionFind uf = new UnionFind(vertices);
-        List<Edge> mst = new ArrayList<>();
+    // Convert arbitrary CNF to 3-CNF (polynomial-time reduction)
+    // This demonstrates that 3-SAT is NP-complete
+    public static SATFormula convertTo3SAT(SATFormula original) {
+        SATFormula threeSAT = new SATFormula(original.numVariables * 2);
+        int nextVar = original.numVariables;
         
-        for (Edge edge : edges) {
-            if (uf.union(edge.source, edge.target)) {
-                mst.add(edge);
-                if (mst.size() == vertices - 1) break;
+        for (Clause clause : original.clauses) {
+            if (clause.literals.size() <= 3) {
+                threeSAT.addClause(clause);
+            } else {
+                // Split large clauses using auxiliary variables
+                // (x1 v x2 v x3 v x4) becomes:
+                // (x1 v x2 v y) ^ (~y v x3 v x4)
+                // This is the polynomial reduction
+                int auxVar = nextVar++;
+                
+                Clause first = new Clause();
+                first.addLiteral(clause.literals.get(0).variable, 
+                               clause.literals.get(0).negated);
+                first.addLiteral(clause.literals.get(1).variable, 
+                               clause.literals.get(1).negated);
+                first.addLiteral(auxVar, false);
+                threeSAT.addClause(first);
+                
+                Clause second = new Clause();
+                second.addLiteral(auxVar, true);
+                for (int i = 2; i < clause.literals.size(); i++) {
+                    second.addLiteral(clause.literals.get(i).variable,
+                                    clause.literals.get(i).negated);
+                }
+                threeSAT.addClause(second);
             }
         }
         
-        return mst;
+        return threeSAT;
     }
 }
 ```
 
-**Kruskal's Algorithm in Practice:**
+**SAT and Computational Complexity:**
 
-The sorting step dominates Kruskal's complexity: O(E log E). Processing edges with Union-Find adds O(E α(V)), effectively O(E). Since log E ≈ log V² = 2 log V for connected graphs, Kruskal's is O(E log V)—the same as Prim's asymptotically.
+The Boolean Satisfiability Problem (SAT) asks: given a Boolean formula in CNF (conjunctive normal form—ANDs of ORs), does an assignment of variables exist that makes it true? SAT was the first problem proven NP-complete, establishing it as the hardest problem in NP.
 
-Kruskal's shines for sparse graphs: fewer edges mean faster sorting. It's also conceptually simpler than Prim's and naturally parallelizes (independent edges can be processed concurrently). The Union-Find structure is a general-purpose tool useful far beyond MST algorithms—it solves connectivity problems across computer science.
+The implementation demonstrates SAT's structure: clauses contain literals (variables or their negations), and the formula is satisfied if all clauses are satisfied. The `evaluate` method checks if a given assignment satisfies the formula. The brute-force solver tries all 2ⁿ possible assignments—exponential time.
 
-The greedy choice in both algorithms—always select the minimum-weight edge that's safe—is remarkable. Not all optimization problems admit greedy solutions. That MST does is a deep mathematical property: the matroid structure of forests. This greedy correctness is why we can solve MST efficiently, while many other graph optimization problems are NP-hard.
+3-SAT restricts clauses to exactly 3 literals. The `convertTo3SAT` method shows a polynomial-time reduction from arbitrary CNF to 3-CNF. This reduction proves 3-SAT is NP-complete: if we could solve 3-SAT in polynomial time, we could solve all CNF-SAT problems in polynomial time. This is the essence of NP-completeness: hardness flows through polynomial reductions.
 
-**Chapter 3 Synthesis:**
+The significance of NP-completeness is profound. If any NP-complete problem has a polynomial algorithm, then P = NP—all efficiently verifiable problems are efficiently solvable. Most computer scientists believe P ≠ NP, meaning these problems are inherently intractable. Recognizing NP-complete problems tells us when to abandon exact algorithms and seek approximations or heuristics.
 
-Recursion, trees, and graphs form a hierarchy of complexity. Recursion is the foundation—a way of thinking that makes complex problems tractable. Trees add structure, organizing data hierarchically. Balanced trees like AVL and Red-Black guarantee efficiency through clever invariants. Graphs generalize trees, allowing cycles and multiple paths, modeling the complex relationships in real systems.
+Thousands of practical problems are NP-complete: traveling salesman, graph coloring, scheduling, circuit design. When you encounter one, you face a choice: use exponential exact algorithms for small inputs, develop approximation algorithms with provable guarantees, or use heuristics without guarantees. Understanding NP-completeness guides these decisions.
 
-The algorithms we've explored—DFS, BFS, Dijkstra's, Prim's, Kruskal's—are foundational to computer science. They appear in operating systems (file system traversal), networks (routing protocols), compilers (dependency resolution), and databases (query optimization). Mastering them means understanding not just code, but the mathematical principles that make them correct and efficient.
+**Chapter 4 Synthesis:**
+
+This chapter explored algorithmic paradigms—strategies for designing algorithms. Greedy algorithms make locally optimal choices, working when problems have the greedy choice property. Divide-and-conquer breaks problems recursively, effective when division is balanced and combination is efficient. Dynamic programming solves optimization through optimal substructure and overlapping subproblems, caching solutions to avoid redundant work.
+
+Network flow models capacity-constrained optimization, connecting to graph cuts through fundamental duality. And NP-completeness theory reveals computational limits—problems that probably lack efficient algorithms, guiding us toward approximation and heuristics.
+
+These paradigms aren't mere techniques—they're ways of thinking about problems. Recognizing a problem's structure tells you which paradigm applies. Seeing optimal substructure suggests DP. Noticing safe greedy choices suggests greedy algorithms. Observing recursive decomposition suggests divide-and-conquer. This pattern recognition, honed through practice, is the essence of algorithmic thinking.
 
 ## Bonus Videos
 
-Search Trees (BST / AVL / Red-Black / B-Trees)
+Greedy
 
-{{YouTube:https://www.youtube.com/watch?v=hmSFuM2Tglw}}
+{{YouTube:https://www.youtube.com/watch?v=HzeK7g8cD0Y}}
 
-AVL Trees:
+{{YouTube:https://www.youtube.com/watch?v=ARvQcqJ_-NY}}
 
-{{YouTube:https://www.youtube.com/watch?v=jDM6_TnYIqE}}
+Activity selection:
 
-{{YouTube:https://www.youtube.com/watch?v=zP2xbKerIds}}
-Red/Black Trees:
+{{YouTube:https://www.youtube.com/watch?v=V0ZrLuIVzaY}}
 
-{{YouTube:https://www.youtube.com/watch?v=qvZGUFHWChY}}
+{{YouTube:https://www.youtube.com/watch?v=Qz6D7mrxaJM}}
 
-{{YouTube:https://www.youtube.com/watch?v=95s3ndZRGbk}}
-B-Trees:
+{{YouTube:https://www.youtube.com/watch?v=32uOuOPXBhc}}
 
-{{YouTube:https://www.youtube.com/watch?v=K1a2Bk8NrYQ}}
+{{YouTube:https://www.youtube.com/watch?v=tEfVXgrP6WU}}
 
-Graph representations:
+{{YouTube:https://www.youtube.com/watch?v=tvwipsztQr4}}
 
-{{YouTube:https://www.youtube.com/watch?v=-VgHk7UMPP4}}
+Fractional Knapsack:
 
-{{YouTube:https://www.youtube.com/watch?v=DBRW8nwZV-g}}
+{{YouTube:https://www.youtube.com/watch?v=ujHQlfR3qfo}}
 
-{{YouTube:https://www.youtube.com/watch?v=ze-poffnS1E}}
+{{YouTube:https://www.youtube.com/watch?v=m1p-eWxrt6g}}
 
-Graph traversal:
+{{YouTube:https://www.youtube.com/watch?v=xZfmHVi7FMg}}
 
-{{YouTube:https://www.youtube.com/watch?v=cS-198wtfj0}}
+{{YouTube:https://www.youtube.com/watch?v=DGOwuk55xa0}}
 
-{{YouTube:https://www.youtube.com/watch?v=HZ5YTanv5QE}}
+Huffman:
 
-{{YouTube:https://www.youtube.com/watch?v=TIbUeeksXcI}}
+{{YouTube:https://www.youtube.com/watch?v=JsTptu56GM8}}
 
-{{YouTube:https://www.youtube.com/watch?v=pcKY4hjDrxk}}
+{{YouTube:https://www.youtube.com/watch?v=co4_ahEDCho}}
 
-{{YouTube:https://www.youtube.com/watch?v=0u78hx-66Xk}}
+{{YouTube:https://www.youtube.com/watch?v=iEm1NRyEe5c}}
 
-{{YouTube:https://www.youtube.com/watch?v=Y40bRyPQQr0}}
+{{YouTube:https://www.youtube.com/watch?v=EzADYr8b5jA}}
 
-{{YouTube:https://www.youtube.com/watch?v=xlVX7dXLS64}}
+Divide and Conquer
 
-Dijkstras:
+Merge Sort:
 
-{{YouTube:https://www.youtube.com/watch?v=EFg3u_E6eHU}}
+{{YouTube:https://www.youtube.com/watch?v=4VqmGXwpLqc}}
 
-{{YouTube:https://www.youtube.com/watch?v=_lHSawdgXpI}}
+{{YouTube:https://www.youtube.com/watch?v=KF2j-9iSf4Q}}
 
-{{YouTube:https://www.youtube.com/watch?v=GazC3A4OQTE}}
+{{YouTube:https://www.youtube.com/watch?v=-3u1C1URNZY}}
 
-{{YouTube:https://www.youtube.com/watch?v=K_1urzWrzLs}}
+{{YouTube:https://www.youtube.com/watch?v=es2T6KY45cA}}
 
-{{YouTube:https://www.youtube.com/watch?v=bZkzH5x0SKU}}
+{{YouTube:https://www.youtube.com/watch?v=3j0SWDX4AtU}}
 
-{{YouTube:https://www.youtube.com/watch?v=71Z-Jpnm3D4}}
+Quick Sort:
 
-{{YouTube:https://www.youtube.com/watch?v=j0OUwduDOS0}}
+{{YouTube:https://www.youtube.com/watch?v=XE4VP_8Y0BU}}
 
-MST / Prim and Kruskal
+{{YouTube:https://www.youtube.com/watch?v=Vtckgz38QHs}}
 
-{{YouTube:https://www.youtube.com/watch?v=Yldkh0aOEcg}}
+{{YouTube:https://www.youtube.com/watch?v=Hoixgm4-P4M}}
 
-{{YouTube:https://www.youtube.com/watch?v=qOv8K-AJ7o0}}
+{{YouTube:https://www.youtube.com/watch?v=MZaf_9IZCrc}}
 
-{{YouTube:https://www.youtube.com/watch?v=6LikZhGLRgU}}
+{{YouTube:https://www.youtube.com/watch?v=aXXWXz5rF64}}
 
-{{YouTube:https://www.youtube.com/watch?v=4ZlRH0eK-qQ}}
+Master Theorem:
 
-{{YouTube:https://www.youtube.com/watch?v=cplfcGZmX7I}}
+{{YouTube:https://www.youtube.com/watch?v=2H0GKdrIowU}}
 
-{{YouTube:https://www.youtube.com/watch?v=71UQH7Pr9kU}}
+{{YouTube:https://www.youtube.com/watch?v=LlFBRDO5gNQ}}
 
-{{YouTube:https://www.youtube.com/watch?v=vmWSnkBVvQ0}}
+{{YouTube:https://www.youtube.com/watch?v=SLsHKh_OUEM}}
 
-{{YouTube:https://www.youtube.com/watch?v=EHRqQBlZAtU}}
+{{YouTube:https://www.youtube.com/watch?v=d-gIGFxewW4}}
 
-{{YouTube:https://www.youtube.com/watch?v=jsmMtJpPnhU}}
+{{YouTube:https://www.youtube.com/watch?v=2y0HQGd1-nA}}
 
-{{YouTube:https://www.youtube.com/watch?v=eB61LXLZVqs}}
+{{YouTube:https://www.youtube.com/watch?v=OynWkEj0S-s}}
 
-{{YouTube:https://www.youtube.com/watch?v=3fU0w9XZjAA}}
+{{YouTube:https://www.youtube.com/watch?v=T68vN1FNY4o}}
+
+{{YouTube:https://www.youtube.com/watch?v=09vU-wVwW3U}}
+
+{{YouTube:https://www.youtube.com/watch?v=g87rea4FDv4}}
+
+Network Flow
+
+{{YouTube:https://www.youtube.com/watch?v=Tl90tNtKvxs}}
+
+{{YouTube:https://www.youtube.com/watch?v=VbeTl1gG4l4}}
+
+{{YouTube:https://www.youtube.com/watch?v=LdOnanfc5TM}}
+
+{{YouTube:https://www.youtube.com/watch?v=oHy3ddI9X3o}}
+
+{{YouTube:https://www.youtube.com/watch?v=3LG-My_MoWc}}
+
+
+Dynamic Programming
+
+{{YouTube:https://www.youtube.com/watch?v=oifN-YVlrq8}}
+
+{{YouTube:https://www.youtube.com/watch?v=Hdr64lKQ3e4}}
+
+{{YouTube:https://www.youtube.com/watch?v=rE5h11FwiVw}}
+
+Knapsack:
+
+{{YouTube:https://www.youtube.com/watch?v=cJ21moQpofY}}
+
+{{YouTube:https://www.youtube.com/watch?v=qxWu-SeAqe4}}
+
+{{YouTube:https://www.youtube.com/watch?v=xOlhR_2QCXY}}
+
+{{YouTube:https://www.youtube.com/watch?v=nLmhmB6NzcM}}
+
+LCS:
+
+{{YouTube:https://www.youtube.com/watch?v=Ua0GhsJSlWM}}
+
+{{YouTube:https://www.youtube.com/watch?v=sSno9rV8Rhg}}
+
+{{YouTube:https://www.youtube.com/watch?v=Qf5R-uYQRPk}}
+
+{{YouTube:https://www.youtube.com/watch?v=KnWorqyDSLA}}
+
+Matrix Chain Multiplication:
+
+{{YouTube:https://www.youtube.com/watch?v=O_G2hVZvNBg}}
+
+{{YouTube:https://www.youtube.com/watch?v=prx1psByp7U}}
+
+{{YouTube:https://www.youtube.com/watch?v=JOJK7-fM2JQ}}
+
+{{YouTube:https://www.youtube.com/watch?v=GMzVeWpyTN0}}
+
+{{YouTube:https://www.youtube.com/watch?v=vgLJZMUfnsU}}
+
+{{YouTube:https://www.youtube.com/watch?v=_WncuhSJZyA}}
+
+
+Other DP problems:
+
+Coinage:
+
+{{YouTube:https://www.youtube.com/watch?v=KnWorqyDSLA}}
+
+NP-Complete / SAT / 3-SAT
+
+{{YouTube:https://www.youtube.com/watch?v=YX40hbAHx3s}}
+
+{{YouTube:https://www.youtube.com/watch?v=6OPsH8PK7xM}}
+
+{{YouTube:https://www.youtube.com/watch?v=pQsdygaYcE4}}
+
+{{YouTube:https://www.youtube.com/watch?v=GCw07nZckps}}
+
+{{YouTube:https://www.youtube.com/watch?v=ylItc6O3A4Y}}
+
+{{YouTube:https://www.youtube.com/watch?v=BTC3JsV_cqE}}
+
+{{YouTube:https://www.youtube.com/watch?v=DY5oF7I_yz4}}
+
+{{YouTube:https://www.youtube.com/watch?v=-wlUDJZb6-Q}}
+
+SAT and proof of NP-Completeness:
+
+{{YouTube:https://www.youtube.com/watch?v=uAdVzz1hKYY}}
+
+{{YouTube:https://www.youtube.com/watch?v=KeLE0lar-WA}}
+
+{{YouTube:https://www.youtube.com/watch?v=Mu5HUvIojJA}}
+
+{{YouTube:https://www.youtube.com/watch?v=tDDHjrd3FBg}}
+
+{{YouTube:https://www.youtube.com/watch?v=1_fbpp7CLmY}}
+
+{{YouTube:https://www.youtube.com/watch?v=WDgkkVq5IB0}}
+
+{{YouTube:https://www.youtube.com/watch?v=nKNd9iExRO8}}
+
+{{YouTube:https://www.youtube.com/watch?v=WDgkkVq5IB0}}
+
+{{YouTube:https://www.youtube.com/watch?v=nKNd9iExRO8}}
+
+{{YouTube:https://www.youtube.com/watch?v=QwGHBX2k8Xc}}
+
+{{YouTube:https://www.youtube.com/watch?v=sJC5mBFPKcg}}
+
+{{YouTube:https://www.youtube.com/watch?v=g8XTGcGfxTY}}
+
+{{YouTube:https://www.youtube.com/watch?v=2G4BeSbHEyg}}
+
+{{YouTube:https://www.youtube.com/watch?v=a-h3HTmv214}}
+
+{{YouTube:https://www.youtube.com/watch?v=s7MY2c8bF3M}}
+
+{{YouTube:https://www.youtube.com/watch?v=EIFZth8NS_Q}}
+
+{{YouTube:https://www.youtube.com/watch?v=eZIhrrYgibc}}
+
+{{YouTube:https://www.youtube.com/watch?v=tYsQax1JXIk}}
+
+{{YouTube:https://www.youtube.com/watch?v=9hqpVp6zGl4}}
+
+{{YouTube:https://www.youtube.com/watch?v=7I15IN7zEsM}}
+
+{{YouTube:https://www.youtube.com/watch?v=C2tWSssGMBs}}
+
+{{YouTube:https://www.youtube.com/watch?v=eU_zPPBjQPk}}
+
+{{YouTube:https://www.youtube.com/watch?v=xAQQc1_RjD8}}
+
+{{YouTube:https://www.youtube.com/watch?v=DcgPn2FtMlo}}
+
+{{YouTube:https://www.youtube.com/watch?v=MYorPavtyqo}}
+
+{{YouTube:https://www.youtube.com/watch?v=rSCtkJohumA}}
+
+

@@ -1,0 +1,57 @@
+id: "ch2-btree-analysis"
+type: "short-answer"
+chapter: 2
+question: |
+  **Explain B-Trees and their role in database systems and file systems.**
+  
+  **Level 0** Discuss why B-Trees are essential for disk-based storage systems. Explain the fundamental problem they solve that binary trees cannot efficiently address.
+  
+  **Level 1** Describe the defining properties of B-Trees:
+  - Multi-way search tree structure (multiple keys per node)
+  - Minimum degree parameter and how it affects node capacity
+  - The constraint that all leaves are at the same level
+  - Provide a concrete example of a B-Tree with small degree (e.g., t=2 or t=3)
+  - Step through an insertion that causes a node split
+  
+  **Level 2** Implement B-Tree insertion in a language of your choice, showing how node splits propagate up the tree.
+  
+  **Level 3** Analyze B-Trees:
+  - Height in terms of branching factor: O(log_b n) where b depends on node size
+  - Why large branching factors minimize disk I/O (fewer node accesses)
+  - Trade-off between disk access cost vs in-node search cost
+  - Compare to binary balanced trees (AVL/Red-Black) in terms of disk performance
+  - Explain why databases (MySQL, PostgreSQL) and file systems (NTFS, HFS+) use B-Trees or variants (B+-Trees)
+answer: |
+  **Defining Properties:**
+  - **Multi-way search tree**: Each node holds multiple keys (1 to 2t-1 keys where t is minimum degree)
+  - **Sorted keys**: Keys within node are sorted, enabling binary search within node
+  - **All leaves at same level**: Guarantees balanced height
+  - **Children between keys**: Node with k keys has k+1 children, maintaining search property
+  
+  **Why B-Trees Matter:**
+  The critical insight is **disk I/O cost dominance**. Reading one disk block takes ~10ms (millions of CPU cycles), so minimizing disk accesses is paramount. B-Trees pack many keys per node (matching disk block size, often 4KB-64KB), dramatically reducing tree height.
+  
+  **Height Analysis:**
+  - Height = O(log_b n) where b is branching factor (keys per node)
+  - Example: With b=100, one million keys requires only height 3
+  - Compare to binary tree: height 20 for one million keys
+  - Fewer levels = fewer disk reads = dramatically faster
+  
+  **Performance Characteristics:**
+  - **Disk I/O**: O(log_b n) disk accesses for search/insert/delete
+  - **In-node search**: Binary search within node is fast (in-memory)
+  - **Trade-off**: Larger nodes reduce height but increase in-node search time (acceptable since in-memory search is cheap)
+  
+  **Real-World Applications:**
+  - **Databases**: MySQL InnoDB, PostgreSQL use B+-Trees (variant where data lives in leaves)
+  - **File Systems**: NTFS, HFS+, ext4 use B-Trees for directory indexing
+  - **Reason**: Optimal for disk-based storage where minimizing I/O is more important than CPU efficiency
+  
+  **Key Insight**: B-Trees are engineered for storage hierarchy - they match tree node size to disk block size, making each disk read as valuable as possible. This is why they dominate external storage despite binary trees being simpler.
+topics:
+  - "B-Trees"
+  - "Disk-Based Data Structures"
+  - "Database Indexes"
+  - "File Systems"
+  - "I/O Optimization"
+  - "Multi-way Search Trees"

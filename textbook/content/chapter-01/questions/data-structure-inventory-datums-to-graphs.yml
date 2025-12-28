@@ -1,8 +1,13 @@
 id: 1
-question: "List the major data structures covered in this course, from simplest (datums) to most complex (graphs)."
+question: | 
+  Give an overview of this course in terms of the data structures and algorithms covered.
+  
+  **Data structures** From simplest (datums) to most complex (graphs).
+  
+  **Algorithms** From O(1) to O(2^n) complexity.
 answer: "TODO: Add answer"
-topics: ["data structures", "inventory"]
+topics: ["data structures", "algorithms", "inventory"]
 type: "conceptual"
-points: 3
+points: 5
 difficulty: "medium"
 learning_objectives: []

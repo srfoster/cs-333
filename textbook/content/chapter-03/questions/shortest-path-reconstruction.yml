@@ -1,9 +1,0 @@
-id: "ch3-shortest-path-reconstruction"
-type: "short-answer"
-chapter: 3
-question: "Given the final distance and predecessor arrays from Dijkstra's algorithm, reconstruct the shortest path from vertex A to vertex F."
-answer: "Path Reconstruction: (1) Start at destination F. (2) Follow predecessor chain: pred[F]→pred[pred[F]]→... until reaching source A. (3) Reverse the sequence. Example: If pred[F]=E, pred[E]=C, pred[C]=A, then backward path is F←E←C←A. Reversed: A→C→E→F. Path cost is dist[F]. If no predecessor exists for F (pred[F]=null), then F is unreachable from A. This works because Dijkstra's predecessor array forms a shortest-path tree rooted at the source."
-topics:
-  - "Shortest Paths"
-  - "Path Reconstruction"
-  - "Predecessor Array"

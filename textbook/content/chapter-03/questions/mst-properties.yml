@@ -1,9 +1,0 @@
-id: "ch3-mst-properties"
-type: "short-answer"
-chapter: 3
-question: "Define a minimum spanning tree. Explain why removing any edge from an MST disconnects the graph."
-answer: "A Minimum Spanning Tree (MST) is a subset of edges that: (1) Connects all vertices (spanning), (2) Forms a tree (acyclic), (3) Has minimum total edge weight. An MST has exactly |V|-1 edges. Why removing any edge disconnects: In a tree, there exists exactly one path between any two vertices. If we remove edge (u,v) from the MST, the unique path between u and v is broken, creating two separate components. Trees have no cycles, so there's no alternate path. This minimal connectivity is why MSTs are useful - they connect the graph with minimum cost and no redundancy."
-topics:
-  - "Minimum Spanning Tree"
-  - "Graph Theory"
-  - "Tree Properties"

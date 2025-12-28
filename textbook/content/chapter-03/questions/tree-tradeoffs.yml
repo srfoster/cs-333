@@ -1,9 +1,0 @@
-id: "ch2-tree-tradeoffs"
-type: "short-answer"
-chapter: 2
-question: "Compare AVL trees, Red-Black trees, and B-Trees in terms of height guarantees, rotation cost, and common real-world use cases."
-answer: "AVL trees: Strictest balance (height ≤ 1.44 log n), faster lookups but more rotations on insertion/deletion. Used when read-heavy. Red-Black trees: Looser balance (height ≤ 2 log n), fewer rotations, better for frequent insertions. Used in language libraries (C++ std::map, Java TreeMap). B-Trees: Height = O(log_b n) where b is branching factor, minimizes disk I/O by storing multiple keys per node. Used in databases and file systems where disk access dominates. Trade-off: stricter balance → faster searches but slower updates."
-topics:
-  - "Balanced Trees"
-  - "Data Structure Selection"
-  - "Performance Trade-offs"

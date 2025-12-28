@@ -1,0 +1,36 @@
+id: "ch3-sat-to-3sat-reduction"
+type: "short-answer"
+chapter: 3
+question: |
+  **Implement a reduction from SAT to 3-SAT to show 3-SAT is NP-complete.**
+  
+  **Level 0** Discuss why reductions are fundamental to complexity theory and what it means for a problem to be NP-complete.
+  
+  **Level 1** For sample SAT formulas with varied clause sizes, demonstrate the reduction to 3-SAT. Give the transformation rules.
+  
+  **Level 2** Implement a SAT-to-3SAT reduction in a language of your choice.
+  
+  **Level 3** Prove the reduction is polynomial-time and preserves satisfiability in both directions.
+
+answer: |
+  **SAT to 3-SAT Reduction:**
+  - 1-literal clause (x): Add dummies → (x ∨ y ∨ ¬y)
+  - 2-literal clause (x ∨ y): Add dummy → (x ∨ y ∨ z)
+  - 4+ literal clause: Split with auxiliary variables
+  
+  **Correctness:**
+  Forward: If SAT satisfied, set dummies/auxiliaries appropriately
+  Backward: If 3-SAT satisfied, original variables satisfy SAT
+  
+  **Polynomial time:**
+  Each clause produces O(k) new clauses where k is clause length. Total O(n×k) where n = number of clauses.
+  
+  **Significance:**
+  Once we know SAT is NP-complete (Cook-Levin), this shows 3-SAT is NP-complete by reduction.
+
+topics:
+  - "NP-completeness"
+  - "Reductions"
+  - "SAT"
+  - "3-SAT"
+  - "Polynomial-time Transformations"
