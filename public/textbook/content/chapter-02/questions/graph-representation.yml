@@ -9,16 +9,16 @@ question: |
   
   Your system has **1 million users** with an average of **150 friends each** (total: 75 million friendships).
   
-  **Level 1** Discuss the big-picture significance of large graph representation and why it's important to consider various graph data structure representations carefully.
+  **Level 0** Discuss the big-picture significance of large graph representation and why it's important to consider various graph data structure representations carefully.
 
-  **Level 2**  Illustrate one or more data structure(s) for storing these friendships. For a smaller example (5 users, 6 friendships):
+  **Level 1**  Illustrate one or more data structure(s) for storing these friendships. For a smaller example (5 users, 6 friendships):
 
   - Draw/describe each data structure you're considering
   - Walk through how each operation (`areFriends`, `getFriends`) would execute with your structures
   - Calculate space requirements for both your small example and the 1M-user system
   - Give pseudocode for the key operations using each structure
 
-  **Level 3** Implement your data structure(s) in your preferred language. Each should support:
+  **Level 2** Implement your data structure(s) in your preferred language. Each should support:
 
   - `addFriendship(user1, user2)`
   - `areFriends(user1, user2)` 
@@ -32,12 +32,12 @@ question: |
   - Larger graph (1000 users, 1200 friendships)
   - Measure actual memory usage and operation times
 
-  **Level 4** Discuss the time and space complexity for your data structure(s) and the circumstances under which one might be preferred over another. 
+  **Level 3** Discuss the time and space complexity for your data structure(s) and the circumstances under which one might be preferred over another. 
 
 answer: |
-  **Level 1**: The representation determines whether your system uses hundreds of megabytes or terabytes of memory—the difference between feasible and impossible. It also affects whether displaying a user's feed requires scanning millions of entries or just their actual friends. Poor choices lead to systems that either can't fit in memory or have multi-second response times for simple operations.
+  **Level 0**: The representation determines whether your system uses hundreds of megabytes or terabytes of memory—the difference between feasible and impossible. It also affects whether displaying a user's feed requires scanning millions of entries or just their actual friends. Poor choices lead to systems that either can't fit in memory or have multi-second response times for simple operations.
 
-  **Level 2**: 
+  **Level 1**: 
   Two natural approaches emerge:
   
   **2D array approach** (5×5 = 25 entries): Store a V×V boolean grid where grid[i][j] = true if i and j are friends
@@ -54,9 +54,9 @@ answer: |
   Pseudocode for grid.areFriends(u,v): return grid[u][v]
   Pseudocode for lists.getFriends(u): return lists[u]
 
-  **Level 3**: Implementation uses 2D array/boolean[][] for grid approach, array of lists/List<Integer>[] for list approach. Both handle undirected edges symmetrically. Tests verify: empty graphs, single user, correct friendship detection, complete friend retrieval. Performance tests on 1000-user graph confirm dramatic space differences (~1M vs ~3200 memory units) and operation trade-offs.
+  **Level 2**: Implementation uses 2D array/boolean[][] for grid approach, array of lists/List<Integer>[] for list approach. Both handle undirected edges symmetrically. Tests verify: empty graphs, single user, correct friendship detection, complete friend retrieval. Performance tests on 1000-user graph confirm dramatic space differences (~1M vs ~3200 memory units) and operation trade-offs.
 
-  **Level 4**: 
+  **Level 3**: 
   Space complexity proof: Grid stores V² booleans = Θ(V²). Lists store V list containers + 2E edge references (for undirected) = Θ(V+E).
   
   Time complexity proof: Grid[i][j] is direct array access = O(1). Lists must search list[i] = O(|list[i]|) = O(degree(i)). Getting friends: grid scans entire row = O(V); lists return container immediately = O(1) access + O(degree) to iterate.

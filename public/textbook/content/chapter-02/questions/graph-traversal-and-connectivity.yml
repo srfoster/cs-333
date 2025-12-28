@@ -4,13 +4,13 @@ chapter: 2
 question: |
   **Write BFS and DFS algorithms to traverse a graph.**
   
-  **Level 1** Discuss the big-picture significance of graph traversal and why both BFS and DFS are fundamental algorithms.
+  **Level 0** Discuss the big-picture significance of graph traversal and why both BFS and DFS are fundamental algorithms.
   
-  **Level 2** For sample graphs, demonstrate both algorithms and give pseudocode.
+  **Level 1** For sample graphs, demonstrate both algorithms and give pseudocode.
   
-  **Level 3** Implement both BFS and DFS in a language of your choice.
+  **Level 2** Implement both BFS and DFS in a language of your choice.
   
-  **Level 4** Analyze the time and space complexity of both algorithms. Explain when you would choose one over the other and how they enable more complex graph algorithms.
+  **Level 3** Analyze the time and space complexity of both algorithms. Explain when you would choose one over the other and how they enable more complex graph algorithms.
 
 answer: |
   **BFS vs DFS:**
