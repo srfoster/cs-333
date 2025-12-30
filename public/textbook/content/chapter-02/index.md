@@ -17,7 +17,6 @@ Trees provide hierarchical organization with efficient search and modification. 
 
 * **Binary Search Trees (BSTs)**: Simple but potentially unbalanced
 * **AVL Trees**: Strict balance guarantees faster lookups
-* **Red-Black Trees**: Looser balance, fewer rotations
 * **B-Trees**: Multi-way trees optimized for disk access
 
 ## Graph Algorithms
