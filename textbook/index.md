@@ -35,7 +35,7 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 
 **Tree Data Structures:**
 
-* Comparing BSTs, AVL Trees, Red-Black Trees, and B-Trees
+* Comparing BSTs, AVL Trees, and B-Trees
 * Balancing mechanisms and height guarantees
 * Real-world use cases and performance trade-offs
 

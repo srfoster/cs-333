@@ -223,17 +223,17 @@ Maintain predecessor array during BFS. When visiting vertex u from v, store pred
 
 **Limitation:**
 BFS only works for unweighted graphs (all edges have weight 1). For weighted graphs, you need Dijkstra's algorithm or Bellman-Ford, which consider edge weights when choosing the next vertex to explore.
-`,topics:["Shortest Paths","Breadth-First Search","Path Reconstruction"]}},"content/chapter-02/questions/bst-avl-redblack-comparison.yml":{type:"yaml",module:{id:"ch2-bst-avl-redblack-comparison",type:"short-answer",chapter:2,question:`**Compare and contrast three binary tree structures: Binary Search Trees (BSTs), AVL Trees, and Red-Black Trees.**
+`,topics:["Shortest Paths","Breadth-First Search","Path Reconstruction"]}},"content/chapter-02/questions/bst-avl-redblack-comparison.yml":{type:"yaml",module:{id:"ch2-bst-avl-redblack-comparison",type:"short-answer",chapter:2,question:`**Compare and contrast binary search tree structures: Binary Search Trees (BSTs) vs AVL Trees**
 
 **Level 0** Discuss why self-balancing trees were developed and their significance in computer science. Explain the fundamental trade-off between simplicity and guaranteed performance.
 
-**Level 1** For each tree type (BST, AVL, Red-Black):
+**Level 1** For each tree type (BST and AVL):
 - Describe the defining property or invariant
 - Explain the balancing mechanism (if any)
 - Provide a simple example showing insertion and any rebalancing that occurs
 - Step through the differences with concrete examples
 
-**Level 2** Implement insertion for AVL Trees and Red-Black Trees in a language of your choice, showing how balancing is maintained.
+**Level 2** Implement insertion for AVL Trees in a language of your choice, showing how balancing is maintained.
 
 **Level 3** Analyze and compare:
 - Height guarantees and how they affect lookup performance
@@ -243,28 +243,23 @@ BFS only works for unweighted graphs (all edges have weight 1). For weighted gra
 `,answer:`**Defining Properties:**
 - **BST**: Left subtree < node < right subtree. No balancing guarantee.
 - **AVL**: BST + strict balance: |height(left) - height(right)| ≤ 1 for every node
-- **Red-Black**: BST + color properties: root is black, red nodes have black children, all root-to-leaf paths have equal black nodes
 
 **Balancing Mechanisms:**
 - **BST**: None - can degrade to O(n) height (linked list)
 - **AVL**: Single and double rotations when balance factor exceeds ±1
-- **Red-Black**: Recoloring + rotations (fewer rotations due to looser constraints)
 
 **Height Guarantees:**
 - **BST**: O(n) worst case, O(log n) average case
 - **AVL**: Height ≤ 1.44 log n (strictest balance → fastest lookups)
-- **Red-Black**: Height ≤ 2 log n (still O(log n) but looser)
 
 **Performance Trade-offs:**
 - **AVL**: Best for read-heavy workloads - strict balance means fastest lookups but more rotations on writes (up to O(log n) rotations per insert/delete)
-- **Red-Black**: Better for write-heavy workloads - at most 3 rotations for insertion, constant amortized rotations for deletion
 - **BST**: Only use when data is known to be random or for educational purposes
 
 **Real-World Uses:**
 - **AVL**: In-memory databases, dictionaries where lookup speed dominates
-- **Red-Black**: Language standard libraries (C++ std::map, Java TreeMap, Linux kernel) - balanced read/write performance
 - **BST**: Teaching tool to understand tree concepts before adding balancing complexity
-`,topics:["Binary Search Trees","AVL Trees","Red-Black Trees","Balanced Trees","Tree Rotations","Performance Trade-offs"]}},"content/chapter-02/questions/btree-analysis.yml":{type:"yaml",module:{id:"ch2-btree-analysis",type:"short-answer",chapter:2,question:`**Explain B-Trees and their role in database systems and file systems.**
+`,topics:["Binary Search Trees","AVL Trees","Balanced Trees","Tree Rotations","Performance Trade-offs"]}},"content/chapter-02/questions/btree-analysis.yml":{type:"yaml",module:{id:"ch2-btree-analysis",type:"short-answer",chapter:2,question:`**Explain B-Trees and their role in database systems and file systems.**
 
 **Level 0** Discuss why B-Trees are essential for disk-based storage systems. Explain the fundamental problem they solve that binary trees cannot efficiently address.
 
@@ -1361,7 +1356,6 @@ Trees provide hierarchical organization with efficient search and modification. 
 \r
 * **Binary Search Trees (BSTs)**: Simple but potentially unbalanced\r
 * **AVL Trees**: Strict balance guarantees faster lookups\r
-* **Red-Black Trees**: Looser balance, fewer rotations\r
 * **B-Trees**: Multi-way trees optimized for disk access\r
 \r
 ## Graph Algorithms\r
@@ -4173,7 +4167,7 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 \r
 **Tree Data Structures:**\r
 \r
-* Comparing BSTs, AVL Trees, Red-Black Trees, and B-Trees\r
+* Comparing BSTs, AVL Trees, and B-Trees\r
 * Balancing mechanisms and height guarantees\r
 * Real-world use cases and performance trade-offs\r
 \r
