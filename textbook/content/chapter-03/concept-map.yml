@@ -26,4 +26,3 @@ concept_map:
         description: "NP-completeness and computational complexity theory"
         exam_questions:
           - "questions/sat-to-3sat-reduction.yml"
-          - "questions/3sat-np-completeness.yml"
