@@ -206,24 +206,7 @@ This algorithm demonstrates how Ω (lower bound) and O (upper bound) can differ 
 - **Minimal swaps**: Performs exactly n-1 swaps, fewer than any comparison-based sort
 
 **Why It Matters:** Selection sort's key advantage is minimizing write operations. When writing to memory is expensive (e.g., flash memory, EEPROM), selection sort's O(n) swaps can be preferable to insertion sort's O(n²) shifts. It also demonstrates the distinction between comparisons (O(n²)) and writes (O(n)).
-`,topics:["Sorting Algorithms","Selection Sort","Algorithm Analysis","Write Complexity","Comparison-Based Sorting"]}},"content/chapter-02/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Recursion, Trees, and Graphs",concepts:[{name:"Recursion",description:"Recursive algorithms and data structures",exam_questions:["questions/iterative-vs-recursive.yml","questions/fibonacci-call-tree-optimizations-and-analysis.yml"]},{name:"Tree Structures",description:"Binary search trees, self-balancing trees, and multi-way trees",exam_questions:["questions/bst-avl-redblack-comparison.yml","questions/btree-analysis.yml"]}]},{category:"Graphs",concepts:[{name:"Graph Fundamentals",description:"Graph representation and basic traversal algorithms",exam_questions:["questions/graph-representation.yml","questions/graph-traversal-and-connectivity.yml"]},{name:"Shortest Paths",description:"Finding shortest paths in weighted and unweighted graphs",exam_questions:["questions/bfs-shortest-path.yml","questions/dijkstra-algorithm.yml"]},{name:"Minimum Spanning Trees",description:"Constructing minimum spanning trees with greedy algorithms",exam_questions:["questions/minimum-spanning-trees.yml"]}]}]}},"content/chapter-02/questions/bfs-shortest-path.yml":{type:"yaml",module:{id:"ch2-bfs-shortest-path",type:"short-answer",chapter:2,question:`**Implement BFS to find shortest paths in unweighted graphs.**
-
-**Level 0** Discuss why BFS naturally finds shortest paths in unweighted graphs and why this property is significant.
-
-**Level 1** For sample graphs, show how BFS computes distances and reconstructs paths. Give pseudocode for path reconstruction.
-
-**Level 2** Implement BFS shortest path in a language of your choice, including path reconstruction.
-
-**Level 3** Prove why BFS finds shortest paths. Explain the limitation to unweighted graphs and how weighted graphs require different algorithms.
-`,answer:`**Why BFS Finds Shortest Paths:**
-BFS explores vertices in distance layers (all distance-1 vertices before any distance-2 vertices). When BFS first reaches a vertex, it's via a shortest path. This property makes BFS optimal for unweighted shortest paths.
-
-**Path Reconstruction:**
-Maintain predecessor array during BFS. When visiting vertex u from v, store pred[u] = v. After BFS, reconstruct path by following predecessors backward from target to source, then reverse.
-
-**Limitation:**
-BFS only works for unweighted graphs (all edges have weight 1). For weighted graphs, you need Dijkstra's algorithm or Bellman-Ford, which consider edge weights when choosing the next vertex to explore.
-`,topics:["Shortest Paths","Breadth-First Search","Path Reconstruction"]}},"content/chapter-02/questions/bst-avl-redblack-comparison.yml":{type:"yaml",module:{id:"ch2-bst-avl-redblack-comparison",type:"short-answer",chapter:2,question:`**Compare and contrast binary search tree structures: Binary Search Trees (BSTs) vs AVL Trees**
+`,topics:["Sorting Algorithms","Selection Sort","Algorithm Analysis","Write Complexity","Comparison-Based Sorting"]}},"content/chapter-02/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Recursion, Trees, and Graphs",concepts:[{name:"Recursion",description:"Recursive algorithms and data structures",exam_questions:["questions/iterative-vs-recursive.yml","questions/fibonacci-call-tree-optimizations-and-analysis.yml"]},{name:"Tree Structures",description:"Binary search trees, self-balancing trees, and multi-way trees",exam_questions:["questions/bst-avl-redblack-comparison.yml","questions/btree-analysis.yml"]}]},{category:"Graphs",concepts:[{name:"Graph Fundamentals",description:"Graph representation and basic traversal algorithms",exam_questions:["questions/graph-representation.yml","questions/graph-traversal-and-connectivity.yml"]},{name:"Shortest Paths",description:"Finding shortest paths in weighted and unweighted graphs",exam_questions:["questions/bfs-shortest-path.yml","questions/dijkstra-algorithm.yml"]},{name:"Minimum Spanning Trees",description:"Constructing minimum spanning trees with greedy algorithms",exam_questions:["questions/minimum-spanning-trees.yml"]}]}]}},"content/chapter-02/questions/bst-avl-redblack-comparison.yml":{type:"yaml",module:{id:"ch2-bst-avl-redblack-comparison",type:"short-answer",chapter:2,question:`**Compare and contrast binary search tree structures: Binary Search Trees (BSTs) vs AVL Trees**
 
 **Level 0** Discuss why self-balancing trees were developed and their significance in computer science. Explain the fundamental trade-off between simplicity and guaranteed performance.
 
@@ -399,7 +382,7 @@ Real-world impact: Social networks (E ≈ 150V), road maps (E ≈ 3V), web graph
 
 **Level 0** Discuss the big-picture significance of graph traversal and why both BFS and DFS are fundamental algorithms.
 
-**Level 1** For sample graphs, demonstrate both algorithms and give pseudocode.
+**Level 1** For sample graphs, demonstrate both algorithms and give pseudocode.  Explain how BFS can be used to find shortest paths in unweighted graphs.
 
 **Level 2** Implement both BFS and DFS in a language of your choice.
 
@@ -460,7 +443,7 @@ For any partition of vertices, the minimum-weight edge crossing the partition is
 
 **Applications:**
 Network design (minimize cable cost while connecting all nodes), clustering (MST edges identify natural clusters), approximation algorithms for TSP.
-`,topics:["Minimum Spanning Tree","Prim's Algorithm","Kruskal's Algorithm","Greedy Algorithms","Union-Find","Algorithm Correctness","Cut Property"]}},"content/chapter-03/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Algorithm Paradigms and Intractability",concepts:[{name:"Greedy",description:"Greedy algorithms and when they produce optimal solutions",exam_questions:["questions/activity-selection.yml","questions/fractional-knapsack.yml","questions/huffman-encoding.yml"]},{name:"Divide and Conquer",description:"Recursive problem decomposition and merging solutions",exam_questions:["questions/merge-sort-analysis.yml","questions/quick-sort-analysis.yml"]},{name:"Dynamic Programming",description:"Optimal substructure and overlapping subproblems",exam_questions:["questions/knapsack-dp.yml","questions/lcs-problem.yml","questions/matrix-chain.yml"]},{name:"Network Flow",description:"Maximum flow and minimum cut in networks",exam_questions:["questions/ford-fulkerson.yml","questions/max-flow-min-cut.yml"]},{name:"Intractability",description:"NP-completeness and computational complexity theory",exam_questions:["questions/sat-to-3sat-reduction.yml","questions/3sat-np-completeness.yml"]}]}]}},"content/chapter-03/questions/3sat-np-completeness.yml":{type:"yaml",module:{id:"ch3-3sat-np-completeness",type:"short-answer",chapter:3,question:`**Implement a proof that 3-SAT is NP-complete.**
+`,topics:["Minimum Spanning Tree","Prim's Algorithm","Kruskal's Algorithm","Greedy Algorithms","Union-Find","Algorithm Correctness","Cut Property"]}},"content/chapter-03/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Algorithm Paradigms and Intractability",concepts:[{name:"Greedy",description:"Greedy algorithms and when they produce optimal solutions",exam_questions:["questions/activity-selection.yml","questions/fractional-knapsack.yml"]},{name:"Divide and Conquer",description:"Recursive problem decomposition and merging solutions",exam_questions:["questions/merge-sort-analysis.yml","questions/quick-sort-analysis.yml"]},{name:"Dynamic Programming",description:"Optimal substructure and overlapping subproblems",exam_questions:["questions/knapsack-dp.yml","questions/lcs-problem.yml","questions/matrix-chain.yml"]},{name:"Network Flow",description:"Maximum flow and minimum cut in networks",exam_questions:["questions/ford-fulkerson.yml","questions/max-flow-min-cut.yml"]},{name:"Intractability",description:"NP-completeness and computational complexity theory",exam_questions:["questions/sat-to-3sat-reduction.yml","questions/3sat-np-completeness.yml"]}]}]}},"content/chapter-03/questions/3sat-np-completeness.yml":{type:"yaml",module:{id:"ch3-3sat-np-completeness",type:"short-answer",chapter:3,question:`**Implement a proof that 3-SAT is NP-complete.**
 
 **Level 0** Discuss why 3-SAT is a canonical NP-complete problem and its importance in complexity theory.
 
@@ -543,26 +526,7 @@ Exchange argument - if solution doesn't follow ratio order, swapping portions in
 0/1 (can't take fractions) lacks greedy choice property. Taking highest-ratio item might use capacity that could fit multiple smaller high-value items. Requires DP to explore combinations.
 
 **Time complexity:** O(n log n) for sorting.
-`,topics:["Greedy Algorithms","Fractional Knapsack","Optimization"]}},"content/chapter-03/questions/huffman-encoding.yml":{type:"yaml",module:{id:"ch3-huffman-encoding",type:"short-answer",chapter:3,question:`**Implement the Huffman encoding algorithm for data compression.**
-
-**Level 0** Discuss why Huffman encoding is significant for data compression and where it's used.
-
-**Level 1** For sample character frequencies, demonstrate Huffman tree construction. Give pseudocode.
-
-**Level 2** Implement Huffman encoding in a language of your choice.
-
-**Level 3** Prove why the greedy algorithm produces an optimal prefix-free code. Analyze the compression ratio.
-`,answer:`**Huffman Algorithm:**
-Build min-heap of characters by frequency. Repeatedly extract two minimum nodes, create parent with sum of frequencies, re-insert. Assign 0/1 to edges. Frequent characters get shorter codes.
-
-**Why optimal:**
-Greedy choice (combine lowest frequencies) ensures high-frequency characters near root. Exchange argument proves no better prefix code exists for given frequencies.
-
-**Applications:**
-ZIP compression, JPEG (variants), MP3, used whenever statistical compression needed.
-
-**Time complexity:** O(n log n) with heap.
-`,topics:["Huffman Encoding","Greedy Algorithms","Data Compression"]}},"content/chapter-03/questions/knapsack-dp.yml":{type:"yaml",module:{id:"ch3-knapsack-dp",type:"short-answer",chapter:3,question:`**Implement a dynamic programming solution to the 0/1 knapsack problem.**
+`,topics:["Greedy Algorithms","Fractional Knapsack","Optimization"]}},"content/chapter-03/questions/knapsack-dp.yml":{type:"yaml",module:{id:"ch3-knapsack-dp",type:"short-answer",chapter:3,question:`**Implement a dynamic programming solution to the 0/1 knapsack problem.**
 
 **Level 0** Discuss why DP is needed for 0/1 knapsack and what problems exhibit optimal substructure.
 
@@ -4189,4 +4153,4 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 \r
 * [Algorithm Design](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithm%20Design%20-%20John%20Kleinberg%20-%20%C3%89va%20Tardos.pdf)\r
 * [Algorithms in a Nutshell](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithms_Nutshell%20.pdf)\r
-`}},aD={yamlCount:35,markdownCount:4,totalCount:39},uD=["content/chapter-01/concept-map.yml","content/chapter-02/concept-map.yml","content/chapter-03/concept-map.yml"];function lD(){const e=dr(),[t,i]=H.useState([]),[u,s]=H.useState(null),[o,c]=H.useState(!0);if(H.useEffect(()=>{Rn.initialize({compiledFiles:iD,stats:aD,basePath:"/cs-333/"}),(async()=>{try{const b=await rD(uD);i(b)}catch(b){console.error("Failed to load questions:",b)}finally{c(!1)}})()},[]),o)return O.jsx("div",{className:"app loading",children:O.jsx("h2",{children:"Loading CS333 Textbook..."})});const h=y=>{s(y)},d=()=>{s(null)},p=e.pathname==="/exam"||e.pathname==="/#/exam";return O.jsxs("div",{className:"app",children:[O.jsx("header",{children:O.jsxs("div",{className:"header-content",children:[O.jsxs("div",{className:"header-title",children:[O.jsx("h1",{children:"CS333: Data Structures and Algorithms"}),O.jsx("p",{children:"Understanding computational complexity and efficient problem solving"})]}),O.jsxs("nav",{className:"main-nav",children:[O.jsx(Fs,{to:"/textbook",className:`nav-link ${e.pathname.startsWith("/textbook")?"active":""}`,children:"Textbook"}),O.jsx(Fs,{to:"/exam",className:`nav-link ${p?"active":""}`,children:"Practice Exam"})]})]})}),O.jsx("main",{children:O.jsxs(NA,{children:[O.jsx(Rs,{path:"/",element:O.jsx(_A,{to:"/textbook",replace:!0})}),O.jsx(Rs,{path:"/textbook/*",element:O.jsx(ZL,{})}),O.jsx(Rs,{path:"/exam",element:u?O.jsx($L,{questions:u.questions,settings:u.settings,onEndExam:d}):O.jsx(JL,{questions:t,onStartExam:h,courseTitle:"CS333: Data Structures and Algorithms"})})]})})]})}function sD(){return O.jsx(JA,{children:O.jsx(lD,{})})}O2.createRoot(document.getElementById("root")).render(O.jsx(H.StrictMode,{children:O.jsx(sD,{})}));
+`}},aD={yamlCount:33,markdownCount:4,totalCount:37},uD=["content/chapter-01/concept-map.yml","content/chapter-02/concept-map.yml","content/chapter-03/concept-map.yml"];function lD(){const e=dr(),[t,i]=H.useState([]),[u,s]=H.useState(null),[o,c]=H.useState(!0);if(H.useEffect(()=>{Rn.initialize({compiledFiles:iD,stats:aD,basePath:"/cs-333/"}),(async()=>{try{const b=await rD(uD);i(b)}catch(b){console.error("Failed to load questions:",b)}finally{c(!1)}})()},[]),o)return O.jsx("div",{className:"app loading",children:O.jsx("h2",{children:"Loading CS333 Textbook..."})});const h=y=>{s(y)},d=()=>{s(null)},p=e.pathname==="/exam"||e.pathname==="/#/exam";return O.jsxs("div",{className:"app",children:[O.jsx("header",{children:O.jsxs("div",{className:"header-content",children:[O.jsxs("div",{className:"header-title",children:[O.jsx("h1",{children:"CS333: Data Structures and Algorithms"}),O.jsx("p",{children:"Understanding computational complexity and efficient problem solving"})]}),O.jsxs("nav",{className:"main-nav",children:[O.jsx(Fs,{to:"/textbook",className:`nav-link ${e.pathname.startsWith("/textbook")?"active":""}`,children:"Textbook"}),O.jsx(Fs,{to:"/exam",className:`nav-link ${p?"active":""}`,children:"Practice Exam"})]})]})}),O.jsx("main",{children:O.jsxs(NA,{children:[O.jsx(Rs,{path:"/",element:O.jsx(_A,{to:"/textbook",replace:!0})}),O.jsx(Rs,{path:"/textbook/*",element:O.jsx(ZL,{})}),O.jsx(Rs,{path:"/exam",element:u?O.jsx($L,{questions:u.questions,settings:u.settings,onEndExam:d}):O.jsx(JL,{questions:t,onStartExam:h,courseTitle:"CS333: Data Structures and Algorithms"})})]})})]})}function sD(){return O.jsx(JA,{children:O.jsx(lD,{})})}O2.createRoot(document.getElementById("root")).render(O.jsx(H.StrictMode,{children:O.jsx(sD,{})}));

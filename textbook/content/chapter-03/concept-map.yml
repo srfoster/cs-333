@@ -6,7 +6,6 @@ concept_map:
         exam_questions:
           - "questions/activity-selection.yml"
           - "questions/fractional-knapsack.yml"
-          - "questions/huffman-encoding.yml"
       - name: "Divide and Conquer"
         description: "Recursive problem decomposition and merging solutions"
         exam_questions:
