@@ -1,33 +1,43 @@
-id: "ch3-activity-selection"
+id: "ch3-greedy-algorithms"
 type: "short-answer"
 chapter: 3
 question: |
-  **Implement a greedy solution to the activity selection problem.**
+  **Implement greedy algorithms for activity selection and fractional knapsack.**
   
-  **Level 0** Discuss why greedy algorithms sometimes produce optimal solutions and why activity selection is a classic example.
+  **Level 0** Discuss why greedy algorithms sometimes produce optimal solutions. Explain the key properties that make a problem suitable for greedy solutions.
   
-  **Level 1** For sample activities with start/finish times, demonstrate the greedy algorithm. Give pseudocode.
+  **Level 1** For each problem, demonstrate the greedy algorithm with sample inputs and give pseudocode:
+  - Activity selection: activities with start/finish times
+  - Fractional knapsack: items with weights and values
   
-  **Level 2** Implement the activity selection greedy algorithm in a language of your choice.
+  **Level 2** Implement both greedy algorithms in a language of your choice.
   
-  **Level 3** Prove why sorting by finish time yields an optimal solution. Explain when greedy algorithms work vs. when they fail.
+  **Level 3** Prove correctness for both algorithms. For activity selection, prove why sorting by finish time is optimal. For fractional knapsack, prove why selecting by value-to-weight ratio is optimal. Compare to 0/1 knapsack and explain when greedy approaches fail.
 
 answer: |
-  **Greedy Activity Selection:**
+  **Activity Selection:**
   Sort by finish time, select first activity, then repeatedly select next compatible activity (start ≥ previous finish).
   
-  **Why it works:**
-  Greedy choice property - selecting the earliest-finishing activity leaves maximum room for remaining activities. No benefit to choosing later-finishing activity in its place.
+  **Fractional Knapsack:**
+  Sort items by value/weight ratio (descending), take items greedily until capacity full (taking fractions as needed).
   
-  **Correctness proof:**
-  Exchange argument - if optimal solution doesn't include earliest-finishing activity, we can swap it in without decreasing solution size.
+  **Why Greedy Works:**
+  Both have greedy choice property - locally optimal choice leads to global optimum. Both have optimal substructure - optimal solution contains optimal solutions to subproblems.
   
-  **When greedy works:**
-  Problems with greedy choice property (locally optimal choice leads to global optimum) and optimal substructure (optimal solution contains optimal solutions to subproblems).
+  **Activity Selection Proof:**
+  Exchange argument - if optimal solution doesn't include earliest-finishing activity, we can swap it in without decreasing solution size. Earliest finish leaves maximum room for remaining activities.
   
-  **Time complexity:** O(n log n) for sorting.
+  **Fractional Knapsack Proof:**
+  Exchange argument - if solution doesn't follow ratio order, swapping portions increases total value. Can always take fractions, so maximize value per unit weight.
+  
+  **When Greedy Fails:**
+  0/1 knapsack lacks greedy choice property. Taking highest-ratio item might use capacity better filled by multiple smaller items. Requires DP to explore combinations. Greedy needs both greedy choice property AND optimal substructure.
+  
+  **Time complexity:** Both O(n log n) for sorting.
 
 topics:
   - "Greedy Algorithms"
   - "Activity Selection"
+  - "Fractional Knapsack"
   - "Interval Scheduling"
+  - "Optimization"

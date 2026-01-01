@@ -5,7 +5,6 @@ concept_map:
         description: "Greedy algorithms and when they produce optimal solutions"
         exam_questions:
           - "questions/activity-selection.yml"
-          - "questions/fractional-knapsack.yml"
       - name: "Divide and Conquer"
         description: "Recursive problem decomposition and merging solutions"
         exam_questions:

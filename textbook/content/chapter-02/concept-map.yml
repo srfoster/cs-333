@@ -21,7 +21,6 @@ concept_map:
       - name: "Shortest Paths"
         description: "Finding shortest paths in weighted and unweighted graphs"
         exam_questions:
-          - "questions/bfs-shortest-path.yml"
           - "questions/dijkstra-algorithm.yml"
       - name: "Minimum Spanning Trees"
         description: "Constructing minimum spanning trees with greedy algorithms"

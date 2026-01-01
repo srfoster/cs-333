@@ -206,7 +206,7 @@ This algorithm demonstrates how Ω (lower bound) and O (upper bound) can differ 
 - **Minimal swaps**: Performs exactly n-1 swaps, fewer than any comparison-based sort
 
 **Why It Matters:** Selection sort's key advantage is minimizing write operations. When writing to memory is expensive (e.g., flash memory, EEPROM), selection sort's O(n) swaps can be preferable to insertion sort's O(n²) shifts. It also demonstrates the distinction between comparisons (O(n²)) and writes (O(n)).
-`,topics:["Sorting Algorithms","Selection Sort","Algorithm Analysis","Write Complexity","Comparison-Based Sorting"]}},"content/chapter-02/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Recursion, Trees, and Graphs",concepts:[{name:"Recursion",description:"Recursive algorithms and data structures",exam_questions:["questions/iterative-vs-recursive.yml","questions/fibonacci-call-tree-optimizations-and-analysis.yml"]},{name:"Tree Structures",description:"Binary search trees, self-balancing trees, and multi-way trees",exam_questions:["questions/bst-avl-redblack-comparison.yml","questions/btree-analysis.yml"]}]},{category:"Graphs",concepts:[{name:"Graph Fundamentals",description:"Graph representation and basic traversal algorithms",exam_questions:["questions/graph-representation.yml","questions/graph-traversal-and-connectivity.yml"]},{name:"Shortest Paths",description:"Finding shortest paths in weighted and unweighted graphs",exam_questions:["questions/bfs-shortest-path.yml","questions/dijkstra-algorithm.yml"]},{name:"Minimum Spanning Trees",description:"Constructing minimum spanning trees with greedy algorithms",exam_questions:["questions/minimum-spanning-trees.yml"]}]}]}},"content/chapter-02/questions/bst-avl-redblack-comparison.yml":{type:"yaml",module:{id:"ch2-bst-avl-redblack-comparison",type:"short-answer",chapter:2,question:`**Compare and contrast binary search tree structures: Binary Search Trees (BSTs) vs AVL Trees**
+`,topics:["Sorting Algorithms","Selection Sort","Algorithm Analysis","Write Complexity","Comparison-Based Sorting"]}},"content/chapter-02/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Recursion, Trees, and Graphs",concepts:[{name:"Recursion",description:"Recursive algorithms and data structures",exam_questions:["questions/iterative-vs-recursive.yml","questions/fibonacci-call-tree-optimizations-and-analysis.yml"]},{name:"Tree Structures",description:"Binary search trees, self-balancing trees, and multi-way trees",exam_questions:["questions/bst-avl-redblack-comparison.yml","questions/btree-analysis.yml"]}]},{category:"Graphs",concepts:[{name:"Graph Fundamentals",description:"Graph representation and basic traversal algorithms",exam_questions:["questions/graph-representation.yml","questions/graph-traversal-and-connectivity.yml"]},{name:"Shortest Paths",description:"Finding shortest paths in weighted and unweighted graphs",exam_questions:["questions/dijkstra-algorithm.yml"]},{name:"Minimum Spanning Trees",description:"Constructing minimum spanning trees with greedy algorithms",exam_questions:["questions/minimum-spanning-trees.yml"]}]}]}},"content/chapter-02/questions/bst-avl-redblack-comparison.yml":{type:"yaml",module:{id:"ch2-bst-avl-redblack-comparison",type:"short-answer",chapter:2,question:`**Compare and contrast binary search tree structures: Binary Search Trees (BSTs) vs AVL Trees**
 
 **Level 0** Discuss why self-balancing trees were developed and their significance in computer science. Explain the fundamental trade-off between simplicity and guaranteed performance.
 
@@ -443,29 +443,37 @@ For any partition of vertices, the minimum-weight edge crossing the partition is
 
 **Applications:**
 Network design (minimize cable cost while connecting all nodes), clustering (MST edges identify natural clusters), approximation algorithms for TSP.
-`,topics:["Minimum Spanning Tree","Prim's Algorithm","Kruskal's Algorithm","Greedy Algorithms","Union-Find","Algorithm Correctness","Cut Property"]}},"content/chapter-03/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Algorithm Paradigms and Intractability",concepts:[{name:"Greedy",description:"Greedy algorithms and when they produce optimal solutions",exam_questions:["questions/activity-selection.yml","questions/fractional-knapsack.yml"]},{name:"Divide and Conquer",description:"Recursive problem decomposition and merging solutions",exam_questions:["questions/merge-sort-analysis.yml","questions/quick-sort-analysis.yml"]},{name:"Dynamic Programming",description:"Optimal substructure and overlapping subproblems",exam_questions:["questions/knapsack-dp.yml","questions/lcs-problem.yml","questions/matrix-chain.yml"]},{name:"Network Flow",description:"Maximum flow and minimum cut in networks",exam_questions:["questions/ford-fulkerson.yml","questions/max-flow-min-cut.yml"]},{name:"Intractability",description:"NP-completeness and computational complexity theory",exam_questions:["questions/sat-to-3sat-reduction.yml"]}]}]}},"content/chapter-03/questions/activity-selection.yml":{type:"yaml",module:{id:"ch3-activity-selection",type:"short-answer",chapter:3,question:`**Implement a greedy solution to the activity selection problem.**
+`,topics:["Minimum Spanning Tree","Prim's Algorithm","Kruskal's Algorithm","Greedy Algorithms","Union-Find","Algorithm Correctness","Cut Property"]}},"content/chapter-03/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Algorithm Paradigms and Intractability",concepts:[{name:"Greedy",description:"Greedy algorithms and when they produce optimal solutions",exam_questions:["questions/activity-selection.yml"]},{name:"Divide and Conquer",description:"Recursive problem decomposition and merging solutions",exam_questions:["questions/merge-sort-analysis.yml","questions/quick-sort-analysis.yml"]},{name:"Dynamic Programming",description:"Optimal substructure and overlapping subproblems",exam_questions:["questions/knapsack-dp.yml","questions/lcs-problem.yml","questions/matrix-chain.yml"]},{name:"Network Flow",description:"Maximum flow and minimum cut in networks",exam_questions:["questions/ford-fulkerson.yml","questions/max-flow-min-cut.yml"]},{name:"Intractability",description:"NP-completeness and computational complexity theory",exam_questions:["questions/sat-to-3sat-reduction.yml"]}]}]}},"content/chapter-03/questions/activity-selection.yml":{type:"yaml",module:{id:"ch3-greedy-algorithms",type:"short-answer",chapter:3,question:`**Implement greedy algorithms for activity selection and fractional knapsack.**
 
-**Level 0** Discuss why greedy algorithms sometimes produce optimal solutions and why activity selection is a classic example.
+**Level 0** Discuss why greedy algorithms sometimes produce optimal solutions. Explain the key properties that make a problem suitable for greedy solutions.
 
-**Level 1** For sample activities with start/finish times, demonstrate the greedy algorithm. Give pseudocode.
+**Level 1** For each problem, demonstrate the greedy algorithm with sample inputs and give pseudocode:
+- Activity selection: activities with start/finish times
+- Fractional knapsack: items with weights and values
 
-**Level 2** Implement the activity selection greedy algorithm in a language of your choice.
+**Level 2** Implement both greedy algorithms in a language of your choice.
 
-**Level 3** Prove why sorting by finish time yields an optimal solution. Explain when greedy algorithms work vs. when they fail.
-`,answer:`**Greedy Activity Selection:**
+**Level 3** Prove correctness for both algorithms. For activity selection, prove why sorting by finish time is optimal. For fractional knapsack, prove why selecting by value-to-weight ratio is optimal. Compare to 0/1 knapsack and explain when greedy approaches fail.
+`,answer:`**Activity Selection:**
 Sort by finish time, select first activity, then repeatedly select next compatible activity (start ≥ previous finish).
 
-**Why it works:**
-Greedy choice property - selecting the earliest-finishing activity leaves maximum room for remaining activities. No benefit to choosing later-finishing activity in its place.
+**Fractional Knapsack:**
+Sort items by value/weight ratio (descending), take items greedily until capacity full (taking fractions as needed).
 
-**Correctness proof:**
-Exchange argument - if optimal solution doesn't include earliest-finishing activity, we can swap it in without decreasing solution size.
+**Why Greedy Works:**
+Both have greedy choice property - locally optimal choice leads to global optimum. Both have optimal substructure - optimal solution contains optimal solutions to subproblems.
 
-**When greedy works:**
-Problems with greedy choice property (locally optimal choice leads to global optimum) and optimal substructure (optimal solution contains optimal solutions to subproblems).
+**Activity Selection Proof:**
+Exchange argument - if optimal solution doesn't include earliest-finishing activity, we can swap it in without decreasing solution size. Earliest finish leaves maximum room for remaining activities.
 
-**Time complexity:** O(n log n) for sorting.
-`,topics:["Greedy Algorithms","Activity Selection","Interval Scheduling"]}},"content/chapter-03/questions/ford-fulkerson.yml":{type:"yaml",module:{id:"ch3-ford-fulkerson",type:"short-answer",chapter:3,question:`**Implement the Ford-Fulkerson algorithm (maximum flow problem).**
+**Fractional Knapsack Proof:**
+Exchange argument - if solution doesn't follow ratio order, swapping portions increases total value. Can always take fractions, so maximize value per unit weight.
+
+**When Greedy Fails:**
+0/1 knapsack lacks greedy choice property. Taking highest-ratio item might use capacity better filled by multiple smaller items. Requires DP to explore combinations. Greedy needs both greedy choice property AND optimal substructure.
+
+**Time complexity:** Both O(n log n) for sorting.
+`,topics:["Greedy Algorithms","Activity Selection","Fractional Knapsack","Interval Scheduling","Optimization"]}},"content/chapter-03/questions/ford-fulkerson.yml":{type:"yaml",module:{id:"ch3-ford-fulkerson",type:"short-answer",chapter:3,question:`**Implement the Ford-Fulkerson algorithm (maximum flow problem).**
 
 **Level 0** Discuss why maximum flow problems are important and where they arise.
 
@@ -485,29 +493,7 @@ O(E × max_flow) - can be slow if capacities are large. Edmonds-Karp (BFS for pa
 
 **Applications:**
 Network routing, bipartite matching, airline scheduling, image segmentation.
-`,topics:["Network Flow","Ford-Fulkerson","Augmenting Paths","Graph Algorithms"]}},"content/chapter-03/questions/fractional-knapsack.yml":{type:"yaml",module:{id:"ch3-fractional-knapsack",type:"short-answer",chapter:3,question:`**Implement a greedy solution to the fractional knapsack problem.**
-
-**Level 0** Discuss the difference between fractional and 0/1 knapsack and why one admits a greedy solution while the other doesn't.
-
-**Level 1** For sample items with weights and values, demonstrate the greedy algorithm. Give pseudocode.
-
-**Level 2** Implement the fractional knapsack algorithm in a language of your choice.
-
-**Level 3** Prove why the greedy approach (selecting by value-to-weight ratio) is optimal. Compare to 0/1 knapsack and explain why it requires dynamic programming.
-`,answer:`**Fractional Knapsack Greedy:**
-Sort items by value/weight ratio (descending), take items greedily until capacity full (taking fractions of items as needed).
-
-**Why greedy works:**
-Can take fractions, so always maximize value per unit weight. No reason to take lower-ratio item before higher-ratio item.
-
-**Optimality proof:**
-Exchange argument - if solution doesn't follow ratio order, swapping portions increases total value.
-
-**vs. 0/1 Knapsack:**
-0/1 (can't take fractions) lacks greedy choice property. Taking highest-ratio item might use capacity that could fit multiple smaller high-value items. Requires DP to explore combinations.
-
-**Time complexity:** O(n log n) for sorting.
-`,topics:["Greedy Algorithms","Fractional Knapsack","Optimization"]}},"content/chapter-03/questions/knapsack-dp.yml":{type:"yaml",module:{id:"ch3-knapsack-dp",type:"short-answer",chapter:3,question:`**Implement a dynamic programming solution to the 0/1 knapsack problem.**
+`,topics:["Network Flow","Ford-Fulkerson","Augmenting Paths","Graph Algorithms"]}},"content/chapter-03/questions/knapsack-dp.yml":{type:"yaml",module:{id:"ch3-knapsack-dp",type:"short-answer",chapter:3,question:`**Implement a dynamic programming solution to the 0/1 knapsack problem.**
 
 **Level 0** Discuss why DP is needed for 0/1 knapsack and what problems exhibit optimal substructure.
 
@@ -4134,4 +4120,4 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 \r
 * [Algorithm Design](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithm%20Design%20-%20John%20Kleinberg%20-%20%C3%89va%20Tardos.pdf)\r
 * [Algorithms in a Nutshell](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithms_Nutshell%20.pdf)\r
-`}},aD={yamlCount:32,markdownCount:4,totalCount:36},uD=["content/chapter-01/concept-map.yml","content/chapter-02/concept-map.yml","content/chapter-03/concept-map.yml"];function lD(){const e=dr(),[t,i]=H.useState([]),[u,s]=H.useState(null),[o,c]=H.useState(!0);if(H.useEffect(()=>{Rn.initialize({compiledFiles:iD,stats:aD,basePath:"/cs-333/"}),(async()=>{try{const b=await rD(uD);i(b)}catch(b){console.error("Failed to load questions:",b)}finally{c(!1)}})()},[]),o)return O.jsx("div",{className:"app loading",children:O.jsx("h2",{children:"Loading CS333 Textbook..."})});const h=y=>{s(y)},d=()=>{s(null)},p=e.pathname==="/exam"||e.pathname==="/#/exam";return O.jsxs("div",{className:"app",children:[O.jsx("header",{children:O.jsxs("div",{className:"header-content",children:[O.jsxs("div",{className:"header-title",children:[O.jsx("h1",{children:"CS333: Data Structures and Algorithms"}),O.jsx("p",{children:"Understanding computational complexity and efficient problem solving"})]}),O.jsxs("nav",{className:"main-nav",children:[O.jsx(Fs,{to:"/textbook",className:`nav-link ${e.pathname.startsWith("/textbook")?"active":""}`,children:"Textbook"}),O.jsx(Fs,{to:"/exam",className:`nav-link ${p?"active":""}`,children:"Practice Exam"})]})]})}),O.jsx("main",{children:O.jsxs(NA,{children:[O.jsx(Rs,{path:"/",element:O.jsx(_A,{to:"/textbook",replace:!0})}),O.jsx(Rs,{path:"/textbook/*",element:O.jsx(ZL,{})}),O.jsx(Rs,{path:"/exam",element:u?O.jsx($L,{questions:u.questions,settings:u.settings,onEndExam:d}):O.jsx(JL,{questions:t,onStartExam:h,courseTitle:"CS333: Data Structures and Algorithms"})})]})})]})}function sD(){return O.jsx(JA,{children:O.jsx(lD,{})})}O2.createRoot(document.getElementById("root")).render(O.jsx(H.StrictMode,{children:O.jsx(sD,{})}));
+`}},aD={yamlCount:31,markdownCount:4,totalCount:35},uD=["content/chapter-01/concept-map.yml","content/chapter-02/concept-map.yml","content/chapter-03/concept-map.yml"];function lD(){const e=dr(),[t,i]=H.useState([]),[u,s]=H.useState(null),[o,c]=H.useState(!0);if(H.useEffect(()=>{Rn.initialize({compiledFiles:iD,stats:aD,basePath:"/cs-333/"}),(async()=>{try{const b=await rD(uD);i(b)}catch(b){console.error("Failed to load questions:",b)}finally{c(!1)}})()},[]),o)return O.jsx("div",{className:"app loading",children:O.jsx("h2",{children:"Loading CS333 Textbook..."})});const h=y=>{s(y)},d=()=>{s(null)},p=e.pathname==="/exam"||e.pathname==="/#/exam";return O.jsxs("div",{className:"app",children:[O.jsx("header",{children:O.jsxs("div",{className:"header-content",children:[O.jsxs("div",{className:"header-title",children:[O.jsx("h1",{children:"CS333: Data Structures and Algorithms"}),O.jsx("p",{children:"Understanding computational complexity and efficient problem solving"})]}),O.jsxs("nav",{className:"main-nav",children:[O.jsx(Fs,{to:"/textbook",className:`nav-link ${e.pathname.startsWith("/textbook")?"active":""}`,children:"Textbook"}),O.jsx(Fs,{to:"/exam",className:`nav-link ${p?"active":""}`,children:"Practice Exam"})]})]})}),O.jsx("main",{children:O.jsxs(NA,{children:[O.jsx(Rs,{path:"/",element:O.jsx(_A,{to:"/textbook",replace:!0})}),O.jsx(Rs,{path:"/textbook/*",element:O.jsx(ZL,{})}),O.jsx(Rs,{path:"/exam",element:u?O.jsx($L,{questions:u.questions,settings:u.settings,onEndExam:d}):O.jsx(JL,{questions:t,onStartExam:h,courseTitle:"CS333: Data Structures and Algorithms"})})]})})]})}function sD(){return O.jsx(JA,{children:O.jsx(lD,{})})}O2.createRoot(document.getElementById("root")).render(O.jsx(H.StrictMode,{children:O.jsx(sD,{})}));
