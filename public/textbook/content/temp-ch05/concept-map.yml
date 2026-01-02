@@ -1,9 +1,0 @@
-concept_map:
-  - category: "Bonus Questions"
-    concepts:
-      - name: "Advanced Topics"
-        description: "Challenge problems beyond exam scope"
-        exam_questions:
-          - "bubble-sort-implementation-and-analysis.yml"
-          - "structural-recursion-on-lists-vs-arrays.yml"
-

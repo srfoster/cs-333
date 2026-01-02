@@ -2,39 +2,15 @@ id: "ch2-graph-representation"
 type: "short-answer"
 chapter: 2
 question: |
-  **Implement graph data structures for a social network feature.**
+  **Compare data structures for storing graphs.**
   
-  You need to support two operations:
+  **Level 0** Discuss the big-picture significance of graph representation and why it's important to consider various graph data structure representations carefully. 
+
+  **Level 1**  Illustrate data structure(s) for storing graphs and discuss their space and time trade-offs for common operations like adding an edge, checking for an edge, and retrieving all neighbors of a node.  IDEA: Use a social network with 1 million users and 75 million friendships as a running example.
+
+  **Level 2** Implement your data structure(s) in your preferred language. Each should support: adding an undirected edge between two nodes, checking if two nodes are connected by an edge, and retrieving all neighbors of a given node.
   
-  1. **Check friendship**: `areFriends(user1, user2)` - returns true if two users are friends
-  2. **Get friend list**: `getFriends(user)` - returns all friends of a user to display their feed
-  
-  Your system has **1 million users** with an average of **150 friends each** (total: 75 million friendships).
-  
-  **Level 0** Discuss the big-picture significance of large graph representation and why it's important to consider various graph data structure representations carefully.
-
-  **Level 1**  Illustrate one or more data structure(s) for storing these friendships. For a smaller example (5 users, 6 friendships):
-
-  - Draw/describe each data structure you're considering
-  - Walk through how each operation (`areFriends`, `getFriends`) would execute with your structures
-  - Calculate space requirements for both your small example and the 1M-user system
-  - Give pseudocode for the key operations using each structure
-
-  **Level 2** Implement your data structure(s) in your preferred language. Each should support:
-
-  - `addFriendship(user1, user2)`
-  - `areFriends(user1, user2)` 
-  - `getFriends(user)` - returns list/array of friends
-  
-  Write comprehensive tests:
-
-  - Empty graph (0 users)
-  - Single user with no friends
-  - Small graph (5 users, 6 friendships)
-  - Larger graph (1000 users, 1200 friendships)
-  - Measure actual memory usage and operation times
-
-  **Level 3** Discuss the time and space complexity for your data structure(s) and the circumstances under which one might be preferred over another. 
+  **Level 3** Analyze the time and space complexity for your data structure(s) and the circumstances under which one might be preferred over another. 
 
 answer: |
   **Level 0**: The representation determines whether your system uses hundreds of megabytes or terabytes of memory—the difference between feasible and impossible. It also affects whether displaying a user's feed requires scanning millions of entries or just their actual friends. Poor choices lead to systems that either can't fit in memory or have multi-second response times for simple operations.

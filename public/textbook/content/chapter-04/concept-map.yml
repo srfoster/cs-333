@@ -1,0 +1,12 @@
+concept_map:
+  - category: "Bonus Questions"
+    concepts:
+      - name: "Advanced Dynamic Programming"
+        description: "Additional DP problems for extra practice"
+        exam_questions:
+          - "questions/matrix-chain.yml"
+      - name: "Advanced Topics"
+        description: "Challenge problems beyond exam scope"
+        exam_questions:
+          - "questions/bubble-sort-implementation-and-analysis.yml"
+          - "questions/structural-recursion-on-lists-vs-arrays.yml"

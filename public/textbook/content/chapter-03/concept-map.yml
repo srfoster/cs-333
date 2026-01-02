@@ -5,8 +5,6 @@ concept_map:
         description: "Greedy algorithms and when they produce optimal solutions"
         exam_questions:
           - "questions/activity-selection.yml"
-          - "questions/fractional-knapsack.yml"
-          - "questions/huffman-encoding.yml"
       - name: "Divide and Conquer"
         description: "Recursive problem decomposition and merging solutions"
         exam_questions:
@@ -17,7 +15,6 @@ concept_map:
         exam_questions:
           - "questions/knapsack-dp.yml"
           - "questions/lcs-problem.yml"
-          - "questions/matrix-chain.yml"
       - name: "Network Flow"
         description: "Maximum flow and minimum cut in networks"
         exam_questions:
@@ -27,4 +24,3 @@ concept_map:
         description: "NP-completeness and computational complexity theory"
         exam_questions:
           - "questions/sat-to-3sat-reduction.yml"
-          - "questions/3sat-np-completeness.yml"

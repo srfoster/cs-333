@@ -6,7 +6,7 @@ question: |
   
   **Level 0** Discuss the big-picture significance of graph traversal and why both BFS and DFS are fundamental algorithms.
   
-  **Level 1** For sample graphs, demonstrate both algorithms and give pseudocode.
+  **Level 1** For sample graphs, demonstrate both algorithms and give pseudocode.  Explain how BFS can be used to find shortest paths in unweighted graphs.
   
   **Level 2** Implement both BFS and DFS in a language of your choice.
   
