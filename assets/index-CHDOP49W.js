@@ -443,7 +443,7 @@ For any partition of vertices, the minimum-weight edge crossing the partition is
 
 **Applications:**
 Network design (minimize cable cost while connecting all nodes), clustering (MST edges identify natural clusters), approximation algorithms for TSP.
-`,topics:["Minimum Spanning Tree","Prim's Algorithm","Kruskal's Algorithm","Greedy Algorithms","Union-Find","Algorithm Correctness","Cut Property"]}},"content/chapter-03/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Algorithm Paradigms and Intractability",concepts:[{name:"Greedy",description:"Greedy algorithms and when they produce optimal solutions",exam_questions:["questions/activity-selection.yml"]},{name:"Divide and Conquer",description:"Recursive problem decomposition and merging solutions",exam_questions:["questions/merge-sort-analysis.yml","questions/quick-sort-analysis.yml"]},{name:"Dynamic Programming",description:"Optimal substructure and overlapping subproblems",exam_questions:["questions/knapsack-dp.yml","questions/lcs-problem.yml","questions/matrix-chain.yml"]},{name:"Network Flow",description:"Maximum flow and minimum cut in networks",exam_questions:["questions/ford-fulkerson.yml","questions/max-flow-min-cut.yml"]},{name:"Intractability",description:"NP-completeness and computational complexity theory",exam_questions:["questions/sat-to-3sat-reduction.yml"]}]}]}},"content/chapter-03/questions/activity-selection.yml":{type:"yaml",module:{id:"ch3-greedy-algorithms",type:"short-answer",chapter:3,question:`**Implement greedy algorithms for activity selection and fractional knapsack.**
+`,topics:["Minimum Spanning Tree","Prim's Algorithm","Kruskal's Algorithm","Greedy Algorithms","Union-Find","Algorithm Correctness","Cut Property"]}},"content/chapter-03/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Algorithm Paradigms and Intractability",concepts:[{name:"Greedy",description:"Greedy algorithms and when they produce optimal solutions",exam_questions:["questions/activity-selection.yml"]},{name:"Divide and Conquer",description:"Recursive problem decomposition and merging solutions",exam_questions:["questions/merge-sort-analysis.yml","questions/quick-sort-analysis.yml"]},{name:"Dynamic Programming",description:"Optimal substructure and overlapping subproblems",exam_questions:["questions/knapsack-dp.yml","questions/lcs-problem.yml"]},{name:"Network Flow",description:"Maximum flow and minimum cut in networks",exam_questions:["questions/ford-fulkerson.yml","questions/max-flow-min-cut.yml"]},{name:"Intractability",description:"NP-completeness and computational complexity theory",exam_questions:["questions/sat-to-3sat-reduction.yml"]}]}]}},"content/chapter-03/questions/activity-selection.yml":{type:"yaml",module:{id:"ch3-greedy-algorithms",type:"short-answer",chapter:3,question:`**Implement greedy algorithms for activity selection and fractional knapsack.**
 
 **Level 0** Discuss why greedy algorithms sometimes produce optimal solutions. Explain the key properties that make a problem suitable for greedy solutions.
 
@@ -534,27 +534,7 @@ LCS of X[1..i] and Y[1..j] uses LCS of prefixes.
 Backtrack from lcs[m][n]: when X[i]=Y[j], include character and move diagonally; else move toward max.
 
 **Time:** O(mn), Space: O(mn) (can reduce to O(min(m,n)))
-`,topics:["Dynamic Programming","Longest Common Subsequence","String Algorithms"]}},"content/chapter-03/questions/matrix-chain.yml":{type:"yaml",module:{id:"ch3-matrix-chain",type:"short-answer",chapter:3,question:`**Implement a dynamic programming solution to the matrix chain multiplication optimization problem.**
-
-**Level 0** Discuss why matrix multiplication order matters and the significance of this optimization problem.
-
-**Level 1** For sample matrix dimensions, demonstrate the DP table construction. Give pseudocode.
-
-**Level 2** Implement matrix chain ordering with DP in a language of your choice.
-
-**Level 3** Analyze the O(n³) complexity. Explain optimal substructure and how dramatically the cost varies with parenthesization.
-`,answer:`**Matrix Chain DP:**
-Table m[i][j] = min scalar multiplications for Ai...Aj.
-Recurrence: m[i][j] = min(m[i][k] + m[k+1][j] + pi-1×pk×pj) for all k between i and j.
-
-**Why it matters:**
-Different orders have dramatically different costs. (A×B)×C vs A×(B×C) can differ by orders of magnitude.
-
-**Optimal substructure:**
-Optimal parenthesization of Ai...Aj splits at some k, with optimal solutions on both sides.
-
-**Time:** O(n³) - must try all split points for all subchains.
-`,topics:["Dynamic Programming","Matrix Chain Multiplication","Optimization"]}},"content/chapter-03/questions/max-flow-min-cut.yml":{type:"yaml",module:{id:"ch3-max-flow-min-cut",type:"short-answer",chapter:3,question:`**Implement algorithms demonstrating the max-flow min-cut theorem.**
+`,topics:["Dynamic Programming","Longest Common Subsequence","String Algorithms"]}},"content/chapter-03/questions/max-flow-min-cut.yml":{type:"yaml",module:{id:"ch3-max-flow-min-cut",type:"short-answer",chapter:3,question:`**Implement algorithms demonstrating the max-flow min-cut theorem.**
 
 **Level 0** Discuss the significance of the max-flow min-cut theorem as a fundamental duality in optimization.
 
@@ -645,7 +625,27 @@ Each clause produces O(k) new clauses where k is clause length. Total O(n×k) wh
 
 **Significance:**
 Once we know SAT is NP-complete (Cook-Levin), this shows 3-SAT is NP-complete by reduction.
-`,topics:["NP-completeness","Reductions","SAT","3-SAT","Polynomial-time Transformations"]}},"content/temp-ch05/bubble-sort-implementation-and-analysis.yml":{type:"yaml",module:{id:13,question:"Implement bubble sort and analyze its time complexity.",answer:"TODO: Add answer",topics:["sorting","bubble sort","analysis"],type:"problem_solving",points:5,difficulty:"medium",learning_objectives:[]}},"content/temp-ch05/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Bonus Questions",concepts:[{name:"Advanced Topics",description:"Challenge problems beyond exam scope",exam_questions:["bubble-sort-implementation-and-analysis.yml","structural-recursion-on-lists-vs-arrays.yml"]}]}]}},"content/temp-ch05/structural-recursion-on-lists-vs-arrays.yml":{type:"yaml",module:{id:10,question:"Compare structural recursion on lists vs arrays.",answer:"TODO: Add answer",topics:["recursion","arrays","linked lists"],type:"conceptual",points:3,difficulty:"medium",learning_objectives:[]}},"content/chapter-01/index.md":{type:"markdown",module:`# Chapter 1: Mathematics of Algorithm Complexity\r
+`,topics:["NP-completeness","Reductions","SAT","3-SAT","Polynomial-time Transformations"]}},"content/chapter-04/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Bonus Questions",concepts:[{name:"Advanced Dynamic Programming",description:"Additional DP problems for extra practice",exam_questions:["questions/matrix-chain.yml"]},{name:"Advanced Topics",description:"Challenge problems beyond exam scope",exam_questions:["questions/bubble-sort-implementation-and-analysis.yml","questions/structural-recursion-on-lists-vs-arrays.yml"]}]}]}},"content/chapter-04/questions/bubble-sort-implementation-and-analysis.yml":{type:"yaml",module:{id:13,question:"Implement bubble sort and analyze its time complexity.",answer:"TODO: Add answer",topics:["sorting","bubble sort","analysis"],type:"problem_solving",points:5,difficulty:"medium",learning_objectives:[]}},"content/chapter-04/questions/matrix-chain.yml":{type:"yaml",module:{id:"ch4-matrix-chain",type:"short-answer",chapter:4,question:`**Implement a dynamic programming solution to the matrix chain multiplication optimization problem.**
+
+**Level 0** Discuss why matrix multiplication order matters and the significance of this optimization problem.
+
+**Level 1** For sample matrix dimensions, demonstrate the DP table construction. Give pseudocode.
+
+**Level 2** Implement matrix chain ordering with DP in a language of your choice.
+
+**Level 3** Analyze the O(n³) complexity. Explain optimal substructure and how dramatically the cost varies with parenthesization.
+`,answer:`**Matrix Chain DP:**
+Table m[i][j] = min scalar multiplications for Ai...Aj.
+Recurrence: m[i][j] = min(m[i][k] + m[k+1][j] + pi-1×pk×pj) for all k between i and j.
+
+**Why it matters:**
+Different orders have dramatically different costs. (A×B)×C vs A×(B×C) can differ by orders of magnitude.
+
+**Optimal substructure:**
+Optimal parenthesization of Ai...Aj splits at some k, with optimal solutions on both sides.
+
+**Time:** O(n³) - must try all split points for all subchains.
+`,topics:["Dynamic Programming","Matrix Chain Multiplication","Optimization"]}},"content/chapter-04/questions/structural-recursion-on-lists-vs-arrays.yml":{type:"yaml",module:{id:10,question:"Compare structural recursion on lists vs arrays.",answer:"TODO: Add answer",topics:["recursion","arrays","linked lists"],type:"conceptual",points:3,difficulty:"medium",learning_objectives:[]}},"content/chapter-01/index.md":{type:"markdown",module:`# Chapter 1: Mathematics of Algorithm Complexity\r
 \r
 This chapter develops the mathematical foundations for analyzing algorithm efficiency using asymptotic notation.\r
 \r
@@ -4033,6 +4033,19 @@ SAT and proof of NP-Completeness:\r
 {{YouTube:https://www.youtube.com/watch?v=rSCtkJohumA}}\r
 \r
 \r
+`},"content/chapter-04/index.md":{type:"markdown",module:`# Chapter 4: Bonus Questions\r
+\r
+This chapter contains additional practice questions to deepen your understanding of advanced algorithm concepts.\r
+\r
+## Advanced Dynamic Programming\r
+\r
+Additional dynamic programming problems that demonstrate the power and versatility of the DP paradigm:\r
+\r
+* **Matrix Chain Multiplication**: Finding the optimal parenthesization for multiplying a sequence of matrices\r
+\r
+These bonus questions are optional but provide valuable practice for mastering algorithmic problem-solving.\r
+\r
+\r
 `},"index.md":{type:"markdown",module:`# CS333: Data Structures and Algorithms I\r
 \r
 Welcome to CS333! This course explores fundamental data structures and algorithms that are essential for efficient problem-solving in computer science.\r
@@ -4102,7 +4115,6 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 \r
 * 0/1 Knapsack problem\r
 * Longest Common Subsequence (LCS)\r
-* Matrix chain multiplication\r
 \r
 **Network Flow:**\r
 \r
@@ -4120,4 +4132,4 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 \r
 * [Algorithm Design](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithm%20Design%20-%20John%20Kleinberg%20-%20%C3%89va%20Tardos.pdf)\r
 * [Algorithms in a Nutshell](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithms_Nutshell%20.pdf)\r
-`}},aD={yamlCount:31,markdownCount:4,totalCount:35},uD=["content/chapter-01/concept-map.yml","content/chapter-02/concept-map.yml","content/chapter-03/concept-map.yml"];function lD(){const e=dr(),[t,i]=H.useState([]),[u,s]=H.useState(null),[o,c]=H.useState(!0);if(H.useEffect(()=>{Rn.initialize({compiledFiles:iD,stats:aD,basePath:"/cs-333/"}),(async()=>{try{const b=await rD(uD);i(b)}catch(b){console.error("Failed to load questions:",b)}finally{c(!1)}})()},[]),o)return O.jsx("div",{className:"app loading",children:O.jsx("h2",{children:"Loading CS333 Textbook..."})});const h=y=>{s(y)},d=()=>{s(null)},p=e.pathname==="/exam"||e.pathname==="/#/exam";return O.jsxs("div",{className:"app",children:[O.jsx("header",{children:O.jsxs("div",{className:"header-content",children:[O.jsxs("div",{className:"header-title",children:[O.jsx("h1",{children:"CS333: Data Structures and Algorithms"}),O.jsx("p",{children:"Understanding computational complexity and efficient problem solving"})]}),O.jsxs("nav",{className:"main-nav",children:[O.jsx(Fs,{to:"/textbook",className:`nav-link ${e.pathname.startsWith("/textbook")?"active":""}`,children:"Textbook"}),O.jsx(Fs,{to:"/exam",className:`nav-link ${p?"active":""}`,children:"Practice Exam"})]})]})}),O.jsx("main",{children:O.jsxs(NA,{children:[O.jsx(Rs,{path:"/",element:O.jsx(_A,{to:"/textbook",replace:!0})}),O.jsx(Rs,{path:"/textbook/*",element:O.jsx(ZL,{})}),O.jsx(Rs,{path:"/exam",element:u?O.jsx($L,{questions:u.questions,settings:u.settings,onEndExam:d}):O.jsx(JL,{questions:t,onStartExam:h,courseTitle:"CS333: Data Structures and Algorithms"})})]})})]})}function sD(){return O.jsx(JA,{children:O.jsx(lD,{})})}O2.createRoot(document.getElementById("root")).render(O.jsx(H.StrictMode,{children:O.jsx(sD,{})}));
+`}},aD={yamlCount:31,markdownCount:5,totalCount:36},uD=["content/chapter-01/concept-map.yml","content/chapter-02/concept-map.yml","content/chapter-03/concept-map.yml"];function lD(){const e=dr(),[t,i]=H.useState([]),[u,s]=H.useState(null),[o,c]=H.useState(!0);if(H.useEffect(()=>{Rn.initialize({compiledFiles:iD,stats:aD,basePath:"/cs-333/"}),(async()=>{try{const b=await rD(uD);i(b)}catch(b){console.error("Failed to load questions:",b)}finally{c(!1)}})()},[]),o)return O.jsx("div",{className:"app loading",children:O.jsx("h2",{children:"Loading CS333 Textbook..."})});const h=y=>{s(y)},d=()=>{s(null)},p=e.pathname==="/exam"||e.pathname==="/#/exam";return O.jsxs("div",{className:"app",children:[O.jsx("header",{children:O.jsxs("div",{className:"header-content",children:[O.jsxs("div",{className:"header-title",children:[O.jsx("h1",{children:"CS333: Data Structures and Algorithms"}),O.jsx("p",{children:"Understanding computational complexity and efficient problem solving"})]}),O.jsxs("nav",{className:"main-nav",children:[O.jsx(Fs,{to:"/textbook",className:`nav-link ${e.pathname.startsWith("/textbook")?"active":""}`,children:"Textbook"}),O.jsx(Fs,{to:"/exam",className:`nav-link ${p?"active":""}`,children:"Practice Exam"})]})]})}),O.jsx("main",{children:O.jsxs(NA,{children:[O.jsx(Rs,{path:"/",element:O.jsx(_A,{to:"/textbook",replace:!0})}),O.jsx(Rs,{path:"/textbook/*",element:O.jsx(ZL,{})}),O.jsx(Rs,{path:"/exam",element:u?O.jsx($L,{questions:u.questions,settings:u.settings,onEndExam:d}):O.jsx(JL,{questions:t,onStartExam:h,courseTitle:"CS333: Data Structures and Algorithms"})})]})})]})}function sD(){return O.jsx(JA,{children:O.jsx(lD,{})})}O2.createRoot(document.getElementById("root")).render(O.jsx(H.StrictMode,{children:O.jsx(sD,{})}));

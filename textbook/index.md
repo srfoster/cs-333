@@ -67,7 +67,6 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 
 * 0/1 Knapsack problem
 * Longest Common Subsequence (LCS)
-* Matrix chain multiplication
 
 **Network Flow:**
 

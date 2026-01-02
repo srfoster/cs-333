@@ -15,7 +15,6 @@ concept_map:
         exam_questions:
           - "questions/knapsack-dp.yml"
           - "questions/lcs-problem.yml"
-          - "questions/matrix-chain.yml"
       - name: "Network Flow"
         description: "Maximum flow and minimum cut in networks"
         exam_questions:

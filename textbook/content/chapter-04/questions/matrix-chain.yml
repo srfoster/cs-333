@@ -1,6 +1,6 @@
-id: "ch3-matrix-chain"
+id: "ch4-matrix-chain"
 type: "short-answer"
-chapter: 3
+chapter: 4
 question: |
   **Implement a dynamic programming solution to the matrix chain multiplication optimization problem.**
   
