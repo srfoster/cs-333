@@ -4,13 +4,13 @@ chapter: 3
 question: |
   **Implement a reduction from SAT to 3-SAT to show 3-SAT is NP-complete.**
   
-  **Level 0** Discuss why reductions are fundamental to complexity theory and what it means for a problem to be NP-complete.
+  **Level 0** Discuss the significance of the following: P, NP, NP-complete.  In light of your definitions, discuss SAT, 3-SAT, and 2-SAT.   Discuss why reductions are fundamental to complexity theory.
   
-  **Level 1** For sample SAT formulas with varied clause sizes, demonstrate the reduction to 3-SAT. Give the transformation rules.
+  **Level 1** 2-SAT: Show a polynomial-time algorithm for solving 2-SAT problems.  3-SAT: For sample SAT formulas with varied clause sizes, demonstrate the reduction to 3-SAT; Give the transformation rules and/or pseudocode, and show (informally, in your concrete example) that satisfiability is preserved.
   
   **Level 2** Implement a SAT-to-3SAT reduction in a language of your choice.
   
-  **Level 3** Prove the reduction is polynomial-time and preserves satisfiability in both directions.
+  **Level 3** Prove the 3-SAT reduction is polynomial-time and preserves satisfiability in both directions.
 
 answer: |
   **SAT to 3-SAT Reduction:**
