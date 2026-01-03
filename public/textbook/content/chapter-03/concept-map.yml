@@ -19,7 +19,6 @@ concept_map:
         description: "Maximum flow and minimum cut in networks"
         exam_questions:
           - "questions/ford-fulkerson.yml"
-          - "questions/max-flow-min-cut.yml"
       - name: "Intractability"
         description: "NP-completeness and computational complexity theory"
         exam_questions:

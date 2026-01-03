@@ -23,8 +23,12 @@ function AppContent() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize the compiled content service with our compiled content
-    compiledContentService.initialize({ compiledFiles, stats });
+    // Initialize the compiled content service with our compiled content and base path
+    compiledContentService.initialize({ 
+      compiledFiles, 
+      stats,
+      basePath: import.meta.env.BASE_URL || '/'
+    });
     
     const fetchQuestions = async () => {
       try {
