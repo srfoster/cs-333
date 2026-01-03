@@ -1,6 +1,6 @@
-id: "ch3-max-flow-min-cut"
+id: "ch4-max-flow-min-cut"
 type: "short-answer"
-chapter: 3
+chapter: 4
 question: |
   **Implement algorithms demonstrating the max-flow min-cut theorem.**
   

@@ -443,7 +443,7 @@ For any partition of vertices, the minimum-weight edge crossing the partition is
 
 **Applications:**
 Network design (minimize cable cost while connecting all nodes), clustering (MST edges identify natural clusters), approximation algorithms for TSP.
-`,topics:["Minimum Spanning Tree","Prim's Algorithm","Kruskal's Algorithm","Greedy Algorithms","Union-Find","Algorithm Correctness","Cut Property"]}},"content/chapter-03/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Algorithm Paradigms and Intractability",concepts:[{name:"Greedy",description:"Greedy algorithms and when they produce optimal solutions",exam_questions:["questions/activity-selection.yml"]},{name:"Divide and Conquer",description:"Recursive problem decomposition and merging solutions",exam_questions:["questions/merge-sort-analysis.yml","questions/quick-sort-analysis.yml"]},{name:"Dynamic Programming",description:"Optimal substructure and overlapping subproblems",exam_questions:["questions/knapsack-dp.yml","questions/lcs-problem.yml"]},{name:"Network Flow",description:"Maximum flow and minimum cut in networks",exam_questions:["questions/ford-fulkerson.yml","questions/max-flow-min-cut.yml"]},{name:"Intractability",description:"NP-completeness and computational complexity theory",exam_questions:["questions/sat-to-3sat-reduction.yml"]}]}]}},"content/chapter-03/questions/activity-selection.yml":{type:"yaml",module:{id:"ch3-greedy-algorithms",type:"short-answer",chapter:3,question:`**Implement greedy algorithms for activity selection and fractional knapsack.**
+`,topics:["Minimum Spanning Tree","Prim's Algorithm","Kruskal's Algorithm","Greedy Algorithms","Union-Find","Algorithm Correctness","Cut Property"]}},"content/chapter-03/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Algorithm Paradigms and Intractability",concepts:[{name:"Greedy",description:"Greedy algorithms and when they produce optimal solutions",exam_questions:["questions/activity-selection.yml"]},{name:"Divide and Conquer",description:"Recursive problem decomposition and merging solutions",exam_questions:["questions/merge-sort-analysis.yml","questions/quick-sort-analysis.yml"]},{name:"Dynamic Programming",description:"Optimal substructure and overlapping subproblems",exam_questions:["questions/knapsack-dp.yml","questions/lcs-problem.yml"]},{name:"Network Flow",description:"Maximum flow and minimum cut in networks",exam_questions:["questions/ford-fulkerson.yml"]},{name:"Intractability",description:"NP-completeness and computational complexity theory",exam_questions:["questions/sat-to-3sat-reduction.yml"]}]}]}},"content/chapter-03/questions/activity-selection.yml":{type:"yaml",module:{id:"ch3-greedy-algorithms",type:"short-answer",chapter:3,question:`**Implement greedy algorithms for activity selection and fractional knapsack.**
 
 **Level 0** Discuss why greedy algorithms sometimes produce optimal solutions. Explain the key properties that make a problem suitable for greedy solutions.
 
@@ -475,13 +475,13 @@ Exchange argument - if solution doesn't follow ratio order, swapping portions in
 **Time complexity:** Both O(n log n) for sorting.
 `,topics:["Greedy Algorithms","Activity Selection","Fractional Knapsack","Interval Scheduling","Optimization"]}},"content/chapter-03/questions/ford-fulkerson.yml":{type:"yaml",module:{id:"ch3-ford-fulkerson",type:"short-answer",chapter:3,question:`**Implement the Ford-Fulkerson algorithm (maximum flow problem).**
 
-**Level 0** Discuss why maximum flow problems are important and where they arise.
+**Level 0** Discuss what a maximum flow problem is, and give a few examples.  Explain the significance of the Ford-Fulkerson algorithm and an informal discussion of the max-flow min-cut theorem.
 
 **Level 1** For sample flow networks, demonstrate finding augmenting paths and updating flow. Give pseudocode.
 
 **Level 2** Implement Ford-Fulkerson in a language of your choice.
 
-**Level 3** Analyze the complexity. Explain augmenting paths, residual networks, and why the algorithm terminates with integer capacities.
+**Level 3** Analyze the complexity. Explain augmenting paths, residual networks, and why the algorithm terminates with integer capacities.  (Bonus: Give a more formal proof of the max-flow min-cut theorem.)
 `,answer:`**Ford-Fulkerson:**
 Repeatedly find augmenting paths (source to sink with residual capacity), push flow along path, update residual graph. Terminates when no augmenting path exists.
 
@@ -534,30 +534,7 @@ LCS of X[1..i] and Y[1..j] uses LCS of prefixes.
 Backtrack from lcs[m][n]: when X[i]=Y[j], include character and move diagonally; else move toward max.
 
 **Time:** O(mn), Space: O(mn) (can reduce to O(min(m,n)))
-`,topics:["Dynamic Programming","Longest Common Subsequence","String Algorithms"]}},"content/chapter-03/questions/max-flow-min-cut.yml":{type:"yaml",module:{id:"ch3-max-flow-min-cut",type:"short-answer",chapter:3,question:`**Implement algorithms demonstrating the max-flow min-cut theorem.**
-
-**Level 0** Discuss the significance of the max-flow min-cut theorem as a fundamental duality in optimization.
-
-**Level 1** For sample networks, demonstrate finding both maximum flow and minimum cut. Give definitions.
-
-**Level 2** Implement finding minimum cut after computing max flow.
-
-**Level 3** Prove the max-flow min-cut theorem. Explain applications in network reliability and security.
-`,answer:`**Max-Flow Min-Cut Theorem:**
-Maximum flow value equals minimum cut capacity. A cut is a partition of vertices into sets S (containing source) and T (containing sink).
-
-**Proof sketch:**
-(1) Flow ≤ any cut capacity (flow conservation)
-(2) When Ford-Fulkerson terminates, no augmenting path exists
-(3) S = vertices reachable from source in residual graph
-(4) Cut (S,T) has no residual capacity, so flow = cut capacity
-
-**Finding min cut:**
-After max flow, cut consists of edges from S to T where S = BFS-reachable vertices in residual graph.
-
-**Applications:**
-Network reliability (min cut = vulnerability), image segmentation, social network analysis.
-`,topics:["Network Flow","Max-Flow Min-Cut Theorem","Graph Theory","Duality"]}},"content/chapter-03/questions/merge-sort-analysis.yml":{type:"yaml",module:{id:"ch3-merge-sort-analysis",type:"short-answer",chapter:3,question:`**Implement and analyze merge sort as a divide-and-conquer algorithm.**
+`,topics:["Dynamic Programming","Longest Common Subsequence","String Algorithms"]}},"content/chapter-03/questions/merge-sort-analysis.yml":{type:"yaml",module:{id:"ch3-merge-sort-analysis",type:"short-answer",chapter:3,question:`**Implement and analyze merge sort as a divide-and-conquer algorithm.**
 
 **Level 0** Discuss why divide-and-conquer is a powerful paradigm and where merge sort is used.
 
@@ -604,13 +581,13 @@ Random pivot or median-of-three to avoid worst case. Randomized quicksort has ex
 In-place (O(1) space), cache-friendly access patterns, smaller constant factors than merge sort.
 `,topics:["Divide and Conquer","Quicksort","Randomized Algorithms","In-place Sorting"]}},"content/chapter-03/questions/sat-to-3sat-reduction.yml":{type:"yaml",module:{id:"ch3-sat-to-3sat-reduction",type:"short-answer",chapter:3,question:`**Implement a reduction from SAT to 3-SAT to show 3-SAT is NP-complete.**
 
-**Level 0** Discuss why reductions are fundamental to complexity theory and what it means for a problem to be NP-complete.
+**Level 0** Discuss the significance of the following: P, NP, NP-complete.  In light of your definitions, discuss SAT, 3-SAT, and 2-SAT.   Discuss why reductions are fundamental to complexity theory.
 
-**Level 1** For sample SAT formulas with varied clause sizes, demonstrate the reduction to 3-SAT. Give the transformation rules.
+**Level 1** 2-SAT: Show a polynomial-time algorithm for solving 2-SAT problems.  3-SAT: For sample SAT formulas with varied clause sizes, demonstrate the reduction to 3-SAT; Give the transformation rules and/or pseudocode, and show (informally, in your concrete example) that satisfiability is preserved.
 
 **Level 2** Implement a SAT-to-3SAT reduction in a language of your choice.
 
-**Level 3** Prove the reduction is polynomial-time and preserves satisfiability in both directions.
+**Level 3** Prove the 3-SAT reduction is polynomial-time and preserves satisfiability in both directions.
 `,answer:`**SAT to 3-SAT Reduction:**
 - 1-literal clause (x): Add dummies → (x ∨ y ∨ ¬y)
 - 2-literal clause (x ∨ y): Add dummy → (x ∨ y ∨ z)
@@ -625,7 +602,7 @@ Each clause produces O(k) new clauses where k is clause length. Total O(n×k) wh
 
 **Significance:**
 Once we know SAT is NP-complete (Cook-Levin), this shows 3-SAT is NP-complete by reduction.
-`,topics:["NP-completeness","Reductions","SAT","3-SAT","Polynomial-time Transformations"]}},"content/chapter-04/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Bonus Questions",concepts:[{name:"Advanced Dynamic Programming",description:"Additional DP problems for extra practice",exam_questions:["questions/matrix-chain.yml"]},{name:"Advanced Topics",description:"Challenge problems beyond exam scope",exam_questions:["questions/bubble-sort-implementation-and-analysis.yml","questions/structural-recursion-on-lists-vs-arrays.yml"]}]}]}},"content/chapter-04/questions/bubble-sort-implementation-and-analysis.yml":{type:"yaml",module:{id:13,question:"Implement bubble sort and analyze its time complexity.",answer:"TODO: Add answer",topics:["sorting","bubble sort","analysis"],type:"problem_solving",points:5,difficulty:"medium",learning_objectives:[]}},"content/chapter-04/questions/matrix-chain.yml":{type:"yaml",module:{id:"ch4-matrix-chain",type:"short-answer",chapter:4,question:`**Implement a dynamic programming solution to the matrix chain multiplication optimization problem.**
+`,topics:["NP-completeness","Reductions","SAT","3-SAT","Polynomial-time Transformations"]}},"content/chapter-04/concept-map.yml":{type:"yaml",module:{concept_map:[{category:"Bonus Questions",concepts:[{name:"Advanced Dynamic Programming",description:"Additional DP problems for extra practice",exam_questions:["questions/matrix-chain.yml"]},{name:"Network Flow",description:"Advanced network flow problems",exam_questions:["questions/max-flow-min-cut.yml"]},{name:"Advanced Topics",description:"Challenge problems beyond exam scope",exam_questions:["questions/bubble-sort-implementation-and-analysis.yml","questions/structural-recursion-on-lists-vs-arrays.yml"]}]}]}},"content/chapter-04/questions/bubble-sort-implementation-and-analysis.yml":{type:"yaml",module:{id:13,question:"Implement bubble sort and analyze its time complexity.",answer:"TODO: Add answer",topics:["sorting","bubble sort","analysis"],type:"problem_solving",points:5,difficulty:"medium",learning_objectives:[]}},"content/chapter-04/questions/matrix-chain.yml":{type:"yaml",module:{id:"ch4-matrix-chain",type:"short-answer",chapter:4,question:`**Implement a dynamic programming solution to the matrix chain multiplication optimization problem.**
 
 **Level 0** Discuss why matrix multiplication order matters and the significance of this optimization problem.
 
@@ -645,7 +622,30 @@ Different orders have dramatically different costs. (A×B)×C vs A×(B×C) can d
 Optimal parenthesization of Ai...Aj splits at some k, with optimal solutions on both sides.
 
 **Time:** O(n³) - must try all split points for all subchains.
-`,topics:["Dynamic Programming","Matrix Chain Multiplication","Optimization"]}},"content/chapter-04/questions/structural-recursion-on-lists-vs-arrays.yml":{type:"yaml",module:{id:10,question:"Compare structural recursion on lists vs arrays.",answer:"TODO: Add answer",topics:["recursion","arrays","linked lists"],type:"conceptual",points:3,difficulty:"medium",learning_objectives:[]}},"content/chapter-01/index.md":{type:"markdown",module:`# Chapter 1: Mathematics of Algorithm Complexity\r
+`,topics:["Dynamic Programming","Matrix Chain Multiplication","Optimization"]}},"content/chapter-04/questions/max-flow-min-cut.yml":{type:"yaml",module:{id:"ch4-max-flow-min-cut",type:"short-answer",chapter:4,question:`**Implement algorithms demonstrating the max-flow min-cut theorem.**
+
+**Level 0** Discuss the significance of the max-flow min-cut theorem as a fundamental duality in optimization.
+
+**Level 1** For sample networks, demonstrate finding both maximum flow and minimum cut. Give definitions.
+
+**Level 2** Implement finding minimum cut after computing max flow.
+
+**Level 3** Prove the max-flow min-cut theorem. Explain applications in network reliability and security.
+`,answer:`**Max-Flow Min-Cut Theorem:**
+Maximum flow value equals minimum cut capacity. A cut is a partition of vertices into sets S (containing source) and T (containing sink).
+
+**Proof sketch:**
+(1) Flow ≤ any cut capacity (flow conservation)
+(2) When Ford-Fulkerson terminates, no augmenting path exists
+(3) S = vertices reachable from source in residual graph
+(4) Cut (S,T) has no residual capacity, so flow = cut capacity
+
+**Finding min cut:**
+After max flow, cut consists of edges from S to T where S = BFS-reachable vertices in residual graph.
+
+**Applications:**
+Network reliability (min cut = vulnerability), image segmentation, social network analysis.
+`,topics:["Network Flow","Max-Flow Min-Cut Theorem","Graph Theory","Duality"]}},"content/chapter-04/questions/structural-recursion-on-lists-vs-arrays.yml":{type:"yaml",module:{id:10,question:"Compare structural recursion on lists vs arrays.",answer:"TODO: Add answer",topics:["recursion","arrays","linked lists"],type:"conceptual",points:3,difficulty:"medium",learning_objectives:[]}},"content/chapter-01/index.md":{type:"markdown",module:`# Chapter 1: Mathematics of Algorithm Complexity\r
 \r
 This chapter develops the mathematical foundations for analyzing algorithm efficiency using asymptotic notation.\r
 \r
