@@ -4,13 +4,13 @@ chapter: 3
 question: |
   **Implement the Ford-Fulkerson algorithm (maximum flow problem).**
   
-  **Level 0** Discuss why maximum flow problems are important and where they arise.
+  **Level 0** Discuss what a maximum flow problem is, and give a few examples.  Explain the significance of the Ford-Fulkerson algorithm and an informal discussion of the max-flow min-cut theorem.
   
   **Level 1** For sample flow networks, demonstrate finding augmenting paths and updating flow. Give pseudocode.
   
   **Level 2** Implement Ford-Fulkerson in a language of your choice.
   
-  **Level 3** Analyze the complexity. Explain augmenting paths, residual networks, and why the algorithm terminates with integer capacities.
+  **Level 3** Analyze the complexity. Explain augmenting paths, residual networks, and why the algorithm terminates with integer capacities.  (Bonus: Give a more formal proof of the max-flow min-cut theorem.)
 
 answer: |
   **Ford-Fulkerson:**
