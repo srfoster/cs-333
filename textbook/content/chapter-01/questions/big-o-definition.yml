@@ -48,6 +48,8 @@ vocab_high_school:
     definition: "Describing behavior as a value approaches infinity"
   - word: "constant factors"
     definition: "Fixed multipliers that don't depend on input size"
+example_videos:
+  - "https://youtu.be/phOtXKiHDgI"
 vocab_undergraduate:
   - word: "recurrence relations"
     definition: "Mathematical equations that define a function in terms of its value at smaller inputs"
