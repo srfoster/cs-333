@@ -48,6 +48,8 @@ topics:
   - "B-Trees"
   - "Disk-Based Data Structures"
   - "Database Indexes"
+examples:
+  - "https://youtu.be/-4X3wyWvrMM"
   - "File Systems"
   - "I/O Optimization"
   - "Multi-way Search Trees"
