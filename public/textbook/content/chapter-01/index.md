@@ -2,14 +2,14 @@
 
 This chapter develops the mathematical foundations for analyzing algorithm efficiency using asymptotic notation.
 
-## This Book's Unique Approach: The Four Levels of Mastery
+## Four Levels of Mastery
 
-This textbook takes a different approach from traditional algorithm texts. Rather than beginning with proofs and/or implementations, each question on the final exam guides you through **four distinct levels of mastery** that mirror how expert tend to think about problems.  In a nutshell, for every algorithm or data structure on the exam, you'll be asked:
+This textbook takes a different approach from traditional algorithm texts. Rather than beginning with proofs and/or implementations, each question on the final exam guides you through **four distinct levels of mastery** that mirror how experts tend to think about problems.  In a nutshell, for every algorithm or data structure on the exam, we'll cover (and you'll be assessed upon):
 
-* Level 0: What is significant about this topic?  Why is this topic worth learning?
-* Level 1: Explain the algorithm, data structure, or proof using diagrams, flow charts, psueducode, etc.  
-* Level 2: Implement the algorithm and test it.
-* Level 3: Give any necessary mathematical proofs of correctness or complexity (e.g. Big-O)
+* **Level 0:** What is significant about this topic?  Why is this topic worth learning?
+* **Level 1:** Explain the algorithm, data structure, or proof using diagrams, flow charts, psueducode, etc.  
+* **Level 2:** Implement the algorithm and test it.
+* **Level 3:** Give any necessary mathematical proofs of correctness or complexity (e.g. Big-O)
 
 We'll put that into action here as we cover the various questions on the final.  
 
@@ -17,15 +17,15 @@ We'll put that into action here as we cover the various questions on the final.
 
 By the end of this chapter, you should be able to:
 
-* Use Big-O, Big-Omega, and Big-Theta notation correctly
-* Determine tight asymptotic bounds for functions
-* Analyze the time complexity of code with loops and conditionals
-* Compare algorithms and predict their relative performance
+* Understand what Big-O, Big-Omega, and Big-Theta are
+* Analyze the time complexity of various canonical algorithms
+* Compare similar algorithms and predict their relative performance
 * Understand when constant factors matter vs. when they don't
+* Use Big-O as a tool to discuss the tradeoffs between insertion sort and selection sort
 
-## The Table of Contents
+## What's this course about?
 
-This book's final exam is carefully designed to be both 1) an assessment tool, and 2) a learning tool.  The questions have been selected from the algorithms and data structures canon and sequenced in what is often considered the most appropriate order in which to study the concepts.
+This book's final exam is carefully designed to be both 1) a learning tool and 2) an assessment tool.  We'll use the questions to sequence the content in this chapter; and I hope you'll use them to test yourself both as you read along, and after the fact to test your algorithm writing and analysis skills. 
 
 The final exam begins with a question that tests you on the structure of the course itself, asking you to give a hierarchy of the key algorithms and data structures we cover.  
 
@@ -33,12 +33,12 @@ The final exam begins with a question that tests you on the structure of the cou
 
 {{ProTip:tip content:"Always watch any embedded videos (like the one above) before moving on."}}
 
-Years after taking a class, the unfortunate reality is that you will likely forget a lot of the key ideas.  This is one reason that it's important to organize what you learn into a coherent structure.  Plus, a good structure will help you remember additional topics beyond this course; and the one given in the answer above is designed with this in mind.
+Years after taking a class, the unfortunate reality is that you will likely forget a lot of the key ideas.  This is one reason that it's important to organize what you learn into a coherent structure.  Plus, a good structure will help you remember additional topics beyond this course.
 
 {{ProTip:professor content:"If I could pick only one question you remember the answer to 1 year from now, it would be the one above!"}}
 
 
-## What is Big-O
+## What is Big-O?
 
 Big-O is one of the key ideas in this course and an indispensable cognitive tool for any computer scientist.  If we write algorithms without understanding how they scale (or fail to scale), we are setting ourselves up for frustration, heartache, and even potential financial risk.  
 
@@ -147,17 +147,21 @@ def process_array(arr):
 
 {{ProTip:tip content:"Just because you don't see a loop in the code, doesn't mean there isn't one (or many!) buried inside library calls."}}
 
-{{ProTip:professor content:"Even if you can see all of the loops, analyzing the complexity of some algorithms (especially recursive ones) can be a subtle and tricky.  As we'll see, more sophisticated algorithms can require clever mathematical techniques."}}
+{{ProTip:professor content:"These are just rules of thumb.  Even if you can see all of the loops, analyzing the complexity of some algorithms (especially recursive ones) can be a subtle and tricky.  More sophisticated algorithms from later in this textbook will clever mathematical techniques."}}
 
 ## Big-O, Big-Omega, and Big-Theta
 
+If you're looking for a needle in a haystack, how long will it take?  Obviously, the answer is: It depends on how lucky you are.  Algorithms, too, can get lucky, and the mathematics of algorithm complexity handles this possibility by distinguishing between three related notions of how algorithms scale: Big-O, Big-Omega, and Big-Theta.
 
+The following question is designed ensure that you understand this idea by asking you to understand a case where an algorithm's unlucky scenario is different from its lucky one.  Or to put it more mathematically: when the algorithm's Big-O does not equal it's Big-Omega.
 
 {{ExamQuestions:concept-map.yml question_filter:"ch1-linear-search-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 3" maxVideos: 1}}
 
+Here's a quick rundown of the difference between these three concepts.
+
 ### Understanding Big-O, Big-Ω, and Big-Θ
 
-Although Big-O is the most common took, when analyzing algorithms, we use three related ways of describing algorithmic performance:
+Although Big-O is our most common tool, when analyzing algorithms, we occasionally need two other tools in our toolbox:
 
 **Big-O (O)** - Upper Bound (Worst Case)
 - Describes the maximum time/space an algorithm will take
@@ -191,18 +195,141 @@ def linear_search(arr, target):
 - Worst case (O): Target is last or not present → O(n)
 - Average case: Typically check half the array → Θ(n)
 
+But can all algorithms sometimes get lucky even on large inputs?  Actually, no.  Some algorithms need to do the same amount of work no matter what.  This next question is designed to ensure that you can discuss at least one example of when Big-O and Big-Omega are the same. 
 
 {{ExamQuestions:concept-map.yml question_filter:"ch1-find-minimum-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 4" maxVideos: 1}}
+
+## When can we "Drop Terms"?
+
+There's another key idea of Big-O that often trips up beginners: the idea of "ignoring things" or (as mathematicians put it) "dropping terms." 
+
+Suppose an algorithm consists of several sequential sub-algorithms (a very common thing!).  The sub-algorithm's don't "add together" in the way you might expect -- at least not for the purposes of Big-O classification.
+
+{{ProTip:tip content:"An algorithm with a Big-O of O(n) + O(n) + O(n) **could** be said to have Big-O of O(3n).  But believe it or not, you'll rarely see this!  Indeed we usually drop terms and 'round down' to a Big-O of O(n).  Why?  Because the purpose of Big-O notation is to classify algorithms into large families.  Linear growth is linear growth: thus O(3n) = O(n)"}}
+
+This is a pretty good video about the topic.  The takeaway is: When we do Big-O analysis, we usually care more about the basic **shape** of the growth curve than the detailed growth behavior.
+
+{{YouTube:https://www.youtube.com/watch?v=MyeV2_tGqvw}}
+
+So sequential algorithms don't "add their complexity together" to make a more complex algorithm -- at least not insofar as Big-O analysis is concerned.  In fact, we can even ignore the slower sub-algorithms all together!
+
+{{ProTip:tip content:"An algorithm with a Big-O of O(n) + O(1) is also said to have a Big-O of O(n).  We ignore the fast sub-algorithms and use the slowest ones to classify the overall algorithm."}}
+
+For example, if your task is to find the exact **weight** of a needle in a haystack, then you must first 1) search for the needle, and 2) weigh the needle.  The sub-algorithm for weighing the needle is very quick (speed of weighing a needle doesn't depend on the size of the haystack), and although it adds some complexity to the overall algorithm, we tend to ignore such things when we do a Big-O analysis.  
+
+{{ProTip:tip content:"An algorithm with a Big-O of O(n) + O(1) is also said to have a Big-O of O(n).  We ignore the more scalable sub-algorithms and use the least scalable ones to classify the overall algorithm."}}
+
+What parts of an algorithm can (and should) be ignored is a key idea, and the next two questions on the exam ask you to demonstrate your knowledge of which terms can be dropped when analyzing Big-O.
 
 {{ExamQuestions:concept-map.yml question_filter:"ch1-duplicate-detection-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 5" maxVideos: 1}}
 
 {{ExamQuestions:concept-map.yml question_filter:"ch1-matrix-operations-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 6" maxVideos: 1}}
 
+## Sorting Algorithms
+
+The last two questions exam questions in this chapter are about two famous algorithms: insertion sort and selection sort.  They each solve the same problem ("sort an array") differently.  So which one is better?  This is a job for Big-O analysis!
+
 {{ExamQuestions:concept-map.yml question_filter:"ch1-insertion-sort-implementation-and-analysis" answersOpenByDefault:false videosOpenByDefault:true title: "Question 7" maxVideos: 1}}
 
 {{ExamQuestions:concept-map.yml question_filter:"ch1-selection-sort-implementation-and-analysis" answersOpenByDefault:false videosOpenByDefault:true title: "Question 8" maxVideos: 1}}
 
+### Comparing Selection Sort and Insertion Sort
 
+Both algorithms solve the sorting problem with O(n²) worst-case time complexity, but they differ in approach, stability, and practical performance.
+
+#### Selection Sort
+
+**Algorithm Intuition:**
+Selection sort works by repeatedly finding the minimum element from the unsorted portion and placing it at the end of the sorted portion. It divides the array into sorted (left) and unsorted (right) regions, growing the sorted region one element at a time.
+
+**Pseudocode:**
+```
+SELECTION_SORT(arr):
+    n = length(arr)
+    
+    FOR i = 0 TO n-2 DO
+        // Find minimum element in unsorted portion
+        min_index = i
+        FOR j = i+1 TO n-1 DO
+            IF arr[j] < arr[min_index] THEN
+                min_index = j
+        
+        // Swap minimum with first unsorted element
+        SWAP arr[i] WITH arr[min_index]
+    
+    RETURN arr
+```
+
+**Complexity Analysis:**
+- **Time Complexity:**
+  - Best Case: O(n²) - Must scan unsorted portion every time, even if already sorted
+  - Average Case: O(n²) - Always performs (n-1) + (n-2) + ... + 1 = n(n-1)/2 comparisons
+  - Worst Case: O(n²) - Same as best case; input order doesn't change number of operations
+  
+- **Space Complexity:** O(1) - Sorts in place with only a few extra variables
+
+- **Key Properties:**
+  - **Not stable** - May change relative order of equal elements
+  - **Minimizes swaps** - Exactly n-1 swaps, useful when writes are expensive
+  - **Consistent performance** - Always O(n²), regardless of input
+
+
+#### Insertion Sort
+
+**Algorithm Intuition:**
+Insertion sort builds the sorted array one element at a time by taking each element and inserting it into its correct position in the already-sorted portion. Like sorting playing cards in your hand.
+
+**Pseudocode:**
+```
+INSERTION_SORT(arr):
+    n = length(arr)
+    
+    FOR i = 1 TO n-1 DO
+        key = arr[i]
+        j = i - 1
+        
+        // Shift elements greater than key to the right
+        WHILE j >= 0 AND arr[j] > key DO
+            arr[j+1] = arr[j]
+            j = j - 1
+        
+        // Insert key in correct position
+        arr[j+1] = key
+    
+    RETURN arr
+```
+
+**Complexity Analysis:**
+- **Time Complexity:**
+  - Best Case: O(n) - Array already sorted, only n-1 comparisons needed
+  - Average Case: O(n²) - On average, shift half the sorted elements for each insertion
+  - Worst Case: O(n²) - Reverse sorted array, shift all elements each time
+  
+- **Space Complexity:** O(1) - Sorts in place with only a few extra variables
+
+- **Key Properties:**
+  - **Stable** - Preserves relative order of equal elements
+  - **Adaptive** - Performs better on partially sorted data (best case O(n))
+  - **Efficient for small arrays** - Low overhead makes it practical for small n
+  - **Online** - Can sort data as it arrives
+
+
+#### Which Is Better?
+
+{{ProTip:tip content:"In computer science, the answer to 'Which is better?' is almost always 'It depends...'  But space and time complexity are always key factors to consider.  Thus, Big-O analysis is an indispensable tool for an in-depth look beneath the surface of 'It depends...'"}}
+
+**Selection Sort Wins:**
+- When writes/swaps are expensive (exactly n-1 swaps vs up to n²/2 shifts)
+- When you want consistent, predictable performance
+- When stability doesn't matter
+
+**Insertion Sort Wins:**
+- When data is nearly sorted (adaptive: O(n) best case vs O(n²))
+- When you need a stable sort
+- For small arrays in practice (better cache locality, fewer writes on average)
+- When data arrives over time (online sorting)
+
+**In Practice:** Most modern sorting libraries use insertion sort for small subarrays (typically n < 10-20) within more sophisticated algorithms like quicksort or mergesort. Its simplicity, low overhead, and adaptivity make it practical despite O(n²) worst case.
 
 
 ## Bonus Videos
