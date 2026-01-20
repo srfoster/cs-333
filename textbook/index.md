@@ -12,16 +12,22 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 
 ### [Chapter 1: Mathematics of Algorithm Complexity](content/chapter-01/)
 
-**Big-O Notation and Asymptotic Analysis:**
+**Big Picture:**
 
-* Mathematical definition of Big-O notation
-* Determining asymptotic upper bounds for functions
-* Distinguishing Big-O (O), Big-Omega (Ω), and Big-Theta (Θ)
-* Comparing function classes: polynomials, logarithms, exponentials
-* Analyzing nested loops and complex code structures
-* Ranking algorithms by time complexity
-* Lists vs Arrays
-* Searching and basic sorting
+* Data structure inventory from datums to graphs
+
+**Big-O Notation:**
+
+* Mathematical definition and analysis of algorithms
+* Linear search complexity
+* Finding minimum element complexity
+* Duplicate detection complexity
+* Matrix operations complexity
+
+**Basic Sorting Algorithms:**
+
+* Insertion Sort: implementation and analysis
+* Selection Sort: implementation and analysis
 
 ---
 
@@ -29,23 +35,26 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 
 **Recursion:**
 
-* Comparing iterative vs. recursive implementations (factorial example)
-* Fibonacci: call trees, recurrence relations, memoization optimization
-* Writing and solving recurrence relations
+* Iterative vs. recursive implementations
+* Fibonacci: call trees, optimizations, and analysis
 
-**Tree Data Structures:**
+**Tree Structures:**
 
-* Comparing BSTs, AVL Trees, and B-Trees
-* Balancing mechanisms and height guarantees
-* Real-world use cases and performance trade-offs
+* BST, AVL, and Red-Black tree comparisons
+* B-Tree analysis
 
-**Graph Algorithms:**
+**Graph Fundamentals:**
 
-* Graph representation (adjacency matrix vs. adjacency list)
-* BFS and DFS traversal with connected components
-* Shortest paths: BFS for unweighted graphs
-* Dijkstra's algorithm: execution, path reconstruction, negative edge constraints
-* Minimum spanning trees: Prim's and Kruskal's algorithms with correctness proofs
+* Graph representation (adjacency matrix vs. list)
+* Graph traversal and connectivity
+
+**Shortest Paths:**
+
+* Dijkstra's algorithm
+
+**Minimum Spanning Trees:**
+
+* Prim's and Kruskal's algorithms
 
 ---
 
@@ -53,15 +62,12 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 
 **Greedy Algorithms:**
 
-* Activity selection (interval scheduling)
-* Fractional knapsack problem
-* Huffman encoding for data compression
+* Activity selection problem
 
 **Divide and Conquer:**
 
-* Merge sort analysis with Master Theorem application
-* Quick sort: best, average, and worst-case analysis
-* Recurrence relations: T(n) = 2T(n/2) + O(n) patterns
+* Merge sort analysis
+* Quick sort analysis
 
 **Dynamic Programming:**
 
@@ -70,13 +76,28 @@ The curriculum progresses from mathematical analysis techniques (Big-O notation,
 
 **Network Flow:**
 
-* Ford-Fulkerson algorithm for maximum flow
-* Max-flow min-cut theorem and applications
+* Ford-Fulkerson algorithm
 
-**Computational Complexity:**
+**Intractability:**
 
-* SAT to 3-SAT reduction: executing the transformation algorithm
-* 3-SAT NP-completeness proof structure
+* SAT to 3-SAT reduction
+
+---
+
+### [Chapter 4: Bonus Questions](content/chapter-04/)
+
+**Advanced Dynamic Programming:**
+
+* Matrix chain multiplication
+
+**Network Flow:**
+
+* Max-flow min-cut theorem
+
+**Advanced Topics:**
+
+* Bubble sort: implementation and analysis
+* Structural recursion on lists vs. arrays
 
 ---
 
