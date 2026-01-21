@@ -155,7 +155,7 @@ If you're looking for a needle in a haystack, how long will it take?  Obviously,
 
 The following question is designed ensure that you understand this idea by asking you to understand a case where an algorithm's unlucky scenario is different from its lucky one.  Or to put it more mathematically: when the algorithm's Big-O does not equal it's Big-Omega.
 
-{{ExamQuestions:concept-map.yml question_filter:"ch1-linear-search-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 3" maxVideos: 1}}
+{{ExamQuestions:concept-map.yml question_filter:"ch1-linear-search-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 3" maxVideos: 2}}
 
 Here's a quick rundown of the difference between these three concepts.
 
