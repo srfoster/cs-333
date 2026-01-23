@@ -197,7 +197,7 @@ def linear_search(arr, target):
 
 But can all algorithms sometimes get lucky even on large inputs?  Actually, no.  Some algorithms need to do the same amount of work no matter what.  This next question is designed to ensure that you can discuss at least one example of when Big-O and Big-Omega are the same. 
 
-{{ExamQuestions:concept-map.yml question_filter:"ch1-find-minimum-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 4" maxVideos: 1}}
+{{ExamQuestions:concept-map.yml question_filter:"ch1-find-minimum-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 4" maxVideos: 2}}
 
 ## When can we "Drop Terms"?
 
@@ -221,9 +221,17 @@ For example, if your task is to find the exact **weight** of a needle in a hayst
 
 What parts of an algorithm can (and should) be ignored is a key idea, and the next two questions on the exam ask you to demonstrate your knowledge of which terms can be dropped when analyzing Big-O.
 
-{{ExamQuestions:concept-map.yml question_filter:"ch1-duplicate-detection-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 5" maxVideos: 1}}
+{{ExamQuestions:concept-map.yml question_filter:"ch1-duplicate-detection-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 5" maxVideos: 3}}
 
-{{ExamQuestions:concept-map.yml question_filter:"ch1-matrix-operations-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 6" maxVideos: 1}}
+{{ExamQuestions:concept-map.yml question_filter:"ch1-matrix-operations-complexity" answersOpenByDefault:false videosOpenByDefault:true title: "Question 6" maxVideos: 2}}
+
+## More formal definition of Big-O
+
+While loop analysis and rules of thumb are useful practical tools, Big-O has a precise mathematical definition. We say that **$f$ is in $O(g)$** if and only if there exist positive constants $c$ and $n_0$ such that for all $n \geq n_0$, we have $0 \leq f(n) \leq c \cdot g(n)$. In other words, beyond some input size $n_0$, the function $f(n)$ is bounded above by $g(n)$ multiplied by some constant factor $c$.
+
+This formalism captures our intuition that Big-O describes asymptotic behavior—what happens as $n$ grows large. The constants $c$ and $n_0$ ensure that we ignore both constant factors (absorbed into $c$) and small-input behavior (anything before $n_0$). For example, $3n^2 + 100n + 500$ is in $O(n^2)$ because we can choose $c = 4$ and $n_0 = 600$, after which $3n^2 + 100n + 500 \leq 4n^2$. The lower-order terms and constant factors become negligible as $n$ grows, which is why we focus only on the dominant term when classifying algorithms.
+
+Let's prove a simpler case (required for Level 4 in both of the previous problems): $n^2 + n$ is in $O(n^2)$. We need to find $c$ and $n_0$ such that $n^2 + n \leq c \cdot n^2$ for all $n \geq n_0$. Dividing both sides by $n^2$, we get $1 + \frac{1}{n} \leq c$. Since $\frac{1}{n}$ approaches 0 as $n$ grows, we can choose $c = 2$ and $n_0 = 1$. For all $n \geq 1$, we have $n^2 + n \leq 2n^2$ (since $n \leq n^2$ when $n \geq 1$). This demonstrates mathematically why we say that $n^2 + n$ "simplifies" to $O(n^2)$—the quadratic term dominates, and the linear term becomes asymptotically irrelevant.
 
 ## Sorting Algorithms
 
