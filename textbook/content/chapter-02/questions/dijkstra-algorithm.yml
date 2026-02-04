@@ -1,0 +1,44 @@
+id: "ch2-dijkstra-algorithm"
+type: "short-answer"
+chapter: 2
+question: |
+  **Implement Dijkstra's algorithm for shortest paths in weighted graphs.**
+  
+  **Level 0** Discuss why Dijkstra's algorithm is significant and how it extends BFS to handle weighted graphs.
+  
+  **Level 1** For sample weighted graphs, demonstrate Dijkstra's algorithm showing the priority queue and distance updates. Give pseudocode.
+  
+  **Level 2** Implement Dijkstra's algorithm in a language of your choice, including path reconstruction.
+  
+  **Level 3** Analyze the time complexity with different priority queue implementations. Explain why negative edge weights break the algorithm and what alternatives exist.
+answer: |
+  **Dijkstra's Algorithm:**
+  Uses a priority queue to always process the vertex with minimum distance. Maintains distances and predecessors like BFS, but updates distances when shorter paths are found.
+  
+  **Time Complexity:**
+  - Binary heap: O((V+E) log V) - best for sparse graphs
+  - Simple array: O(V²) - competitive for dense graphs
+  - Fibonacci heap: O(E + V log V) - theoretically optimal
+  
+  **Negative Edge Limitation:**
+  Dijkstra assumes once a vertex is finalized (extracted from priority queue), its distance is optimal. Negative edges can create shorter paths through "already finalized" vertices, breaking this assumption. For negative edges, use Bellman-Ford (O(VE)) or detect negative cycles.
+  
+  **Significance:**
+  Dijkstra extends BFS's shortest path finding to weighted graphs, enabling GPS routing, network packet routing, and any system where connections have varying costs.
+topics:
+  - "Dijkstra's Algorithm"
+  - "Shortest Paths"
+  - "Priority Queue"
+  - "Algorithm Limitations"
+  - "Negative Edges"
+  - "Path Reconstruction"
+  - "Predecessor Array"
+example_videos:
+  - "https://youtu.be/D7aaPG62poU"
+  - "https://www.youtube.com/watch?v=EFg3u_E6eHU"
+  - "https://www.youtube.com/watch?v=_lHSawdgXpI"
+  - "https://www.youtube.com/watch?v=GazC3A4OQTE"
+  - "https://www.youtube.com/watch?v=K_1urzWrzLs"
+  - "https://www.youtube.com/watch?v=bZkzH5x0SKU"
+  - "https://www.youtube.com/watch?v=71Z-Jpnm3D4"
+  - "https://www.youtube.com/watch?v=j0OUwduDOS0"

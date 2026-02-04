@@ -1,0 +1,39 @@
+id: "ch3-ford-fulkerson"
+type: "short-answer"
+chapter: 3
+question: |
+  **Implement the Ford-Fulkerson algorithm (maximum flow problem).**
+  
+  **Level 0** Discuss what a maximum flow problem is, and give a few examples.  Explain the significance of the Ford-Fulkerson algorithm and an informal discussion of the max-flow min-cut theorem.
+  
+  **Level 1** For sample flow networks, demonstrate finding augmenting paths and updating flow. Give pseudocode.
+  
+  **Level 2** Implement Ford-Fulkerson in a language of your choice.
+  
+  **Level 3** Analyze the complexity. Explain augmenting paths, residual networks, and why the algorithm terminates with integer capacities.  (Bonus: Give a more formal proof of the max-flow min-cut theorem.)
+
+answer: |
+  **Ford-Fulkerson:**
+  Repeatedly find augmenting paths (source to sink with residual capacity), push flow along path, update residual graph. Terminates when no augmenting path exists.
+  
+  **Residual network:**
+  For each edge with flow f < capacity c, residual has forward edge (capacity c-f) and backward edge (capacity f).
+  
+  **Complexity:**
+  O(E × max_flow) - can be slow if capacities are large. Edmonds-Karp (BFS for paths) gives O(VE²).
+  
+  **Applications:**
+  Network routing, bipartite matching, airline scheduling, image segmentation.
+
+topics:
+  - "Network Flow"
+  - "Ford-Fulkerson"
+  - "Augmenting Paths"
+  - "Graph Algorithms"
+example_videos:
+  - "https://youtu.be/zUMEvqHD9ow"
+  - "https://www.youtube.com/watch?v=Tl90tNtKvxs"
+  - "https://www.youtube.com/watch?v=VbeTl1gG4l4"
+  - "https://www.youtube.com/watch?v=LdOnanfc5TM"
+  - "https://www.youtube.com/watch?v=oHy3ddI9X3o"
+  - "https://www.youtube.com/watch?v=3LG-My_MoWc"

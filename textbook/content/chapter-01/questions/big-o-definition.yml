@@ -1,0 +1,74 @@
+id: "ch1-big-o-definition"
+type: "short-answer"
+chapter: 1
+question: |
+  **Implement an algorithm that returns the sum of the numbers from 1 to n.**
+  
+  **Level 0** Discuss the big-picture significance of this problem in the context of computer science.
+  
+  **Level 1** Give some sample inputs and outputs; step through two correct algorithms; and give pseudocode for both.
+  
+  **Level 2** Implement both algorithms in a language of your choice.
+  
+  **Level 3** Analyze/prove the space and time complexity of both algorithms, and re-discuss this problem in the larger context of computer science.
+answer: |
+  **Level 0 - Big Picture:**
+  This problem demonstrates a fundamental concept in computer science: there can be multiple algorithms with drastically different performance characteristics for the same problem. The iterative solution (loop) runs in O(n) time, while the mathematical formula (using n(n+1)/2) runs in O(1) time. 
+
+  **Level 1 - Intuition and Pseudocode:**
+  
+  *Approach 1: Iterative (Loop)*
+  ```
+  FUNCTION sumToN(n):
+      sum = 0
+      FOR i = 1 TO n DO
+          sum = sum + i
+      RETURN sum
+  ```
+  Example: sumToN(5) = 1+2+3+4+5 = 15
+  
+  *Approach 2: Mathematical Formula*
+  ```
+  FUNCTION sumToN(n):
+      RETURN n * (n + 1) / 2
+  ```
+  Example: sumToN(5) = 5 * 6 / 2 = 15
+
+  **Level 2 - Implementation:**
+  ```python
+  # Iterative approach
+  def sum_to_n_iterative(n):
+      total = 0
+      for i in range(1, n + 1):
+          total += i
+      return total
+  
+  # Formula approach
+  def sum_to_n_formula(n):
+      return n * (n + 1) // 2
+  ```
+
+  **Level 3 - Complexity Analysis:**
+  
+  *Iterative Solution:*
+  - Time: O(n) - must execute n iterations
+  - Space: O(1) - only stores sum variable
+  
+  *Formula Solution:*
+  - Time: O(1) - constant time regardless of n
+  - Space: O(1) - only stores result
+  
+  The formula approach is dramatically more efficient. This problem highlights that understanding the mathematical properties of a problem can lead to optimal solutions. The formula (derived by Gauss as a child) transforms an O(n) problem into O(1).
+
+topics:
+  - "Algorithm Analysis"
+  - "Computational Complexity"
+  - "Performance"
+example_videos:
+  - "https://youtu.be/phOtXKiHDgI"
+  - "https://youtu.be/_0Qfnhvet8U"
+  - "https://www.youtube.com/watch?v=XMUe3zFhM5c"
+  - "https://www.youtube.com/watch?v=BgLTDT03QtU"
+  - "https://www.youtube.com/watch?v=__vX2sjlpXU"
+  - "https://www.youtube.com/watch?v=Q_1M2JaijjQ"
+  - "https://www.youtube.com/watch?v=MyeV2_tGqvw"

@@ -1,0 +1,37 @@
+id: "ch1-selection-sort-implementation-and-analysis"
+type: "short-answer"
+chapter: 1
+question: |
+  **Write a selection sort algorithm that sorts an array of integers in ascending order.**
+  
+  **Level 0** Discuss the big-picture significance of selection sort and how it differs conceptually from insertion sort. Explain when selection sort might be preferred over other algorithms.
+  
+  **Level 1** Provide example inputs and give the pseudocode for selection sort. Step through your algorithm with a small example array, showing how the minimum element is selected in each pass.
+  
+  **Level 2** Implement selection sort in a language of your choice.
+  
+  **Level 3** Analyze the time complexity for best case, worst case, and average case. Explain why selection sort always performs O(n²) comparisons regardless of input, and discuss why it minimizes the number of swaps (writes) compared to other simple sorting algorithms.
+answer: |
+  **Selection Sort Analysis:**
+  - Best case: O(n²) - must scan entire unsorted portion to find minimum
+  - Worst case: O(n²) - same as best case
+  - Average case: O(n²) - no variation in comparison count
+  
+  **Key Properties:**
+  - **Not adaptive**: Performance doesn't improve with partially sorted data
+  - **Not stable**: May change relative order of equal elements
+  - **In-place**: Requires only O(1) extra space
+  - **Minimal swaps**: Performs exactly n-1 swaps, fewer than any comparison-based sort
+  
+  **Why It Matters:** Selection sort's key advantage is minimizing write operations. When writing to memory is expensive (e.g., flash memory, EEPROM), selection sort's O(n) swaps can be preferable to insertion sort's O(n²) shifts. It also demonstrates the distinction between comparisons (O(n²)) and writes (O(n)).
+topics:
+  - "Sorting Algorithms"
+  - "Selection Sort"
+  - "Algorithm Analysis"
+  - "Write Complexity"
+  - "Comparison-Based Sorting"
+example_videos:
+  - "https://youtu.be/qHt1vBq2Y_U"
+  - "https://youtu.be/Wq9TVqeeNf0"
+  - "https://www.youtube.com/watch?v=g-PGLbMth_g"
+  - "https://www.youtube.com/watch?v=EwjnF7rFLns"

@@ -1,0 +1,56 @@
+id: "ch3-greedy-algorithms"
+type: "short-answer"
+chapter: 3
+question: |
+  **Implement greedy algorithms for activity selection and fractional knapsack.**
+  
+  **Level 0** Discuss why greedy algorithms sometimes produce optimal solutions. Explain the key properties that make a problem suitable for greedy solutions.
+  
+  **Level 1** For each problem, demonstrate the greedy algorithm with sample inputs and give pseudocode:
+  - Activity selection: activities with start/finish times
+  - Fractional knapsack: items with weights and values
+  
+  **Level 2** Implement both greedy algorithms in a language of your choice.
+  
+  **Level 3** Prove correctness for both algorithms. For activity selection, prove why sorting by finish time is optimal. For fractional knapsack, prove why selecting by value-to-weight ratio is optimal. Compare to 0/1 knapsack and explain when greedy approaches fail.
+
+answer: |
+  **Activity Selection:**
+  Sort by finish time, select first activity, then repeatedly select next compatible activity (start ≥ previous finish).
+  
+  **Fractional Knapsack:**
+  Sort items by value/weight ratio (descending), take items greedily until capacity full (taking fractions as needed).
+  
+  **Why Greedy Works:**
+  Both have greedy choice property - locally optimal choice leads to global optimum. Both have optimal substructure - optimal solution contains optimal solutions to subproblems.
+  
+  **Activity Selection Proof:**
+  Exchange argument - if optimal solution doesn't include earliest-finishing activity, we can swap it in without decreasing solution size. Earliest finish leaves maximum room for remaining activities.
+  
+  **Fractional Knapsack Proof:**
+  Exchange argument - if solution doesn't follow ratio order, swapping portions increases total value. Can always take fractions, so maximize value per unit weight.
+  
+  **When Greedy Fails:**
+  0/1 knapsack lacks greedy choice property. Taking highest-ratio item might use capacity better filled by multiple smaller items. Requires DP to explore combinations. Greedy needs both greedy choice property AND optimal substructure.
+  
+  **Time complexity:** Both O(n log n) for sorting.
+
+topics:
+  - "Greedy Algorithms"
+  - "Activity Selection"
+  - "Fractional Knapsack"
+  - "Interval Scheduling"
+  - "Optimization"
+example_videos:
+  - "https://youtu.be/-ye9v7X4R1U"
+  - "https://www.youtube.com/watch?v=V0ZrLuIVzaY"
+  - "https://www.youtube.com/watch?v=Qz6D7mrxaJM"
+  - "https://www.youtube.com/watch?v=32uOuOPXBhc"
+  - "https://www.youtube.com/watch?v=tEfVXgrP6WU"
+  - "https://www.youtube.com/watch?v=tvwipsztQr4"
+  - "https://www.youtube.com/watch?v=HzeK7g8cD0Y"
+  - "https://www.youtube.com/watch?v=ARvQcqJ_-NY"
+  - "https://www.youtube.com/watch?v=ujHQlfR3qfo"
+  - "https://www.youtube.com/watch?v=m1p-eWxrt6g"
+  - "https://www.youtube.com/watch?v=xZfmHVi7FMg"
+  - "https://www.youtube.com/watch?v=DGOwuk55xa0"

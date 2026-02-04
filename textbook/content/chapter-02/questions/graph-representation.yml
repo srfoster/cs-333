@@ -1,0 +1,56 @@
+id: "ch2-graph-representation"
+type: "short-answer"
+chapter: 2
+question: |
+  **Compare data structures for storing graphs.**
+  
+  **Level 0** Discuss the big-picture significance of graph representation and why it's important to consider various graph data structure representations carefully. 
+
+  **Level 1**  Illustrate data structure(s) for storing graphs and discuss their space and time trade-offs for common operations like adding an edge, checking for an edge, and retrieving all neighbors of a node.  IDEA: Use a social network with 1 million users and 75 million friendships as a running example.
+
+  **Level 2** Implement your data structure(s) in your preferred language. Each should support: adding an undirected edge between two nodes, checking if two nodes are connected by an edge, and retrieving all neighbors of a given node.
+  
+  **Level 3** Analyze the time and space complexity for your data structure(s) and the circumstances under which one might be preferred over another. 
+
+answer: |
+  **Level 0**: The representation determines whether your system uses hundreds of megabytes or terabytes of memory—the difference between feasible and impossible. It also affects whether displaying a user's feed requires scanning millions of entries or just their actual friends. Poor choices lead to systems that either can't fit in memory or have multi-second response times for simple operations.
+
+  **Level 1**: 
+  Two natural approaches emerge:
+  
+  **2D array approach** (5×5 = 25 entries): Store a V×V boolean grid where grid[i][j] = true if i and j are friends
+  Example: [[0,1,0,1,0], [1,0,1,0,0], [0,1,0,1,1], [1,0,1,0,1], [0,0,1,1,0]]
+  
+  **Array-of-lists approach** (5 arrays): Store V lists where list[i] contains all friends of user i
+  Example: [0:[1,3], 1:[0,2], 2:[1,3,4], 3:[0,2,4], 4:[2,3]]
+  
+  areFriends operations: Grid checks [i][j] in O(1). List searches list[i] in O(degree(i)).
+  getFriends operations: Grid scans entire row in O(V). List returns list[i] in O(1) access + O(degree) to iterate.
+  
+  Space for 1M users, 75M edges: Grid = 1M × 1M = 1TB. Lists = 1M + 150M entries = ~150MB.
+  
+  Pseudocode for grid.areFriends(u,v): return grid[u][v]
+  Pseudocode for lists.getFriends(u): return lists[u]
+
+  **Level 2**: Implementation uses 2D array/boolean[][] for grid approach, array of lists/List<Integer>[] for list approach. Both handle undirected edges symmetrically. Tests verify: empty graphs, single user, correct friendship detection, complete friend retrieval. Performance tests on 1000-user graph confirm dramatic space differences (~1M vs ~3200 memory units) and operation trade-offs.
+
+  **Level 3**: 
+  Space complexity proof: Grid stores V² booleans = Θ(V²). Lists store V list containers + 2E edge references (for undirected) = Θ(V+E).
+  
+  Time complexity proof: Grid[i][j] is direct array access = O(1). Lists must search list[i] = O(|list[i]|) = O(degree(i)). Getting friends: grid scans entire row = O(V); lists return container immediately = O(1) access + O(degree) to iterate.
+  
+  Critical insight: For sparse graphs (E << V²), lists win on both space and the operation that matters most. Graph algorithms iterate over neighbors, not check individual edges. The pattern "for each friend of u" takes O(V²) with grids (must check all V slots for each user) but O(V+E) with lists (only visit actual friends).
+  
+  Real-world impact: Social networks (E ≈ 150V), road maps (E ≈ 3V), web graphs (E ≈ 10V) are all sparse. Lists save 100-1000× memory while making algorithms faster. Grids only justify themselves for dense graphs (E ≈ V²) where most pairs are connected, or for workloads dominated by "are these two connected?" queries (rare in practice). This is why graph databases, routing systems, and network analysis tools universally adopt list-based representations (often called "adjacency lists") as their default.
+
+topics:
+  - "Graph Representation"
+  - "Adjacency Matrix"
+  - "Adjacency List"
+  - "Sparse Graphs"
+  - "Space-Time Trade-offs"
+example_videos:
+  - "https://youtu.be/HlK6IpLFkk4"
+  - "https://www.youtube.com/watch?v=-VgHk7UMPP4"
+  - "https://www.youtube.com/watch?v=DBRW8nwZV-g"
+  - "https://www.youtube.com/watch?v=ze-poffnS1E"

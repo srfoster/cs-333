@@ -1,0 +1,28 @@
+concept_map:
+  - category: "Recursion, Trees, and Graphs"
+    concepts:
+      - name: "Recursion"
+        description: "Recursive algorithms and data structures"
+        exam_questions:
+          - "questions/iterative-vs-recursive.yml"
+          - "questions/fibonacci-call-tree-optimizations-and-analysis.yml"
+      - name: "Tree Structures"
+        description: "Binary search trees, self-balancing trees, and multi-way trees"
+        exam_questions:
+          - "questions/bst-avl-redblack-comparison.yml"
+          - "questions/btree-analysis.yml"
+  - category: "Graphs"
+    concepts:
+      - name: "Graph Fundamentals"
+        description: "Graph representation and basic traversal algorithms"
+        exam_questions:
+          - "questions/graph-representation.yml"
+          - "questions/graph-traversal-and-connectivity.yml"
+      - name: "Shortest Paths"
+        description: "Finding shortest paths in weighted and unweighted graphs"
+        exam_questions:
+          - "questions/dijkstra-algorithm.yml"
+      - name: "Minimum Spanning Trees"
+        description: "Constructing minimum spanning trees with greedy algorithms"
+        exam_questions:
+          - "questions/minimum-spanning-trees.yml"

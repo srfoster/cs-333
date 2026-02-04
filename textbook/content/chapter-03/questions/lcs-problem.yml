@@ -1,0 +1,38 @@
+id: "ch3-lcs-problem"
+type: "short-answer"
+chapter: 3
+question: |
+  **Implement a dynamic programming solution to the longest common subsequence (LCS) problem.**
+  
+  **Level 0** Discuss the significance of LCS in bioinformatics, version control, and other applications.
+  
+  **Level 1** For sample sequences, demonstrate the DP table construction and backtracking. Give pseudocode.
+  
+  **Level 2** Implement LCS with DP in a language of your choice.
+  
+  **Level 3** Analyze the O(mn) complexity and space. Explain optimal substructure and how to recover the actual subsequence.
+
+answer: |
+  **LCS DP:**
+  Table lcs[i][j] = length of LCS of first i chars of X and first j chars of Y.
+  If X[i]=Y[j]: lcs[i][j] = 1 + lcs[i-1][j-1]
+  Else: lcs[i][j] = max(lcs[i-1][j], lcs[i][j-1])
+  
+  **Optimal substructure:**
+  LCS of X[1..i] and Y[1..j] uses LCS of prefixes.
+  
+  **Reconstruction:**
+  Backtrack from lcs[m][n]: when X[i]=Y[j], include character and move diagonally; else move toward max.
+  
+  **Time:** O(mn), Space: O(mn) (can reduce to O(min(m,n)))
+
+topics:
+  - "Dynamic Programming"
+  - "Longest Common Subsequence"
+  - "String Algorithms"
+example_videos:
+  - "https://youtu.be/vT164jxYqe0"
+  - "https://www.youtube.com/watch?v=Ua0GhsJSlWM"
+  - "https://www.youtube.com/watch?v=sSno9rV8Rhg"
+  - "https://www.youtube.com/watch?v=Qf5R-uYQRPk"
+  - "https://www.youtube.com/watch?v=KnWorqyDSLA"

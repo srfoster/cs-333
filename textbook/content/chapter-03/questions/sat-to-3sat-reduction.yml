@@ -1,0 +1,48 @@
+id: "ch3-sat-to-3sat-reduction"
+type: "short-answer"
+chapter: 3
+question: |
+  **Implement a reduction from SAT to 3-SAT to show 3-SAT is NP-complete.**
+  
+  **Level 0** Discuss the significance of the following: P, NP, NP-complete.  In light of your definitions, discuss SAT, 3-SAT, and 2-SAT.   Discuss why reductions are fundamental to complexity theory.
+  
+  **Level 1** 2-SAT: Show a polynomial-time algorithm for solving 2-SAT problems.  3-SAT: For sample SAT formulas with varied clause sizes, demonstrate the reduction to 3-SAT; Give the transformation rules and/or pseudocode, and show (informally, in your concrete example) that satisfiability is preserved.
+  
+  **Level 2** Implement a SAT-to-3SAT reduction in a language of your choice.
+  
+  **Level 3** Prove the 3-SAT reduction is polynomial-time and preserves satisfiability in both directions.
+
+answer: |
+  **SAT to 3-SAT Reduction:**
+  - 1-literal clause (x): Add dummies → (x ∨ y ∨ ¬y)
+  - 2-literal clause (x ∨ y): Add dummy → (x ∨ y ∨ z)
+  - 4+ literal clause: Split with auxiliary variables
+  
+  **Correctness:**
+  Forward: If SAT satisfied, set dummies/auxiliaries appropriately
+  Backward: If 3-SAT satisfied, original variables satisfy SAT
+  
+  **Polynomial time:**
+  Each clause produces O(k) new clauses where k is clause length. Total O(n×k) where n = number of clauses.
+  
+  **Significance:**
+  Once we know SAT is NP-complete (Cook-Levin), this shows 3-SAT is NP-complete by reduction.
+
+topics:
+  - "NP-completeness"
+  - "Reductions"
+  - "SAT"
+  - "3-SAT"
+  - "Polynomial-time Transformations"
+example_videos:
+  - "https://youtu.be/RBONMNox7hM"
+  - "https://www.youtube.com/watch?v=YX40hbAHx3s"
+  - "https://www.youtube.com/watch?v=6OPsH8PK7xM"
+  - "https://www.youtube.com/watch?v=pQsdygaYcE4"
+  - "https://www.youtube.com/watch?v=GCw07nZckps"
+  - "https://www.youtube.com/watch?v=ylItc6O3A4Y"
+  - "https://www.youtube.com/watch?v=BTC3JsV_cqE"
+  - "https://www.youtube.com/watch?v=DY5oF7I_yz4"
+  - "https://www.youtube.com/watch?v=-wlUDJZb6-Q"
+  - "https://www.youtube.com/watch?v=uAdVzz1hKYY"
+  - "https://www.youtube.com/watch?v=KeLE0lar-WA"

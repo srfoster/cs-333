@@ -1,0 +1,38 @@
+id: "ch4-matrix-chain"
+type: "short-answer"
+chapter: 4
+question: |
+  **Implement a dynamic programming solution to the matrix chain multiplication optimization problem.**
+  
+  **Level 0** Discuss why matrix multiplication order matters and the significance of this optimization problem.
+  
+  **Level 1** For sample matrix dimensions, demonstrate the DP table construction. Give pseudocode.
+  
+  **Level 2** Implement matrix chain ordering with DP in a language of your choice.
+  
+  **Level 3** Analyze the O(n³) complexity. Explain optimal substructure and how dramatically the cost varies with parenthesization.
+
+answer: |
+  **Matrix Chain DP:**
+  Table m[i][j] = min scalar multiplications for Ai...Aj.
+  Recurrence: m[i][j] = min(m[i][k] + m[k+1][j] + pi-1×pk×pj) for all k between i and j.
+  
+  **Why it matters:**
+  Different orders have dramatically different costs. (A×B)×C vs A×(B×C) can differ by orders of magnitude.
+  
+  **Optimal substructure:**
+  Optimal parenthesization of Ai...Aj splits at some k, with optimal solutions on both sides.
+  
+  **Time:** O(n³) - must try all split points for all subchains.
+
+topics:
+  - "Dynamic Programming"
+  - "Matrix Chain Multiplication"
+  - "Optimization"
+example_videos:
+  - "https://www.youtube.com/watch?v=O_G2hVZvNBg"
+  - "https://www.youtube.com/watch?v=prx1psByp7U"
+  - "https://www.youtube.com/watch?v=JOJK7-fM2JQ"
+  - "https://www.youtube.com/watch?v=GMzVeWpyTN0"
+  - "https://www.youtube.com/watch?v=vgLJZMUfnsU"
+  - "https://www.youtube.com/watch?v=_WncuhSJZyA"

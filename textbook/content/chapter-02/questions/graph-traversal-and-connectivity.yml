@@ -1,0 +1,42 @@
+id: "ch2-graph-traversal-connectivity"
+type: "short-answer"
+chapter: 2
+question: |
+  **Implement BFS and DFS algorithms to traverse a graph.**
+  
+  **Level 0** Discuss the big-picture significance of graph traversal and why both BFS and DFS are fundamental algorithms.
+  
+  **Level 1** For sample graphs, demonstrate both algorithms and give pseudocode.  Explain how BFS can be used to find shortest paths in unweighted graphs.
+  
+  **Level 2** Implement both BFS and DFS in a language of your choice.
+  
+  **Level 3** Analyze the time and space complexity of both algorithms. Explain when you would choose one over the other and how they enable more complex graph algorithms.
+
+answer: |
+  **BFS vs DFS:**
+  - Both: O(V+E) time, O(V) space for visited set
+  - BFS uses queue (FIFO), explores layer-by-layer, finds shortest paths in unweighted graphs
+  - DFS uses stack/recursion (LIFO), explores depth-first, better for cycle detection and topological sort
+  
+  **Space trade-offs:**
+  - BFS: O(width) queue space - worse for wide graphs
+  - DFS: O(depth) stack space - worse for deep graphs
+  
+  **Why They Matter:** Graph traversal is the foundation for all graph algorithms. BFS enables shortest path algorithms (Dijkstra extends it with priority queue). DFS enables topological sorting, cycle detection, and maze solving. Every graph algorithm builds on these two fundamental patterns.
+
+topics:
+  - "Breadth-First Search"
+  - "Depth-First Search"
+  - "Graph Traversal"
+  - "Connected Components"
+  - "Graph Connectivity"
+  - "Shortest Paths"
+example_videos:
+  - "https://youtu.be/X6FwKwFR9Kw"
+  - "https://www.youtube.com/watch?v=cS-198wtfj0"
+  - "https://www.youtube.com/watch?v=HZ5YTanv5QE"
+  - "https://www.youtube.com/watch?v=TIbUeeksXcI"
+  - "https://www.youtube.com/watch?v=pcKY4hjDrxk"
+  - "https://www.youtube.com/watch?v=0u78hx-66Xk"
+  - "https://www.youtube.com/watch?v=Y40bRyPQQr0"
+  - "https://www.youtube.com/watch?v=xlVX7dXLS64"

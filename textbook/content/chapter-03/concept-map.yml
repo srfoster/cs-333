@@ -1,0 +1,25 @@
+concept_map:
+  - category: "Algorithm Paradigms and Intractability"
+    concepts:
+      - name: "Greedy"
+        description: "Greedy algorithms and when they produce optimal solutions"
+        exam_questions:
+          - "questions/activity-selection.yml"
+      - name: "Divide and Conquer"
+        description: "Recursive problem decomposition and merging solutions"
+        exam_questions:
+          - "questions/merge-sort-analysis.yml"
+          - "questions/quick-sort-analysis.yml"
+      - name: "Dynamic Programming"
+        description: "Optimal substructure and overlapping subproblems"
+        exam_questions:
+          - "questions/knapsack-dp.yml"
+          - "questions/lcs-problem.yml"
+      - name: "Network Flow"
+        description: "Maximum flow and minimum cut in networks"
+        exam_questions:
+          - "questions/ford-fulkerson.yml"
+      - name: "Intractability"
+        description: "NP-completeness and computational complexity theory"
+        exam_questions:
+          - "questions/sat-to-3sat-reduction.yml"

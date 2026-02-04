@@ -1,0 +1,40 @@
+id: "ch3-knapsack-dp"
+type: "short-answer"
+chapter: 3
+question: |
+  **Implement a dynamic programming solution to the 0/1 knapsack problem.**
+  
+  **Level 0** Discuss why DP is needed for 0/1 knapsack and what problems exhibit optimal substructure.
+  
+  **Level 1** For sample items and capacity, demonstrate the DP table construction. Give pseudocode.
+  
+  **Level 2** Implement 0/1 knapsack with DP in a language of your choice.
+  
+  **Level 3** Analyze the O(nW) complexity. Explain why this is pseudo-polynomial and compare to fractional knapsack.
+
+answer: |
+  **0/1 Knapsack DP:**
+  Table dp[i][w] = max value using first i items with capacity w.
+  Recurrence: dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w-weight[i]])
+  
+  **Optimal substructure:**
+  Optimal solution contains optimal solutions to subproblems (with/without item i).
+  
+  **Time:** O(nW) - pseudo-polynomial (exponential in input size since W is exponential in bits needed to represent it).
+  
+  **vs. Fractional:**
+  Fractional: O(n log n) greedy. 0/1: must consider combinations, no greedy choice property.
+
+topics:
+  - "Dynamic Programming"
+  - "0/1 Knapsack"
+  - "Optimal Substructure"
+example_videos:
+  - "https://youtu.be/G2vfLLRs_mw"
+  - "https://www.youtube.com/watch?v=cJ21moQpofY"
+  - "https://www.youtube.com/watch?v=qxWu-SeAqe4"
+  - "https://www.youtube.com/watch?v=xOlhR_2QCXY"
+  - "https://www.youtube.com/watch?v=nLmhmB6NzcM"
+  - "https://www.youtube.com/watch?v=oifN-YVlrq8"
+  - "https://www.youtube.com/watch?v=Hdr64lKQ3e4"
+  - "https://www.youtube.com/watch?v=rE5h11FwiVw"

@@ -1,0 +1,40 @@
+id: "ch1-duplicate-detection-complexity"
+type: "short-answer"
+chapter: 1
+question: |
+  **Write an algorithm that performs two tasks on an array:**
+
+  * Checks if the array contains any duplicate values
+  * Returns the total count of elements in the array
+  
+  **Level 0** Discuss why analyzing compound algorithms (those that perform multiple tasks) requires understanding dominant terms in Big-O notation.
+  
+  **Level 1** Provide example inputs and give pseudocode for both tasks. Step through your algorithm showing how the duplicate check requires comparing elements, while counting is straightforward.
+  
+  **Level 2** Implement your algorithm in a language of your choice. Make it clear which part does the duplicate checking and which part does the counting.
+  
+  **Level 3** Analyze the time complexity of each task separately, then combine them. Show why O(n² + n) simplifies to O(n²) by demonstrating that the n² term dominates as n grows large.
+answer: |
+  **Complexity Analysis:**
+  - Duplicate checking (nested loops): O(n²) - must compare each element with every other element
+  - Counting elements: O(n) - single pass through array
+  - Combined: O(n² + n)
+  
+  **Why O(n² + n) = O(n²):**
+  - For large n, n² grows much faster than n
+  - Example: n=100 gives 10,000 + 100 = 10,100 ≈ 10,000
+  - Example: n=1000 gives 1,000,000 + 1,000 = 1,001,000 ≈ 1,000,000
+  - The ratio (n² + n)/n² = 1 + 1/n approaches 1 as n → ∞
+  - Therefore, the n term becomes negligible, and we drop it
+  
+  **Key Insight:** When combining operations with different complexities, the dominant (fastest-growing) term determines the overall complexity. Lower-order terms become insignificant for large inputs and are dropped in Big-O analysis.
+topics:
+  - "Algorithm Analysis"
+  - "Big-O"
+  - "Dominant Terms"
+  - "Nested Loops"
+  - "Asymptotic Simplification"
+example_videos:
+  - "https://youtu.be/pX-lUkfvzNs"
+  - "https://youtu.be/JQK7W7OLzJs"
+  - "https://youtu.be/T9zbW61_foY"

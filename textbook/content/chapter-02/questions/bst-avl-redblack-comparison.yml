@@ -1,0 +1,54 @@
+id: "ch2-bst-avl-redblack-comparison"
+type: "short-answer"
+chapter: 2
+question: |
+  **Compare and contrast binary search tree structures: Binary Search Trees (BSTs) vs AVL Trees**
+  
+  **Level 0** Discuss why self-balancing trees were developed and their significance in computer science. Explain the fundamental trade-off between simplicity and guaranteed performance.
+  
+  **Level 1** For each tree type (BST and AVL):
+  - Describe the defining property or invariant
+  - Explain the balancing mechanism (if any)
+  - Provide a simple example showing insertion and any rebalancing that occurs
+  - Step through the differences with concrete examples
+  
+  **Level 2** Implement insertion for AVL Trees in a language of your choice, showing how balancing is maintained.
+  
+  **Level 3** Analyze and compare:
+  - Height guarantees and how they affect lookup performance
+  - Insertion/deletion cost trade-offs (number of rotations required)
+  - When to choose each tree type based on workload characteristics (read-heavy vs write-heavy)
+  - Real-world applications where each is used
+answer: |
+  **Defining Properties:**
+  - **BST**: Left subtree < node < right subtree. No balancing guarantee.
+  - **AVL**: BST + strict balance: |height(left) - height(right)| ≤ 1 for every node
+  
+  **Balancing Mechanisms:**
+  - **BST**: None - can degrade to O(n) height (linked list)
+  - **AVL**: Single and double rotations when balance factor exceeds ±1
+  
+  **Height Guarantees:**
+  - **BST**: O(n) worst case, O(log n) average case
+  - **AVL**: Height ≤ 1.44 log n (strictest balance → fastest lookups)
+  
+  **Performance Trade-offs:**
+  - **AVL**: Best for read-heavy workloads - strict balance means fastest lookups but more rotations on writes (up to O(log n) rotations per insert/delete)
+  - **BST**: Only use when data is known to be random or for educational purposes
+  
+  **Real-World Uses:**
+  - **AVL**: In-memory databases, dictionaries where lookup speed dominates
+  - **BST**: Teaching tool to understand tree concepts before adding balancing complexity
+topics:
+  - "Binary Search Trees"
+  - "AVL Trees"
+  - "Balanced Trees"
+  - "Tree Rotations"
+  - "Performance Trade-offs"
+example_videos:
+  - "https://youtu.be/_Evb3EM8AH0"
+  - "https://www.youtube.com/watch?v=hmSFuM2Tglw"
+  - "https://www.youtube.com/watch?v=jDM6_TnYIqE"
+  - "https://www.youtube.com/watch?v=zP2xbKerIds"
+  - "https://www.youtube.com/watch?v=qvZGUFHWChY"
+  - "https://www.youtube.com/watch?v=95s3ndZRGbk"

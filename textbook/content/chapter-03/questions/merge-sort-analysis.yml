@@ -1,0 +1,50 @@
+id: "ch3-merge-sort-analysis"
+type: "short-answer"
+chapter: 3
+question: |
+  **Implement and analyze merge sort as a divide-and-conquer algorithm.**
+  
+  **Level 0** Discuss why divide-and-conquer is a powerful paradigm and where merge sort is used.
+  
+  **Level 1** For sample arrays, demonstrate merge sort's divide and merge steps. Give pseudocode.
+  
+  **Level 2** Implement merge sort in a language of your choice.
+  
+  **Level 3** Derive the recurrence T(n) = 2T(n/2) + O(n) and solve using the Master Theorem. Explain the Θ(n log n) complexity.
+
+answer: |
+  **Merge Sort:**
+  Divide array in half, recursively sort each half, merge sorted halves in O(n) time.
+  
+  **Recurrence:** T(n) = 2T(n/2) + O(n)
+  - Two subproblems of size n/2
+  - O(n) to merge
+  
+  **Master Theorem:** a=2, b=2, f(n)=n
+  - n^(log_b a) = n^1 = n
+  - Case 2: T(n) = Θ(n log n)
+  
+  **Properties:**
+  Stable, Θ(n log n) in all cases, O(n) extra space. Good for linked lists and external sorting.
+
+topics:
+  - "Divide and Conquer"
+  - "Merge Sort"
+  - "Master Theorem"
+  - "Recurrence Relations"
+example_videos:
+  - "https://youtu.be/IDWTxocXbBs"
+  - "https://www.youtube.com/watch?v=4VqmGXwpLqc"
+  - "https://www.youtube.com/watch?v=KF2j-9iSf4Q"
+  - "https://www.youtube.com/watch?v=-3u1C1URNZY"
+  - "https://www.youtube.com/watch?v=es2T6KY45cA"
+  - "https://www.youtube.com/watch?v=3j0SWDX4AtU"
+  - "https://www.youtube.com/watch?v=2H0GKdrIowU"
+  - "https://www.youtube.com/watch?v=LlFBRDO5gNQ"
+  - "https://www.youtube.com/watch?v=SLsHKh_OUEM"
+  - "https://www.youtube.com/watch?v=d-gIGFxewW4"
+  - "https://www.youtube.com/watch?v=2y0HQGd1-nA"
+  - "https://www.youtube.com/watch?v=OynWkEj0S-s"
+  - "https://www.youtube.com/watch?v=T68vN1FNY4o"
+  - "https://www.youtube.com/watch?v=09vU-wVwW3U"
+  - "https://www.youtube.com/watch?v=g87rea4FDv4"

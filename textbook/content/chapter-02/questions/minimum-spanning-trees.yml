@@ -1,0 +1,47 @@
+id: "ch2-minimum-spanning-trees"
+type: "short-answer"
+chapter: 2
+question: |
+  **Implement minimum spanning tree algorithms (Prim's and Kruskal's).**
+  
+  **Level 0** Discuss why minimum spanning trees are important and what problems they solve.
+  
+  **Level 1** For sample graphs, demonstrate both Prim's and Kruskal's algorithms. Give pseudocode for both approaches.
+  
+  **Level 2** Implement both Prim's and Kruskal's algorithms in a language of your choice.
+  
+  **Level 3** Analyze the time complexity of both algorithms. Explain why the greedy approach works (cut property) and compare when to use each algorithm.
+answer: |
+  **MST Definition:**
+  A subset of edges that connects all vertices with minimum total weight and no cycles. Has exactly |V|-1 edges.
+  
+  **Two Algorithms:**
+  - **Prim's**: Grows single tree from start vertex, always adding minimum-weight edge crossing the cut. Uses priority queue. O((V+E) log V)
+  - **Kruskal's**: Processes edges by weight, adds edge if it doesn't create cycle. Uses union-find. O(E log E)
+  
+  **Greedy Correctness (Cut Property):**
+  For any partition of vertices, the minimum-weight edge crossing the partition is in some MST. Both algorithms respect this: Prim's explicitly chooses minimum crossing edges, Kruskal's chooses minimum edges between components.
+  
+  **Applications:**
+  Network design (minimize cable cost while connecting all nodes), clustering (MST edges identify natural clusters), approximation algorithms for TSP.
+topics:
+  - "Minimum Spanning Tree"
+  - "Prim's Algorithm"
+  - "Kruskal's Algorithm"
+  - "Greedy Algorithms"
+  - "Union-Find"
+  - "Algorithm Correctness"
+  - "Cut Property"
+example_videos:
+  - "https://youtu.be/joJ0WeMkx_g"
+  - "https://www.youtube.com/watch?v=Yldkh0aOEcg"
+  - "https://www.youtube.com/watch?v=qOv8K-AJ7o0"
+  - "https://www.youtube.com/watch?v=6LikZhGLRgU"
+  - "https://www.youtube.com/watch?v=4ZlRH0eK-qQ"
+  - "https://www.youtube.com/watch?v=cplfcGZmX7I"
+  - "https://www.youtube.com/watch?v=71UQH7Pr9kU"
+  - "https://www.youtube.com/watch?v=vmWSnkBVvQ0"
+  - "https://www.youtube.com/watch?v=EHRqQBlZAtU"
+  - "https://www.youtube.com/watch?v=jsmMtJpPnhU"
+  - "https://www.youtube.com/watch?v=eB61LXLZVqs"
+  - "https://www.youtube.com/watch?v=3fU0w9XZjAA"
