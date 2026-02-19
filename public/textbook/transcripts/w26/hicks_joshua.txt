@@ -1,6 +1,858 @@
-Joshua Hicks
-Email: JoshuaHicks@student.olympic.edu
-Student ID: 203090458
-Section: 9072
-Last Submission: Feb 18 at 7:26pm
-Duration: 24:25:00
+0:00
+All right. Hello, professor. Uh, this is my midterm exam. I'll try and just jump right into it. That way, uh, I can try
+0:08
+and cut back on time. Um, okay. So, question one, give an overview of the
+0:15
+course in terms of data structures and algorithms covered. Um, so the data structures from simplest DATMSS to most
+0:23
+complex which are graphs. Um I believe there are datams uh tupils arrays
+0:32
+lists um uh trees and then graphs that's the
+0:38
+order from datams being the simplest to graphs being the most complex. Um now
+0:44
+the algorithms from 01 all the way to O to 2 to the^ of
+0:51
+N complexity the the algorithms are uh O of 1 um O
+0:58
+log N O of N O N log N
+1:05
+uh O N squared and then I I think there's one more um
+1:15
+O of N cubed if I'm not mistaken and then the last one would be O of 2 to the^ of N. Um so
+1:24
+O of one would be the constant time generally like the fastest algorithm and
+1:29
+then O of 2 to the^ of N would be uh exponential time which would generally
+1:37
+be the slowest algorithm. All
+1:43
+right. And then for question two, um, in terms of level
+1:51
+zero, uh, discuss the big picture significance of this problem in the
+1:57
+context of computer science. So the problem in this case is implement an
+2:02
+algorithm that returns the sum of the numbers from 1 to n.
+2:08
+Um so the big picture significance of this problem is that it illustrates
+2:14
+that it has two different types of algorithms that it could utilize. Um it
+2:19
+could use O1 which would be the fastest um algorithm for this particular one.
+2:25
+The sum of numbers to one uh from one to N. or it could use um I believe it was O of
+2:33
+N um which would be the alternative
+2:38
+um algorithm, but it would be slower because obviously O
+2:44
+of one would be the fastest um constant time algorithm whereas O of N is kind of
+2:51
+like in the middle. So it's it's going to be slower. Um but it would be slower
+2:56
+if the value of n uh gets bigger.
+3:04
+Um so I guess the big picture overall is the larger the value n the
+3:14
+slower the algorithm gets.
+3:19
+And question three, write an algorithm that searches for a target value
+3:24
+uh in an unsorted array. So discuss the big picture significance of this problem and how it relates to big O, big omega
+3:32
+and big theta notation. Um
+3:37
+so I to my understanding big O is an algorithm's worst case scenario. Big
+3:44
+omega is an algorithm's best case scenario and big theta is an algorithm's
+3:50
+average case uh scenario. Um
+3:55
+so for this particular problem um
+4:02
+I guess the big picture significance would be uh
+4:11
+I believe it depends on how large your array is and how it's
+4:19
+sorted. So obviously in the best case scenario for this particular problem uh
+4:26
+where you're searching for a target in an unsorted array if the value is at the beginning of an array um that would be
+4:32
+your best case scenario. That would be your big um your big omega.
+4:40
+Uh and I believe that would be the O of one algorithm.
+4:46
+Uh, and then your worst case would be like say your array has the value that
+4:51
+you're specifically searching for at the end of the array and say it has like who
+4:57
+knows of you know 5,000 values or 5,000 elements inside of that
+5:03
+array. That'd be your worst case scenario. That'd be the O of N algorithm. Um
+5:09
+and then big theta um is the average
+5:14
+case scenario average uh complexity
+5:19
+uh level and that would be O of I think it was N / two. I could be wrong. Um
+5:29
+but I I overall big theta would be your just your average um scenario. So
+5:39
+for question four uh write an algorithm that finds the minimum value in an unsorted
+5:46
+array. Um so this is kind of similar to I mean
+5:51
+in a sense I believe that this one was similar to the last one um because it's also dealing with a
+5:59
+search um for an array but more particularly an
+6:04
+unsorted array. So discuss the big picture significance of this problem and how it relates to big O, big omega, big and big theta
+6:12
+notation. Explain why this problem is different from linear search uh in terms
+6:17
+of complexity bounds. So I believe if I'm not mistaken this one was linear
+6:23
+search yes the pseudo code for linear search algorithm. Um
+6:31
+so if I remember correctly uh regarding
+6:36
+like the best case, worst case and average cases with this algorithm um
+6:43
+I believe all okay all problem or all um
+6:49
+all notations big O big omega and big theta will take the same amount of time
+6:54
+um as it'll take the same amount of time as
+6:59
+the algorithm has to search through the entire array.
+7:04
+Um, so like
+7:10
+uh I'm trying to remember the pseudo code for this particular uh uh problem
+7:17
+because if you're finding the minimum value in an unsorted array, you have to step through each element. Um, and I
+7:26
+believe this is where um, not where you're swapping. This isn't
+7:32
+the the the algorithm where the elements are swapping. You have two elements I and J. I don't think it's that one. But
+7:41
+the big picture is that it it has to it has to search through the entire algorithm to find the minimum value. It
+7:47
+won't know until it processes the entire array. Um
+7:53
+so in terms uh of the difference from the linear search
+7:59
+in terms of complexity bounds is that none of the notations matter in this in this particular problem because it's
+8:06
+going to have to search through the entire array array regardless.
+8:12
+All right, question five. Uh write an algorithm that performs two tasks on an array. This is that one that I was
+8:17
+getting ahead of myself with with um the pointers I and J. Um so discuss why analyzing compound
+8:24
+algorithms those that perform multiple tasks require understanding dominant terms in
+8:32
+big O notation. Um if I remember correctly um if you come up with the uh
+8:39
+you know the pseudo code for um this particular algorithm whichever
+8:47
+whichever portion of that code has the dominant
+8:53
+uh notation that will classify the complexity level
+8:59
+of that algorithm. Um,
+9:04
+so like uh I don't remember what this one particularly was off of the top of
+9:11
+my head, but say you had two different parts of uh you know this this algorithm
+9:21
+as a whole or the the pseudo code as a whole whatever it may be uh to performing this
+9:27
+problem which is an algorithm that writes two tasks. tasks on an array.
+9:33
+If one of those different portions of the two tasks that you have to write in code has a larger notation than the
+9:41
+other, the larger notation dominates the entire the entire code
+9:46
+that you've written. So that will classify the entire algorithm overall um
+9:52
+and its complexity level.
+9:57
+Uh question six, write an algorithm that performs two tasks on an n by n * n or n
+10:02
+byn matrix. Um discuss why this problem clearly
+10:09
+demonstrates the concept of dominant terms when analyzing algorithms with multiple operations.
+10:15
+Um,
+10:24
+so let me try and think about this one.
+10:32
+Um, I believe it's it it's fairly similar to the last problem where if
+10:38
+you're if you're writing multiple different sections for your code, if
+10:44
+one task has a, you know, more dominant notation like O of N and O of N uh N to
+10:53
+the power of two, O of N to the power two is going to is going to dominate O of
+10:59
+And that's going to classify the complexity level of
+11:04
+you know this algorithm. Um
+11:10
+because you're going to have one portion uh you know of your code that is going to be of n to the^ of two regardless if
+11:19
+the input value is you know something crazy that specific task or whatever
+11:24
+that function may be that you create that will
+11:30
+it will be slow regardless right you know if you have a small amount of input
+11:35
+it'll probably be quick you won't notice it, but you put a very large input value, um,
+11:43
+then it's it's probably going to take some time, which is why that dominant
+11:48
+notation classifies the entire algorithm.
+11:55
+Um, I I I I think that's pretty much what
+12:01
+this question is asking, which is kind of just like the last one. So I'm going to leave six at that.
+12:08
+Uh question seven, implement insertion sort to sort an array of integers in ascending order. Discuss the big picture
+12:14
+picture significance of insertion sort and why it's an important algorithm to
+12:20
+understand despite being the fastest sorting algorithm. Um,
+12:28
+I believe this is the one where it has it has a complexity level which is like
+12:36
+a stepping stone. Um,
+12:42
+I want to say it was it was something relatively slow. It could have been O to
+12:47
+the P or O of N to the power of two, but I could be mistaken. Um but it just has
+12:54
+you know historical significance. Um whereas you know there's faster
+13:01
+algorithms like oh o uh n log of n.
+13:10
+Um but overall it just it it demonstrates that there are multiple
+13:16
+solutions that you could go about um approaching this this particular
+13:21
+algorithm. Um that's all I can remember for that
+13:27
+one. All right. Question eight. Write a
+13:32
+selection sort algorithm that sorts an array of integers in ascending order. Discuss the big picture significance of
+13:38
+selection sort and how it differ and how it differs conceptually from insertion sort. Explain why or explain when
+13:44
+selection sort might be preferred over other algorithms.
+13:52
+Um,
+13:57
+if I'm not mistaken, if the array is small, then the notation does not
+14:04
+necessarily matter. Um,
+14:10
+I could be confusing this question with that with a with a different one. But uh it does
+14:17
+this particular algorithm will do different or fewer swaps when writing to memory is more
+14:24
+expensive. Um selection sort would be better
+14:30
+than insertion sort is kind of how I try to remember it. Um,
+14:41
+I think selection sword does one swap while
+14:48
+I think selection sword does one swap if I remember that correctly.
+14:56
+I'm trying to think which one did which.
+15:01
+I know insertion sort does more writing while in uh selection sort does more
+15:07
+reading. Um
+15:16
+I guess that's kind of how it differs conceptually.
+15:24
+Uh well I guess that also could apply in terms of um when it might be preferred
+15:30
+over other algorithms. Um if you have a small array then
+15:37
+you know the notation won't matter. It won't be relevant.
+15:45
+All right. Question nine. Um, discuss the fundamental trade-offs
+15:51
+between recursive and iterative approaches to problem solving. Explain why understanding both paradigms
+15:57
+is essential in algorithm design. Uh, recursive.
+16:08
+I think recursive is a
+16:13
+it's a more natural technique or solution to come up with compared to iterative.
+16:20
+Um iterative solutions are easier to make efficient compared to recursive.
+16:27
+Recursive are harder I believe as well to classify in terms of notation.
+16:34
+Um I I I want to say that that was really
+16:40
+the main trade-offs that I remember this particular algorithm
+16:46
+or uh not algorithm for this question. But also understanding recursive
+16:53
+is while it's neat and easier easier to read, it's a little bit harder to
+17:02
+um
+17:08
+how do I say it? easier or harder to prove than an
+17:15
+iterative solution, I think, is what I'm trying to say. Like
+17:20
+in terms of pseudo code, recursive obviously looks much more neater. It looks better. It seems easier to read,
+17:29
+while iterative um iterative is also easier or easy to read, but I think
+17:36
+recursive solutions are just more
+17:43
+um are used more I guess you could say just
+17:49
+because of how it looks compared to iterative approaches. Uh but yeah,
+17:56
+question 10. All right. Write three implementations of the Fibonacci function. uh naive
+18:03
+recursive, memoized recursive and iterative
+18:09
+uh bottom up. Uh discuss why the naive Fibonacci recurs recursion is a classic
+18:16
+example of algorithmic inefficiency and why this problem is fundamental to
+18:21
+understanding dynamic programming. Explain the broader significance of memoization as an optimization
+18:27
+technique. Um
+18:33
+uh well it I know it shows up more uh shows up in more complex
+18:40
+algorithms uh in terms of dynamic programming. Um
+18:47
+I think this also gives more exposure to recursion
+18:53
+compared to iterative approaches. Um,
+19:02
+I think this is also where it's utilized
+19:08
+more for smaller problems,
+19:14
+but it provides the it provides a a powerful
+19:20
+um ability to write an algorithm.
+19:27
+If that makes sense.
+19:38
+Explain the broader significance of memoization as an optimization technique. I guess that could be yeah uh
+19:46
+it's more more or less utilized for the smaller
+19:52
+um smaller problems.
+20:00
+Uh, I'll just move on to 11. I can't remember the rest of of 10.
+20:05
+Um, compare and contrast binary search tree structures, binary search trees,
+20:11
+BSTs versus AVL trees. Um
+20:21
+I believe this was oh wait discuss why
+20:27
+self-balance okay I didn't read level zero discuss why self-balancing trees were developed and their significance
+20:34
+um in computer science explain the fundamental trade-off between simplicity and guaranteed uh performance um so
+20:41
+selfbalancing trees were develed developed because BSTs were
+20:50
+being developed because I think this was when you would
+20:56
+search simple um
+21:03
+unsorted uh arrays.
+21:09
+Uh, oh man. I know that this is like a like a like a
+21:16
+uh it has like a historical background to it.
+21:25
+I think it was because, you know, when you're searching the unsorted arrays or
+21:31
+or lists, it had the complexity level of or the the notation
+21:39
+of O of N.
+21:45
+Um, I think that that was like why they were
+21:51
+developed. and what their significance is
+21:57
+is because it was it was a slow process.
+22:03
+BSTs
+22:08
+had a slow notation I think is what if I remember correctly. Um, and then
+22:15
+the trade-off between simplicity and guaranteed performance, um, is that the binary search trees,
+22:23
+while they're easy to use, they don't guarantee a good
+22:29
+worst case performance uh, compared to selfbalancing trees, which add in metadata and uh, I think it
+22:39
+was rules, metadata and rules uh, which guarantee that the tree stays balanced.
+22:47
+Um, which I believe that was a uh
+22:55
+O of log N is I think that that was before.
+23:02
+Oh no, I'm sorry. So O of O of log N would be the worst
+23:09
+case.
+23:14
+I think that's what it was.
+23:21
+Yeah. Yes. Yeah. Cuz it would be improved.
+23:27
+Yeah. Okay. So that that that that would be the trade-off.
+23:32
+Uh question 12, implement and explain B trees. discuss
+23:38
+why B trees are significance both practically and theoretically. Um well they're significant because computers
+23:45
+you know they store a lot of data on disks. Um so
+23:51
+searching for that data would be significantly slow using the notation uh
+23:56
+the notation O of N. Um, so implementing indexes
+24:03
+would allow the system to more or less just jump right to the correct position
+24:08
+on the disk. Um but
+24:13
+some indexes uh would get so large
+24:19
+so an index for that index could potentially be needed
+24:26
+uh which would create a um uh an indexing system
+24:34
+like a hierarchy tree. Um, but they're significant
+24:41
+theoretically because they allow multiple keys in a node. So you can create more than than uh what was it?
+24:49
+One more than one child in a in a B tree.
+24:55
+In question 13, compare data structures for storing graphs. Discuss the big picture significance of graph
+25:02
+representation and why it's important to consider various graph data structures.
+25:07
+data structure representations carefully. Um they're generally
+25:13
+powerful. Um if I remember correctly, graphs are very powerful. Um
+25:21
+a graph's representation is uh whatever data structure is uh is used
+25:29
+to store the graph. Um
+25:34
+uh it's important to consider various graph data structure representations because
+25:41
+if you were to use edge list that'd be your worst case. Um,
+25:52
+yeah, because you could have a graph with
+25:59
+many more edges than vertices.
+26:05
+And if you wanted the best representation, that would depend on
+26:11
+whatever data structure you're using and what operations you're expected to use.
+26:16
+the most in your graph. So I think that's generally the the
+26:23
+significance of why you should be very careful when you're picking your graphs data structure
+26:30
+representations. Question 14. Implement BFS and DFS
+26:36
+algorithms to traverse a graph. uh discuss the big picture significance of graph traversal and why both DFS and or
+26:44
+why both BFS and DFS are fundamental algorithms.
+26:50
+Um well it's significant because it's how we explore a graph starting from one node to find information like
+27:00
+you know what other nodes exist, the paths to those nodes, the shortest paths, um if a path even exists, kind of
+27:09
+those uh those those fundamental things. Um
+27:15
+but they give two different search strategies for graphs. Um, and they do
+27:20
+have uh different trade-offs. So, BFS is a
+27:27
+uh first in first out, and I believe it uses a Q, while DFS uses a stack, and
+27:35
+that's a last in, first out. Um, but they both rely on tracking uh, you know, the visited nodes so that you don't
+27:42
+already visit um, you don't revisit a node that you've already been to.
+27:51
+I I can never pronounce this algorithm.
+27:57
+Dystra's I think that's how you pronounce it. Implement Dystra's algorithm for shortest paths in weighted
+28:03
+graphs. Discuss why Dystra's algorithm is significant in how it extends BFS to
+28:09
+handle um weighted graphs. Uh well, it's significant because it's one of the most
+28:16
+taught algorithms of all time. It finds the shortest path between two nodes in a
+28:22
+graph. Um
+28:29
+how it extends to BF how it extends BFS to handle weighted graphs. Um,
+28:36
+it extends BFS uh because it works when edges have
+28:42
+costs or weights. But in um Dyster's algorithm, it can uh
+28:53
+or I'm sorry, it can fail. But in Dystra's algorithm, I think
+29:03
+Dystra's algorithm fixes it uh
+29:08
+by keeping in the shortest paths estimates
+29:15
+if I'm not mistaken. Um and then it just chooses the next
+29:20
+node with the smallest uh smallest uh estimated total path
+29:29
+uh cost. So, uh I think if this is the correct
+29:35
+algorithm, um what I'm thinking of is
+29:40
+I think it was compared to like Google Maps or something where it
+29:47
+uh determines the shortest path from one point to another. If it's not Dyster's
+29:53
+algorithm, it's another form of Dyster's al algorithm, which is how that whole
+29:58
+process works for uh GPS systems.
+30:06
+All right, question 16. Implement minimum implement minimum spanning tree
+30:11
+algorithms primalls. Uh discuss why minimum spanning trees are important and what problems they
+30:17
+solve. Um, they're important because for weighted graphs, they give you a tree
+30:23
+version of the same graph that connects all the nodes but removes the cycles.
+30:30
+Um, I think this was also the one with the lowest cost by determining the
+30:38
+smaller weighted edges. I could have that wrong or for a
+30:45
+different algorithm, but I think that's what it was for this one. Um,
+30:53
+and what problems they solve are um
+30:58
+taking weighted graphs and producing a minimal
+31:03
+um spanning tree. And it can either grow into or grow a small tree in MST or it can
+31:12
+grow into um
+31:18
+it can grow into a forest or it can grow into a small tree for into the MSD.
+31:28
+17. Implement greedy algorithms for activity selection in fractional knapsack.
+31:40
+All right. Um, discuss why greedy algorithms sometimes produce optimal solution. Explain the key properties
+31:46
+that make a problem suitable for greedy solutions. um
+31:53
+they sometimes produce optimal solutions. Um
+31:58
+when problems like when a problem um
+32:08
+hang on when a problem oh lets you uh continue to make uh the
+32:16
+currently optimal choice without having to undo it. So it just lets you do it
+32:22
+over and over again. um
+32:28
+explain the key properties that make a problem suitable for greedy solutions. Um
+32:35
+I mean they're simple to write uh simple to understand. I think that's more or
+32:41
+less why greedy solutions are
+32:48
+um or why a problem may be suitable for a
+32:53
+greedy solution. I think that's mainly covers level zero.
+33:03
+Question 18. Implement and analyze merge sort as a divide and conquer algorithm. discuss why divide and conquer is a
+33:10
+powerful paradigm and where merge sort is used. Um it's powerful because it
+33:15
+breaks a big problem into smaller problems which is usually found within like recursive
+33:22
+um algorithms. Um so like if you had you know one of the
+33:29
+earlier questions on the exam where you know the dominant terms for notation
+33:34
+take place. If you have two different tasks within an algorithm
+33:42
+but they both perform to ultimately make the algorithm work as one. That's
+33:50
+basically divide and conquer. you're doing two different tasks in the aspect
+33:56
+or in the um
+34:02
+how do I say this? You you are you are solving a problem
+34:08
+by dividing it up into do two different tasks. So two smaller tasks
+34:14
+which will lead you to your end goal and give you your solution. Um but yeah um
+34:23
+where merge sort is used in divide and conquer. Um
+34:30
+well I think this is kind of like how one of the earlier questions as well for
+34:36
+the unsorted arrays we have the left half which which is the sorted bit and
+34:42
+then the right half where that's the um unsorted unknown
+34:48
+uh area of the array.
+34:54
+Um, you know, once you have your task going
+34:59
+through all the elements within that array and then putting them into the sorted half, which is on the left,
+35:09
+you know, that's kind of like the the conquering portion, right? You're using those two different tasks in your
+35:14
+algorithm to scan the right half, which is the unknown. you're you're determining what
+35:21
+needs to be sorted and then putting it into the left side which is your sorted
+35:27
+bit. It's taking all the elements in the array from the right side putting it into the left side which is sorted and
+35:32
+that's kind of um where where the the merge sort is used in a divide and
+35:39
+conquer algorithm. Question 19.
+35:46
+uh implement and analyze quicksort as a divide and conquer algorithm. Discuss why quicksort is often faster
+35:53
+than merge sort in practice despite worst despite worse worst case
+35:58
+complexity. Um it's often faster than merge sort
+36:04
+because it usually gets the same average case speed as merge sort. Um, but it can
+36:11
+be done in place which avoids any of the extra array building that merge sort may need. Um, and this means that quicksort
+36:18
+uses less memory while still running on the same complexity level as merge sort.
+36:26
+Question 20. Implement a dynamic programming solution to the 01 NAPSAC
+36:32
+problem. discuss why dynamic programming is needed for 01 knapsack and what
+36:37
+problems exhibit optimal substructure. Okay. Uh well, DP is needed because the
+36:46
+greedy method that uh
+36:52
+uh that works what is it for fractional napsac
+37:01
+where it sorts by the the value and weight ratio and
+37:08
+takes the best one. um that can fail when you take in whole items because
+37:14
+it's fractional. So since you can't take fractions, a greedy choice kind of leaves you with gaps and you need to undo ch uh
+37:23
+choices made which makes it unreliable which makes greedy unreliable.
+37:29
+Um but problems that exhibit optimal substructure are when solutions to subpros
+37:38
+make it easy to build the uh
+37:44
+uh the optimal solution to the the full problem.
+37:53
+And question 21, implement a dynamic programming solution to the longest common subsequence problem.
+38:01
+Discuss the significance of LCS in bioinformatics, version control, and other applications.
+38:10
+Well, um LCS is like you know the measure between
+38:15
+two sequences without uh comparing every possible combination.
+38:22
+um DP allows us to do this much faster.
+38:27
+So comparing those two sequences doesn't take forever to process.
+38:32
+Uh but within bioinformatics um you could use two DNA strings to
+38:39
+compare how similar they are. Um in terms of version control with like you
+38:44
+know a diff tool like uh GitHub when a commit happens um a diff is produced. So
+38:53
+with the use of uh LCS it allows the differencing algorithm to identify what
+39:00
+in the repo you know stayed the same and what was either added or removed.
+39:08
+Um in terms of other applications uh I think overall it just it's
+39:16
+generally significant because it supports you know what LCS is the difference between two sequences
+39:24
+um which is which allows for an efficient
+39:30
+analysis between two sequences um and you know determining or comparing
+39:36
+those two sequences. So uh whatever the case may be if it's not bioinformatics
+39:42
+or version control you could apply it to a variety of different uh problems
+39:51
+and then implement or question 22 implement the Ford Fulkerson algorithm maximum flow problem discuss what a
+39:57
+maximum flow problem is and give a few examples explain the significance of the Ford Fulkerson algorithm and an informal
+40:04
+discussion of the max flow min cut theorem. Okay. Um, this one was a little bit
+40:11
+harder for me to memorize, but I do remember the examples. Um, but I'll try
+40:16
+and do it in order as best as I possibly can. Um, a maximum flow problem is a
+40:21
+flow network. So, you have a source, which is, uh,
+40:27
+whatever label you want to give it. I guess I'll just give it S. Um, and then you have a target, which I'll label T.
+40:34
+um which determine how much flow can be sent from S to T
+40:41
+um while ensuring you're you know respecting the uh the limits um on each
+40:48
+edge. Uh but an example from one of your videos that kind of stuck with me was
+40:53
+the the pipes with water network. So like the edges are pipes with capacities. Um
+41:01
+if a lot can flow from the source uh the limiting factor or the uh bottleneck
+41:09
+would be what what path it could take to flow to t the target.
+41:16
+Um I vaguely remember the people to books one. I do remember you know how
+41:21
+there was four people and only three books. Um so like a book is assigned to
+41:26
+a person. Um so after you would run the Ford Fulkerson algorithm um the edges
+41:33
+with a flow of one between a person and a book would represent a match. So only three people could be satisfied.
+41:39
+Unfortunately one person couldn't be satisfied in that example but um that's kind of the gist of that. Uh
+41:49
+the significance of Ford Fulkerson algorithm um is that I think it can just
+41:55
+it can solve max flow problems. Um and then like the informal discussion
+42:02
+uh see
+42:14
+I think it's just how you can go how you can send a flow from the source to the
+42:20
+target. I think that's I mean that's kind of
+42:25
+what I remember. um on the max flow min cut theorem.
+42:30
+So I think it would be like the maybe the bottleneck or how it gets from S2T.
+42:38
+So I think that's I mean that's just generally how I remember that. And then the last question, question 23.
+42:46
+Implement a reduction from SAT to SAT SAT to three to show a three set is
+42:56
+NP complete. Discuss the significance of the following. P NP complete. Uh in
+43:02
+light of your definitions, discuss SAT, 3AT, two SAT. Uh discuss why reductions
+43:07
+are fundamental to complexity theory. Um okay well the significance of P um is
+43:17
+that it's it's a class where I believe there exists a polomial time algorithm
+43:25
+to find a solution for a problem. Uh
+43:30
+I think P is the one where it's more feasible for our computers to work on a
+43:36
+problem of that sort. um np
+43:42
+uh contains p um and it's also a class where a solution can be checked in
+43:49
+polomial time uh even if we don't know how to find a solution in polomial time
+43:56
+and then npmplete um or I'm sorry nplete problems are
+44:05
+kind of like a subset I think of np where every problem in NP can be reduced
+44:12
+to NP complete um in polomial time.
+44:19
+uh it's significant because
+44:26
+um if we were to find a polomial time algorithm for any MP
+44:32
+complete problem then every single MP problem uh would become solvable in
+44:38
+terms of polomial time.
+44:44
+I think that was it. Yeah, PNP NP complete uh SAT.
+44:51
+Um, let me think.
+45:01
+I think SAT is just where it determines if something is satisfiable
+45:08
+or if it's not satisfiable, whether it's true or false. Um
+45:14
+and I think SAT is NP complete. So every NP problem can be reduced to SAT.
+45:20
+Uh three set is
+45:27
+I can't remember if it was two set or three set. One of the I I want to say it's three set uh is the same as
+45:34
+SAT. Um except this one is limited to three literals.
+45:39
+Uh so reset is also nplete um but it's more of like a uh simpler or
+45:49
+uh tidier version of set. And then two setat is the same concept
+45:57
+as three set but instead of three literals it has two. Um
+46:04
+and I think that this one is significant in terms of if there's a problem in
+46:10
+polomial time for any twosat problem.
+46:18
+Wait, I think I'm thinking of threes.
+46:24
+Yeah, I think two set is just the same as three set except it it has two literals,
+46:32
+but I don't think it's in nplete. I think it's in P.
+46:40
+Yeah, I think that's the difference between the two the two set and three set.
+46:45
+Um, but discuss why reductions are fundamental to complexity theory.
+46:50
+Uh,
+46:57
+oh, I forgot this one.
+47:03
+Is this where You can transfer the progress from one
+47:09
+thing to another.
+47:15
+Yeah. Yeah. Yeah. Because if you're reducing something like to reduce a
+47:22
+let's just say a and b two two problems.
+47:27
+If I were to reduce A to B in polomial time, then you can
+47:34
+solve B in polomial polomial time, which would then allow
+47:40
+you to solve A in polinomial time too. You're just transferring the progress
+47:46
+from one thing to another. So if you can solve something in B, but B is in A,
+47:53
+then you'll be able to solve A as well.
+48:00
+I could be going for a stretch there, but I think that that's what I um had noted down. Uh but yeah, wow, 48
+48:09
+minutes. Apologies. Um but yeah, that's my midterm exam. Um, and I'll see you later on today cuz
+48:18
+I stayed up quite late studying and trying to get this out of the way for you. Um, but I'll see you later today
+48:25
+with uh my study vlog 4. Take care.

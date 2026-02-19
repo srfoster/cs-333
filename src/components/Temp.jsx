@@ -1,8 +1,11 @@
 import React from 'react';
-import { TranscriptBrowser } from '@srfoster/textbook-lib';
+import { TranscriptBrowser, useQuestions } from '@srfoster/textbook-lib';
 
 function Temp() {
   const [selectedStudent, setSelectedStudent] = React.useState('weaver_wesley');
+  const { questions } = useQuestions();
+
+  console.log('Questions from context:', questions);
 
   const students = [
     { value: 'weaver_wesley', label: 'Wesley Weaver' },
@@ -35,7 +38,10 @@ function Temp() {
           ))}
         </select>
       </div>
-      <TranscriptBrowser transcript_path={`/textbook/transcripts/w26/${selectedStudent}.txt`} />
+      <TranscriptBrowser 
+        transcript_path={`/textbook/transcripts/w26/${selectedStudent}.txt`} 
+        questions={questions}
+      />
     </div>
   );
 }

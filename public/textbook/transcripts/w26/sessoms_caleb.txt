@@ -1,6 +1,900 @@
-Caleb Sessoms (He/Him)
-Email: CalebSessoms@student.olympic.edu
-Student ID: 201530509
-Section: 9072
-Last Submission: Feb 18 at 5:55pm
-Duration: 08:03:54
+0:00
+Let's start
+0:05
+for data structures. Simplest most complex of course starts with datmss
+0:10
+which are single values or variables.
+0:18
+Next is going to be tupless which are
+0:24
+they're really just multiple uh datms.
+0:31
+They are fixed size. You don't get change them. They're just
+0:39
+a collection consisting of multiple tuples.
+0:45
+Third is going to be arrays.
+0:58
+Arrays. Arrays are basically series of datms
+1:05
+just like tupils, but they have instant
+1:11
+access to any items.
+1:17
+They also have fixed size. You can't change them as you work with them.
+1:23
+At least not truly.
+1:28
+The reason they are instant access lookup is because the
+1:34
+values are fully indexed.
+1:41
+Um just going to be basically index to
+1:53
+access
+2:00
+After that is going to be lists which are
+2:06
+ordered arrays
+2:13
+that can change in size
+2:19
+as you work with them. can
+2:27
+add or delete elements.
+2:34
+Next up is going to be trees,
+2:43
+which are going to add connections between elements
+2:48
+and the ability to have multiple connections from one element to multiple
+2:54
+other elements at least in one direction.
+3:03
+which is top to bottom.
+3:29
+This is going to be graphs. Uh graphs are
+3:35
+bi dimensional trees.
+3:40
+They simply allow for connections to work up, down, left, right.
+3:47
+They also allow for loops to be formed. Connections don't just need to go in one
+3:54
+direction. They can go up, down, left, right.
+4:05
+uh they generally represent more complex relationships.
+4:12
+I should probably put omnidirectional trees.
+4:18
+Another thing is that you can have
+4:28
+multiple sections completely separate from each other.
+4:35
+You have sections of your graph that aren't connected to other sections.
+4:44
+Click there. um algorithms uh starts at linear.
+4:51
+So on this real quick then no it doesn't start I say starts at constant of course
+5:01
+is things that happen in constant time that are completely independent
+5:07
+from your input or the size of the collection it's working over
+5:15
+like look up for hash [snorts] tables I
+5:22
+Next up is going to be
+5:43
+it's going to be log is dependent
+5:48
+on the number of elements to some degree only logarithmically. So it doesn't even increase
+5:57
+perfectly with the number of elements. It is nearly as fast as constant. Um
+6:05
+searches for a balance tree are in there.
+6:32
+be linear. Uh the time grows directly with your
+6:39
+data or the elements you're working with. This would be stuff like linear
+6:44
+search linear
+7:07
+We then have linear log.
+7:13
+Linear log is uh it's what most sorts work with. Uh
+7:22
+merge sort for instance.
+7:48
+This would be the
+8:01
+I write this in big.
+8:37
+go this
+8:42
+way then you start getting things that are start becoming
+8:47
+not nearly as efficient as you try for. You want to avoid
+8:53
+this and the next one as much as possible. Nested loops operate at this speed.
+9:12
+Last up is exponential which is going to
+9:28
+Very new.
+9:55
+and precursion just stuff that tends to get the heck out of hand.
+10:06
+Oh, this of course is in regards to
+10:13
+just returning the sum of numbers from one to n.
+10:19
+Big picture significance here. Of course,
+10:26
+big picture is of course is uh this is rather simple mathematically
+10:34
+just simply add up numbers one to n. But this problem also demonstrates a a
+10:41
+significance of the strengths and weaknesses of
+10:48
+iteration verse recursion. The iterative approach of course is just
+10:54
+to loop through all the numbers one to end and simply add it to some total
+11:00
+value. Uh this of course is linear
+11:06
+operates in linear time. Uh recursive
+11:12
+approach. No, not recursive approach. Does this
+11:18
+game
+11:39
+There is, I believe, an algorithm that does this. It's like
+11:47
+something relating to n / two. Was it n plus one over two?
+11:53
+Was it n+1 * n /2? Something like that. Anyway, there's a specific formula to
+12:00
+solving this that operates at constant speed because you only need to know the value of n. And so that is a lot faster
+12:10
+uh because well you only need one value and it's just
+12:16
+one formula. It's just a couple calculations. It's always constant which is really really nice.
+12:24
+I don't know why I said this was an issue between iteration and recursion. I might have been that wrong. Anyway,
+12:33
+uh searches for a target value in an unsorted array.
+12:39
+Here we start discussing differences between big O big mega and big theta.
+12:50
+Big go of choice is worst case is what we've been discussing is the worst possible speed something
+12:57
+can work on them work at
+13:06
+uh best case is of course uh big omega and then average case is big theta.
+13:17
+Now the worst case for this is you have to check every single
+13:23
+element of the array. So it would be a
+13:29
+be a big O of
+13:37
+linear because well you need to check every single element we'll do an operations
+13:44
+big omega for this is going to be
+13:52
+constant
+13:58
+Well, not constant, let's say, but uh
+14:05
+best case for this is going to be exactly one check because you only need to check the first element. The first
+14:11
+one is the what you're looking for. That's all you need to do. You simply
+14:17
+have the value. Uh now big theta
+14:23
+is going to be
+14:29
+n / two. See value in between these two. It's just divided by two
+14:37
+because average you'll have to check about half the elements.
+14:47
+minimum value and an unsorted array.
+14:56
+Now, while this seems similar to the last problem, it isn't at all.
+15:08
+It's not so much to just s search because in order to find the minimum value, you have to make sure that the
+15:17
+value that you currently have isn't greater than any of the other values. So you do have to check every
+15:25
+single value which means that worst case scenario is going to be linear. Best
+15:32
+case scenario is also linear. And then um your average is also going
+15:38
+to be whatever your number of elements is because you do need to check every single one. If you run through it on a
+15:45
+list on a series of values like 1, two, three,
+15:51
+well, you will on your first element will be released. But you need to check
+15:56
+to make sure there isn't one less than it because you could also have
+16:01
+3 2 1. And you won't know unless you check every single value.
+16:14
+Now this this really showcases the
+16:22
+fact that I'm performing multiple tasks. It is the least efficient or the least
+16:29
+fast one that dominates.
+16:35
+Uh so for this problem we've got check if the array is containing duplicate values
+16:45
+and then returning the total amount of elements in the array.
+17:04
+The thing with checking for duplicate values, it means that you do need to check multiple times. In fact, you'll
+17:10
+need to check for n values. Make sure they are each not duplicated. And so
+17:17
+this is going to work at a n squ elements.
+17:25
+Uh your second operation during the total count of elements in the array is
+17:30
+only n. you only need to run through the array once to see how many there are.
+17:39
+And uh dominant terms is always going to be the greater one. Uh because this one grows faster than
+17:46
+anything else. If I were to say have a
+17:53
+n equal to 10. Let's say there are 10 elements. Well, the first operation is going to
+18:01
+involve doing something a 100 times. It's going to take a task to get it done 100 steps. Uh the second one
+18:11
+during the total count it's only going to take 10.
+18:16
+Now for this it doesn't seem that big of a difference especially because of how small n is. However, if you can increase
+18:23
+it up to 100, it does become a lot more apparent cuz this
+18:29
+be 10,000. Oh, the second one is still only 100.
+18:36
+And so your dominant term increases so much faster that
+18:42
+for the most part anything other than it the dominant term
+18:48
+can just be ignored.
+18:55
+random algorithm that performs two tasks on an end byN matrix. This also
+19:01
+showcases the same thing
+19:07
+except in a much more visually obvious way. Working on by matrix you fill to create
+19:16
+by matrix. or task week. Uh well, you need to fill all the elements of the
+19:21
+first row, second row, third row, which will be in n by n
+19:29
+task or n squ steps.
+19:36
+And then searching the first row, it's just a single row. You only need to check the elements, which is going to be
+19:43
+n
+19:48
+And this once again showcases the same thing that the dominant task is so much
+19:55
+more important and is the only one that we really value when discussing efficiency
+20:02
+but at the same time it does so in a much more visual manner. it it's so much easier to
+20:09
+picture an end byN matrix and then realize that one task is me so much
+20:18
+slower insertion sort
+20:26
+needs to be in ascending order
+20:32
+which is going to be well it's an ascending
+20:40
+Why is important despite not being the fastest? Okay,
+20:52
+this really teaches us that uh sometimes the best algorithm is
+20:57
+dependent on the situation.
+21:04
+source of sort has a huge gap between best and worst case scenarios
+21:11
+best case the
+21:17
+work is third best case it's already in the order that we want it to and so we
+21:22
+just need to look through it to verify it however worst case scenario it's in
+21:28
+the exact opposite and perfect reverse order
+21:34
+We do need to make a lot more operation, a lot more steps and a lot more things
+21:39
+that need to be done. Uh we need to move around elements a lot more.
+21:45
+And uh so we have a m
+21:51
+and then here we have n² for worst case scenario
+21:59
+case scenario. And this is just really really important because there are going to be some
+22:07
+situations where you know that your collection is already somewhat sorted or
+22:14
+mostly sorted. And so insertion sort can be used to verify it or to
+22:23
+run through it. And you know there's only going to be a couple things that need to be moved around.
+22:33
+Why do we still use it? Well, it is rather stable.
+22:38
+Uh, it keeps the relative order of elements the same
+22:46
+and I believe the memory is constant.
+22:55
+And then pretty sure there was something else I cannot remember off the top of my head though.
+23:05
+Oh, that may have been what it is. Um, it's also very very fast for short lists
+23:11
+if you have a Yeah, just it's just very fast for short list.
+23:24
+also
+23:29
+constant. Okay.
+23:41
+Uh selection sort algorithm. Select sort is an entirely different
+23:48
+algorithm. Uh such sort doesn't actually care if it's already sorted or police
+23:53
+scrambled. Best, worst, and average cases are the same.
+24:05
+It simply grabs either the minimum or maximum value and then separates it and
+24:11
+then grabs the next minimum value and also inserts it over there.
+24:18
+Uh and so you will always end up
+24:29
+uh you will always end up with a it's always a best case worst case are exactly the same that being
+24:39
+n squ because you need to run through n elements
+24:45
+every single time. Uh and this is where the big theta comes
+24:52
+into place. This is the first problem where big theta actually matters
+24:59
+which because big theta is the average and this entire the entire complexity of
+25:05
+this algorithm can be did using only big theta. It's just n squ.
+25:14
+Now why it may seem worse than insertion sort but it does minimize rights
+25:23
+because insertion sort sometimes you have to shift elements many many times.
+25:31
+But for selected swords, you only will ever need to do
+25:39
+an and insertions
+25:58
+and water.
+26:16
+insertion sort. If you're racing insertion sorts
+26:40
+insertions this this was the recursive iterative
+26:48
+problem. Of
+26:55
+course, a key trade-off between believe this was space efficiency for
+27:01
+this one uh versus code elegance or ease of writing.
+27:09
+The recursive meth recursive method of doing this is rather simple,
+27:17
+but it ends up using a ton of space because you need to make a function call
+27:24
+for every single element. So if you want to calculate
+27:32
+uh the Fibonacci sequence or if you wanted to calculate a
+27:38
+factorial of say 16
+27:43
+you would need to have 16 function calls. If you want to calculate the
+27:52
+vector of a th00and, you would need a thousand function calls. And this just
+27:58
+increases for every single based off of n.
+28:05
+And this of course causes problems. It can cause a stack overflow error.
+28:11
+Uh now the iterative method is isn't actually all that isn't all that
+28:17
+complicated. um as it only requires a couple
+28:24
+variables roots
+28:30
+and it's space is a it's constant
+28:36
+which is good thing here
+28:42
+because recursive is linear
+28:48
+which is a lot worse.
+28:58
+Problem 10 here is Fibonacci which
+29:03
+is a lot of the same. Uh it goes into memorization though and how you can
+29:09
+still use recursion if you do things right.
+29:18
+The naive recursive method is of course just calculating each element completely
+29:26
+a new which is of course a problem because
+29:32
+Fibonacci works based off of
+29:37
+previous digits. And so if you're calculating the fifth
+29:44
+element, you need to recalculate a bunch of other elements. It's like
+29:51
+it's like five or six of the previous calculations that you need to completely redo.
+29:58
+This of course causes problems. This means it does have exponential growth.
+30:11
+of course
+30:17
+because each one depends on n and so if I'm calculating the thousandth I would
+30:23
+have to calculate well I'm not doing that much math but you
+30:28
+would have to calculate so many more than even the 99 99th element
+30:36
+so it it just grows exponentially Um,
+30:43
+a memorization helps us solve this by just simply noting down what the
+30:50
+previous calculations did and what the previous elements were and then working off of them. That way we don't need to
+30:58
+recomputee or resolve previous elements.
+31:04
+And this of course transfer this of course fixes it down to linear time because well
+31:14
+each number is only calculated once. So if you would calculate it up to n it would be
+31:20
+n calculations. Then iterative really does the same
+31:26
+thing except um I believe iterative has better space efficiency.
+31:39
+[snorts] My stream
+31:45
+person big old
+31:51
+m then the iterative is also big old ner
+32:08
+11 is going into trees which are you're of course going into more and more
+32:13
+complex types of collections and working with them and how things work.
+32:21
+Uh, silk balance trees are actually rather interesting
+32:29
+because of the rotations required.
+32:36
+This is binary search trees versus AVL trees. uh the AVL trees are of course uh
+32:43
+selfbalanced and they're just guaranteed to be a heck
+32:48
+of a lot more efficient even worst case scenarios. Uh whereas a standard binary tree binary search tree uh can basically
+32:58
+degenerate into just a massive length list
+33:06
+uh where insertion and everything will basically work
+33:17
+with a speed of linear
+33:22
+senate
+33:28
+to list.
+33:34
+This of course is a problem. Uh, AVL trees solve this by enforcing
+33:41
+strict balancing so that the left side of the tree will always have the same
+33:47
+number of elements as the right side of the tree or very nearly not off.
+33:55
+And it does this by rotations. Uh the main tradeoff
+34:03
+of course is that certain operations are a lot more complicated because you do have to do the rotations.
+34:11
+However, it does guarantee a
+34:16
+search insert delete of a logarithmic rather than win.
+34:32
+This one we said it was linear
+34:37
+lsertion we look up log
+34:46
+uh it's guaranteed though again they are more complicated
+34:52
+for a lot of the logic
+35:00
+which is a trade-off a lot of the time. Uh B tries
+35:10
+are really important for databases they're designed to be
+35:18
+really good for disk based storage systems or
+35:26
+when we have hardware limitations that uh
+35:31
+make lookup time not great.
+35:38
+Uh slow disk accesses
+35:43
+stuff like that. Uh it does this by keeping the tree as
+35:49
+short as possible by allowing thousands
+35:56
+of branches from each element. Which while
+36:02
+while this can complicate the structure of a tree, it uh it's necessary sometimes. And specifically for
+36:10
+databases, it makes things a lot faster.
+36:15
+And it basically ensures a leave
+36:20
+believe it's log linear
+36:27
+for disk access even if you know you have hardware limitations.
+36:33
+It is a lot cleaner
+36:42
+compared to data structure for storing graphs. Data structure is of course really really important for graphs and
+36:51
+like most things it depends on your use case what you are doing with the graph.
+36:58
+uh specifically what operations are going
+37:04
+to be the most commonly used.
+37:11
+It also I believe depends on the graph's density
+37:17
+or just how many elements are going to be in it and how
+37:23
+packed it's going to be connections.
+37:36
+They just get another off.
+37:44
+These of course are graph traversal
+37:50
+algorithms and they are the two fundamental ones.
+37:59
+first and first style and lasting first style are two really key components
+38:06
+uh for graphs specifically. BFS
+38:16
+explores graphs by layer by layer uh from one side to the other. You will
+38:22
+look at all the um one away then two-way and then three away and then four away.
+38:33
+It's mostly used I believe for unweighted graphs
+38:40
+and where and for really wide graphs
+38:46
+similar to uh B trees graphs are going to be really really wide and not all
+38:53
+that deep and so you can only you do
+38:58
+you only have so many depth goal is of course closer and start just
+39:06
+makes things faster. Uh, and then DFS does the exact
+39:11
+opposite.
+39:18
+It's to explore as deeply as possible for backjacking.
+39:24
+So, it will start in one place, run all the way through as deep it possibly can, and then check a different starting
+39:29
+point and run as deep as possible. cam. I believe one of its main advantages is
+39:36
+memory based applications.
+39:48
+I can never pronounce this, so I'm not going to even try. Um,
+39:54
+for shortest paths and weighted graphs, this is the weighted graphs we're talking about here.
+40:00
+And so we aren't just searching through a graph. We are trying to find the
+40:07
+shortest path or the most costefficient path.
+40:17
+And this is really fundamental to systems like uh
+40:24
+GPS where there is a cost. uh in the case of GPS
+40:29
+it is speed, distance
+40:34
+and you are looking for the not just a path but the
+40:42
+lowest cost path. I believe the primary limitation has to
+40:48
+do with
+40:53
+uh not being able to handle negative weights. Although it's
+41:00
+highly spe it's highly based on the case and uh it's it's just very specialized.
+41:07
+Um, it also doesn't work great with changes,
+41:14
+but yeah.
+41:23
+Uh, minimum spanning tree algorithms, prims and crossals.
+41:33
+Insp trees are algorithms that solve the problem of finding a subset of edges. Of course,
+41:52
+they do so by trying to connect make connections and to connect everything
+41:57
+with a minimum total weight. Uh this of course is really important
+42:03
+for real world applications such as uh designing networks are going to be
+42:09
+the lowest cost such as laying cable
+42:14
+or anything of that nature where you want the shortest paths possible and the
+42:22
+least cost. uh now prim's algorithm
+42:33
+are typically more efficient for dense graphs and uh crestals are more efficient for
+42:40
+sparser or graphs where there are just fewer
+42:47
+connections required fewer edges
+43:02
+Uh, good algorithms. Uh, Napse, right?
+43:08
+Uh, greedy algorithms sometimes produce optimal results, sometimes they don't.
+43:20
+uh because of how greedy algorithms work. Uh they make an optimal choice at each stage
+43:27
+with the hope that that will result in a final solution that is optimal and
+43:34
+functions.
+43:43
+Uh greedy solutions of course have two main properties that define whether they
+43:49
+work and whether it's even possible. These are the greedy choice property and the optimal substructure.
+43:56
+Now I've seen this phrased so many different ways and so many complicated ways and most of the time I don't really
+44:03
+like the word way they word this. I myself like to uh define greedy choice
+44:10
+property as the current choice that we are currently making not having any
+44:16
+impact on future problems. So if I make my way from A to B
+44:23
+in a in one in by doing one thing I will still be able to move from B to C. It
+44:30
+won't stop me from getting to C.
+44:35
+And then of course uh optimal substructure is really not needing to know about
+44:43
+future problems to solve the current problem. And both these really apply and both
+44:50
+these apply to every single element. So when I'm working on the first sub
+44:56
+problem, I can ignore all future problems and all well there wouldn't be
+45:02
+any previous problems. And then at the second previous problem, I don't need to
+45:08
+touch previous problem. It had no impact on this one. And I also
+45:15
+don't need any information from future problems. I don't need to know anything about them in order to solve this.
+45:24
+which you know and then for example probably I believe
+45:29
+is rather interesting.
+45:36
+Yeah.
+45:42
+Uh merge sort as a ben conquer algorithm.
+45:48
+B conquer algorithms split up a problem into many many sub problems and then
+45:54
+solve them one by one and then combine the end result all together. Um word
+46:00
+sort of course is a very classic example takes your
+46:08
+whatever it is you're sorting your collection and splits it up.
+46:15
+Splits it exactly in half actually. And then each half is itself sort then
+46:21
+sorted by splitting them in half and so on and so forth. And then once you get everything sorted it just packs them
+46:28
+back together. Now the merch sort is
+46:40
+well it has a uh
+46:48
+peny that is always the same. Uh big O log
+46:55
+when you're log
+47:11
+um there's also another type of vitamin conquer algorithm except it works
+47:17
+completely different.
+47:24
+Instead of just cutting it a half, it instead works off of the pivot point.
+47:36
+And the problem here is that occasionally that pivot point can be
+47:41
+terrible. It can result in you only splitting off a singular element.
+47:47
+And this of course is a problem
+47:52
+because worst case you can end up making that worst choice every single time that
+47:58
+worst pivot point and you would end up with a
+48:04
+best case decent. Your worst case however would they go of
+48:12
+brand and your uh
+48:19
+best case would also be linear lock which is the same as the merge soil.
+48:27
+Now despite this worst case being so much worse it is preferred
+48:34
+despite it worst case complexity
+48:39
+because of its space required
+48:45
+it uh it only requires constant space or space stack space
+48:51
+isn't included So
+49:01
+then it just requires
+49:08
+fewer inter operations particularly in the production of
+49:14
+new collections.
+49:20
+act to app text.
+49:30
+This problem is rather interesting because it is one that does not have a
+49:37
+the greedy method does not work. You cannot solve this using a greedy
+49:44
+alter. The Greek approach would be to pick the
+49:53
+insights you work off of a
+50:02
+value over weight or
+50:09
+how value something is.
+50:16
+about the cost which in this case of course is weight.
+50:22
+Uh the greedy solution of course
+50:30
+chooses the value with the highest ratio.
+50:40
+And the problem with this is that your knapsack can only hold so much weight.
+50:47
+And so if you make the wrong first choice and if this highest ratio
+50:54
+uh doesn't work, if there is no way there's no other element to combine it
+50:59
+with that uh will fit, you are just out of luck. And so the
+51:07
+greedy pretty method does not work here.
+51:19
+DP dynamic programming really explores combinations of elements
+51:26
+or possibilities to guarantee that the solution found will fit. It will work.
+51:40
+dynamic program solution to the longest common subsequence problem.
+51:46
+Really just explaining what this problem is here.
+51:53
+Uh this problem compares strings or series of values
+52:02
+uh independent of the differences. So you can have a series of characters. I'm
+52:07
+just use numbers. And then
+52:14
+let's go one one
+52:19
+five six one nine. Now LCS would compare these not based on
+52:29
+their differences but only off of what is common.
+52:39
+This I said was four, five, six only off of what
+52:46
+series values in them are common. Now for biology, this is really
+52:51
+important for I believe DNA and protein comparisons because allows us to see
+52:57
+just how similar things are. for version control.
+53:03
+It really allows us to keep track of where we are based off of
+53:10
+what changes have been made rather than anything else. Uh JIT uses this. I
+53:16
+believe other applications are going to be stuff
+53:23
+like spell check I believe and then um
+53:30
+I believe plagiarism detectors also do this by just ignoring things that are
+53:36
+dissimilar and checking if there are enough elements that are the same or in
+53:44
+the same order the same sequence that uh
+53:51
+that it would be odd for it to just be a coincidence.
+53:59
+Maximum flow problem. I describe what it is and a few examples.
+54:15
+Well, maximum flow doesn't really work the way most of this has been previously. Uh maximum flow really
+54:22
+involves the maximum amount
+54:30
+of stuff that can flow through an element
+54:36
+or from a source to a goal
+54:44
+given certain capacities. So there are of course limitations to
+54:50
+everything uh data, electricity, water
+54:56
+and there are limitations. There will always be limitations and it is based off of what the
+55:04
+best path would be based on these limitations.
+55:11
+the path that through which the most can flow, which of course is mostly going to
+55:16
+be constrained by the section that can handle abilities that
+55:23
+can that can't handle as much flow as all the rest. Weakest chain and all
+55:31
+that.
+55:36
+Of course, maximum flow and uh minimum cut are.
+55:52
+And uh how the maximum flow is equal to the minimum cut and they are or capacity
+55:58
+minimum cut and how they are the they're equal.
+56:07
+Um this is PNPN complete which really gets into solvability and what is
+56:14
+currently possible. Well more importantly what we can
+56:19
+efficiently solve. Uh P of course
+56:25
+are all the problems that computer can solve quickly.
+56:30
+P I believe stands for polomial time.
+56:36
+uh NP scores problems where a solution can be verified quickly
+56:47
+but where the solution is not easy to find whereas P of course solutions can be
+56:54
+found quickly issues efficiently be solved.
+57:03
+And then there's another distinction from NP. That's NP complete.
+57:11
+Uh NP complete problems. You solve one, you solve them all.
+57:21
+At least three set, three set, two set.
+57:36
+These really are problems based one after the other and based off of each other.
+57:46
+This is are really important because it proves that uh
+57:52
+problems based off each other must be as difficult as the original
+57:57
+set for instance is
+58:04
+NP complete
+58:13
+reset. that was also NP complete. Two set though
+58:21
+is a problem that falls into the category of P which means they can solve efficiently.
+58:29
+It's just really good study to understanding differences between P
+58:35
+NP and NP complete
+58:41
+and the differences between them and what changes
+58:48
+and that there is a point where a problem transitions from easy to impossible. And it's
+59:02
+that's 23.

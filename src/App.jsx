@@ -5,7 +5,8 @@ import {
   ExamInterface,
   TextbookPage,
   compiledContentService,
-  loadAllQuestions
+  loadAllQuestions,
+  QuestionsProvider
 } from '@srfoster/textbook-lib';
 import { compiledFiles, stats } from './compiled';
 import Temp from './components/Temp';
@@ -17,9 +18,8 @@ const CONCEPT_MAP_PATHS = [
   'content/chapter-03/concept-map.yml'
 ];
 
-function AppContent() {
+function AppContent({ questions }) {
   const location = useLocation();
-  const [questions, setQuestions] = useState([]);
   const [currentExam, setCurrentExam] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -31,18 +31,7 @@ function AppContent() {
       basePath: import.meta.env.BASE_URL || '/'
     });
     
-    const fetchQuestions = async () => {
-      try {
-        const allQuestions = await loadAllQuestions(CONCEPT_MAP_PATHS);
-        setQuestions(allQuestions);
-      } catch (error) {
-        console.error('Failed to load questions:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchQuestions();
+    setLoading(false);
   }, []);
 
   if (loading) {
@@ -115,9 +104,26 @@ function AppContent() {
 }
 
 function App() {
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const allQuestions = await loadAllQuestions(CONCEPT_MAP_PATHS);
+        setQuestions(allQuestions);
+      } catch (error) {
+        console.error('Failed to load questions:', error);
+      }
+    };
+
+    fetchQuestions();
+  }, []);
+
   return (
     <Router>
-      <AppContent />
+      <QuestionsProvider initialQuestions={questions}>
+        <AppContent questions={questions} />
+      </QuestionsProvider>
     </Router>
   );
 }

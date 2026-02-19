@@ -1,6 +1,2110 @@
-Alexander Hamilton
-Email: AlexanderHamilton@student.olympic.edu
-Student ID: 201524242
-Section: 9072
-Last Submission: Feb 16 at 1:28pm
-Duration: 28:07:37
+0:01
+Hello. I am doing my midterm today.
+0:07
+I have disabled the answer button. I have my tablet hooked up here so I can
+0:12
+draw on it and you can see what I do. Um, okay. So, generate
+0:21
+exam. Question one. give an overview of this
+0:26
+course in terms of data structures and algorithms. So data structures we start with the
+0:33
+datim. We start with the datim which is just a
+0:38
+single little piece of data. Then we go on to the tupole
+0:45
+or tuples which is a collection of
+0:50
+datimms all organized in a little grouping.
+0:58
+uh this is not resizable. So once you have a DATM
+1:03
+of a set size, it cannot change much like Java arrays. Speaking of arrays,
+1:10
+they are next. These are actually resizable. So they're
+1:16
+more like Pythons's uh
+1:22
+arrays than Javas, but they are also a collection of
+1:28
+resizable not a collection of DATMS that is resizable. So this is not resizable.
+1:38
+This is resizable.
+1:45
+Oh, well, can you see my handwriting? H, that's pretty good. I might increase my
+1:51
+line a little bit. Um, after rays, we go to
+1:58
+trees. Not the green kind, just
+2:06
+um, so trees are like this.
+2:12
+you have oh you know what I forgot
+2:20
+right before trees on the same level as arrays is linked lists or just lists
+2:29
+I'll write linked lists here but these are same level
+2:40
+those are the same level. Link lists are like arrays
+2:45
+but they look more like this where each node these are nodes are linked have a
+2:54
+pointer to the next node in the chain.
+3:01
+The one downside of link lists is you can't randomly access like the third
+3:07
+element like you could in an array. If you
+3:12
+wanted to access the third thing in the array, you just do
+3:18
+the index of that thing. But if you want to do the third in a link list, you have
+3:25
+to go through the entire chain up to that point to get it. It's a bit of a pain, but it
+3:33
+has its own strengths, which I don't have to cover here, so I'm not going to.
+3:39
+Anyway, trees. The next level is like linked list except that each node can
+3:48
+link to more than one child node.
+3:53
+It doesn't have to like it can still do the single but trees. The power of trees
+4:00
+is the multiple nodes on one parent,
+4:07
+if you will. multiple children nodes on one parent. And finally, for our last one, we have
+4:14
+graphs. Graphs. Graphs. Graves, not graves. Um,
+4:21
+these are very much like trees
+4:27
+except for one little thing in that two parents can look at the same
+4:34
+child making almost a cycle but it's not a
+4:40
+cycle because the arrows still only go one way. You can have cyclic graphs
+4:48
+which why did I draw a triangle? You can have cyclic graphs which
+4:57
+have the arrows going both ways
+5:05
+like this.
+5:17
+You can also do that with graphs. Um,
+5:23
+that wasn't really part of the question, but that's a thing you can do.
+5:30
+Uh, so that's the data structures, the algorithm complexities.
+5:36
+My cat is climbing behind my monitor. The
+5:42
+just draw a line there. The big O notation starts at O of one which
+5:50
+is just constant time. No matter what the algorithm is, no matter what data
+5:55
+inputs you put in, it always takes the same amount of time.
+6:00
+The next smallest is O of not N log N.
+6:11
+So N is the number of arguments or values you put into the
+6:18
+array. And then this will say how fast it goes depending on the input.
+6:26
+So it's not quite as fast as constant time. It's also not as slow as the next
+6:32
+one which is O of N which is just directly proportional to
+6:42
+the number of arguments. So if you have one argument
+6:50
+versus 100 arguments.
+7:01
+So this one will take 100 times longer than the single argument one.
+7:09
+It's still pretty good. It's not the It's not constant time, but
+7:15
+with how fast computers do things, O of N is still pretty good. Uh, the
+7:23
+next one is O of N log N.
+7:30
+Hi, Indigo. You are kind of in the way.
+7:36
+He is sitting in front of my keyboard. Um, anyway,
+7:43
+this is a little faster than n, but it's
+7:48
+not that much faster because you're only multiplying by a fraction.
+7:54
+Indigo, I can't write if you were trying to get pets.
+8:04
+Um,
+8:13
+Say hi to the camera.
+8:19
+He's a silly cat. Anyway, where was I? O of N log N.
+8:25
+Then we have the next next fastest I guess would be O of N
+8:31
+squared. You can. So if we have like
+8:39
+two inputs, it's only four. But if we jump up to
+8:47
+I don't know, eight inputs, you can see it. It's growing. It's not
+8:52
+growing as fast as it could grow. That we'll see in a second. But
+9:00
+the next one is O of N cubed. And technically from n cubed
+9:07
+it could go to n to the 4th, n to the 5th, whatever.
+9:18
+Again, this is going faster, but it's not going that much faster.
+9:28
+I don't know what that is, but it's bigger. The final slowest thing will be O of 2
+9:38
+to the N which even with small inputs
+9:46
+2 to the 1st one input one input takes two two I don't know they're not seconds
+9:53
+they're not milliseconds they're two increments of time just
+10:02
+and then if we jump up to two two inputs,
+10:08
+we're at four. Okay, so that hasn't much changed from what it
+10:15
+would have been with O to the N. But if we jump up to three inputs, we're up to
+10:23
+eight, which and then it just gets worse and worse
+10:32
+because we're doubling the speed every time we add a new input. And that's not
+10:39
+ideal. That is just not ideal in the computer science world
+10:45
+because even the fastness of computers will
+10:51
+not like like 10 inputs on
+11:00
+a simple simple O to the 2N problem.
+11:06
+I don't even know what 22 to 10 is, but it's
+11:11
+it's big. That's the point. It takes much longer the more inputs you get. So,
+11:19
+let's move on to the second problem, which is discuss the big picture
+11:25
+significance of the problem. The implement an algorithm that returns the
+11:30
+sum of the numbers from one to n. discuss the significance of that problem
+11:37
+in the context of computer science.
+11:42
+Indigo, you are in the way.
+11:51
+That's still hot. Uh, so summing numbers one to n looks something
+12:01
+like this. + 4 + dot dot dot + n
+12:11
+whatever n is it doesn't matter what n is.
+12:16
+Um so the the reason this problem is here is not
+12:23
+only to demonstrate help demonstrate this
+12:31
+concept of speed
+12:37
+but to do it in a way that you can have multiple algorithms
+12:43
+doing this problem in different speeds because there's the
+12:48
+brute force method. I know I don't have to actually write the methods so I'm not going to but we
+12:55
+have the brute force method. It just adds them like you would,
+13:04
+right? You just
+13:09
+this would be an O of I believe it's n time
+13:15
+because for each each subsequent value of n, you're just adding one more.
+13:24
+the word. I'm looking for
+13:30
+one more operation. Every value of n adds just another operation which isn't
+13:35
+bad. Brute force method on this problem is fine. It does its job. There's also a
+13:42
+more elegant solution. More elegant solution. I
+13:50
+I think it's
+13:56
+based on the formula n *
+14:05
+maybe no it should be n minus one over I think that's the formula for it
+14:12
+but as you can see that is constant time
+14:17
+because you're only doing two operations, the same two operations,
+14:24
+a subtraction and a division every time you put in any value of n versus this
+14:32
+one which gradually grows as you increase the value of n. So that's the
+14:40
+that's the um significance of this problem just that there's more than one
+14:46
+method and they will have diff they may have different complexities
+14:56
+um I know I don't have to keep
+15:01
+I know there's no space on the paper Good.
+15:08
+Indigo, you are in the way. I love you, but why do you need to sit here? You
+15:14
+have a perfectly good bed right here.
+15:20
+Anyway, question three. Uh, write an algorithm that searches for a target value in an
+15:27
+unsorted array. So, there's kind of the crux of the problem. Unsorted array. If
+15:33
+it were sorted, we could just do
+15:40
+binary search, which is easy. Also, not part of the problem, but wanted to point
+15:46
+that out. If it's sorted, just binary search it,
+15:52
+which is O of N log N, by the way. Um but discuss the big picture significance
+15:59
+of this problem and how it relates to big O big omega and big theta.
+16:05
+So
+16:11
+first off big O what is my brain doing?
+16:18
+Big O is the worst case
+16:24
+worst case speed. I guess these are all speeded
+16:31
+speed complexities. These are all refer to the speed complexity of
+16:38
+the problem. So these guys again
+16:44
+big O is the one we normally use. It's worst case. If you give it if you give
+16:50
+the algorithm the absolute worst inputs for that problem, how long will it take?
+16:57
+That's big O worst case. Big omega
+17:04
+is actually the best case. So in terms of this problem, big omega
+17:11
+input would be a sorted array.
+17:18
+actually big omega on this would be the value you want is right at the
+17:24
+beginning. So
+17:33
+one two three four. So big O big O in this case you're
+17:41
+looking for four
+17:49
+because it's at the end. You're going to have to go through every single element
+17:56
+to find the four. That's the worst case. The best case
+18:01
+is if you want the one
+18:07
+Can you still see the green? Yeah, because it's right there.
+18:13
+Let me The ones right there. It's the first one. You check, you find it, you're set.
+18:20
+That's best case. The final one was big theta,
+18:26
+which is just average case. We hardly ever refer to big theta because it's
+18:35
+pretty much useless. No one cares what the average case is. I mean, some people
+18:41
+might care, but temporarily switch.
+18:48
+In this case, you're looking for the two or the three. It's
+18:54
+It won't be the shortest length. It won't be the longest length. It'll be somewhere in the middle.
+19:03
+It's just the average amount of time it's going to take to find the target
+19:08
+value, which I mean is nice to know, but
+19:14
+in computer science, in programming, we only really care
+19:19
+about these two, the big O and the big omega. And even
+19:25
+then, we just care about big big O most of the time.
+19:33
+I mean, it's nice to know the best case, but we don't need to
+19:40
+because if it's best case, why are we even trying to do it at that
+19:46
+point?
+19:52
+So that's the significance of this. It's just to demonstrate the differences
+19:57
+between big O big omega and big theta.
+20:02
+Um I kind of went did level one too but that's beside the point. Uh this minimum
+20:11
+value problem minimum value in an unsorted array. We're still talking
+20:18
+about big O big omega and big theta. trying to understand the differences
+20:24
+between them. Um
+20:31
+different from linear search.
+20:38
+So you want the minimum value you
+20:43
+it doesn't matter what the array is
+20:48
+1 2 3 4 6
+20:54
+1 I'll make that to zero just to demonstrate this
+21:03
+no matter where this zero is in the array You still have to check every
+21:12
+single
+21:17
+every single spot in the array to make sure that it's the smallest.
+21:25
+Like if we just like if we just flip that
+21:33
+if we put the zero there the one there make that to seven for no
+21:40
+reason. Um so yes in this case we do have the
+21:47
+smallest element right at the beginning but to make sure it's the smallest
+21:53
+element we still have to check every
+21:58
+single other I don't know what that was.
+22:06
+we still have to check every other value to make sure that the first one we found
+22:13
+was in fact the smallest. So in this case the big O the big
+22:24
+the O the omega wow I don't know what that was and the
+22:30
+theta these are all the same
+22:37
+because you still have to check every value.
+22:46
+So that's kind of the significance of that some problems it doesn't matter
+22:54
+because the big big the big three bigs the three
+23:01
+bigs whatever big O big omega and big theta
+23:07
+they're all the same because the problem doesn't change no matter where that value is
+23:17
+could be there, could be there, could be there, could be there.
+23:25
+That's kind of the significance of that.
+23:32
+Uh, okay.
+23:37
+I'm actually just going to scroll. Thank you for going in your bed, Indigo.
+23:43
+I appreciate it.
+23:50
+Okay. Write an algorithm that performs two tasks on an array.
+23:55
+Check if the array contains any duplicates and returns the total count of elements. So this is a compound.
+24:06
+Wow. I cannot compound algorithm. not algorithm compound
+24:14
+problem you're going to have two parts
+24:19
+part one is to I mean you can actually do either part in either order
+24:28
+but check for dupes and
+24:35
+total
+24:44
+So level zeros actually discuss why analyzing compound algorithms like this
+24:51
+requires understanding dominant terms in big O. So the big O of these two parts
+25:00
+is different. The big O for this one is going to be
+25:11
+I think it's n squ because you have to do two for
+25:19
+loops to just check for duplicates. This one is constant.
+25:26
+If you have a superior algorithm, this is constant time. However, it also
+25:33
+doesn't matter because in compound problems like we have here, the slower
+25:39
+of the two doesn't matter. The total big O for the entire problem
+25:47
+is the slower of the two because that will determine how fast it
+25:55
+goes at its worst, right?
+26:03
+So if this even with constant time it doesn't speed
+26:08
+this even with constant it doesn't speed this up
+26:14
+which means this is that the complexity for the entire algorithm.
+26:23
+So that's why this problem is here just to demonstrate that
+26:32
+uh another compound problem. First initialize the matrix by filling
+26:39
+all positions and then search the first row. Right? That's
+26:47
+That's pretty easy.
+26:56
+Initialize matrix and then search first row.
+27:08
+Well, since you know I'm not I'm don't need to go into the
+27:15
+actual coding part, but
+27:21
+this part is definitely a lower complexity class than
+27:28
+this because this
+27:34
+you have to go through the entire array. No matter what
+27:41
+it's not an array, it's a matrix. But which is automatically O to the N
+27:48
+squared, not not squared, but
+27:58
+I think it's just O to the N. It doesn't matter what it is. This is
+28:04
+going to be significantly slower. than this.
+28:11
+This if you do it right, you just find you already know what's in the matrix.
+28:19
+So you can just look at the
+28:25
+the width of the matrix. If the width of the matrix is bigger than the targeted
+28:34
+value, then the targeted value is in the first row. If not, then it's not in the
+28:41
+first row. Either way, doesn't matter.
+28:50
+I suppose you could actually check the first row,
+28:56
+but either way, its complexity class doesn't matter because it's faster than
+29:02
+the first one. Which means whatever the complexity class of this
+29:12
+what go whatever the complexity class of this
+29:19
+first part is will be the complexity class of the whole problem.
+29:34
+All right. So, the two sorting problems.
+29:48
+We have the two sorting problems. I'm just going to put them next to each
+29:53
+other here and selection sort. I mean there are the
+30:00
+two sorts later but first insertion sort right here
+30:09
+to sort an array of integers in ascending order. I mean you could do descending doesn't matter. the big
+30:16
+picture significance of insertion sort and why it's important to understand
+30:21
+despite not being the fastest.
+30:26
+So if I recall,
+30:32
+insertion sort looks at this nice array of values.
+30:38
+Doesn't matter what they are. I'm just going to
+30:45
+I guess it would help if they weren't in order already,
+30:51
+though. If they're in order already, we get best case, which is big omega. So,
+30:57
+yay. 5 3
+31:02
+8 10 2
+31:09
+7. Right. Here's here's an unsorted array. We want to use
+31:16
+insertion sort.
+31:26
+You know what? I'm just going to copy it
+31:35
+over there for when we do selection. So the
+31:42
+the main reason we use insertion sort and selection sort
+31:49
+is because they're good algorithms to know. Even if they're not the fastest,
+31:55
+they're still a very important learning tools and b we don't always need the
+32:03
+fastest. Sometimes it's okay to just use the
+32:09
+slower algorithm
+32:15
+because we don't have millions of inputs we need to check.
+32:21
+Also, if it's already sorted and you use one of these algorithms, it
+32:30
+the point is it may not be the best, but it's better than nothing.
+32:37
+And it's just good to know, good to use in certain situations where the inputs
+32:45
+aren't going to get huge.
+32:55
+So I guess to explain the differences between
+33:01
+them.
+33:08
+So insertion sort will look at this here.
+33:17
+insertion. So it will look at this first value
+33:24
+and and
+33:37
+maybe I'm misremembering. Hang on. So selection sorts
+33:43
+going to
+33:49
+brain one of these two algorithms
+33:56
+because for some reason I can't remember which
+34:07
+no okay So,
+34:20
+they both have two pointers. The I and the J.
+34:28
+The I J.
+34:34
+So, insertion. So, the J looks ahead. to find
+34:40
+the smallest value. So it will find the three, put it here,
+34:48
+swap them, then it'll move here. Yeah. So
+34:58
+insertion is find smallest and swap.
+35:08
+That's how insertion does it. It the J works ahead.
+35:15
+Selection sort works a bit differently.
+35:23
+It actually kind of starts here
+35:30
+and the J works backwards.
+35:35
+And it always keeps the current array sorted,
+35:42
+which is kind of weird.
+35:49
+I'm not thinking of the other sword, am I? Where are the other two?
+36:00
+Yeah. Okay, those are I'm thinking right.
+36:18
+So, selection sort will always keep the current array sorted.
+36:30
+Whereas insertion sort will just grab the smallest
+36:36
+the next smallest actually
+36:41
+I guess two smaller than
+36:48
+two 3 8 10 5 7
+36:58
+So that's how they differ from each rather
+37:03
+um
+37:10
+explain when selection sort might be preferred. Again, it's it's not the
+37:16
+fastest of the algorithms by any means, but it's still pretty good. Still useful
+37:23
+as a learning tool. Still useful in small input cases.
+37:30
+In fact, I think some built-in Java functions use selection or
+37:39
+they use insertion. One of the two like the array dots sort.
+37:46
+Is that the thing?
+37:51
+It might. Whatever, whatever I'm thinking of,
+37:57
+they're still useful on reasonably sized inputs
+38:05
+and they're good learning tools, which is why they are both used
+38:10
+and often preferred over the more complex
+38:16
+sorting algorithms that may or may not be faster. But we'll get to them when we get to them.
+38:30
+Factorial. Okay.
+38:48
+Factorial. Discuss
+38:59
+the fundamental trade-offs between recursive and iterative approaches to problem solving. Pink explain why
+39:06
+understanding both paradigms is essential in algorithm design.
+39:13
+So maybe I'll make this four.
+39:21
+So the recursive one matches the mathematical definition, right?
+39:29
+4 * 3 factorial = 4 * 3 * 2 factorial
+39:38
+= 4 * 3 * 2 * 1 factorial.
+39:47
+So this is a valid approach to doing things. In fact, recursion is
+39:54
+is preferred in some cases because it is
+39:59
+faster and sometimes it's easier to
+40:06
+just look at a look at a thing like this and be like,
+40:12
+"Oh, yeah, that's that's how recursion works." The recursive solution is more
+40:19
+obvious in some cases, especially with math,
+40:24
+especially when dealing with math problems where mathematicians think in
+40:29
+recursion solutions. It's a very valid approach,
+40:37
+very valid, very useful in a lot of cases.
+40:43
+However, it's also a bit harder to write recursion, especially if you're not used
+40:49
+to it. Write it as I I mean coded
+40:57
+versus the iterative approach, which would be 4 factorial
+41:04
+equals 1 * 2 * 3 * 4. You're building up from
+41:11
+the base. So you're going from one to n. Whatever n is.
+41:24
+This is often the easier way to code it.
+41:32
+It's not necessarily faster or slower, but especially for beginner programmers
+41:38
+or people who hate recursion like me, this
+41:45
+is the easier way to code it.
+41:51
+It's not better. It's not worse. Well, I mean it can be better or worse
+41:59
+because factorial does not factorial but recursion does require a call stack
+42:07
+that can get really unnecessary especially for simple problems like
+42:12
+this. Whereas if you just do the iterative approach
+42:20
+it's O of N. I don't know what the O of this would be. It's probably
+42:29
+that's the other issue. Trying to figure out the complexity class of recursion
+42:36
+is not fun. So that might be another reason why you
+42:42
+avoid the recursive approach.
+42:48
+Um, I hope that's enough of an answer for you on that one.
+43:04
+Come on.
+43:11
+On to question 10. the Fibonacci sequence.
+43:18
+Fibonacci sees.
+43:25
+So, Fibonacci goes something like 0 1 1 2 3
+43:33
+5 8. You're adding
+43:39
+the two. It's a smiley face.
+43:45
+The two values proceeding to get
+43:51
+the next value.
+43:58
+So as the question says there's the naive recursion, the
+44:05
+memorized recursion and the iterative bottom up
+44:14
+uh understanding dynamic programming.
+44:23
+So I I'm not gonna worry about the pseudo code here. But
+44:33
+if you give it like fib 8,
+44:38
+it's going a naive recursion. We'll look at fib 7,
+44:45
+fib 6.
+44:58
+How do I
+45:04
+let's just say we're trying to find the third recursion which is two.
+45:11
+Let's actually make it more interesting. Make it four. We want the fourth element.
+45:19
+Which means we have to add fib 3 plus fib 2.
+45:33
+But this means we have to add fib 2 plus fib 1.
+45:45
+And this is add fib 1
+45:52
+plus fib zero.
+45:57
+And these would all be base cases. I suppose if you really wanted to, you
+46:04
+could make fib 2 a base case because it's not that hard to do.
+46:11
+But you can see we're we're doing fib 2
+46:19
+twice and we're potentially doing fib one
+46:27
+twice. And every time we go up to a new
+46:32
+value of Fibonacci,
+46:38
+we're doing way more work
+46:47
+than we absolutely need to because that is that
+46:56
+and that is that. And you can see that as you do more and
+47:04
+more of those, you do more and more of the
+47:11
+smaller ones.
+47:17
+That's the naive recur recursion route is you just do all of them every single
+47:23
+time. And that's really annoying because who wants to do that?
+47:29
+The memorized recursion helps this situation
+47:35
+in that every time it does,
+47:41
+every time it calculates like say fib 3, it stores that in an
+47:50
+array at val at index three. So you can just
+47:56
+if you need it later
+48:05
+you just check the array instead of recomputing
+48:11
+everything. So that's the benefit of memorized recursion.
+48:18
+It's way more efficient.
+48:24
+Um, it's kind of an introduction to dynamic programming
+48:30
+where you're not just naively doing things over and over again because you
+48:36
+don't know any better.
+48:42
+Um, the iterative bottom approach is
+48:51
+slightly different from the two recursion approaches not slightly. It is
+48:58
+different.
+49:04
+Um so let me just write one one two three five eight.
+49:11
+So in iterative bottom up you start
+49:19
+with well you'd probably start with those two
+49:24
+and then calculate that one and then you'd
+49:30
+calcul you'd have those two and you'd calculate that one and then you'd
+49:37
+store those two and calculate that one. And then you'd have those two and you'd
+49:44
+calculate that one. Just ignoring all of this stuff because it's not necessary
+49:51
+anymore. And then
+49:57
+you have those two and you calculate the next one. And
+50:02
+that's the iterative bottom appro approach. you
+50:09
+I mean you could optionally store all of the previous values if you wanted.
+50:16
+You don't have to though because you're only really looking at the three most recent, the two most
+50:22
+recent and then calculating a third and then storing that and the previous
+50:32
+and I'm not going into the pseudo code but
+50:42
+there is a certain amount of ease of doing it this way.
+50:51
+Again, it's not really better or worse than the recursion method, at least the memorized recursion method,
+51:00
+unless you're dealing with one of the smaller values of Fibonacci,
+51:10
+but it's just another way to do it. It's
+51:24
+I I hope that was enough explanation for that.
+51:29
+Um, binary trees. Hello. Binary trees. We
+51:36
+have this tree with nodes coming off of it.
+51:45
+probably with more nodes coming off of that.
+51:54
+I don't know why I'm numbering those. Um,
+51:59
+discuss why self-balancing trees were developed and their significance in computer science.
+52:06
+So, this is a normal binary tree.
+52:16
+But if you there is an issue with these that you
+52:24
+could potentially just keep getting something like this forming.
+52:31
+So it's unbalanced. So
+52:40
+It starts looking more like a link list than a tree, which defeats the point of having the tree,
+52:54
+which is where the AVL3 comes in.
+53:01
+If it
+53:06
+If AVL, the AVL algorithm or whatever you want to call it, sees something like
+53:14
+this, where the tree is
+53:19
+leaning more towards one side than it is the other.
+53:26
+It will do this like rotating thing. Weird.
+53:33
+I still need to study how it does it some more.
+53:45
+But it will.
+54:10
+Um
+54:20
+I think it basically does
+54:38
+something like this.
+54:47
+No, that's not right.
+54:56
+So, it would leave with the zero and the two because they're fine.
+55:06
+It would leave
+55:21
+think it would leave the four there.
+55:29
+Um, the rotation is really weird.
+55:47
+The rotation's really weird. That's
+56:02
+I don't remember how it does the rotation. And I need to study that a bit more. But
+56:09
+the AVL tree will rotate nodes around
+56:14
+so that it looks more like a balanced tree again.
+56:42
+And actually, it probably would have started fixing it the moment that three was placed there
+56:54
+because it wants as balanced a tree as it can get.
+57:00
+It wants each path to be the same length.
+57:20
+So the only reason you self you balance a tree like this, however it balances
+57:26
+itself, is because if you try searching
+57:34
+a a tree like this for the five, it's
+57:42
+going to take significantly longer than say if the fives there.
+57:51
+I know that's not how the rotation works, but
+58:01
+if it's you get the point, right? If it starts looking like a linked list,
+58:12
+the efficiency is diminished
+58:18
+significantly than if it's just a normal
+58:23
+balance tree.
+58:28
+I think that should cover it for that. Uh the B tree.
+58:34
+So B trees
+58:40
+B trees can actually have multiple
+58:49
+multiple values in their nodes and can split off to more
+58:56
+than two children.
+59:06
+Let's just Oh, I don't know. 0 five.
+59:28
+They're basically just more advanced binary trees without the binary part.
+59:40
+And they can be self-balanced using the AVL method or something similar,
+59:50
+but they just make
+1:00:05
+These probably aren't good values for the tree, but
+1:00:11
+they're designed to be more powerful than normal binary trees.
+1:00:18
+They can hold more. They can make searching easier because there's less
+1:00:24
+branches it has to go through.
+1:00:30
+Not less branches, but I mean there might be less branches.
+1:00:38
+It just makes things more efficient and faster basically. I don't know how else to say that.
+1:00:48
+um compared data structures for storing
+1:00:53
+graphs. Um
+1:01:00
+so there were three ways to store graphs.
+1:01:12
+Let me just draw a sample graph.
+1:01:25
+There was this whole matrix thing where you have a b c d on both
+1:01:34
+axes and then you I know this is a very bad graph
+1:01:44
+but you would put a one in connections like A to C is good. A to B is good. A
+1:01:53
+to D is not good. D only connects to C.
+1:01:59
+B connects to
+1:02:09
+B connects to A and D. And the rest of these are zeros. C
+1:02:17
+doesn't actually connect to anything.
+1:02:24
+So, this was the
+1:02:30
+Oh my gosh, why don't I remember the name?
+1:02:35
+Some sort of matrix. Um,
+1:02:50
+some sort of like pairing matrix. No. Um, association
+1:02:57
+matrix. That doesn't sound right.
+1:03:06
+um not relationship matrix that's definitely not it um I don't know why I
+1:03:13
+don't remember the name but that was one of the approaches to storing the data
+1:03:21
+which has its benefits and drawbacks
+1:03:29
+but there was also an approach that looked like this where you just store
+1:03:37
+an array of arrays.
+1:03:43
+So we have an array of two element arrays.
+1:03:55
+B A B D
+1:04:04
+C.
+1:04:14
+So there was that approach, too. It's faster to find a match in this
+1:04:22
+version than it is to find a match in this version.
+1:04:30
+Um, but it's
+1:04:41
+this is more storage, but it's
+1:04:47
+easier to check if
+1:04:53
+No, it's easier to check here.
+1:05:01
+No,
+1:05:07
+they have tradeoffs. speed storage
+1:05:12
+um the speed at which you can add or remove things from either
+1:05:18
+representation. Um I know you didn't cover it but there was also a third approach
+1:05:26
+which was storing each node with a list of its
+1:05:34
+connectors like this.
+1:05:39
+I don't know why I don't remember the name of any of these things,
+1:05:49
+but this is an this is the matrix approach. This is the array approach and
+1:05:56
+this is a link list approach.
+1:06:01
+They each have their benefits. They each have their drawbacks. Whether it's how much storage they take
+1:06:07
+up in your memory, how fast it is to find a connection, how easy it is to add
+1:06:13
+or delete a connection, how
+1:06:19
+where's my mouse
+1:06:26
+how easy it is to follow a path through the graph. These are all things
+1:06:33
+to consider when choosing which approach you're going to take. There's tradeoffs,
+1:06:39
+there's disadvantages, advantages. I don't remember all of them,
+1:06:49
+but that's why you should consider the different things carefully because
+1:06:56
+tradeoffs. All right, question 14. We are.
+1:07:03
+Wow. 10 more. Okay.
+1:07:11
+So, I'm just going to draw a nice graph here.
+1:07:22
+That does not look so BFS is bet first.
+1:07:29
+These are both search algorithms by the way. And DFS is depth first.
+1:07:37
+So if I draw nice little graph here
+1:07:48
+and draw the same one on the other side.
+1:07:57
+So the the breath first breath blah blah blah blah blah
+1:08:06
+the BFS graph will look at well they'll both look at
+1:08:11
+the first one first but then the breadth first will
+1:08:19
+then check those two the two connected to the first
+1:08:28
+one and then it will check everything connected to those two.
+1:08:36
+So it always starts with a node
+1:08:43
+and checks every connected node to that original node.
+1:08:50
+And then it checks every node connected to those nodes
+1:08:58
+and so on and so forth. Whereas the DFS starts with one node and it just follows
+1:09:06
+a path all the way to its end
+1:09:15
+and then it goes back to the last intersection. Not intersection split.
+1:09:21
+and then it checks the other path.
+1:09:27
+And then it'll go back to the last intersection and check the other path.
+1:09:35
+And that's
+1:09:43
+that's how the two of those work. I mean,
+1:09:49
+it's kind of a matter of preference or what you're doing with them as to which
+1:09:55
+approach you'd want to take. Neither of them's better, neither of them's worse. They will both search
+1:10:04
+everything until you find the thing you're looking for.
+1:10:10
+also why we have sort uh AVL trees and other self-balanced ones
+1:10:22
+so that neither of these takes significantly longer than the others.
+1:10:38
+Uh I guess You want to you can say BFS is like a web
+1:10:53
+whereas DFS is
+1:11:02
+I don't know what sort of analogy to use on the DFS
+1:11:09
+It's It reaches as far as it can and when it
+1:11:16
+can't go that way anymore, it goes back and tries a different approach and then
+1:11:22
+it goes back and tries a different approach.
+1:11:32
+As a slight foreshadow, they are both greedy algorithms. They each choose the most optimal solution
+1:11:40
+at the time. It just so happens that DFS wants to
+1:11:46
+follow a path all the way and BFS wants to explore every path at the same time.
+1:11:54
+Like I have this node, I want all of these nodes. Now I want all of those nodes.
+1:12:02
+They each have their benefits, their disadvantages. They're about the same, honestly.
+1:12:09
+They're important to understand. 15 Dystra.
+1:12:18
+I just saw his name in my discrete math book, which was kind of a
+1:12:24
+shocker, though. I shouldn't be surprised. He is a famous mathematician.
+1:12:31
+Um
+1:12:37
+this is also where we get weighted graphs.
+1:12:44
+Um so let me just draw a weighted graph.
+1:13:05
+I mean just draw a weighted graph.
+1:13:21
+Let me assign arbitrary values. One, three, two.
+1:13:33
+We'll make each of these two. Make that one.
+1:13:43
+I don't know what that's going to result in, but
+1:13:49
+B C D E F
+1:13:56
+I can't. You're cute.
+1:14:04
+All right. So a normal breadth first search, a normal
+1:14:11
+BFS would look at A. Then it would look at B and C because they are connected to
+1:14:16
+A. And then it would look at D and D because
+1:14:23
+they are both one away. And then it would look at F, right?
+1:14:31
+But Dystra Dystra would prefer
+1:14:38
+I'll use a orange one. Dextra would prefer to start here because
+1:14:43
+we're going to start here regardless. Then Dystra will look at the
+1:14:49
+the least weighted
+1:14:55
+path and search that one. And then it will look at
+1:15:03
+the next least weighted option which I guess in this case I made two of them.
+1:15:12
+So, it will arbitrarily choose this one first and then it'll choose that one
+1:15:25
+because they're both the same.
+1:15:31
+Let's just do that. And then it'll look at for the next
+1:15:38
+short next least weighted which is actually the C.
+1:15:46
+And then there's only one option left the F.
+1:15:57
+So, Dystra is important not just because
+1:16:03
+it searches weighted trees like that, but it also
+1:16:08
+finds the fastest,
+1:16:13
+maybe not fastest, but shortest path to a destination.
+1:16:23
+Like let's let's say we're going to E because why not.
+1:16:30
+Normally you'd have to
+1:16:39
+well if you go this way to E, you're going 314.
+1:16:49
+But if you go this other way,
+1:16:56
+oops, I wasn't trying to hit my square.
+1:17:02
+If you go that way, you're only hitting three, which is the minimum distance you
+1:17:08
+can use to get to E. But if you remember how we did
+1:17:16
+dystra, we searched this
+1:17:22
+and we searched the shortest distance and then the shortest distance and then
+1:17:27
+the shortest distance and oh look the value we're searching for. So
+1:17:37
+so it did. So that's the importance of dystras
+1:17:43
+is it searches the thing and finds the shortest path to the thing
+1:17:53
+while also being a really nice example of a greedy algorithm
+1:17:58
+because it's always choosing the path of least resistance.
+1:18:05
+Um 16 minimum spanning trees.
+1:18:13
+Oh, I don't remember which one's which
+1:18:38
+So a minimum spanning tree by itself is just
+1:18:47
+a graph with all nodes
+1:18:55
+and only the shortest paths.
+1:19:05
+to each node.
+1:19:11
+So I guess for my example graph
+1:19:20
+B
+1:19:36
+See?
+1:19:43
+Um, one, three,
+1:19:49
+two. What's the fastest way to D? Is it?
+1:19:57
+It's still B. Of course, it's still B.
+1:20:03
+My handwriting is just getting sloppier.
+1:20:10
+That's a two.
+1:20:26
+So that would be a minimum spanning tree of my original thing.
+1:20:32
+It just removes all of the unnecessary steps and keeps the shortest paths.
+1:20:39
+Um,
+1:20:53
+so Prim and Pushka, not Pushka, Kusco.
+1:20:59
+Prim versus Kuscoll.
+1:21:06
+So, prim starts with a random one.
+1:21:19
+Starts with one and the then grows the tree.
+1:21:28
+Whereas crucible
+1:21:36
+Um,
+1:21:46
+it's the
+1:22:16
+So prim would start let's say with the A because
+1:22:21
+we can start with the A and then it would
+1:22:28
+look at that and then it would Look at that and that
+1:22:43
+and then that and then that.
+1:22:48
+kind of similar to Dyster, I think, where it just
+1:22:55
+looks at its available nodes and finds the shortest next path until it has all
+1:23:01
+the nodes. And then Cusco,
+1:23:08
+let me switch to blue just so it's obvious.
+1:23:15
+Gus starts with each of them
+1:23:26
+and then finds the shortest paths that way. Look, there's a one. How about twos? We
+1:23:34
+have a two there.
+1:23:42
+We have a two there. We have a two there.
+1:23:56
+I think I did something wrong. But
+1:24:06
+so it's supposed to do that
+1:24:12
+the minimums
+1:24:34
+I think it does. That is that actually
+1:25:00
+I think it does something like that. I know you can't really see
+1:25:06
+Prim anymore, but that's basically what they do. Prim starts with one and grows
+1:25:14
+and Crucible starts with all of them and slowly merges them together.
+1:25:23
+So,
+1:25:28
+oh, that was level one. Oops. Um, why are they important?
+1:25:35
+Because they help you find the
+1:25:43
+shortest distances.
+1:25:54
+That's why because they help you find the shortest distances. Um 17
+1:26:06
+greedy algorithms for activity selection and fractional napsac.
+1:26:15
+So level zeros just discuss why greedy algorithms produce optimal solutions
+1:26:22
+sometimes. Um so a greedy algorithm is
+1:26:31
+essentially just an algorithm that makes the most optimal choice
+1:26:36
+every single time.
+1:26:42
+Is A or B better? Well, A is better, so pick A. Is C or D better? Well, D is
+1:26:49
+better, so pick D. Is it always chooses the
+1:26:56
+Now I have both cats. Hi. It always picks the most optimal choice
+1:27:02
+at any point, at every point.
+1:27:11
+the only time well not
+1:27:18
+that's that's why things like the fractional knapsack
+1:27:24
+are good for greedies because if you have an array of things I
+1:27:30
+know I'm not writing anything but if you have an array of things each with a
+1:27:38
+yeah let me write things. An array of
+1:27:48
+cat, you are going to sit right there, aren't you? Can you see him? You can't
+1:27:53
+see him.
+1:27:59
+So, no, you can't sit on my tablet. Say hi.
+1:28:11
+Hi.
+1:28:24
+Sorry, we're taking a short cat break.
+1:28:32
+Sorry. All right. So,
+1:28:43
+210.
+1:28:57
+So, I imagine this is the vacc. Imagine
+1:29:04
+we have an array of values, array of things,
+1:29:10
+array of tupils if you will, where each
+1:29:17
+value in the tupil represents a value and a weight.
+1:29:23
+I should actually do weight. No, make them value and weight.
+1:29:33
+To get the most bang for your buck, if you will,
+1:29:39
+you would obviously want to find the ratio of
+1:29:47
+value to weight and then grab the highest ratio.
+1:30:03
+Wow, these. So, you'd grab that one first because
+1:30:10
+it's the highest ratio. By the way, NAPSAC
+1:30:31
+Yeah, you get where I'm going with this.
+1:30:38
+So, you have an abstract that holds three.
+1:30:48
+Let's just make it seven.
+1:30:58
+because I made that weight. So, you'd grab
+1:31:05
+the thing with the best ratio and then you'd grab part of the second best ratio
+1:31:12
+and that would get you the most bang for your buck.
+1:31:25
+U maybe it's better if I use the activity thing.
+1:31:31
+Activity selection problem. So we have this chunk of time which is an activity.
+1:31:38
+We have this chunk of time which is an activity. We have
+1:31:44
+this chunk of activity. this chunk of activity and this chunk
+1:31:52
+just to so in this case there's actually a
+1:31:59
+couple greedy solutions greedy algorithms that could be used
+1:32:05
+like you could go first activity
+1:32:18
+next first activity, which would give you
+1:32:24
+that. And then you'd still be able to do those two.
+1:32:34
+Um there's also
+1:32:43
+two shortest
+1:32:50
+which gives you the four of those which is fine. There's also
+1:32:59
+I think there were four you gave but the most the best one was the
+1:33:11
+how to deal with the choosing nearest end time. I think I'm going to
+1:33:18
+review the video, but this is just
+1:33:26
+just showing how greedy algorithms can work. If you choose the nearest end time, you
+1:33:33
+still choose the nearest. Well, you that one would already be
+1:33:40
+parked off. You still choose those four.
+1:33:55
+You still choose
+1:34:01
+the four of those activities.
+1:34:13
+So that's kind of an overview of greedy for those two problems.
+1:34:18
+Um
+1:34:32
+the there are times where you don't want to use greed's algorithms.
+1:34:42
+I think we get to that later.
+1:34:54
+But just to briefly cover it now,
+1:35:00
+the reason you wouldn't choose a greedy algorithm is anytime you need to
+1:35:07
+second guess a choice you made,
+1:35:14
+like if you made an optim optimal choice at step one and then at step 20 you need
+1:35:21
+to go back and rethink the optimal choice you made back in step one.
+1:35:28
+It's no longer greedy algorithm. It's starting to become a normal search
+1:35:34
+problem which defeats the po purpose of greedy.
+1:35:43
+Um hopefully that was enough explanation.
+1:35:49
+The merge sort. Ah yes
+1:35:54
+using recursion. Both of these quick sort and merge sort
+1:36:01
+are both using recursion to
+1:36:07
+sort things.
+1:36:16
+I don't really like either, but that's partly because I don't like recursion.
+1:36:23
+Merge sort kind of makes more sense to me.
+1:36:28
+Let's just give it an array of
+1:36:33
+arbitrarily chosen values. That was a bad bracket.
+1:36:46
+So merge sort will
+1:36:51
+break this array into
+1:36:59
+separate halves and sort each of those halves
+1:37:04
+before Well,
+1:37:10
+it will continue breaking until
+1:37:27
+depending on how you code your merge sort. It could stop
+1:37:32
+at this level where there's two
+1:37:37
+But the classic example goes all the way down to just one value in the array. And
+1:37:44
+then it merges and sorts them as it goes back up.
+1:37:55
+Um,
+1:38:02
+divide and conquer itself which is the basis of both merge sort and quick sort
+1:38:08
+is a very important thing to understand in
+1:38:15
+coding because especially with larger problems you have
+1:38:20
+to divide it up into smaller bits. You can't just solve the big problem
+1:38:28
+at one go. I mean even all the way back
+1:38:33
+back here where we are making the compound algorithms,
+1:38:39
+you can't write an algorithm that does both of those things at the same time.
+1:38:46
+It's not practical. I mean, you could theoretically do it. It's not practical
+1:38:53
+though and it's not usually how our brains think. But if we break the problem
+1:38:59
+into smaller bits like we can see happening with merge
+1:39:04
+sort the pro this big problem gets broken
+1:39:10
+into smaller bits until it's of a manageable size and then all of the
+1:39:16
+solutions are combined back together into the
+1:39:25
+correct solution. So just always always divide and conquer
+1:39:33
+especially if the problem seems too complicated at first. Just break it down
+1:39:39
+into smaller problems that will
+1:39:47
+that will help just the thinking coding process.
+1:39:53
+Um, merge sorts used everywhere.
+1:39:59
+Merge sort is literally used everywhere.
+1:40:04
+It can still be less efficient than some of the
+1:40:11
+uh other algorithms that we saw earlier
+1:40:17
+in its worst case. But
+1:40:22
+worst case would be it already being sorted in which case you do all of this
+1:40:27
+for absolutely nothing but it's used everywhere.
+1:40:34
+Same with quicksort which operates slightly differently.
+1:40:46
+Quicksort randomly picks a pivot point
+1:40:56
+and then it does lower and upper.
+1:41:01
+Not upper, higher.
+1:41:10
+Three, two, one.
+1:41:32
+I Just
+1:41:50
+notice I try dragging higher or upper again.
+1:42:14
+I didn't explain that at all. So quick sort
+1:42:21
+grabs a random value from the array or I
+1:42:27
+guess it's an array that you're trying to sort. Grabs a pivot, puts everything lower
+1:42:33
+than that pivot into another array.
+1:42:38
+Grabs everything higher than the pivot into an array and then recursively
+1:42:45
+does that on both the lower and higher arrays. And
+1:42:50
+then once they come back, we already know that the lower array
+1:43:03
+lower pivot and then high is the order they go in.
+1:43:23
+So they're already sorted by the time they get back to the top. Um,
+1:43:31
+in practice it can have better performance
+1:43:40
+because of what I just demonstrated kind of here.
+1:43:45
+It can accidentally choose a good pivot. I mean, a better pivot would have
+1:43:51
+probably been three. Then you would have gotten the
+1:43:57
+two and the one and then the five and the seven and then you
+1:44:02
+split those. But
+1:44:14
+so you could potentially get fewer
+1:44:22
+fewer recursive steps than merge sort.
+1:44:32
+You could, but you're not guaranteed to because you could also
+1:44:39
+that's like best.
+1:44:44
+Worst is choose like one
+1:44:50
+for your pivot and then have the entire rest of the
+1:44:56
+array. and then choose
+1:45:03
+another single value out of the array and do the whole process again and again
+1:45:10
+and again. That's the worst case that takes
+1:45:17
+significantly longer than any other algorithm. But if you look out,
+1:45:25
+if you happen to look out with good pivot choices like the five or the
+1:45:30
+three, it can be faster than merge.
+1:45:36
+It can not always. That's why it's
+1:45:43
+that's why it's a big Omega is higher faster than merge. short it
+1:45:55
+big theta is about the same but it's big O is
+1:46:02
+significantly slower. Um
+1:46:11
+question 20.
+1:46:20
+Question 20 is dynamic programming solution to napsac.
+1:46:34
+So, let me
+1:46:43
+back when we had the fractional knapsack.
+1:47:22
+Sorry, my hair. So, back when we had the fractional knapsack, we'd look at
+1:47:29
+something like this straight line. Not what I was trying.
+1:47:36
+We'd let me just
+1:47:43
+We'd look at something like this and we'd go, "Oh, well, that's a good that's
+1:47:49
+a good that's a good Well, we still have space. So, let's take one of those."
+1:47:58
+All right.
+1:48:04
+By the way, wait value
+1:48:10
+That was fractional napsac. So we'd get
+1:48:18
+3 + 3 + 3 + I don't know 110th of five. No 1/5 of 10
+1:48:29
+two right. So pretty good. But if we switch to the 0
+1:48:38
+the 01 appsac
+1:48:48
+if we switch to the 0 one knapsack we can no longer take
+1:48:54
+actually I didn't want to
+1:49:04
+We can no longer take part of that one. We have to either take
+1:49:10
+it or leave it. In which case the greedy algorithm fails.
+1:49:17
+Because if we just take the best ratios, we end up with nine
+1:49:28
+and we lose out on the 10,
+1:49:35
+which is not good. That's not what we're trying to do.
+1:49:44
+So the dynamic programming solution,
+1:49:52
+I don't actually have to code it, which is good because I don't remember the code for this,
+1:49:58
+but we'd want to somehow compare what happens if we took
+1:50:11
+This one
+1:50:18
+we want to compare what happens if we took this one
+1:50:25
+verses.
+1:50:43
+I don't think my example really helped there.
+1:50:54
+That was supposed to be weight. That was supposed to be value.
+1:51:21
+Dynamic programming. We'd want to see all of the options.
+1:51:27
+So, what happens if we just took that or we just took two of those?
+1:51:35
+Oh, we just took I don't know what if we took one of these and two of these.
+1:51:50
+Or what if we wanted maybe I don't know just that what if we
+1:51:58
+just took one of those or took that and three of those or
+1:52:05
+basically dynamic programming the solution would
+1:52:11
+let you explore all of your options without taking all of the time.
+1:52:21
+You'd want an optimal algorithm that could accurately explore
+1:52:28
+your options without taking the time
+1:52:35
+to test every single combination because I mean we have four items here.
+1:52:43
+The total options
+1:52:49
+is 4 to the 4th. No, right?
+1:53:00
+No, just four squared. It's 16. There's 16 total options right there.
+1:53:08
+We don't want to compare them all. That takes so long.
+1:53:17
+Wait. No.
+1:53:26
+A B C D
+1:53:44
+Yeah, it's 2 to the 4th.
+1:53:51
+There's 16 options. You do not want to check all 16 of those options.
+1:53:58
+You would ideally like to do it faster, which is where the dynamic programming
+1:54:04
+thing comes in.
+1:54:10
+I will have to study the code for that but that's not part of this. So moving on to question 21
+1:54:18
+the longest common subsequence. So I just need to discuss the
+1:54:25
+significance of LCS
+1:54:32
+OCS.
+1:54:42
+Wow, that was an awful box. LCS
+1:55:05
+Um,
+1:55:10
+let me just A B C D E F
+1:55:25
+B D F.
+1:55:34
+So between these two,
+1:55:40
+what would the longest common subsequence be? It would be
+1:55:49
+Let me just make this more interesting.
+1:56:01
+Just make that more interesting. The longest common subsequence is B D
+1:56:13
+G.
+1:56:20
+Because it doesn't matter if there are letters in between them
+1:56:26
+as long as they are in the right order and both exist in the same string.
+1:56:38
+That is all that matters for the LCS.
+1:56:44
+So they're important mainly for comparing two things.
+1:56:54
+You had mentioned that in like biioinformatics
+1:57:00
+if you're comparing like two gene DNA structures and you want to see how
+1:57:06
+similar they are, you would find the longest common subsequence
+1:57:13
+because that would tell you how similar they are. This one has I don't know 20 in common
+1:57:22
+with this one whereas this only has
+1:57:32
+15 in common with this other one. So
+1:57:38
+I guess for like DNA testing or stuff like that,
+1:57:46
+that would be useful in version control, just seeing what's changed between the
+1:57:52
+two versions. Like if I were to open GitHub right now, I'm not going to, but if I were to open
+1:58:00
+GitHub and look at the lines of code,
+1:58:09
+GitHub would be like, well, all this is in common between both. This part
+1:58:15
+changed and this is what it was in the other
+1:58:20
+document. And but all of this is the same too. And some of this is the same.
+1:58:27
+And so it really helps in that regard because it makes comparing changes way
+1:58:35
+easier. And I mean just in general when you're
+1:58:43
+comparing two things you want to see how common they are.
+1:58:51
+Like if let's just
+1:58:58
+let's just take Spotify for example or a music player because we're not
+1:59:06
+we're not sponsored by Spotify. This midrim was not sponsored in any way by
+1:59:11
+Spotify. Thank you. Um let's say you want to compare two
+1:59:16
+playlists to each other. Well, how would you do that? You would look for the least the longest common subsequence.
+1:59:25
+This song, this song, this song, these songs are all also here in the same
+1:59:31
+order. Maybe with things in between them, but they are all there in some
+1:59:37
+capacity in order. So it can just be used in any any place
+1:59:46
+any anytime you want to compare things LCS is the way to go.
+1:59:55
+Um, also I should note that
+2:00:02
+A and D are also a subsequence in there, but and
+2:00:12
+G, I guess. So that's a long subsequence.
+2:00:28
+I guess those are both longest common subsequences.
+2:00:33
+In which case, I don't know what to do if you have two or three. But
+2:00:41
+that's the point. You're you're comparing things. That's the significance. Question 22. We're almost there. Two
+2:00:50
+hours in.
+2:00:55
+um maximum flow with Ford
+2:01:02
+and then that okay
+2:01:08
+so I'm going to draw another graph because this class loves its graphs
+2:01:26
+Yes, it's horizontal this time. One. One.
+2:01:33
+Five. Two. Three.
+2:01:51
+I was trying not to make those the same here.
+2:02:02
+Okay, I just do it again. 10
+2:02:09
++ 8. Okay, that's fine.
+2:02:22
+So, Ford focus is all about maximum flow. How much stuff can we get from the
+2:02:30
+source to the target? Where are the bottlenecks basically
+2:02:37
+which is what Ford Fersonen is trying to figure out
+2:02:45
+because theoretically we could get 10
+2:02:50
+in here but we can only send out three here.
+2:03:01
+I really need more space.
+2:03:11
+So Ford Fork tries to figure out where the bottleneck
+2:03:18
+is. What is preventing things from going through?
+2:03:24
+So they're like, "Well, what if we slice it right there? What's the slice on
+2:03:30
+that? That's 10. That's okay. Well, what if we slice it there?
+2:03:36
+Well, that's five. Well, what if we slice it there? That's three. Oh, look. That's the bottleneck. That right there
+2:03:44
+is the most we can expect to ever get into this target.
+2:03:58
+That's the main cut. the place you can cut the graph to get
+2:04:04
+the minimum amount of
+2:04:10
+whatever you want to call that. I could draw another example too. Um,
+2:04:18
+we'll make it diagonal this time.
+2:05:05
+That is one busy box. Um
+2:05:10
+I am going to make my life really difficult, aren't I?
+2:05:16
+Four, five, 6 7 8 9 10.
+2:05:27
+So here source target
+2:05:32
+I mean the source and target don't have to be opposite sides but Ford comes in
+2:05:40
+here and says well where can we slice this
+2:05:45
+where can we slice this where can we
+2:05:52
+I don't know what happens if we slice there or slice
+2:05:58
+there or I don't know what if we just slice there
+2:06:10
+or there. Which of these is going to be the smallest value?
+2:06:18
+I'll tell you the answer is right there. It's
+2:06:26
+because of the way I did this that is going to be the smallest cut
+2:06:35
+which is also the amount we can expect into the target down there.
+2:06:45
+So that's basically what Ford focus is doing. It's trying to figure out what is
+2:06:50
+the maximum flow you can get into the target. Well, that's just the minimum
+2:06:57
+cut you can get on the graph itself.
+2:07:06
+I hope that was enough for you.
+2:07:12
+Speaking of oh things were not sponsored by
+2:07:21
+the final question set three set and NP complete
+2:07:29
+discuss the significance of the following P NP NP complete
+2:07:35
+and then discuss SAT three SAT and two SAT
+2:07:58
+So let's start off with the P
+2:08:06
+NP and NP complete.
+2:08:14
+P represents every problem that can be solved in
+2:08:21
+polomial time.
+2:08:26
+NP is just every problem in existence.
+2:08:36
+We don't know if the two overlap. It could look like this.
+2:08:42
+Well, it doesn't look like that.
+2:08:47
+Well, we don't know. That's the point. It could be P NP.
+2:08:55
+It could be P / NP. It could be
+2:09:02
+P and P. We don't know. We don't know what that
+2:09:08
+relationship looks like. Um,
+2:09:22
+NP complete is
+2:09:30
+How do I explain this? The reduction.
+2:09:40
+So we have all of these NP problems that we haven't solved, right? That we
+2:09:46
+haven't solved in polomial time. Well, all of those problems
+2:09:54
+can be logically reduced to a another problem.
+2:10:03
+So if we solve this lower problem.
+2:10:16
+So if we solve this lower problem we can in polomial time I should say
+2:10:26
+also this reduction
+2:10:35
+that's the important time it has to first reduce in polomial time to this
+2:10:42
+nplete problem.
+2:10:48
+This NP complete problem is still in NP
+2:10:55
+but it's a reduction of the bigger NP problem
+2:11:03
+by a matter of polomial time
+2:11:09
+which means that if we solve the NP complete problem in polomial time
+2:11:26
+then this is also solvable in polypnomial time.
+2:11:35
+This goes back to that discussion about compound algorithms and how
+2:11:44
+the slowest portion, the most complex portion of the problem dictates
+2:11:52
+what complexity classes it's in.
+2:11:57
+So right now all of these NP nplete problems are in
+2:12:07
+NP because their fastest most efficient
+2:12:14
+algorithm is in exponential time is in O to the
+2:12:23
+2n time.
+2:12:29
+But if we can find a more efficient algorithm
+2:12:36
+perhaps even n^2 or n to the cube. If we can find
+2:12:44
+some solution in one of those two or even higher complexity, lower
+2:12:52
+complexity, closer to constant time. If we can find anything closer to constant
+2:12:58
+time,
+2:13:07
+then that will
+2:13:13
+That will mean that it will be a bid between whatever that is versus whatever that
+2:13:20
+is. These are both poly time
+2:13:28
+polomial time I should say. I shorten it to poly time.
+2:13:34
+But whichever one of those poly time
+2:13:41
+algorithms is slower will then be the complexity class of the problem.
+2:13:52
+Thus making the problem a inp.
+2:14:09
+So that brings us to our sats.
+2:14:25
+That was bad.
+2:14:31
+So the SAT problem um
+2:14:37
+is in NP. The SAT problem itself is NP as is
+2:14:43
+three set. these two problems.
+2:14:50
+Well, SAT actually poly time reduces to three sat,
+2:14:56
+but they're both in NP, so it doesn't help us any.
+2:15:01
+But and but three set does seem like a
+2:15:06
+simpler version of SAT which is why we reduced it in the first place because
+2:15:13
+maybe we can solve the
+2:15:20
+solve the easier version. By the way, the that problem is just
+2:15:28
+we have a bunch of ands of ores.
+2:15:34
+Don't know why I didn't mention this sooner. So, we have
+2:15:40
+I don't know A or B
+2:15:45
+and C or D or
+2:15:56
+Don't judge me for writing an A there or don't know
+2:16:03
+E or F or G or H.
+2:16:10
+So the SAT problem itself the main the original SAT problem
+2:16:16
+tries to find a satisfiable
+2:16:22
+that's where SAT comes from satisfiable solution to this problem to make this
+2:16:28
+either true or just never true false forever false or
+2:16:34
+forever true. Is there any combination of values that
+2:16:41
+makes that true or is it impossible?
+2:16:48
+The problem is trying to find
+2:16:54
+that set of values requires you to check every single value as true or false
+2:17:03
+which is easily exponential time.
+2:17:09
+which is why it's in NP because we haven't found any way to check that
+2:17:14
+faster than NP. Three sat we figured out
+2:17:24
+can be reduced from SAT but as opposed to SAT.
+2:17:33
+It only has three different values
+2:17:40
+in its or statements. I keep writing a.
+2:17:46
+There can only be and will ever be
+2:17:52
+three values being compared
+2:17:57
+in the ors and there can be an infinite number of hands. That's that's not the issue.
+2:18:08
+We still have to figure out which values satisfy that statement.
+2:18:17
+Also, I failed to mention it, but one of these could be like not A or not B or
+2:18:29
+you can have the knots in there as well as the values themselves.
+2:18:34
+So that's three set. It's always and forever three values in each set of
+2:18:45
+things each set of ores. Then the two set.
+2:18:54
+Now this is where it gets fun. The two set we haven't been able to prove if it's
+2:19:03
+polomial time reduction of either set or three set. We haven't been able to prove
+2:19:11
+that. What we do know about Tusat, aside from the fact that it is always
+2:19:20
+and forever sets of two
+2:19:27
+sets of two booleans
+2:19:34
+is that it's in P. We know two set is in P.
+2:19:46
+But set and three set are both an NP. Three sets NP complete. But
+2:19:59
+so the significance here is just understanding the differences between
+2:20:06
+PNP and NP complete. And
+2:20:14
+if set polomial time reduces to three set
+2:20:23
+and if we could somehow figure out how to polomial time reduce three set to two
+2:20:29
+at
+2:20:44
+that would be a major major breakthrough but we haven't been able to do it yet or
+2:20:51
+if we could prove any of the other nplete problems are in P that would also
+2:20:58
+be a major breakthrough. through, but no one's been able to do it yet. And that's
+2:21:04
+kind of where we're left right now with the question of is
+2:21:12
+every problem in NP also in P or is there a distinct boundary between the
+2:21:19
+two or is P a subset of NP or we don't know.
+2:21:28
+Uh that is where I will leave it. I think I answered well I answered all the
+2:21:33
+questions. I hope I gave you satisfactory answers to them all.
+2:21:39
+I'm sorry this video is two and a half hours long. Um
+2:21:48
+thank you I guess and I will see you during the next study vlog. Okay. Bye.

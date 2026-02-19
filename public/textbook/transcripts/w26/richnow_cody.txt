@@ -1,6 +1,586 @@
-Cody Richnow
-Email: CodyRichnow@student.olympic.edu
-Student ID: 203043948
-Section: 9072
-Last Submission: Feb 9 at 9:13pm
-Duration: 14:15:57
+0:00
+Okay, let's try this again. I just made it through seven problems without
+0:06
+uh turning on my microphone. So, time to do it again. Uh, and this is my midterm
+0:15
+uh for CS33 data structures and algorithms. So, data
+0:20
+structures and algorithms from simplest to most complex. So for data structures
+0:26
+uh you're going to have your datams uh your tupils your arrays lists
+0:35
+trees and graphs. So your datams are going to be things like uh ins boolean
+0:42
+strings. Tuples are going to be like your fixed order datams
+0:49
+and the arrays are going to be your fixed collections.
+0:56
+Lists are going to be unsorted no uh dynamic collections.
+1:02
+Uh so that's like linked and array lists and trees are going to be uh hierarchial
+1:10
+spelled it right this time. I didn't spell it right last time. Uh hierarchal trees
+1:16
+uh no hierarchal structures
+1:22
+uh with they have O login time complexity when searching
+1:31
+and graphs are going to be your uh network of nodes node edges and
+1:39
+vertices. uh representing relationships.
+1:45
+Uh so for time and space complexities I believe you start at 01. Yep. So 01 is
+1:52
+just your base. Uh that's like um just array access
+1:58
+and hash hashing array access. Then you're going to have your O
+2:06
+login. O log of N that's going to be for binary
+2:14
+search and O N is for linear search
+2:21
+linear search and login
+2:27
+I can't get that sorted and log in
+2:33
+and
+2:38
+O N squared uh sorry O N login is for efficient
+2:45
+sorting. O N squared is for simple sorting nested loops and then O N to N
+2:54
+is for complex algorithms and things like recursion.
+3:02
+recursion uh implement an algorithm that returns
+3:08
+sum of the numbers from one to n and discuss the big picture significance. Uh
+3:13
+so really the big picture significance is there's a bunch of different ways to
+3:19
+perform uh that problem.
+3:25
+And they all can have uh depending on how you implement your algorithm, it can
+3:33
+have uh different time complexities and space
+3:38
+complexities. So uh it's just about choosing the most efficient algorithm
+3:45
+for that uh for your problem that you're trying to compute. Uh then discuss
+3:51
+significance of
+3:58
+of of big O, big omega, and big theta. So when searching for a target value in
+4:06
+an unsorted array since it's unsorted, uh you could have to go so you have your average case. Uh your average case is
+4:13
+where you have to search about half the array and that's going to be your uh theta big theta notation. So on average,
+4:20
+you will have to search at least half the array to find it. uh your big omega
+4:26
+is going to be when you get the your the element you're looking for is the very
+4:31
+first one in the array and then big O notation is going to be where you
+4:38
+have to check the very last element or the element isn't contained
+4:45
+in that array. So yeah bigo last element or not there big
+4:53
+omega is first element and big theta is uh
+4:59
+the average case for sorting exactly half
+5:04
+uh minimum value in an unsorted array. uh for this you have to so
+5:12
+for this one it's always going to be that uh big O N since you have an
+5:18
+unsorted array and you're looking for the minimum value you always have to search to the very last element because
+5:25
+uh you don't know where the smallest value is in the array. Uh so the best,
+5:31
+worst, and average cases are all the same. And it's going to be data notation
+5:37
+instead of the big O and big omega.
+5:46
+Uh algorithm that performs two tasks. We're checking an array for duplicate values and returns
+5:53
+the total count of elements in the array. So the total count of elements in the array is going to be
+5:59
+Big O N might be able to write it here.
+6:06
+Delete this.
+6:13
+Okay, whatever. Not deleting. So,
+6:18
+uh, sorry. Turns total count. So, the total count of the elements is going to be the
+6:25
+big O. And then checking the array of duplicates, you have to basically do it twice. So it's going to be N squ and
+6:32
+then when you add them together, you get
+6:38
+O N 2 + N. And then uh kind of something
+6:45
+you learn in calculus. This is going to drive the equation. So you can kind of
+6:51
+just cancel that out and becomes O N squared.
+6:56
+So for example, we'll say this is 100. It would be O 10,000
+7:05
+plus 100. So that's really driving the array. So this
+7:11
+is kind of negligible whenever you get really high in the uh
+7:17
+in values. Uh same same com uh same concept with
+7:25
+this one. Uh so initializing the matrix uh and filling the values just going to
+7:31
+be this O N squared. Uh and then searching the the first row for a
+7:36
+specific value is going to be O N. So same concept the O squ is going to be
+7:41
+driving the array and uh the dominant term is going to take over this N squ
+7:53
+implement insertion sort array of integers in discuss big picture
+7:58
+significance of insertion sort why it's important algorithm uh
+8:08
+So insertion sort it's you're going to have best case scenario of O if the array is
+8:16
+sorted. So you only need in uh compares
+8:22
+that works. Uh so best case scenario is O if the
+8:28
+array is sorted. So it's going to have to compare uh between the elements that
+8:34
+you're inserting in. Uh but your worst case is going to be the O N squared if
+8:40
+the array is reverse sorted. Uh so there's going to be a bunch of shifts
+8:46
+that are needed. Uh and then your average is going to be that O to N squared. Uh where half of the elements
+8:52
+need to be shifted as well. uh the performance of that uh selection
+8:58
+sort or sorry insertion sort is going to entirely depend on how many uh elements
+9:04
+need to be shifted uh and performance will improve with the sorting. So the
+9:12
+better the more uh elements that get added into because
+9:18
+it can sort the data as it arrives for insertion sort uh and then the more sorting that happens it'll become a lot
+9:25
+more efficient so that uh time complexity will improve uh to that best
+9:32
+case once the rig is sorted. uh so some benefits it's
+9:40
+uh very fast for small arrays quick and
+9:46
+kind of it but it's not the fastest algorithm
+9:52
+uh selection sort okay selection sort differs conceptually from
+9:58
+insertion sort uh so in selection sort it's has the same case it's always o to
+10:08
+the n squ uh so it's best worse than average because it must uh scan the unsorted
+10:17
+to find the minimum uh value like we were talking earlier
+10:23
+uh performance doesn't improve with the partial sorting uh but it minimizes the
+10:28
+right operations and it always performs uh
+10:34
+in in minus one swaps
+10:40
+when it's doing the sorting.
+10:50
+Uh but the main thing is going to be that uh the difference between the insertion and
+10:56
+selection is going to be that uh time complexity where it's always this
+11:02
+for uh selection sort whereas you have a best case of O to the N for insertion
+11:09
+sort
+11:17
+both cursive and iterative of the factorial function trade-offs
+11:23
+between recursive and iterative approach. Uh so
+11:31
+time they're both over the n minus n.
+11:36
+Multiplication's required. Uh but space-wise they're different. Uh
+11:43
+recursion uses O to the N but iteration is only O to the one.
+11:51
+Uh recursion uses implicit state while iteration uses explicit state.
+11:58
+uh but you can use recursion for like tree traversals and graph traversals
+12:03
+whereas the iteration is used for the simple loops. So uh recursion is going
+12:10
+to be best for factorial as far as coding. uh
+12:16
+that's going to be the easiest to code because there's only several lines. Whereas the iterative uh whenever we did
+12:23
+it in Java was either one or two when we did iterative in uh through loops we did
+12:31
+factorial. I think it was Java one we did factorial and iterative it took a bunch of lines
+12:38
+and then in Java 2 we did in recursion it took very few lines maybe like five
+12:44
+lines total. So, uh kind of complexity, uh there's trade-offs.
+12:49
+Uh iterative uh could be quicker, but uh and recursion has the higher time
+12:56
+complexity, but the easier uh code wise, I guess.
+13:03
+Uh naive Fibonacci recursion
+13:12
+memorization Uh so naive
+13:20
+will recomputee the same value exponentially. So like um if you're
+13:27
+doing was it fib 2?
+13:39
+like fib two.
+13:44
+It has to uh
+13:50
+fib 2. Okay, sorry. Fib 2 in fib 5
+13:59
+fib 2 is calculated three times.
+14:04
+So uh the time complexity of O2 to the N
+14:09
+and can be really like troublesome uh
+14:16
+time and spacewise high complexity. Whereas if you're using the
+14:21
+minimalization uh it just computes each N. So fib
+14:29
+n it computes each n uh exactly once and then each time
+14:36
+there's an in that one is cached. So the performance is improved and it makes
+14:43
+single computations from overlapping sub problems.
+14:49
+Uh yeah. So each
+14:54
+so fib 2 would be cached, fib 3 would be cached and then it can kind of pull from that memory uh to
+15:02
+find fib 5 in this case.
+15:12
+Binary search trees with versus AVL trees. So binary search trees
+15:19
+discuss why self balancing trees were developed. Uh so
+15:24
+binary search trees can become unbalanced. Uh so regular time is o
+15:34
+log in when searching binary search trees uh but they can become unbalanced.
+15:40
+So you have your tree and then leaves coming off
+15:47
+and then once you have like that and say that's your tree it's unbalanced it becomes O to the N. Uh but if it's
+15:56
+balanced it's O log
+16:01
+N. So uh AL trees are selfbalancing.
+16:07
+uh so once it becomes unbalanced it'll automatically balance itself so you can maintain
+16:13
+uh that in log time
+16:18
+uh complexity and performance uh if like data is inserted in bad order uh so that
+16:25
+og guarantees some of the trade-offs are well really
+16:31
+the main trade-off is uh BSTs are fairly really simple to
+16:37
+implement. Uh but they can become so the pro is a BST is simple to implement and
+16:44
+the con would be it can become unbalanced. Uh for the ADL self-balancing tree uh they're pretty
+16:52
+complex to implement. But the con is that it selfbalances. So
+17:00
+uh that's kind of the two trade-offs.
+17:07
+explain bee trees uh
+17:12
+so they pack they pack
+17:18
+key a bunch of keys per node so to minimize tree height
+17:24
+uh so this is good for like external hard drives uh where data is stored in
+17:30
+large blocks so I was looking for a hard drive to But I don't have one.
+17:37
+Uh so it's where like hard drives are stored in large blocks. Uh it keeps the trees
+17:44
+really shallow by packing all those keys in the nodes. So there's not so like
+17:51
+this could be the entirety of the tree, but you have a bunch of uh keys in each
+17:56
+of these nodes. Uh so these shallow trees they minimize
+18:01
+the input and outputs and it's optimal for distor
+18:10
+uh because I think it matches the tree node size to
+18:16
+the disk block storage. That's
+18:22
+tree node side to dis block storage. [snorts]
+18:27
+My mic working? Yep. Compare data structures for storing
+18:33
+graphs. Discuss the big picture significance of graph representation and why.
+18:39
+Uh so it's really just determining if the
+18:45
+system uses megabytes or terabytes of memory. Uh so bad choices in your graphs
+18:50
+uh lead to things that can't fit into memory or have uh like a slower response
+18:58
+times for simple operations. Uh so based on your graph data structure
+19:07
+uh can kind of uh how that's stored can really affect
+19:14
+how much memory you're using whenever you're doing that storage
+19:23
+BFS and DFS algorithms traverse a graph discuss big picture significance of
+19:28
+draft graph traversal and why both BFS and DF BFS or fundamental algorithms.
+19:35
+Uh so BFS uses farm in farm out and it's good for like narrow
+19:43
+uh narrow graphs. Uh so there's short shortest path
+19:50
+algorithms. Uh and then DFS uses stack last and first out. So the opposite uh
+19:57
+it's good for the shallower graphs uh traversals and good for
+20:02
+uh top topolographical topological
+20:08
+uh algorithms both are good for
+20:17
+both are good for are important to graph traversal uh and they're like the
+20:24
+fundamental or
+20:29
+fun foundational ational pieces for graph
+20:35
+algorithms. That's just formula for shortest path
+20:41
+and discuss why the algorithm is significant and how it extends BFS.
+20:54
+This is one of the ones that I had trouble with. Uh so it
+21:01
+extends the BFS shortest path finding to weighted graphs.
+21:12
+Um I mean that doesn't really explain.
+21:17
+I just repeat the question. Uh
+21:25
+doesn't help but It enables things like GPS routing,
+21:31
+network packet routing, uh, and it'll update
+21:39
+when there's a shorter path found. So, if there's a shorter path found, it'll,
+21:44
+uh, via that Dystra's algorithm, it'll update, uh, the BFS and the way to
+21:51
+graph, uh, to show that shorter path. [snorts]
+21:58
+minimum spanning trees uh with prim and crucals.
+22:12
+[snorts] uh the minimum spangs trees they connect
+22:17
+vertices they connect all the vertices and edges in a way graph using the smallest cost
+22:26
+available uh and they solve
+22:32
+like issues where you want to stay continuously connected so network connections
+22:38
+uh and d design issues in those connections where you want full connectivity activity at the lowest
+22:44
+cost. Uh and for they're for global
+22:50
+optimization of the local choices.
+23:02
+Greedy alder algorithms sometimes produce optimal solutions, explain key properties, and make solutions
+23:09
+make a problem suitable for greedy solutions. Uh
+23:14
+so they sort through items based on their value and weight ratio. Uh and
+23:22
+they can produce optimal solutions by making the best
+23:30
+uh local choice that you have based on it uh height to
+23:37
+weight uh value to weight ratio at each step. So it lead those local
+23:48
+local uh choices optimal choices lead to global optimal solutions.
+24:00
+uh key properties uh
+24:07
+they make the best optical substructure where the optimal solutions are built from the suboptimal solution. So they're
+24:15
+taking those suboptimal solutions, combining them and finding a way to do the optimal versions of that
+24:26
+divide and conquer. Uh so it's just breaks large complex
+24:33
+problems into two halves. So if you have an array
+24:40
+of say this is your array
+24:45
+oops it'll break the array into pieces
+24:55
+and well for sure it only does in half. So
+25:06
+merge sort will break it into half and recursively sort each of these
+25:13
+uh and it guarantees o in log in time complexities.
+25:20
+So instead of having to go through the whole thing, it's it's quicker to actually break in half and sort those
+25:27
+two halves and then check it against each other. Uh so it's good for like
+25:34
+really large databases uh large sets
+25:39
+uh large uh
+25:45
+storage where you need optimal sorting. So uh just breaks that large sort into
+25:50
+two and then does the sorting
+25:56
+quick sort of faster than sort. Oh well so I forgot
+26:03
+to mention that you know after after divides into and sorts them it
+26:09
+merges it back together. So that's merge sort. [snorts] Uh quick sort is better
+26:16
+for the cache cache locality and uh smaller factors. Uh it sorts it in place
+26:24
+instead of breaking pieces. It sorts it in place. Uh but the average time case is in log in. So combined with uh
+26:36
+so quick sort does the average cases in login. So it does
+26:41
+less uh computationally than merge sort and
+26:48
+because it's doing less it can outperform uh merge sort quicker.
+26:55
+Dynamic programming
+27:10
+discuss why dynamic programming is needed for 01 naps problems exit optimal
+27:16
+substructure. Uh so when gritty strategies they aren't
+27:21
+working, you can do dynamic programming uh to explore
+27:30
+different choices uh while reusing the over overlapping sub problems. Uh so finds op optimal
+27:38
+solution uh contains
+27:45
+finds the optimal solutions to sub problems.
+27:56
+Optimal solutions to sub problems
+28:04
+longest common sub sweet discuss. Uh so LCS and biioinformatics and
+28:11
+version control. So version control is like GitHub. Uh biioinformatics is like
+28:20
+noticing changes across uh different generations uh like DNA
+28:28
+version controls like GitHub. You can use tools like uh diff to compare two different codes
+28:36
+to see uh lines that are changing uh between the sequences. So it'll show
+28:45
+you uh like if lines were added, words were
+28:51
+added, uh where words were added in line. So, it's good for things like uh
+28:58
+word comparison, uh data duplication, data erasing, uh
+29:05
+just seeing where uh
+29:12
+like changes you made in your code as you uh generated new
+29:18
+uh commits and GitHub full max flow problem. uh max flow
+29:25
+problem what it is I'll give a few examples
+29:32
+the max flow problem uh it asks how much
+29:38
+or how to send as much max and data flow as possible for a source uh to one of
+29:46
+the nodes uh where the edges of those nodes are at limited capacity
+29:54
+And uh it's trying to route the data through a com's network.
+30:01
+Uh so it's trying to
+30:06
+with with the max flow as possible. So routs network with max flow as possible.
+30:12
+Uh it's good for things like uh traffic lights
+30:18
+uh in like uh hight traffic areas
+30:24
+I guess uh dams hydroelectric dams
+30:29
+is probably an easier electricity uh sending electricity. So the forward
+30:36
+for forward focusing algorithm uh is
+30:42
+trying to repeatedly find uh different paths where uh to push flow on a path and
+30:50
+update the graphs. uh and it'll terminate that flow path when or it'll
+30:58
+terminate when there's no different uh augment path when it doesn't exist.
+31:05
+[snorts] Uh but the min cut theorem or well max flow and min
+31:12
+cut theorem is the the max flow that can reach the sync node is equal to the
+31:20
+minimum total capacity of the edges that if they were removed would uh if the
+31:28
+edges were removed that they would uh
+31:33
+separate the source from the sync node.
+31:42
+uh P NP and NP complete.
+31:48
+Uh so P stands for polomial time and that's
+31:55
+how quickly you can find the solution to the optimal solution to something. NP is
+32:03
+uh sorry that's P is how quickly you can find
+32:09
+a solution to the question and NP is how quickly you can find a
+32:16
+solution to that. So it's like a step away. So if you're I don't know how to visualize this. Uh
+32:26
+then NP complete
+32:31
+uh is kind of non doable something that can't
+32:38
+be done. Uh back I mean there are better words
+32:44
+but I can't remember them right now. Uh and then SAT, three setat and two set uh
+32:49
+is how many variables are for those problems. Uh and the reductions
+32:55
+uh kind of make that problem easier. So if you you can reduce these set
+33:04
+uh like you can reduce three set into SAT to try and make the problem easier.
+33:13
+And if you find out that uh like a SAT is NP complete by virtue
+33:22
+of reduction uh that means that the three set is also NP complete. But just because your set
+33:30
+is P doesn't necessarily mean that the three set is P.
+33:35
+Hope that makes sense. But it's all about the time complexities
+33:42
+and how easy it is to solve a problem. So polomial time not polomial not pol
+33:50
+and then not polomial complete. Uh so it's like easy a little harder.
+33:59
+hardest or not possible. Uh I think that's the last one, but
+34:06
+thank you
