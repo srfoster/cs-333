@@ -8,6 +8,7 @@ import {
   loadAllQuestions
 } from '@srfoster/textbook-lib';
 import { compiledFiles, stats } from './compiled';
+import Temp from './components/Temp';
 
 // Define CS-333 concept map paths
 const CONCEPT_MAP_PATHS = [
@@ -77,6 +78,9 @@ function AppContent() {
             <Link to="/exam" className={`nav-link ${isExamRoute ? 'active' : ''}`}>
               Practice Exam
             </Link>
+            <Link to="/temp" className={`nav-link ${location.pathname === '/temp' ? 'active' : ''}`}>
+              Temp
+            </Link>
           </nav>
         </div>
       </header>
@@ -85,6 +89,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Navigate to="/textbook" replace />} />
           <Route path="/textbook/*" element={<TextbookPage />} />
+          <Route path="/temp" element={<Temp />} />
           <Route 
             path="/exam" 
             element={

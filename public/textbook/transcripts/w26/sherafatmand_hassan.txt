@@ -1,0 +1,1280 @@
+0:01
+Hello. Uh good after good evening Dr. uh Dr. Foster. I hope you're doing well. So
+0:07
+let um this is my uh I'll have a a little bit issue with the video record
+0:16
+video recording and also I want you to want you to know that I'm not sure if
+0:21
+I'm following the instruction for the
+0:26
+uh for the uh exam. Uh but I do my best. Um I guess I
+0:34
+believe uh to I what I mean by I guess means uh I'm hoping that I'm following
+0:40
+the instruction. Uh for the first question uh an overview this course is
+0:48
+about uh talking about the two data structure. One of them is going to be
+0:53
+well two topic. One of them is going to be data structure. The other one is going to be uh like a algorithm
+0:59
+uh uh which is grows uh instantly or in a constant uh like a constant time. uh
+1:07
+uh what I'm what I'm trying to say is maybe they have a uh constant operation
+1:13
+or uh maybe more expensive uh as the
+1:19
+input increase like they have like a exponential time
+1:25
+uh time increasing in terms of like a in ex in time increases exponentially.
+1:34
+Uh so we in data s we study about like a we see that like a the simple one is
+1:41
+like a data term and it goes to like a sort of array link list gra or trees uh
+1:50
+like or graph uh which is most uh powerful than
+1:56
+the others and and yeah that's uh how uh
+2:02
+we're going to study. Yeah. Not in the beginning not that one I'm sorry uh that's uh the
+2:09
+this course is going to talk about this area and also it's going to talk about like a complex analysis that each
+2:17
+algorithm might have a different um uh like a
+2:24
+different uh complexity uh like a constant time or linear time
+2:31
+or in a square those sort of things. Um
+2:37
+uh this algorithm u what is the big p
+2:42
+signific big picture significant of this problem? This problem has a yes we can
+2:48
+we can solve this problem with one for loop which is uh in the worst case
+2:53
+scenario and all of the scenario worst case
+2:59
+average case and best case is going to be n
+3:06
+uh uh and but we can use the mathematical
+3:13
+approach. What I mean by mathematical approach, we can use the like a uh like
+3:18
+to sum of the n numbers we can use n multiply by uh n + one
+3:27
+divided by two uh which has a concept of constant time of one. Uh so we see that
+3:35
+these two approach they have a different approaches. One of them is simpler in one line. The other one is like a couple
+3:41
+of lines based on the language and have a different times of uh complex
+3:48
+analysis. That's interesting. So it's a simple but has a
+3:54
+different uh uh view
+4:01
+and uh write an algorithm that uh search for a target
+4:09
+uh that in sorted array because we want to search a target value in an unsorted
+4:15
+array. There's a possibility that we can search the array array we find the target value in the
+4:21
+first element of the array. So means worst big omega is going to be n one but
+4:28
+in the worst case it's going to be of n because the target value might be
+4:35
+in the last index of the array and for the average case again it's n because we
+4:41
+at least you have to search half of the array if you find that like in average
+4:46
+case so this is all going to be b theta is going to be n
+4:52
+Yeah. Um, minimum value. When we looking for the
+4:58
+minimum value, we have to check a scan each value of
+5:07
+the array. So in the all cases is going to be uh n uh because we have to search
+5:14
+for each element of the array. So uh means here uh um
+5:23
+all of them are the same. I can say
+5:28
+uh write an algorithm uh that uh performs two tasks on an array.
+5:36
+Here it's talk about where sometimes we have one algorithm that has a
+5:42
+different task one problem that has a different task. I can say uh it's going to talk about uh
+5:50
+this topic is going to talk about that sometimes one task
+5:56
+dominates the others. In this case, finding a duplicate value dominates the
+6:03
+counting the total uh element of an array because if you want to uh check
+6:08
+the duplicate, we have to look for we have to uh check each element with the
+6:17
+rest of the array. So means we have to use the two for loop to use it to to to
+6:24
+uh to achieve this uh uh
+6:29
+to accomplish this task for the duplication. So means n square for the
+6:37
+that task. So means the worst case scenario is going to be O. But the best
+6:43
+case scenario we don't check best case scenario for this one because we might find in the first element and the array
+6:51
+and we we find the array and algorithm will terminate. But we have to look for
+6:58
+this one. Pretend the total count for the best case scenario which is O of N
+7:03
+because we have to check all the element. And uh so N square for the worst case
+7:11
+scenario and N for the best case scenario in this
+7:17
+year and write an algorithm that uh performs a matrices.
+7:24
+matrices. I can say here again the same as uh previous
+7:30
+question which is one task initializing the value in the matrix matrix dominate
+7:38
+uh the other one and uh dominate the other one means search
+7:44
+the first row search target value for the first row. So doesn't matter uh in
+7:51
+the in all cases worst case u average case and best case initializing is the
+7:59
+same has the same time means n square so because you have to use two for loop. So
+8:06
+uh this is about this one uh implement insertion sword
+8:11
+to sort an array insert insertion sword the insertion sword works means if you
+8:18
+have a like a five cards and we I'm going to have another card. So when I
+8:24
+receive a card so I'm uh I'm going to put it put the card as I uh receive it
+8:31
+means as I here we we will have a one two for loop one for loop is going to
+8:37
+start from one to to end of the array which is here n minus one.
+8:44
+The other loop for loop which is j it starts from i to zero. It checks if the
+8:53
+J minus one is bigger than I swap it.
+9:01
+So uh it goes as I increases J always
+9:06
+for instance I here J here J goes here check it if
+9:11
+uh this one is bigger than this one swap it and JV reset the J come here J I goes
+9:18
+to again uh one step forward J goes to a step one forward always. So and after
+9:25
+that J goes to a step back and again we check it. So that's why we have a n
+9:31
+square uh here for the uh uh insertion uh
+9:40
+uh sort algorithm. Uh so um so
+9:48
+yeah that's it's because we have one comparison
+9:55
+one shift and switch the uh one comparison and exchange the value. Yes,
+10:03
+I can say that. And uh for the selection s for the selection sort uh we're looking for the smallest value. We
+10:10
+target the one index of the array versus the last index or this in this case
+10:17
+um and we compare that index with the rest of the array. We say that index is
+10:23
+going to be our minimum value. We assign it to minimum value and we we increase
+10:29
+the the we traverse array. We compare each step each element with that
+10:35
+minimum. If is bigger than minimum is less than minimum, we swap it. We put
+10:42
+the array in the first position. For instance, in this case, when if you choose the last index, if the last
+10:49
+index, if the minimum is less than is less than the first index of the array,
+10:54
+we swap it. We put it uh over there and we go through that. If we
+11:01
+didn't find anything means that one is the uh is the minimum. So in this case here
+11:10
+again because uh no matter what it is because uh we uh we have to we have a
+11:17
+minimum value and we have to look for every single element of the array we
+11:22
+have to have a so we will have n square no matter uh what case it is all the case is going to be n square
+11:30
+uh recursive u to discuss the fundamental trade-off between the
+11:35
+recursive and iterative approach. Sometimes uh in this uh sort of um we
+11:41
+have a different types of approach for to solve a problem recursive and iterative but understanding these two
+11:50
+approach fundamentally is very important it because uh we will see that in
+11:56
+iterative approach we will have more memory issue memory efficiency
+12:03
+is also we use some like a loops and we states update like in in this case we
+12:11
+update the result and uh easy to implement and at least for me
+12:19
+easy to understand what I'm doing but in the recursive is we will have a short
+12:26
+block of code clear and also close to mathematical definition. So uh but we
+12:35
+don't have a memory efficiency. We will see in the future uh like a algorithm
+12:40
+like a Fibonacci that we we
+12:46
+use a lot of memory because we call back uh because revoke the function a lot uh
+12:54
+we because revoking of the function. So here uh
+13:00
+I can say that uh for the um like a complex analysis this one is going to be
+13:09
+uh like a iterative is going to be off of off and I can say uh about that one
+13:16
+uh and u
+13:21
+uh with three Fibonacci. Yes. Um talking about the Fibonacci here uh for the
+13:28
+Fibonacci naive recursive
+13:36
+here for instance here
+13:43
+when we use a naive recursive means uh for instance we want to find the
+13:49
+Fibonacci of five right so we have A base case in the recursive
+13:56
+we say if less than or less than equal to one return one
+14:03
+otherwise return n min if you we call the function n minus 2 plus we call the
+14:10
+function call function plus n minus one
+14:15
+we will see when we draw we will see that uh uh we will see the first time is
+14:22
+free we call it n minus2 2 means uh 5 - 3 5 - 2 = 3. So n3 will be called and
+14:32
+after that again when 1 and 0 3 - uh 2
+14:39
+call 1 3 - 2 = 0 and 3 - 1 = 1. We will
+14:45
+see that we call the function of one and zero a lot and also we will see that we
+14:53
+uh for the other side for the right side we will call the function of four and
+14:59
+four minus 2 is going to be two and four - 1 is going to be three again we will
+15:05
+see that we have a lot of we use a lot of memory for that that's not uh
+15:10
+efficient so uh that's why we use uh memories is a recursive uh which
+15:18
+memorize recursive is talk about that uh we record of the each call function
+15:25
+means uh the result of the each call function if we wanted to record if you want to re
+15:33
+recall the function again we we know the result so we don't call it again so in
+15:39
+this case we know that call of the zero is going to be zero one is going to be One. Two is going to be 1. 3 is going to
+15:48
+be 1 + 1. It means two. Four is going to be like a 3. 2 + 1 is going to be
+15:58
+uh three. No, no. 3 +
+16:03
+No, I'm sorry. Just have to write it down. Sorry. 1
+16:09
+0 + 1 + 1 + 2 + 3 + 5. Yes, it's going
+16:15
+to be called function zero, function one, function two, function three,
+16:22
+function four, and function five. Yes, function one 0 is 0 one. One, function
+16:29
+two is going to be one. Uh function three is going to be two. Function four
+16:35
+is going to be three. Uh function five is going to be 3 + 2 means uh uh
+16:41
+addition of the function four and three is going to be five. Is in this example you will see that uh we have a lot of uh
+16:50
+we will we call a lot uh a function that we already know the answer. So memorize
+16:57
+uh recursive helps us to res save the result of the function and we use it
+17:06
+uh to have a better approach. Uh but iterative is also again uh this one is a
+17:12
+uh um this one is um clear
+17:19
+u but compared to this one I would say memorize recursive is better than uh
+17:24
+iterative but sometimes iterative based on the u
+17:31
+person sometimes uh iterative is better than the other because it's uh it gives us a clear. It's easy to it's easy at
+17:39
+least. Uh it's it's it's easy to implement. Uh but the other ones
+17:47
+is uh it's not easy to implement but it's better have a uh it's better
+17:52
+approach your terms of optimization.
+17:57
+Uh Fibonacci you guys talked about that.
+18:06
+Yes. B trees binary search tree uh binary search tree
+18:11
+um this uh it's sort of link list
+18:18
+uh but uh
+18:24
+sort of link list but uh each node can connect to different
+18:29
+uh types of node this true node
+18:34
+and uh But uh here when we when we add uh value or input to the binary search
+18:42
+tree if the add uh if the value is uh like a uh ascending in ascending order
+18:49
+like a 10 here 20 here three here it's going to create the right
+18:56
+10 20 30 is going to be right RR tree means skew to the right side
+19:04
+uh and it and the height is grow so fast. Uh it's like it's is going to uh
+19:10
+we're going to have like a link on an array. So uh uh that's why we have a
+19:18
+selfbalance tree here like a AVL which is rotate each uh
+19:26
+branch uh or let's say each tree
+19:32
+um I can say for instance if you have a like a let's say
+19:38
+let's say 30 20 and 10 Here as you can
+19:45
+uh I'm sure you can see here uh we have a left ll tree so it's going
+19:51
+this one is going to be to rotate to right side towards this one so it means
+19:58
+10 20 goes to 30 means it's going to be
+20:03
+20 10 goes to 20
+20:09
+and this one goes to 30 goes to right up to So means we have used this sort of
+20:15
+approach to keep the tree always uh balanced and uh
+20:24
+uh so what I'm trying to say that self balancing tree were developed
+20:29
+uh sharing AVL uh or other one like a I
+20:35
+I've seen I read like a another one we have like a red black
+20:40
+uh uh tree where develop uh to automatically uh keep the tree balanced
+20:46
+uh to avoid from the tree to being uh skewed or imbalance
+20:52
+and uh that's uh in terms of complex analysis uh
+21:00
+in binary search. What is the worst case scenario in binary search? In worst case scenario in binary search is when the
+21:07
+data is sorted. We want to we want to in we want to insert it sorted uh our
+21:13
+ascending or descending or data. So means the tree is going to be skewed
+21:20
+whether left or right. Uh um
+21:27
+so means we going to have a
+21:33
+big O of N otherwise it's going to be a log of N. If the ter tree will balance
+21:40
+in binary session but in AVL always is in always is balanced because it track
+21:46
+of the height always subtract the height is always between like a zero minus one
+21:53
+and one this with this set of numbers. So um
+22:01
+that's um I can say that uh it's going to be we're going to have in all cases log of n. I
+22:08
+can say that uh my eyes
+22:17
+okay. Okay.
+22:24
+uh binary search tree I explain it please uh implement the B3 the B3 is a
+22:31
+little bit different uh with uh it's sort of the same but has a different approach it's a split
+22:39
+first each node can have multiple children can connect to the multiple
+22:44
+children it's not like like a binary tree is always true
+22:50
+B tree is connected to multiple children and when when connected to multiple
+22:56
+children each children can have a different keys. uh for instance if you have a
+23:03
+m represent as children if you have a m five you have five children
+23:10
+each key is going to be m minus one which is four keys mean each children
+23:18
+can have four keys so uh
+23:26
+that's uh uh the pri It works and each time it splits the value. It splits the
+23:34
+branch and uh it promotes the
+23:40
+the one that next to the uh if you overlap
+23:45
+if you if you see the if you uh if you interface with the if the tree interface
+23:51
+with the encounter with overlapping issue it uh split the next to the
+23:57
+overlap and promote that one to the upper from because it goes from bottom
+24:04
+And we will see uh the B3 uses in database file system or any indexing uh
+24:12
+system and because uh it allows us to uh
+24:18
+grab a block of data and uh we bring that block of data to the memory. So
+24:26
+which is uh very important. Uh uh so
+24:32
+um that's all I can say about the B trees
+24:37
+and because and also because uh the the height is not grow so fast it always uh
+24:45
+stay balanced no matter what it is and uh so in all cases we will have a time
+24:53
+complexity of uh log of n. I can say that um in the
+25:01
+computer data structure with sorting graph graph is different with a tree. A
+25:07
+graph each note can have connect with different types of uh with different no
+25:14
+can have connect to one or to two. Uh no no no no each graph graph is going
+25:24
+to be uh yeah each node can connect to this one and then this one and this one.
+25:33
+Yeah, this is uh I can see let me see write a graph as a different
+25:40
+what I've seen the graph we can have a cycle in graph but in binary session or
+25:46
+like B3 we don't have a cycle tree but in
+25:52
+graph we can have because the each note can connect to each other uh no matter what the node is so uh
+26:03
+in graph we study we have one value weight and we have one edges we
+26:10
+basically we mostly we use we we study those we care about those edges what I'm
+26:18
+trying to say is we we study those edges because those from those edges we
+26:24
+uh we can traverse the graph so we have
+26:29
+sort of uh method we can use
+26:34
+adjacency matrices or agency list. in adjacency matrices. As I earlier, I I
+26:43
+mention as I as uh in a previous example
+26:49
+or so uh problem in uh matrices always we have a uh n square in big O because
+26:58
+we have to initialize the array and initializing the array is going to be O N. But when we want to call an element
+27:06
+from the matrix, we can find immediately the index of the array. So we going to have it best case of one. But in the uh
+27:14
+worst case in adjacency matrices we going to have it like n square and also
+27:20
+in average because we have to initialize it. So um
+27:27
+that's uh what what these two approach is trying to say it's trying to say uh
+27:34
+sometimes when we want to have a looking when we want to have a quick result so we can
+27:41
+use the like adjacency matrices but we want to otherwise
+27:47
+uh adj matrices is not practical because if the n increase I mean what m it means
+27:56
+data increase uh time complexity will change
+28:03
+so uh so it's better than uh to know which representation we will choose
+28:10
+because it determines the the best performance and uh in terms of
+28:16
+we will have the best performance and scalability if you want to continue
+28:22
+uh working is a graph. So
+28:27
+I can say that uh here uh yes we have uh how we can how we can
+28:35
+uh traverse the graph. We have a method like a uh um BFS breath first search and
+28:44
+deep first search. Brit search used a cute data structure to traverse the
+28:52
+toverse the graph means um
+29:02
+means um means uh
+29:08
+it start from the start of the graph and look uh
+29:15
+um based on the BFS which is like for like a it goes to like a level by level
+29:23
+mean what it means uh for instance it's going to start from the let me uh write
+29:29
+it one graph something like
+29:35
+this one this this one this one
+29:46
+This is a graph. It's like the graph in in BFS. It goes to for this
+29:54
+A. Call it A B C D E F G. It goes it starts from A.
+30:03
+It goes to Okay. What is the children of A? It goes to B and C
+30:10
+and C D E. This is E. It goes to from A goes to B
+30:16
+and E. After that goes to B goes to C and N. So that goes to this F and D. But
+30:23
+in deep first deep FS we're going to A
+30:28
+all the way down. What's the A? whether it goes to B or C based on the algorithm
+30:35
+based on the algorithm uh it go for going to go to B
+30:42
+it goes to B and it goes all the way what is the children of the B it go to C what is the children of the C doesn't
+30:49
+have anything come back to B goes to another child of the B it come back to B
+30:55
+come back to A it goes to E what's the E goes to F and I have to come here and go
+31:00
+So uh they have a different approaches. Uh DFS use the stack to traverse and
+31:08
+record the which node has been visited and DFS use the Q uh to accomplish uh
+31:16
+the task to accomplish the goal and uh Dix algorithm. D algorithm is
+31:24
+talking about the how we can find the shortest path in the graph.
+31:32
+I'm trying to uh find an
+31:40
+array. I'm going to locate an array. Uh before I uh draw an array, not array, a
+31:48
+graph, I want to say that um
+31:53
+I want to say that um I want to say that um
+31:59
+uh I want to say that uh
+32:06
+the dickra algorithm use the greedy method to to find the shortest path.
+32:14
+past. What I mean by that means uh uh means that um
+32:24
+means um means it it at each stage at each stage
+32:32
+it uh it lo uh it it evaluate uh what is
+32:37
+the best option do I have for instance uh let me write uh
+32:46
+I'm going to write a graph here.
+32:57
+I'm going to say A B C D
+33:04
+E F. And I'm going to some add some uh value
+33:10
+two to here. Four to here. Let's say one
+33:15
+to here. Let's say three to here. Seven to here.
+33:21
+Let's say two here. Six to here. And one to here. Yes. The the way uh dro
+33:30
+works it's we can see it here. uh vs from A. It says the distance
+33:38
+between A to B is two. The distance between A to C four. So the good message
+33:43
+is what is the best optimal solution? What is the shortest? So it says two. So which goes to two
+33:51
+and update the value is two. This one is also is four. But if we go
+33:58
+from A to F, we don't know how long does it take. So we could say infinity.
+34:05
+How about the A to D infinity again? How about A to F infinity?
+34:10
+But as it goes forward step by step, it update the value the weight. So from B
+34:17
+to B to C, we can go uh it cost us seven.
+34:22
+From B to C, it cost us one. It goes to one. So from from B
+34:30
+it goes to here to C.
+34:36
+Update the four because we go from the four A to B. B to C is going to be
+34:44
+three. 2 + 1 is going to be three. Not four anymore. So that's how it updates. from three
+34:52
+from C to D it goes to three 3 + 3 is equals to six what I mean by that means
+35:00
+how we can go to the D we cannot go D we couldn't go directly
+35:07
+and but we go to we went to the B it cost us two and from B to C cost us one
+35:13
+totally three from C to D it cost us three 3 + 3 = C It cost us six. The
+35:22
+value is six. From C, we have a choice here. That's the greedy greedy choose uh
+35:28
+between D to E, between D2 F, between D between D2 E or D2 F. D2F cost
+35:39
+six, but D2 F is cost us two. So you choose two.
+35:45
+Update the here. It's going to be 6 + 2 is going to be eight. and the last one
+35:50
+is going to be nine. So that's how greedy method not greedy
+35:56
+the extra method works means find the shortest path by
+36:02
+by the greedy approach and in terms of uh like
+36:07
+a uh if you use uh and also each time we
+36:14
+know that we record that where we were because uh and also
+36:19
+where we have been or I want to rephrase it because greedy meth not greedy dick
+36:25
+method uses the is is a sort of extended version of the BFS
+36:31
+and uh so it use a Q if we don't use the Q worst case is going to be in a square
+36:39
+because uh uh we have to uh sort of uh scan all of the nodes
+36:46
+uh to find out which node you've been there. But when we use the Q
+36:52
+uh to to determine which node we have been there
+36:58
+and and and
+37:05
+it's going to be uh like a sort of uh
+37:13
+log in maybe not sure uh it's not going to be and s
+37:18
+square is going to be log n because we know which node we have been there.
+37:24
+So um uh implementing the minimum spanning
+37:30
+tree algorithm and ps and curs method.
+37:36
+uh minimum spanning tree. Uh minimum spanning tree uh I can say that uh
+37:44
+it looks for the cheapest cheapest way to connect uh uh all point or otherwise
+37:52
+uh another in other uh other words uh
+37:58
+what is the best what's the cheapest way that they go from one area to the other
+38:03
+area. Okay, we can see in the like a uh routing system we see the like is a
+38:11
+minimum expanding tree. We will see that in terms of uh like a designing the sort
+38:16
+of electrical grease uh we have that in network cabling we have it. So anything
+38:23
+that we want to have a cheapest uh cost, less cost I can say uh we use the
+38:30
+spanning tree and um and um I can say that um
+38:39
+uh in ps and skull you have a two approach in
+38:47
+cuskal is sort of look for the still use greedy method. That means uh if I want
+38:55
+to show you here,
+39:03
+let me show you the uh one um grid that I can uh
+39:11
+show about. Let me see one here. One is something simple.
+39:19
+One here, one here. It's going to be um
+39:27
+uh one here, one here. We can say
+39:32
+uh we can say from here to here we can have another one. We can have
+39:40
+another one here, here to here and here to here and here to here. Let's say A B
+39:47
+C D E F. This one is 28. This one is 10.
+39:58
+And this one is going to be say 25. This
+40:04
+one is uh we say 24. This one is 14. This one is
+40:13
+22. And this one is 12. Got this one.
+40:18
+This is the graph that we have. So you can
+40:23
+see it. Yeah, you can see it. Uh this one we have this sort of a graph. Let me
+40:29
+Yeah, I can. Um and it's a little bit difficult. Uh but
+40:37
+uh Prim's method works. uh it looks for the like it says from A to B
+40:47
+cost us 10 from A to E cost us to A. It choose the uh B from A to B because goes
+40:54
+A to B cost us 10 from B to C. B does
+41:00
+not connect to anyone. So it goes to B. Cos 25
+41:06
+and C to D is going to uh we ask from C
+41:11
+we have two option goes to F goes to D but F cost us 24 which is extensive 22
+41:19
+so it cost us choose to 22 it goes to here
+41:25
+and D to E 12 E we goes to E from E can we can go to F
+41:33
+16 constants or we can go to A if you go to A we cycle the graph We don't want to
+41:40
+that happen. So we don't we avoid that. So um yeah and from the F we can go to
+41:48
+C. If we go to C it cost us 24. But if you go to C we cycle again. So we don't
+41:54
+want it's going to be something like this I believe. Yeah something like this. It's going to be priv and after
+42:01
+circles is as the same as this one but it doesn't go all the way. You choose
+42:06
+first one A to B, D2 E, E to F,
+42:12
+D2 C, C2 B. That's how the uh these are
+42:17
+different from each other but both of them are I would say uh they use the
+42:23
+greedy method. Uh and now we are going to uh like to grad
+42:32
+uh discuss why grad algorithm sometimes use optimal solution because method
+42:38
+talks about the what is the best optimal solution at each stage
+42:44
+or at each step. If we have a like a
+42:50
+if you have a optimal solution in each steps so we will have the optimal
+42:56
+solution for the final uh solution for the final problem. So
+43:02
+that's how gritty method works. So mean say for inance if I go to from Washington New York
+43:09
+uh we I can go by walk, train, plane, bus or car. If you have a condition
+43:17
+uh I have to be in New York by 8 hour like a 8 hours maximum. So I cannot
+43:23
+definitely I cannot go by walk. I cannot go by car. So I have to use the for instance train. We have a bullet. We
+43:30
+have a fast train or you can use the
+43:36
+airplane. Both of them are they can take me. So means solution number three and four I
+43:42
+can use uh they satisfies the uh the the goal or the objective. But
+43:49
+you have another opt uh option that say uh you have to be there in five in 8
+43:57
+hours and also the cheapest way. So another condition so train or plane. So
+44:03
+it's a plane. So cheaper than uh so means that this one is cheaper. It satisfies me. uh so uh that's how good
+44:12
+methods work in terms of um
+44:17
+uh like uh and it cannot be what I understood it cannot be like a
+44:25
+uh we will see in the knapsack approach uh that you cannot be fraction for if
+44:30
+you want to go to a going somewhere uh I can have my laptop I can have my
+44:38
+like uh I don't know some other items I cannot divide the laptop into pieces and
+44:46
+bring with myself. We'll see in the naps cycle in the napsite problem that uh uh
+44:55
+uh uh how G method can optimize a problem
+45:02
+uh uh which is uh create which is um
+45:09
+uh yeah that's
+45:15
+I I want to uh say that that uh uh uh
+45:20
+best what's the best option or what's the best solution in each steps that uh
+45:27
+we can uh find a grading method uh 18 another merge sort divide conquer
+45:36
+um uh divide conquer is a sort of uh uh a
+45:41
+general problem solving ideas that merge sort uses What merge source does for
+45:48
+inance if the hazard we have a four array of four it goes it divides to four
+45:54
+to two of two different two array and go again for in these two again they divide
+46:01
+it in two piece uh section after that when there's
+46:07
+no nothing to divide we merge we compare them if this one uh for this one is
+46:14
+would be here if this one is smaller this one We bring it here, swap it and after that it goes we do it again with
+46:21
+this one and after that we merge at the end. So uh that's uh have the merge
+46:29
+source uh what means it has sort of uh basically the main idea of the merge
+46:35
+source is split the array or split the array or not in this case array I'm
+46:41
+talking about that split the array as much as possible it goes to the end sort
+46:46
+the array merge it recursively it goes
+46:52
+basically this one is use the recursive approach to accomplish the goal
+46:59
+and and it because uh it used recursively so it's going to be uh like
+47:06
+a in a worst case scenario and it's going to be like a um n I believe log of
+47:13
+n and uh because it divides uh because uh
+47:20
+um uh because we divide we have to divide Right? And we have to merge and both of
+47:27
+them are have the same amount of work. Uh so um all cases are should be the
+47:34
+same. In quicksort we have a different in
+47:39
+quicksort. Uh we divide still we divide the array but based on one criteria. The
+47:46
+other one was based on the like we find the middle of the array we divide it.
+47:51
+This one. No, this one we we we select the one pivot number which is the last index we choose. We compare all the
+48:00
+number with the free with what's with um
+48:08
+all the uh numbers with a pivot number. All the numbers that less than pivot
+48:15
+number is goes to the left. all the pivot number to the bigger bigger which is which are bigger than pivot you go to
+48:23
+the right and after that again we divide those two again we select the we again
+48:28
+we select the last index of that array again we compare again so means we have a
+48:35
+comparison here always we have a comparison here because we have a comparison uh and we have to compare one element to
+48:42
+the rest we always have a in the worst case scenario we will have um
+48:50
+uh we will have uh in a square. All right. But
+48:58
+this one it because um this one like in
+49:03
+quick sword we have more memory efficiency compared to uh
+49:10
+compared to also the last one mer sword.
+49:17
+Yeah, I can say that uh what is the dynamic
+49:23
+programming solution in a napsac problem? In a napsack problem uh uh
+49:30
+discuss why dynamic program is needed for naps. Yes, dynamic programming here.
+49:36
+NAPSAG uh problem. Uh
+49:43
+I want to say um I want to recall my going to somewhere uh like
+49:50
+have a backpack. Uh that here
+49:56
+greedy method does not help us all the time. with dynamic programming we can find
+50:02
+what is the best approach you have in in the in a knapsack uh imagine
+50:12
+I'm not sure if I have to not
+50:18
+be recorded uh imagine uh we have um like a knapsack
+50:26
+of uh a size or backpack is size.
+50:32
+And um and we have uh like a u
+50:39
+um and we have some different types of item.
+50:45
+For instance, I can again I can bring my laptop and my coffee pot
+50:51
+or I can bring my phone and coffee pot and another item or my book.
+51:00
+So in the greedy method it says what is the best option right now
+51:06
+says okay between the laptop and the coffee pot. So let's choose the laptop after we
+51:14
+uh get all the space uh this is the best one compared to the others and just a
+51:20
+hypothetically I'm saying that but in dynamic programming said no what's the
+51:26
+what is the best approach uh in different uh stages
+51:32
+so that's why we cannot uh rely on guiding method
+51:38
+dynamic programming. Here we choose uh uh dynamic programming to
+51:45
+uh 01 knapsack problem. I can say I can uh draw the table and table of like for
+51:53
+instance five or eight uh knapsack for capacity and uh I can have uh
+52:07
+I can show I'm not sure if I have to use it disgusting. Yeah, that's that's I can say the other
+52:14
+way about it. But I can I can I I can draw the table and um
+52:20
+um uh I can draw the table and we'll see
+52:26
+that when we draw the table each row and each column show us we will find the
+52:32
+best solution for each row and and we will find the best solution at the end
+52:39
+from the from achieving the those the solution
+52:45
+from each row. All I'm trying to say that uh in sign uh uh problem is the
+52:53
+one. Yeah.
+53:00
+Yeah. Yes. Yes. I can say that. Uh L
+53:06
+uh long uh longest common sequence
+53:14
+uh longest uh uh longest uh longest common sequence. Uh we have this
+53:21
+algorithm uh which uh is about comparing two sequence of the uh two sequences
+53:28
+which is uh find uh uh what is the longest sequence between this between
+53:35
+two like in this case a string. We have two uh types of uh string and you want
+53:41
+to like compare that what are the longest uh um how I say
+53:48
+what are the longest uh um uh subsequence between those uh
+53:56
+sequence. For instance, if I want to show you a little quick, for instance, for a string one
+54:05
+string one, uh we have um
+54:12
+uh we have B.
+54:19
+get a b c d and string
+54:29
+two you have
+54:39
+e a b c
+54:46
+but it's saying why it says A B C D for string one for S string 2 we have a D A
+54:53
+B C for what is the longest uh uh uh
+54:58
+what is the LCS yes we can selected D2
+55:05
+let's say a little bit uh interest make it interesting E
+55:11
+and E here yes if you say each connected to This
+55:18
+one A can we connect it? No, we can. We cannot intersect the A. So we cannot. B
+55:24
+we cannot. C we cannot. E yes E we can connect it. So this one is give us uh D
+55:32
+E. How about how about the other another one? Another approach. How about say
+55:41
+um how about say we can say we we can discard D. we can say a b c
+55:50
+and e. So we have a b c and e. So here we can see that uh
+56:00
+we have the longest uh common subsequ subse sequence
+56:06
+uh for these between these two uh uh string. So uh basically uh
+56:14
+we um we we can we can we can use some like a recursive method
+56:22
+uh and after that um we can do some recursive method to
+56:29
+accomplish this sort of uh LCS and we will see this sort of u
+56:35
+dynamic programming like a solution to the longest common subject. sequence in uh as as we mentioned that
+56:43
+version control bio formatic uh which when we like a uh when we like
+56:52
+a update uh inversion control to uh
+56:59
+uh compares that uh which one is updated to compared to last one so uh that's I
+57:07
+haven't like seen exact Exactly. Like um Els
+57:14
+Exactly. Still um uh I have to look for it.
+57:22
+I mean I'm an imagin I'm a imaginative person. So I'm trying to imagine how we
+57:29
+choose it how we how does this work. But I know that that that's the basic uh
+57:36
+example is going to be like that. And and But uh but I never seen it in a real uh
+57:46
+scenario or example and but I'm looking for forward to about it
+57:55
+a lot and we have the uh uh four uh focusing uh sort of algorithm
+58:06
+Uh this one is is it about the flow
+58:13
+uh which means uh that uh it's like about the uh flow. Let me uh let me say
+58:23
+that um in a short answer I can say
+58:30
+simply I can say what I understood means if we have one source where we want
+58:36
+destination how much what is the maximum flow that can goes to destination
+58:43
+and this is uh based on the Um
+58:50
+we can say like a uh four uh focus on algorithm says like
+58:57
+a uh based on the what is the minimum
+59:03
+uh on what is the minimum uh what is the minimum
+59:12
+let me let me explain on a on a go that would be better for me if I say
+59:47
+graph A
+59:54
+start a B let's say
+1:00:02
+C D and the
+1:00:09
+direction. This is one
+1:00:15
+say two.
+1:00:23
+This is the graph that I have. Um you can see it. Yes, I can see. I hope
+1:00:30
+you can see it. This is a graph that I have. It says um what is the one pass
+1:00:37
+here? We have one pass here or you can go from here to here, go to here to here. Let's say from go from here top
+1:00:45
+path. What's the maximum flow of this one is the minimum edges
+1:00:52
+means two. So means we can go
+1:00:57
+uh we cannot put uh like we cannot flow more than two because it breaks
+1:01:04
+if you see the if these edges is like a part uh we can say like a so it's going
+1:01:10
+to be maximum flow here is going to be two so we two two so what is the maximum
+1:01:17
+flows here also is this one is also two you can say two here so it's going to be
+1:01:23
+two here, two here, two here.
+1:01:29
+So, uh yes, it's going to be like that. So
+1:01:35
+now we if we uh like what is the cut minimum um we have a one uh uh yeah we
+1:01:44
+have a one max fellow min cut means um I'm not sure how to explain it
+1:01:51
+exactly but I understand what's saying saying that exactly let me say um if you
+1:01:58
+have this flow means what is the maximum flow here we can say from here we can
+1:02:03
+say maximum flow is going to be four is going to be four. Do we have any another approaches that we can accomplish this
+1:02:09
+one? Yes, we have another approach. We have a one residual graph. Um
+1:02:17
+we say this one is here, this one is here, this one is here. Go here. Go
+1:02:23
+here. Go here. Go here. Go here. Go here. Go here.
+1:02:29
+And go here. And go here. Go here. Let's say
+1:02:35
+yes. So start target A, B, C, and D. It's going to be three.
+1:02:44
+It's going to be three. It's going to be one. This one. It's be here. It's going
+1:02:51
+to be here. It says okay it says uh for instance we
+1:02:58
+say here we have uh we have a capacity of three but the flow is two so 3 - 2 is
+1:03:07
+going to be one so means we can we can flow one but we can reverse
+1:03:14
+two here 2 - 2 because zero flow.
+1:03:24
+So it means we zero flow. We don't have any flow to towards the target towards
+1:03:29
+the target. So that's why we can have only backward
+1:03:34
+of two here 3 to two is going to be one
+1:03:40
+means you can have one flow here. Flow from D to target
+1:03:46
+also we can have a backward part of two. If you go to this one, this one is also
+1:03:51
+zero. So we can have only backward of two. This one 3 to two is going to be one
+1:03:59
+mean one flow. But we can also have a backward of backward of two.
+1:04:05
+Here is also zero means we know no flow also zero.
+1:04:12
+Here is the thing. Let's find out again uh how we can find the is the maximum
+1:04:18
+flow. Can we go from S to A? Yes, we can have a flow. From A to D, we don't have
+1:04:24
+a flow. We have a backward. From A to D B, we don't have a flow means. So, this
+1:04:30
+route is going to be terminate. How about this one? From S to D, we don't
+1:04:36
+have a flow. Flow means so what does uh so means uh the so means no argumented
+1:04:44
+here. We don't have any argumentation here. And so the maximum flow we can determine
+1:04:50
+is four. So that's uh um
+1:04:57
+um uh that's we can use a max flow mean cut
+1:05:03
+uh like a theorem that uh which is allows us to find uh like a
+1:05:10
+is the smallest capacity uh that separate from the separate from
+1:05:17
+the separate the source from the um
+1:05:24
+destination you can say. Um uh I'm sorry about the explanation. I can I
+1:05:31
+understand the like a sort of algorithm what I'm achieving.
+1:05:37
+I'm sorry about the explanation but I know it's very important but I'm working on it. So uh and the last question is
+1:05:45
+going to be SATs or NP complete. Uh that
+1:05:50
+was a good this is a good topic and uh and I like uh and I uh and I after I
+1:05:59
+watch your uh video I I really enjoy the way you explain it because it's uh does
+1:06:05
+make it completely same because I had a lot of issue with P and P complete last quarter. uh what I understood uh from
+1:06:12
+the uh this topic
+1:06:19
+and uh before uh before I want to before I talk about this NP what is the P and
+1:06:26
+NP so we have to understand we have to understand uh what two phrase like what
+1:06:32
+is the DFA and NFA and which is DFA is you know that that deterministic
+1:06:40
+Final automat uh which um um
+1:06:47
+um it says that at each step we have one move one uh one exactly one move and the
+1:06:55
+non uh deterministic you have a multiple choices. Oh, and uh
+1:07:04
+hold on this one like an on NFA. So to uh get to reach that uh what is the P
+1:07:10
+means P uh we have one NP all the problems all the problems in the
+1:07:18
+world we say that we have that we classify all the problem in the world we
+1:07:23
+classify them in a in a NP and P is a problem is a problem that uh
+1:07:31
+can be solved uh quickly in a like a in a polomial time like n² n cub blah blah
+1:07:40
+blah and uh from uh for np is a problem
+1:07:46
+that um u np is going to be an sort of uh
+1:07:54
+nondeterministic polomial term it's not for that and a problem that we say
+1:08:00
+find uh finding a solution for those problem is
+1:08:07
+hard to find. But we can check uh we can check the solution uh if uh um we can
+1:08:17
+check the solution like a if the solution is acceptable or not or satisfiable or not. for when we when we
+1:08:24
+play sudokore which I play a lot. Uh at first I cannot find uh anything. Uh
+1:08:33
+after that I can check if each row is correct or each block is correct or not.
+1:08:41
+One by one if I check this one if I find this one so I can find the other one. If
+1:08:47
+this one gets easy, if this one is hard, if the row, if this row is hard, for
+1:08:53
+instance, uh, and if I turn that row to a something like a like a like a 10 row
+1:09:03
+to a block of three block of three and solve the first three block
+1:09:12
+first uh, solve the first three row. So I can determine that I can
+1:09:19
+uh solve the other uh three as well. So that's uh how I I see the uh NP and NP
+1:09:29
+complete uh says like a uh
+1:09:35
+an MP complete is talk about the like a um the those problem that is very hard
+1:09:44
+uh like to solve it because uh it because uh they are not like if
+1:09:52
+they If this if this is the circle I have to add to if this is the circle I NP
+1:10:00
+and this is the NP complete
+1:10:07
+and this is the P some I want to say like that something like that we can
+1:10:12
+solve this problem in a polomial time this one is hard to find but uh find
+1:10:19
+this but we can check if uh check the solution is uh a little bit uh check the
+1:10:26
+solution fast. uh but uh here P and NP
+1:10:32
+both of them is a uh like a sub sub uh they are in NP I want to say that
+1:10:42
+and uh here's the thing if if we have one problem if any uh NP cap problem
+1:10:54
+gets close to P or entered to in this is enter to the P. We can say P= NP.
+1:11:02
+If not NP complete and sorry I want to rephrase it again. If NP complete if any
+1:11:10
+NP complete problem enters to the P we can say P equals NP because we solve the
+1:11:19
+NP problem. uh if none of the NP complete problem
+1:11:27
+enters to the P. So, NP uh
+1:11:33
+uh I can say NP uh uh uh stay out of the P and sorry NP
+1:11:40
+complete stay out of the uh P uh and by
+1:11:49
+and and um to accomplish this sort of uh to check this sort of uh like a
+1:11:58
+to classify this sort of problem in which category they have to go for for
+1:12:03
+example we have a one problem we don't know it has to go to like a PMP or MP so
+1:12:08
+we can use a SAT or boolean uh status uh
+1:12:14
+ability uh to solve the uh to to to classify the
+1:12:19
+problem uh if you use like a uh sat
+1:12:24
+which is uh And s and s is a like a is a sort of you
+1:12:32
+have a some some clause of the variable they can be it's a it's a variation of
+1:12:38
+the var variable like we can have two you can have three you can have n variable it's a boolean so uh
+1:12:47
+so sad and uh free u there are uh exist in np complete true
+1:12:56
+sad which is has a is a like a is a sort of sad is a
+1:13:05
+with a restriction of the two variable and also three sides is a
+1:13:13
+is a clause of three always variable can be multiple clause but has to be three
+1:13:19
+for sat uh three sat and two sad for two set the clause should has to be uh two
+1:13:29
+variable for for P uh that's why we have a more efficient C in uh two side
+1:13:38
+because the two side we can solve those in the polomial time uh which they are
+1:13:44
+in P u and also why we reduce from the SAT to
+1:13:51
+ST three and from S three to S two. It because uh
+1:14:00
+uh for instance um I can say um I want to say if I could solve a problem if I
+1:14:08
+could like if I could solve this problem I can solve the other problem. So here the things if if the problem a uh like a
+1:14:16
+if you have a problem like a a column a which is one of the hard
+1:14:22
+problem. If we uh change this uh problem to problem b is easy. So we can
+1:14:31
+determine that the uh a would become easy as well because we change the we
+1:14:38
+have a problem a which is hardest problem. we change the hardest problem to an B problem and B problem if the B
+1:14:46
+problem is easy so we can determine that the problem A becomes be uh easy as
+1:14:53
+well. So uh thank you so much and uh have a
+1:14:59
+wonderful night. Bye.
